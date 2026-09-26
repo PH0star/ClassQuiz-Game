@@ -418,3 +418,10 @@ class GameSync {
     } catch (e) {}
   }
 }
+
+if (typeof window !== 'undefined') {
+  window.GameSync = GameSync;
+}
+if (typeof global !== 'undefined') {
+  global.GameSync = GameSync;
+}

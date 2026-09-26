@@ -9,8 +9,9 @@
   <!-- Firebase SDK (v9 compat) -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-  <script src="firebase-config.js?v=6.3"></script>
-  <script src="sync-channel.js?v=6.3"></script>
+  <script src="firebase-config.js?v=7.0"></script>
+  <script src="sync-channel.js?v=7.0"></script>
+  <script src="subject-loader.js?v=7.0"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
     body {
@@ -909,8 +910,12 @@
             } : null
           };
 
-          sync.emit('state_change', statePayload);
-          sync.saveStateSnapshot(statePayload);
+          if (sync && sync.emit) {
+            sync.emit('state_change', statePayload);
+          }
+          if (sync && sync.saveStateSnapshot) {
+            sync.saveStateSnapshot(statePayload);
+          }
         };
 
         // 倒數計時器
@@ -1108,7 +1113,6 @@
         };
 
         onMounted(async () => {
-          await loadQuestions();
           sync = new GameSync(roomId.value, 'host');
           if (sync && sync.firebaseDb) {
             try {
@@ -1116,6 +1120,7 @@
               sync.firebaseDb.ref(`rooms/${roomId.value}/redirect`).remove();
             } catch (e) {}
           }
+          await loadQuestions();
 
           // 自動嘗試恢復當前房間既有存檔與科目
           if (sync && sync.loadRoomData) {
