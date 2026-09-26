@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>學員作答端 (Student Client)</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Firebase SDK (v9 compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="firebase-config.js?v=7.0"></script>
+  <script src="sync-channel.js?v=7.0"></script>
+  <script src="subject-loader.js?v=7.0"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: #0b0f19;
+      color: #f8fafc;
+      touch-action: manipulation;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    /* 觸控按鈕微反饋動畫 */
+    .tap-btn:active {
+      transform: scale(0.96);
+    }
+    .buzzer-circle {
+      animation: pulseBuzzer 1.2s infinite alternate;
+    }
+    @keyframes pulseBuzzer {
+      from { transform: scale(1); box-shadow: 0 0 20px rgba(239, 68, 68, 0.6); }
+      to { transform: scale(1.06); box-shadow: 0 0 50px rgba(239, 68, 68, 0.95); }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-4 max-w-md mx-auto">
+  <div id="app" class="flex-1 flex flex-col justify-between">
+
+    <!-- 頂部學員資訊卡 -->
+    <header class="flex items-center justify-between border-b border-slate-800 pb-3">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 rounded-full bg-cyan-600 flex items-center justify-center font-bold text-xs text-white">
+          {{ isGroupMode ? '組' : '生' }}
+        </div>
+        <div>
+          <div class="text-sm font-bold text-white flex items-center space-x-1.5">
+            <span>{{ playerName || '尚未登入' }}</span>
+            <span v-if="currentSubjectName" class="text-[10px] px-1.5 py-0.2 rounded bg-slate-800 text-amber-300 border border-slate-700 font-normal">
+              {{ currentSubjectName }}
+            </span>
+          </div>
+          <div class="text-[10px] text-slate-400 font-mono">房號：{{ roomId }}</div>
+        </div>
+      </div>
+      <div class="text-right">
+        <div class="text-[10px] text-slate-400">目前累計積分</div>
+        <div class="text-lg font-black font-mono text-amber-400">{{ myScore }} 分</div>
+      </div>
+    </header>
+
+    <!-- 主操作舞台區 -->
+    <main class="flex-1 flex flex-col justify-center my-4">
+
+      <!-- 階段 0: 登入畫面 -->
+      <div v-if="!isLoggedIn" class="space-y-5 bg-slate-900/90 border border-slate-800 p-6 rounded-2xl shadow-xl">
+        <div class="text-center space-y-2">
+          <h2 class="text-xl font-black text-white">進入競賽教室</h2>
+          <!-- 動態模式高亮卡片 -->
+          <div class="p-2.5 rounded-xl text-center text-xs font-bold border transition-all"
+               :class="isGroupMode ? 'bg-purple-950/80 text-purple-300 border-purple-500/60 shadow-lg' : 'bg-blue-950/80 text-blue-300 border-blue-500/60 shadow-lg'">
+            <span>{{ isGroupMode ? '👥 目前模式：【小組代表制】（請組長選組）' : '👤 目前模式：【個人競賽制】（請輸入暱稱）' }}</span>
+          </div>
+        </div>
+
+        <!-- 房間代碼確認或修改 -->
+        <div class="space-y-1.5 text-left">
+          <label class="text-xs text-slate-400 block">連線房間代碼：</label>
+          <input v-model="roomId" type="text" placeholder="例：DA-ROOM-888"
+                 class="w-full bg-slate-800 border border-slate-700 rounded-xl p-2.5 text-xs font-mono text-cyan-400 font-bold focus:outline-none focus:border-cyan-500 uppercase">
+        </div>
+
+        <!-- 小組代表模式快速選擇 (C 方案) -->
+        <div v-if="isGroupMode" class="space-y-2">
+          <label class="text-xs text-slate-400 block">請選擇組別（由組長代表連線）：</label>
+          <div class="grid gap-2" :class="availableGroups.length > 6 ? 'grid-cols-4 sm:grid-cols-4' : 'grid-cols-3'">
+            <button v-for="g in availableGroups" :key="g"
+                    @click="selectTeam(g)"
+                    class="p-2.5 sm:p-3 rounded-xl border text-xs font-bold transition-all"
+                    :class="selectedTeamName === g ? 'bg-purple-600 border-purple-400 text-white shadow' : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700'">
+              {{ g }}
+            </button>
+          </div>
+        </div>
+
+        <!-- 個人模式輸入 -->
+        <div v-else class="space-y-2">
+          <label class="text-xs text-slate-400 block">學號或姓名暱稱：</label>
+          <input v-model="inputName" type="text" placeholder="例：A01 王大明"
+                 class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-cyan-500">
+        </div>
+
+        <button @click="doLogin" 
+                class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/20">
+          確認登入作答
+        </button>
+      </div>
+
+      <!-- 階段 1: 等待出題 (LOBBY / WAITING) -->
+      <div v-else-if="currentStage === 'LOBBY' || currentStage === 'STATS' || currentStage === 'LEADERBOARD'" 
+           class="text-center space-y-4 py-8">
+        <div class="text-4xl animate-bounce">👀</div>
+        <h3 class="text-lg font-bold text-white">請注視前方投影大螢幕</h3>
+        <p class="text-xs text-slate-400">教師正在進行講授或準備下一題...</p>
+        <div class="inline-block px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-[11px] text-cyan-400 font-mono">
+          即時連線就緒
+        </div>
+      </div>
+
+      <!-- 階段 2: 搶答題專屬按鈕 (BUZZER_ALERT) -->
+      <div v-else-if="currentStage === 'BUZZER_ALERT'" class="flex flex-col items-center justify-center space-y-6 py-6">
+        <div class="text-xs font-bold text-amber-300 uppercase tracking-widest animate-pulse">
+          ⚡ 倒數中！準備搶答
+        </div>
+        <button @click="hitBuzzer"
+                class="buzzer-circle w-48 h-48 rounded-full bg-gradient-to-b from-red-500 to-red-700 text-white font-black text-2xl shadow-2xl flex flex-col items-center justify-center border-4 border-red-400 tap-btn">
+          <span>搶！</span>
+          <span class="text-xs font-normal opacity-80 mt-1">BUZZER</span>
+        </button>
+      </div>
+
+      <!-- 階段 3: 答題進行中 (QUESTION_ACTIVE 或 搶答得標者) -->
+      <div v-else-if="canAnswer" class="space-y-4">
+        <div class="text-center">
+          <span class="text-xs text-cyan-400 font-mono font-bold">請依大螢幕題目選擇對應按鈕</span>
+          <div v-if="submittedOption" class="text-xs text-emerald-400 mt-1 font-bold">
+            ✓ 已送出選項：{{ submittedOption }}
+          </div>
+        </div>
+
+        <!-- 四色大按鈕 -->
+        <div class="grid grid-cols-2 gap-3 h-64">
+          <button @click="chooseOption('A')" 
+                  class="tap-btn rounded-2xl bg-gradient-to-br from-red-500 to-red-600 border-2 text-white font-black text-4xl flex items-center justify-center shadow-lg transition-all"
+                  :class="submittedOption === 'A' ? 'border-white scale-95 ring-4 ring-red-400' : 'border-red-400/50 opacity-90'">
+            A
+          </button>
+          <button @click="chooseOption('B')" 
+                  class="tap-btn rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 border-2 text-white font-black text-4xl flex items-center justify-center shadow-lg transition-all"
+                  :class="submittedOption === 'B' ? 'border-white scale-95 ring-4 ring-blue-400' : 'border-blue-400/50 opacity-90'">
+            B
+          </button>
+          <button @click="chooseOption('C')" 
+                  class="tap-btn rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 border-2 text-white font-black text-4xl flex items-center justify-center shadow-lg transition-all"
+                  :class="submittedOption === 'C' ? 'border-white scale-95 ring-4 ring-amber-400' : 'border-amber-400/50 opacity-90'">
+            C
+          </button>
+          <button @click="chooseOption('D')" 
+                  class="tap-btn rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 border-2 text-white font-black text-4xl flex items-center justify-center shadow-lg transition-all"
+                  :class="submittedOption === 'D' ? 'border-white scale-95 ring-4 ring-emerald-400' : 'border-emerald-400/50 opacity-90'">
+            D
+          </button>
+        </div>
+      </div>
+
+      <!-- 階段 3.5: 搶答題已被他人搶答 (未搶到者等待畫面) -->
+      <div v-else-if="currentStage === 'BUZZER_WINNER' && !canAnswer" class="text-center space-y-4 py-8">
+        <div class="text-5xl">⚡</div>
+        <h3 class="text-xl font-bold text-amber-300">已被【{{ buzzerWinner || "其他學員" }}】搶得答題權！</h3>
+        <p class="text-sm text-slate-300">請抬頭注視前方投影大螢幕，觀看作答與題目解析...</p>
+        <div class="inline-block px-3.5 py-1 rounded-full bg-slate-800 border border-amber-500/40 text-xs text-amber-300 font-mono">
+          搶答作答中
+        </div>
+      </div>
+
+      <!-- 階段 4: 答案揭曉反饋 (REVEAL，明確認證與分數反饋) -->
+      <div v-else-if="currentStage === 'REVEAL'" class="text-center space-y-4 py-6">
+        <div class="text-5xl animate-bounce">
+          {{ isMyAnswerCorrect ? '🎉' : '💡' }}
+        </div>
+        <h3 class="text-2xl font-black" :class="isMyAnswerCorrect ? 'text-emerald-400' : 'text-rose-400'">
+          {{ isMyAnswerCorrect ? '恭喜回答正確！' : '這次選錯囉！' }}
+        </h3>
+
+        <!-- 作答對比卡片 -->
+        <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-2xl space-y-2 max-w-xs mx-auto">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-400">您的選擇：</span>
+            <span class="font-mono font-black text-sm px-2.5 py-0.5 rounded"
+                  :class="isMyAnswerCorrect ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' : 'bg-rose-500/20 text-rose-300 border border-rose-500/40'">
+              選項 {{ submittedOption || '(未作答)' }}
+            </span>
+          </div>
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-slate-400">標準答案：</span>
+            <span class="font-mono font-black text-sm px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
+              選項 {{ currentAnswer }}
+            </span>
+          </div>
+          <div v-if="isMyAnswerCorrect" class="text-xs sm:text-sm text-emerald-300 font-bold pt-2 border-t border-slate-800/80 flex items-center justify-center space-x-1">
+            <span>+</span>
+            <span class="text-base sm:text-lg font-black font-mono text-emerald-400">{{ currentPoints || 100 }}</span>
+            <span>分 已加入您的累計總分！</span>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-400">
+          請抬頭觀看大螢幕的詳細觀念解析與戰況排行！
+        </p>
+      </div>
+
+    </main>
+
+    <!-- 底部狀態列 -->
+    <footer class="text-center text-[10px] text-slate-500 pt-2 border-t border-slate-800/80">
+      數據分析實戰線上遊戲 • 手機作答端
+    </footer>
+
+  </div>
+
+  <script>
+    const { createApp, ref, computed, onMounted } = Vue;
+
+    createApp({
+      setup() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const roomId = ref((urlParams.get('room') || 'DA-ROOM-888').toUpperCase());
+        const isFirebaseActive = ref(false);
+        const isLoggedIn = ref(false);
+
+        // 讀取持久化學員身分（斷線/誤關瀏覽器重開時維持同一學員身分與同一 playerId，徹底杜絕積分分裂！）
+        let savedPlayerId = '';
+        let savedPlayerName = '';
+        try {
+          savedPlayerId = localStorage.getItem('dataquest_player_id') || '';
+          savedPlayerName = localStorage.getItem('dataquest_player_name') || '';
+        } catch (e) {}
+
+        if (!savedPlayerId) {
+          savedPlayerId = 'P_' + Math.random().toString(36).substring(2, 8);
+          try { localStorage.setItem('dataquest_player_id', savedPlayerId); } catch (e) {}
+        }
+
+        const inputName = ref(savedPlayerName);
+        const selectedTeamName = ref('第 1 組');
+        const playerName = ref(savedPlayerName);
+        const playerId = ref(savedPlayerId);
+        const myScore = ref(0);
+        const currentSubjectName = ref('視覺設計');
+
+        const roomMode = ref('GROUP_REPRESENTATIVE');
+        const currentStage = ref('LOBBY');
+        const groupCount = ref(6);
+
+        const availableGroups = computed(() => {
+          const count = Math.max(2, Math.min(20, Number(groupCount.value) || 6));
+          const list = [];
+          for (let i = 1; i <= count; i++) {
+            list.push(`第 ${i} 組`);
+          }
+          return list;
+        });
+        const currentQuestionId = ref('');
+        const currentAnswer = ref('');
+        const currentPoints = ref(100);
+        const buzzerWinner = ref('');
+        const submittedOption = ref('');
+        const hasScoredCurrentQuestion = ref(false);
+
+        let sync;
+
+        const isGroupMode = computed(() => roomMode.value === 'GROUP_REPRESENTATIVE');
+
+        const canAnswer = computed(() => {
+          if (currentStage.value === 'QUESTION_ACTIVE') return true;
+          if (currentStage.value === 'BUZZER_WINNER' && buzzerWinner.value === playerName.value) return true;
+          return false;
+        });
+
+        const isMyAnswerCorrect = computed(() => {
+          if (!submittedOption.value || !currentAnswer.value) return false;
+          return submittedOption.value.trim().toUpperCase() === currentAnswer.value.trim().toUpperCase();
+        });
+
+        const selectTeam = (team) => {
+          selectedTeamName.value = team;
+        };
+
+        const doLogin = () => {
+          roomId.value = roomId.value.trim().toUpperCase() || 'DA-ROOM-888';
+          playerName.value = isGroupMode.value ? selectedTeamName.value : (inputName.value.trim() || '學員 ' + playerId.value.slice(-3));
+          isLoggedIn.value = true;
+          try {
+            localStorage.setItem('dataquest_player_name', playerName.value);
+            localStorage.setItem('dataquest_player_id', playerId.value);
+            localStorage.setItem('dataquest_last_room', roomId.value);
+          } catch (e) {}
+          if (sync) {
+            if (sync.switchRoom) sync.switchRoom(roomId.value);
+            if (sync.registerPlayer) {
+              sync.registerPlayer(playerId.value, playerName.value, isGroupMode.value ? selectedTeamName.value : '');
+            }
+          }
+        };
+
+        const chooseOption = (opt) => {
+          submittedOption.value = opt;
+          sync.emit('submit_answer', {
+            playerId: playerId.value,
+            playerName: playerName.value,
+            option: opt,
+            time: Date.now()
+          });
+        };
+
+        const hitBuzzer = () => {
+          sync.emit('buzzer_hit', {
+            playerId: playerId.value,
+            playerName: playerName.value,
+            time: Date.now()
+          });
+        };
+
+        onMounted(() => {
+          sync = new GameSync(roomId.value, 'player');
+
+          if (sync.isFirebaseReady) {
+            isFirebaseActive.value = true;
+          }
+          sync.on('connection_status', ({ online }) => {
+            isFirebaseActive.value = online;
+          });
+          sync.on('firebase_connected', () => {
+            isFirebaseActive.value = true;
+          });
+
+          // 即時監聽搶答結果，秒級更新得標者姓名
+          sync.on('buzzer_hit', (buzzerData) => {
+            if (buzzerData && buzzerData.playerName) {
+              buzzerWinner.value = buzzerData.playerName;
+            }
+          });
+
+          // 監聽教師換房廣播（新房間重置本機分數與狀態）
+          sync.on('room_redirect', ({ newRoomId, mode }) => {
+            if (newRoomId && newRoomId !== roomId.value) {
+              console.log('[Play] 收到換房通知，同步遷移至新房間:', newRoomId);
+              roomId.value = newRoomId;
+              if (mode) roomMode.value = mode;
+              myScore.value = 0; // 重置新房間分數，不留舊帳
+              submittedOption.value = '';
+              hasScoredCurrentQuestion.value = false;
+              currentStage.value = 'LOBBY';
+              sync.switchRoom(newRoomId);
+              if (isLoggedIn.value && sync.registerPlayer) {
+                sync.registerPlayer(playerId.value, playerName.value, isGroupMode.value ? selectedTeamName.value : '');
+              }
+              try {
+                window.history.replaceState({}, '', `?room=${newRoomId}`);
+              } catch (e) {}
+            }
+          });
+
+          sync.on('state_change', (state) => {
+            if (!state) return;
+
+            // 1. 同步階段
+            if (state.stage) {
+              currentStage.value = state.stage;
+              if (state.stage === 'LOBBY') {
+                submittedOption.value = '';
+              }
+            }
+
+            // 2. 同步題目（只有題目真正切換新 ID 時才重置作答選項，絕不在倒數計時中被洗掉！）
+            if (state.question) {
+              const newQId = state.question.id || '';
+              if (newQId && newQId !== currentQuestionId.value) {
+                currentQuestionId.value = newQId;
+                submittedOption.value = '';
+                hasScoredCurrentQuestion.value = false;
+                console.log('[Play] 載入新題目，重置作答選項:', newQId);
+              }
+              currentAnswer.value = (state.question.answer || '').trim();
+              currentPoints.value = parseInt(state.question.score, 10) || 100;
+            }
+
+            // 3. 同步模式與搶答者
+            if (state.mode && state.mode !== roomMode.value) {
+              roomMode.value = state.mode;
+            }
+            if (state.groupCount) {
+              groupCount.value = Number(state.groupCount);
+            }
+            if (state.subject && state.subject.name) {
+              currentSubjectName.value = state.subject.name;
+            }
+            if (state.buzzerWinner) {
+              buzzerWinner.value = state.buzzerWinner;
+            }
+
+            // 4. 與後端官方排行榜「權威同步」累計積分（支援陣列或 Firebase 物件格式）
+            if (state.leaderboard && playerName.value) {
+              const raw = state.leaderboard;
+              const lbList = Array.isArray(raw) ? raw : Object.values(raw);
+              const myEntry = lbList.find(p => p && p.name === playerName.value);
+              if (myEntry) {
+                myScore.value = Number(myEntry.score || 0);
+              } else if (state.stage === 'LOBBY') {
+                myScore.value = 0;
+              }
+            }
+          });
+        });
+
+        return {
+          isFirebaseActive,
+          roomId,
+          roomMode,
+          isLoggedIn,
+          inputName,
+          selectedTeamName,
+          groupCount,
+          availableGroups,
+          playerName,
+          playerId,
+          myScore,
+          currentSubjectName,
+          isGroupMode,
+          currentStage,
+          currentAnswer,
+          currentPoints,
+          submittedOption,
+          canAnswer,
+          buzzerWinner,
+          isMyAnswerCorrect,
+          selectTeam,
+          doLogin,
+          chooseOption,
+          hitBuzzer
+        };
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>

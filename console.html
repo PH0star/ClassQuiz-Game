@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>教師主控台 (Teacher Console) - 數據分析線上互動遊戲</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Firebase SDK (v9 compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="firebase-config.js?v=6.3"></script>
+  <script src="sync-channel.js?v=6.3"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="p-4 lg:p-6 min-h-screen">
+  <div id="app" class="max-w-7xl mx-auto space-y-5">
+
+    <!-- 頂部控制列 -->
+    <header class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4 shadow-xl">
+      <div class="flex items-center space-x-3">
+        <span class="text-2xl">🎮</span>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-lg font-bold text-white leading-tight">
+              {{ currentSubject ? currentSubject.title : '互動競賽遊戲主控台' }}
+            </h1>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-wide"
+                  :class="isFirebaseActive ? 'bg-emerald-950 text-emerald-300 border border-emerald-500/60 shadow-sm' : 'bg-amber-950 text-amber-300 border border-amber-500/60'">
+              <span class="w-2 h-2 rounded-full mr-1.5" :class="isFirebaseActive ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'"></span>
+              {{ isFirebaseActive ? 'Firebase 雲端連線中' : '本地離線模式' }}
+            </span>
+          </div>
+          <div class="flex items-center space-x-2 text-xs text-slate-400 mt-1">
+            <span>房間代碼：</span>
+            <input v-model="roomInput" @keyup.enter="changeRoom" 
+                   placeholder="自訂房號"
+                   title="輸入新房號並點擊切換，投影端與學生端會即時自動跟隨！"
+                   class="bg-slate-800 border border-slate-700 rounded px-2 py-0.5 text-xs font-mono text-cyan-400 font-bold w-32 focus:border-cyan-400 focus:outline-none uppercase" />
+            <button @click="changeRoom" class="px-2 py-0.5 bg-cyan-600 hover:bg-cyan-500 text-white rounded text-[11px] font-bold shadow transition-all">切換</button>
+            <button @click="generateRandomRoom" class="text-[11px] text-slate-400 hover:text-cyan-300 underline font-medium">隨機</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 科目題庫切換與自訂 Google Sheet 載入列 -->
+      <div class="flex flex-wrap items-center gap-2.5">
+        <div class="flex items-center space-x-2 bg-slate-800/90 border border-slate-700 px-3 py-1.5 rounded-xl text-xs shadow-inner">
+          <span class="text-slate-300 font-bold flex items-center space-x-1">
+            <span>📚 科目題庫：</span>
+          </span>
+          <select v-model="selectedSubjectId" @change="onSubjectSelectChange"
+                  class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1 text-xs font-bold text-amber-300 focus:outline-none focus:border-amber-400 cursor-pointer">
+            <option v-for="subj in availableSubjects" :key="subj.id" :value="subj.id">
+              {{ subj.name }}
+            </option>
+          </select>
+          <button @click="showSheetModal = true" 
+                  title="輸入任何 Google 試算表連結即時載入題目"
+                  class="px-2.5 py-1 rounded-lg bg-emerald-800/80 hover:bg-emerald-700 border border-emerald-500/50 text-emerald-200 font-bold flex items-center space-x-1 shadow transition-all">
+            <span>🔗 載入試算表</span>
+          </button>
+        </div>
+
+        <!-- 模式與人數/組數整合設定區 -->
+        <!-- 模式切換按鈕 -->
+        <div class="flex items-center bg-slate-800 p-1 rounded-xl border border-slate-700 shadow-inner">
+          <button @click="setMode('INDIVIDUAL')" 
+                  class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
+                  :class="roomMode === 'INDIVIDUAL' ? 'bg-blue-600 text-white shadow' : 'text-slate-400 hover:text-white'">
+            <span>👤 個人競賽制</span>
+          </button>
+          <button @click="setMode('GROUP_REPRESENTATIVE')" 
+                  class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
+                  :class="roomMode === 'GROUP_REPRESENTATIVE' ? 'bg-purple-600 text-white shadow' : 'text-slate-400 hover:text-white'">
+            <span>👥 小組代表制</span>
+          </button>
+        </div>
+
+        <!-- 人數 / 組數動態設定卡片 -->
+        <div class="flex items-center bg-slate-800/90 border border-slate-700 px-3 py-1 rounded-xl text-xs space-x-2 shadow">
+          <!-- 個人模式：預期應答人數設定 -->
+          <div v-if="roomMode === 'INDIVIDUAL'" class="flex items-center space-x-2">
+            <span class="text-slate-300 font-bold flex items-center space-x-1">
+              <span>🎯 預期人數：</span>
+            </span>
+            <input v-model.number="targetStudentCount" @change="onSettingsChange" type="number" min="1" max="300"
+                   title="輸入預期應答人數"
+                   class="bg-slate-950 border border-cyan-500/50 rounded-lg px-2 py-0.5 text-xs font-mono text-cyan-300 font-bold w-14 text-center focus:outline-none focus:border-cyan-400">
+            <span class="text-slate-400">人</span>
+            <!-- 快捷人數鈕 -->
+            <div class="flex items-center space-x-1 ml-1">
+              <button v-for="c in [15, 20, 30, 40, 50]" :key="c"
+                      @click="setTargetStudentCount(c)"
+                      class="px-2 py-0.5 rounded text-[11px] font-mono font-bold transition-all"
+                      :class="targetStudentCount === c ? 'bg-blue-600 text-white shadow' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-700/80'">
+                {{ c }}
+              </button>
+            </div>
+          </div>
+
+          <!-- 小組模式：組別數量設定 -->
+          <div v-else class="flex items-center space-x-2">
+            <span class="text-slate-300 font-bold flex items-center space-x-1">
+              <span>👥 組別數量：</span>
+            </span>
+            <select v-model.number="groupCount" @change="onGroupCountChange"
+                    class="bg-slate-950 border border-purple-500/50 rounded-lg px-2.5 py-1 text-xs font-bold text-purple-200 focus:outline-none focus:border-purple-400 cursor-pointer">
+              <option v-for="n in [2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 16]" :key="n" :value="n">
+                共 {{ n }} 組
+              </option>
+            </select>
+            <!-- 快捷組數鈕 -->
+            <div class="flex items-center space-x-1 ml-1">
+              <button v-for="n in [3, 4, 5, 6, 8, 10]" :key="n"
+                      @click="setGroupCount(n)"
+                      class="px-2 py-0.5 rounded text-[11px] font-bold transition-all"
+                      :class="groupCount === n ? 'bg-purple-600 text-white shadow' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-700/80'">
+                {{ n }}組
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 快速連結與狀態 -->
+      <div class="flex items-center space-x-3 text-xs">
+        <a :href="'projector.html?room=' + roomId + '&t=' + Date.now()" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-cyan-300 font-bold flex items-center space-x-1">
+          <span>📺 開啟投影大螢幕</span>
+        </a>
+        <a :href="'play.html?room=' + roomId + '&t=' + Date.now()" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-emerald-300 font-bold flex items-center space-x-1">
+          <span>📱 開啟學生端測試</span>
+        </a>
+        <div class="px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 font-mono font-bold">
+          ● 連線中 ({{ connectedCount }}人)
+        </div>
+      </div>
+    </header>
+
+    <!-- 主體雙欄排版 -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+
+      <!-- 左欄：題庫篩選與抽題區 (5 欄) -->
+      <div class="lg:col-span-5 space-y-4">
+        
+        <!-- 抽題工具卡片 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3 shadow-lg">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold text-slate-200 flex items-center space-x-2">
+              <span>🔍 題庫篩選與抽取</span>
+              <span class="text-xs font-normal text-slate-400">({{ filteredQuestions.length }} / {{ allQuestions.length }} 題)</span>
+            </h2>
+            <button @click="pickRandomQuestion" 
+                    class="px-3 py-1 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow flex items-center space-x-1">
+              <span>🎲 智慧隨機抽題</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div>
+              <label class="text-slate-400 block mb-1 flex items-center justify-between">
+                <span>單元模組</span>
+                <span class="text-[10px] text-cyan-400 font-mono">{{ availableModules.length }} 個單元</span>
+              </label>
+              <select v-model="filterModule" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-slate-200 font-medium">
+                <option value="">全部單元模組 (共 {{ allQuestions.length }} 題)</option>
+                <option v-for="m in availableModules" :key="m.name" :value="m.name">
+                  {{ m.name }} ({{ m.count }} 題)
+                </option>
+              </select>
+            </div>
+            <div>
+              <label class="text-slate-400 block mb-1">難易度</label>
+              <select v-model="filterDifficulty" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-slate-200">
+                <option value="">全部難度</option>
+                <option value="初級">初級 (100分)</option>
+                <option value="中級">中級 (150分)</option>
+                <option value="挑戰">挑戰 (200分)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 題庫清單列表 (可直接點擊挑選) -->
+          <div class="max-h-60 overflow-y-auto space-y-1.5 pr-1 border border-slate-800 rounded-xl p-2 bg-slate-950/40">
+            <div v-for="q in filteredQuestions" :key="q.id"
+                 @click="selectQuestion(q)"
+                 class="p-2 rounded-lg cursor-pointer text-xs border transition-all flex items-center justify-between"
+                 :class="selectedQuestion && selectedQuestion.id === q.id 
+                         ? 'bg-blue-600/30 border-blue-500 text-white font-medium' 
+                         : 'bg-slate-800/40 border-slate-800/80 text-slate-300 hover:bg-slate-800'">
+              <div class="truncate mr-2">
+                <span class="font-mono text-cyan-400 mr-1.5 font-bold">[{{ q.id }}]</span>
+                <span>{{ q.question }}</span>
+              </div>
+              <span class="text-[10px] px-1.5 py-0.5 rounded font-mono flex-shrink-0"
+                    :class="q.difficulty === '初級' ? 'bg-emerald-950 text-emerald-300' : q.difficulty === '中級' ? 'bg-amber-950 text-amber-300' : 'bg-purple-950 text-purple-300'">
+                {{ q.difficulty }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 即時作答統計監控 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3 shadow-lg">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold text-slate-200">📊 即時作答進度</h2>
+            <span class="font-mono text-sm font-bold text-cyan-400">
+              {{ Object.keys(currentResponses).length }} / {{ expectedResponsesCount }} {{ roomMode === "GROUP_REPRESENTATIVE" ? "組已交卷" : "人已交卷" }}
+            </span>
+          </div>
+
+          <!-- 作答進度條 -->
+          <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-blue-500 to-cyan-400 h-full transition-all duration-300"
+                 :style="{ width: responseProgressPercent + '%' }"></div>
+          </div>
+
+          <!-- 四個選項即時分佈 (教師預覽) -->
+          <div class="grid grid-cols-4 gap-2 pt-1 text-center font-mono text-xs">
+            <div class="p-2 rounded-lg bg-red-950/40 border border-red-900/50">
+              <span class="text-red-400 font-bold block">A: {{ optionCounts.A || 0 }}</span>
+            </div>
+            <div class="p-2 rounded-lg bg-blue-950/40 border border-blue-900/50">
+              <span class="text-blue-400 font-bold block">B: {{ optionCounts.B || 0 }}</span>
+            </div>
+            <div class="p-2 rounded-lg bg-amber-950/40 border border-amber-900/50">
+              <span class="text-amber-400 font-bold block">C: {{ optionCounts.C || 0 }}</span>
+            </div>
+            <div class="p-2 rounded-lg bg-emerald-950/40 border border-emerald-900/50">
+              <span class="text-emerald-400 font-bold block">D: {{ optionCounts.D || 0 }}</span>
+            </div>
+          </div>
+
+          <!-- 搶答者提醒 -->
+          <div v-if="buzzerWinner" class="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs flex items-center justify-between">
+            <span>⚡ 搶答成功首位：</span>
+            <strong class="font-bold text-white text-sm">{{ buzzerWinner }}</strong>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 右欄：出題主控盤與題目預覽 (7 欄) -->
+      <div class="lg:col-span-7 space-y-4">
+        
+        <!-- 當前選定題目預覽卡片 -->
+        <div v-if="selectedQuestion" class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4 shadow-xl relative">
+          
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+            <div class="flex items-center space-x-2">
+              <span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-cyan-950 text-cyan-400 border border-cyan-800">
+                #{{ selectedQuestion.id }}
+              </span>
+              <span class="text-xs text-slate-300 font-bold">{{ selectedQuestion.module }}</span>
+              <span class="text-xs text-slate-500">•</span>
+              <span class="text-xs text-slate-400">{{ selectedQuestion.subcategory }}</span>
+            </div>
+            <div class="text-xs font-bold text-amber-400">
+              {{ selectedQuestion.score }} 分
+            </div>
+          </div>
+
+          <!-- 題幹 -->
+          <h3 class="text-base font-bold text-white leading-relaxed">
+            {{ selectedQuestion.question }}
+          </h3>
+
+          <!-- 選項預覽 (教師端標註標準答案) -->
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="p-2.5 rounded-xl border flex items-center space-x-2"
+                 :class="selectedQuestion.answer === 'A' ? 'bg-emerald-950/50 border-emerald-500 text-emerald-200 font-bold' : 'bg-slate-800/40 border-slate-800 text-slate-300'">
+              <span class="w-5 h-5 rounded bg-red-600 text-white flex items-center justify-center font-bold text-[10px]">A</span>
+              <span class="truncate">{{ selectedQuestion.option_a }}</span>
+              <span v-if="selectedQuestion.answer === 'A'" class="ml-auto text-emerald-400 text-sm">✓</span>
+            </div>
+            <div class="p-2.5 rounded-xl border flex items-center space-x-2"
+                 :class="selectedQuestion.answer === 'B' ? 'bg-emerald-950/50 border-emerald-500 text-emerald-200 font-bold' : 'bg-slate-800/40 border-slate-800 text-slate-300'">
+              <span class="w-5 h-5 rounded bg-blue-600 text-white flex items-center justify-center font-bold text-[10px]">B</span>
+              <span class="truncate">{{ selectedQuestion.option_b }}</span>
+              <span v-if="selectedQuestion.answer === 'B'" class="ml-auto text-emerald-400 text-sm">✓</span>
+            </div>
+            <div class="p-2.5 rounded-xl border flex items-center space-x-2"
+                 :class="selectedQuestion.answer === 'C' ? 'bg-emerald-950/50 border-emerald-500 text-emerald-200 font-bold' : 'bg-slate-800/40 border-slate-800 text-slate-300'">
+              <span class="w-5 h-5 rounded bg-amber-600 text-white flex items-center justify-center font-bold text-[10px]">C</span>
+              <span class="truncate">{{ selectedQuestion.option_c }}</span>
+              <span v-if="selectedQuestion.answer === 'C'" class="ml-auto text-emerald-400 text-sm">✓</span>
+            </div>
+            <div class="p-2.5 rounded-xl border flex items-center space-x-2"
+                 :class="selectedQuestion.answer === 'D' ? 'bg-emerald-950/50 border-emerald-500 text-emerald-200 font-bold' : 'bg-slate-800/40 border-slate-800 text-slate-300'">
+              <span class="w-5 h-5 rounded bg-emerald-600 text-white flex items-center justify-center font-bold text-[10px]">D</span>
+              <span class="truncate">{{ selectedQuestion.option_d }}</span>
+              <span v-if="selectedQuestion.answer === 'D'" class="ml-auto text-emerald-400 text-sm">✓</span>
+            </div>
+          </div>
+
+          <!-- 教師獨享解析提示 -->
+          <div class="p-3 bg-slate-950/70 rounded-xl border border-slate-800 text-xs text-slate-400 leading-relaxed">
+            <strong class="text-cyan-400">💡 教學要點提示：</strong>
+            {{ selectedQuestion.explanation }}
+          </div>
+        </div>
+
+        <!-- 遊戲進程核心控制盤 (大按鈕區) -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4 shadow-xl">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold text-slate-200">🕹️ 課堂出題控制盤</h2>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs text-slate-400">當前階段：</span>
+              <span class="text-xs font-bold font-mono px-2 py-0.5 rounded bg-blue-900/60 text-blue-300 border border-blue-700">
+                {{ currentStage }}
+              </span>
+            </div>
+          </div>
+
+          <!-- 計時與秒數設定 -->
+          <div class="flex items-center space-x-2 text-xs">
+            <span class="text-slate-400">作答限時：</span>
+            <button v-for="sec in [15, 20, 30, 45]" :key="sec"
+                    @click="setDuration(sec)"
+                    class="px-2.5 py-1 rounded font-mono font-bold"
+                    :class="timerDuration === sec ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-400 hover:text-white'">
+              {{ sec }}s
+            </button>
+            <button @click="addTime(10)" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 font-bold font-mono">
+              +10s 延長
+            </button>
+          </div>
+
+          <!-- 主控動作按鈕群 (支援排行榜切換與一鍵下一題) -->
+          <div class="grid grid-cols-2 lg:grid-cols-5 gap-2.5 pt-2">
+            <!-- 動作 1: 發送出題 -->
+            <button @click="dispatchQuestion" 
+                    class="p-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs shadow-lg flex flex-col items-center justify-center space-y-1">
+              <span class="text-lg">🚀</span>
+              <span>發送本題出題</span>
+            </button>
+
+            <!-- 動作 2: 截止作答 / 統計 -->
+            <button @click="showDistribution" 
+                    class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-bold text-xs flex flex-col items-center justify-center space-y-1">
+              <span class="text-lg">📊</span>
+              <span>截止 & 投影選情</span>
+            </button>
+
+            <!-- 動作 3: 揭曉答案與解析 (動態狀態辨識) -->
+            <button @click="revealAnswer" 
+                    class="p-3 rounded-xl font-bold text-xs shadow-lg flex flex-col items-center justify-center space-y-1 transition-all"
+                    :class="hasCurrentRoundBeenScored ? 'bg-emerald-900/70 border border-emerald-500/50 text-emerald-300' : 'bg-emerald-700 hover:bg-emerald-600 text-white'">
+              <span class="text-lg">{{ hasCurrentRoundBeenScored ? '✓' : '💡' }}</span>
+              <span>{{ hasCurrentRoundBeenScored ? '已計分 (切換解析)' : '揭曉答案與計分' }}</span>
+            </button>
+
+            <!-- 動作 4: 投影排行榜 (支援開關切換) -->
+            <button @click="toggleLeaderboard" 
+                    class="p-3 rounded-xl font-bold text-xs shadow-lg flex flex-col items-center justify-center space-y-1 transition-all"
+                    :class="currentStage === 'LEADERBOARD' ? 'bg-amber-500 text-slate-950 ring-2 ring-amber-300' : 'bg-amber-600 hover:bg-amber-500 text-white'">
+              <span class="text-lg">🏆</span>
+              <span>{{ currentStage === 'LEADERBOARD' ? '✖ 關閉排行榜' : '投影戰況排行榜' }}</span>
+            </button>
+
+            <!-- 動作 5: 一鍵下一題 -->
+            <button @click="nextQuestion" 
+                    class="p-3 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg flex flex-col items-center justify-center space-y-1">
+              <span class="text-lg">➡️</span>
+              <span>下一題 (直接出題)</span>
+            </button>
+          </div>
+
+          <!-- 次要操作列 -->
+          <div class="flex items-center justify-between pt-2 border-t border-slate-800 text-xs text-slate-400">
+            <div class="flex items-center space-x-4">
+              <button @click="resetToLobby" class="hover:text-white underline font-medium">
+                ↺ 回到大廳等待頁面
+              </button>
+              <button @click="resetLeaderboard" class="text-rose-400 hover:text-rose-300 underline font-medium">
+                🔄 積分重置歸零
+              </button>
+            </div>
+            <button @click="exportResultsToCSV" class="text-cyan-400 hover:text-cyan-300 font-bold flex items-center space-x-1">
+              <span>📥 匯出當前作答成 CSV / 試算表</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- Google Sheet 題庫自訂載入彈窗 (Google Sheet Loader Modal) -->
+    <!-- ============================================================ -->
+    <div v-if="showSheetModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-slate-900 border border-slate-700 rounded-2xl p-6 max-w-lg w-full space-y-4 shadow-2xl animate-fadeIn">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div class="flex items-center space-x-2">
+            <span class="text-2xl">🔗</span>
+            <h3 class="text-base font-bold text-white">自訂 Google Sheet 題庫即時載入</h3>
+          </div>
+          <button @click="showSheetModal = false" class="text-slate-400 hover:text-white text-lg font-bold">✕</button>
+        </div>
+
+        <p class="text-xs text-slate-300 leading-relaxed">
+          支援直接貼上 Google 試算表連結。請先確認試算表已開啟「<strong>知道連結的任何人均可檢視</strong>」，系統會自動擷取題目、選項與解析！
+        </p>
+
+        <div class="space-y-3">
+          <div>
+            <label class="text-xs text-slate-400 block mb-1">Google Sheet 試算表網址：</label>
+            <input v-model="inputSheetUrl" type="text" 
+                   placeholder="https://docs.google.com/spreadsheets/d/.../edit?usp=sharing"
+                   class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-xs text-cyan-300 font-mono focus:outline-none focus:border-cyan-500">
+          </div>
+
+          <div>
+            <label class="text-xs text-slate-400 block mb-1">自訂科目名稱 (選填)：</label>
+            <input v-model="inputSheetSubjectName" type="text" 
+                   placeholder="例如：視覺設計進階考題、數位行銷證照..."
+                   class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-cyan-500">
+          </div>
+
+          <!-- 快速填入範例連結 -->
+          <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800 space-y-1.5 text-xs">
+            <span class="text-slate-400 block font-bold text-[11px]">快速填入官方雲端試算表範本：</span>
+            <div class="flex flex-wrap gap-2">
+              <button @click="fillSampleSheet('visual')" 
+                      class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 text-[11px] font-bold border border-slate-700 flex items-center space-x-1">
+                <span>🎨 視覺設計 400 題試算表</span>
+              </button>
+              <button @click="fillSampleSheet('data')" 
+                      class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-cyan-300 text-[11px] font-bold border border-slate-700 flex items-center space-x-1">
+                <span>📊 數據分析 200 題試算表</span>
+              </button>
+            </div>
+          </div>
+
+          <div v-if="sheetLoadStatus" class="p-2.5 rounded-xl text-xs font-bold"
+               :class="sheetLoadStatus.isError ? 'bg-rose-950/80 text-rose-300 border border-rose-500/50' : 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/50'">
+            {{ sheetLoadStatus.message }}
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end space-x-3 pt-2 border-t border-slate-800">
+          <button @click="showSheetModal = false" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold">
+            取消
+          </button>
+          <button @click="loadCustomGoogleSheet" :disabled="isSheetLoading"
+                  class="px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-lg flex items-center space-x-1.5 disabled:opacity-50">
+            <span v-if="isSheetLoading" class="animate-spin mr-1">⏳</span>
+            <span>{{ isSheetLoading ? '正在連線解析中...' : '📥 立即解析並載入題庫' }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const { createApp, ref, computed, onMounted } = Vue;
+
+    createApp({
+      setup() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialRoom = (urlParams.get('room') || 'DA-ROOM-888').toUpperCase();
+        const roomId = ref(initialRoom);
+        const roomInput = ref(initialRoom);
+        const roomMode = ref('INDIVIDUAL'); // 'INDIVIDUAL' or 'GROUP_REPRESENTATIVE'
+        const currentStage = ref('LOBBY');
+        const targetStudentCount = ref(30); // 預設個人賽預期 30 人
+        const groupCount = ref(6);          // 預設小組賽 6 組
+        // 每題專屬 Round Token 與已結算集合（雙重保險防重複計分）
+        const activeRoundToken = ref('');
+        const completedRoundTokens = ref(new Set());
+        const hasCurrentRoundBeenScored = computed(() => {
+          return !!activeRoundToken.value && completedRoundTokens.value.has(activeRoundToken.value);
+        });
+        const timerDuration = ref(30);
+        const timeLeft = ref(30);
+        let timerInterval = null;
+
+        const allQuestions = ref([]);
+        const filterModule = ref('');
+        const filterDifficulty = ref('');
+        const selectedQuestion = ref(null);
+        const currentResponses = ref({});
+        const buzzerWinner = ref('');
+        const connectedCount = ref(0); // 真實即時在線連線人數，從 0 人起算
+        const isFirebaseActive = ref(false);
+        const gameSessionHistory = ref([]);
+
+        // 科目與 Google Sheet 載入引擎
+        const subjectLoader = new SubjectLoader();
+        const availableSubjects = ref(subjectLoader.getSubjects());
+        const selectedSubjectId = ref('visual_design'); // 預設新專案為視覺設計 (400題)
+        const currentSubject = ref(availableSubjects.value[0]);
+
+        // Google Sheet 自訂彈窗狀態
+        const showSheetModal = ref(false);
+        const inputSheetUrl = ref('');
+        const inputSheetSubjectName = ref('');
+        const isSheetLoading = ref(false);
+        const sheetLoadStatus = ref(null);
+
+        // 依組別數量動態產生或保留小組積分表
+        const createGroupScores = (count, existing = {}) => {
+          const n = Math.max(2, Math.min(20, Number(count) || 6));
+          const result = {};
+          for (let i = 1; i <= n; i++) {
+            const gName = `第 ${i} 組`;
+            if (existing[gName]) {
+              result[gName] = existing[gName];
+            } else {
+              result[gName] = { name: gName, score: 0, correctCount: 0, totalAnswers: 0 };
+            }
+          }
+          return result;
+        };
+
+        const defaultGroupScores = () => createGroupScores(groupCount.value);
+
+        // 真實動態積分榜（個人模式與小組模式獨立儲存）
+        const individualScores = ref({});
+        const groupScores = ref(defaultGroupScores());
+
+        // 自動整合同名分身紀錄，將分散的積分與答題次數加總合併（徹底修復斷線重登產生多個同名選手分身Bug！）
+        const consolidateDuplicateScores = (scoresMap) => {
+          const unified = {};
+          Object.values(scoresMap || {}).forEach(item => {
+            if (!item || !item.name) return;
+            const normName = item.name.trim();
+            if (!unified[normName]) {
+              unified[normName] = {
+                id: item.id || normName,
+                name: normName,
+                score: Number(item.score || 0),
+                correctCount: Number(item.correctCount || 0),
+                totalAnswers: Number(item.totalAnswers || 0)
+              };
+            } else {
+              unified[normName].score += Number(item.score || 0);
+              unified[normName].correctCount += Number(item.correctCount || 0);
+              unified[normName].totalAnswers += Number(item.totalAnswers || 0);
+              if (item.id) unified[normName].id = item.id;
+            }
+          });
+          return unified;
+        };
+
+        // 依名稱精確比對現有學員，若已有紀錄則直接綁定原紀錄（同名視為同一人，保留歷史積分）
+        const findOrCreateIndividualEntry = (pId, rawName) => {
+          const name = (rawName || '').trim() || '學員 ' + (pId ? pId.slice(-3) : '888');
+          let existingKey = Object.keys(individualScores.value).find(k => {
+            const entry = individualScores.value[k];
+            return entry && entry.name && entry.name.trim().toLowerCase() === name.toLowerCase();
+          });
+
+          if (existingKey) {
+            if (pId) individualScores.value[existingKey].id = pId;
+            return individualScores.value[existingKey];
+          }
+
+          const key = name; // 以姓名為主要鍵值，避免同名不同id分裂
+          if (!individualScores.value[key]) {
+            individualScores.value[key] = {
+              id: pId || key,
+              name: name,
+              score: 0,
+              correctCount: 0,
+              totalAnswers: 0
+            };
+          }
+          return individualScores.value[key];
+        };
+
+        // 依目前模式即時計算排序排行榜
+        const leaderboard = computed(() => {
+          const scoreMap = roomMode.value === 'GROUP_REPRESENTATIVE' ? groupScores.value : individualScores.value;
+          const list = Object.values(scoreMap).map(p => ({
+            ...p,
+            score: Number(p.score || 0),
+            correctCount: Number(p.correctCount || 0),
+            totalAnswers: Number(p.totalAnswers || 0)
+          }));
+          return list.sort((a, b) => b.score - a.score || b.correctCount - a.correctCount);
+        });
+
+        const resetLeaderboard = () => {
+          if (confirm(`確定要將房間【${roomId.value}】的全場積分重置歸零嗎？（其他房間歷史紀錄不受影響）`)) {
+            individualScores.value = {};
+            groupScores.value = defaultGroupScores();
+            gameSessionHistory.value = [];
+            if (sync && sync.emit) {
+              sync.emit('save_scores', {
+                individualScores: individualScores.value,
+                groupScores: groupScores.value,
+                targetStudentCount: targetStudentCount.value,
+                groupCount: groupCount.value,
+                updatedAt: Date.now()
+              });
+            }
+            broadcastState();
+          }
+        };
+
+        let sync;
+
+        // 動態提取當前科目包含之所有單元模組與題目數量
+        const availableModules = computed(() => {
+          const counts = {};
+          allQuestions.value.forEach(q => {
+            if (q.module) {
+              counts[q.module] = (counts[q.module] || 0) + 1;
+            }
+          });
+          return Object.keys(counts).map(name => ({
+            name,
+            count: counts[name]
+          }));
+        });
+
+        const filteredQuestions = computed(() => {
+          return allQuestions.value.filter(q => {
+            if (filterModule.value && q.module !== filterModule.value) return false;
+            if (filterDifficulty.value && q.difficulty !== filterDifficulty.value) return false;
+            return true;
+          });
+        });
+
+        const expectedResponsesCount = computed(() => {
+          return roomMode.value === 'GROUP_REPRESENTATIVE' 
+            ? Math.max(2, groupCount.value || 6) 
+            : Math.max(1, targetStudentCount.value || 30);
+        });
+
+        const responseProgressPercent = computed(() => {
+          const count = Object.keys(currentResponses.value).length;
+          return Math.min(100, Math.round((count / expectedResponsesCount.value) * 100));
+        });
+
+        const optionCounts = computed(() => {
+          const counts = { A: 0, B: 0, C: 0, D: 0 };
+          Object.values(currentResponses.value).forEach(resp => {
+            if (counts[resp.option] !== undefined) {
+              counts[resp.option]++;
+            }
+          });
+          return counts;
+        });
+
+        // 載入題庫
+        // 載入指定科目或 Google Sheet 題庫
+        const loadQuestions = async (subjectIdOrUrl = selectedSubjectId.value) => {
+          try {
+            const res = await subjectLoader.loadSubject(subjectIdOrUrl);
+            if (res.success && res.questions && res.questions.length > 0) {
+              allQuestions.value = res.questions;
+              currentSubject.value = res.subject;
+              selectedSubjectId.value = res.subject.id;
+              filterModule.value = ''; // 重置單元篩選
+              selectedQuestion.value = allQuestions.value[0];
+              console.log(`[Host] 科目題庫【${res.subject.name}】載入成功，共 ${allQuestions.value.length} 題`);
+              broadcastState();
+              if (sync && sync.emit) {
+                sync.emit('save_subject', {
+                  subject: res.subject,
+                  updatedAt: Date.now()
+                });
+              }
+            } else {
+              console.error('[Host] 題庫載入失敗或為空:', res.error);
+            }
+          } catch (e) {
+            console.error('[Host] loadQuestions 異常:', e);
+          }
+        };
+
+        const onSubjectSelectChange = async () => {
+          if (selectedSubjectId.value === 'custom_google_sheet') {
+            showSheetModal.value = true;
+          } else {
+            await loadQuestions(selectedSubjectId.value);
+          }
+        };
+
+        const fillSampleSheet = (type) => {
+          if (type === 'visual') {
+            inputSheetUrl.value = 'https://docs.google.com/spreadsheets/d/1cfztbR0I5KIG4u9c06yFGS1u3y0qLFFPeihJ526nOoQ/edit?usp=sharing';
+            inputSheetSubjectName.value = '🎨 視覺設計專業題庫 (400題)';
+          } else {
+            inputSheetUrl.value = 'https://docs.google.com/spreadsheets/d/1GJNNymUhtKtW0LDy8ifpa688_7TXHgpuc-uFLmmi2Bg/edit?usp=sharing';
+            inputSheetSubjectName.value = '📊 數據分析實戰題庫 (200題)';
+          }
+        };
+
+        const loadCustomGoogleSheet = async () => {
+          if (!inputSheetUrl.value.trim()) {
+            sheetLoadStatus.value = { isError: true, message: '請輸入有效的 Google 試算表連結！' };
+            return;
+          }
+          isSheetLoading.value = true;
+          sheetLoadStatus.value = null;
+
+          try {
+            const res = await subjectLoader.loadFromGoogleSheet(inputSheetUrl.value.trim(), inputSheetSubjectName.value.trim());
+            if (res.success && res.questions && res.questions.length > 0) {
+              allQuestions.value = res.questions;
+              currentSubject.value = res.subject;
+              filterModule.value = '';
+              selectedQuestion.value = allQuestions.value[0];
+              sheetLoadStatus.value = { isError: false, message: `🎉 成功載入 ${res.questions.length} 題！` };
+
+              // 加入可選科目列表中
+              if (!availableSubjects.value.some(s => s.id === res.subject.id)) {
+                availableSubjects.value.push(res.subject);
+              }
+              selectedSubjectId.value = res.subject.id;
+
+              setTimeout(() => {
+                showSheetModal.value = false;
+                sheetLoadStatus.value = null;
+              }, 1200);
+
+              broadcastState();
+              if (sync && sync.emit) {
+                sync.emit('save_subject', {
+                  subject: res.subject,
+                  updatedAt: Date.now()
+                });
+              }
+            } else {
+              sheetLoadStatus.value = { isError: true, message: res.error || '載入失敗，請確認試算表格式' };
+            }
+          } catch (err) {
+            sheetLoadStatus.value = { isError: true, message: err.message };
+          } finally {
+            isSheetLoading.value = false;
+          }
+        };
+
+        const selectQuestion = (q) => {
+          selectedQuestion.value = q;
+        };
+
+        const pickRandomQuestion = () => {
+          const pool = filteredQuestions.value;
+          if (pool.length > 0) {
+            const r = Math.floor(Math.random() * pool.length);
+            selectedQuestion.value = pool[r];
+          }
+        };
+
+        const setTargetStudentCount = (val) => {
+          targetStudentCount.value = Math.max(1, Math.min(300, Number(val) || 30));
+          onSettingsChange();
+        };
+
+        const setGroupCount = (val) => {
+          groupCount.value = Math.max(2, Math.min(20, Number(val) || 6));
+          onGroupCountChange();
+        };
+
+        const onSettingsChange = () => {
+          broadcastState();
+          if (sync && sync.emit) {
+            sync.emit('save_scores', {
+              individualScores: individualScores.value,
+              groupScores: groupScores.value,
+              targetStudentCount: targetStudentCount.value,
+              groupCount: groupCount.value,
+              updatedAt: Date.now()
+            });
+          }
+        };
+
+        const onGroupCountChange = () => {
+          groupScores.value = createGroupScores(groupCount.value, groupScores.value);
+          onSettingsChange();
+        };
+
+        const setMode = (mode) => {
+          roomMode.value = mode;
+          broadcastState();
+        };
+
+        const changeRoom = async () => {
+          const oldRoom = roomId.value;
+          const newRoom = (roomInput.value || '').trim().toUpperCase() || 'DA-ROOM-888';
+          roomInput.value = newRoom;
+          if (oldRoom === newRoom && sync && sync.isFirebaseReady) return;
+
+          // 1. 在舊房間發出重定向廣播，通知已開啟的 projector 與 play 頁面跟隨切換至新房間
+          if (sync && sync.emit) {
+            sync.emit('room_redirect', { oldRoomId: oldRoom, newRoomId: newRoom, mode: roomMode.value });
+          }
+
+          // 2. 切換房間代碼與中繼連線
+          roomId.value = newRoom;
+          if (sync && sync.switchRoom) {
+            sync.switchRoom(newRoom);
+          }
+
+          // 3. 更新網址列
+          try {
+            const newUrl = `${window.location.pathname}?room=${newRoom}`;
+            window.history.replaceState({}, '', newUrl);
+          } catch (e) {}
+
+          // 4. 重置新房間在線暫存並清除新房間歷史重定向殘留（徹底解除死循環）
+          connectedCount.value = 0;
+          currentResponses.value = {};
+          buzzerWinner.value = '';
+          currentStage.value = 'LOBBY';
+          if (sync && sync.firebaseDb) {
+            try {
+              sync.firebaseDb.ref(`rooms/${newRoom}/redirect`).remove();
+            } catch (e) {}
+          }
+
+          // 5. 【各房間獨立記憶存檔機制】：讀取新房間歷史存檔或全新開局
+          if (sync && sync.loadRoomData) {
+            const saved = await sync.loadRoomData(newRoom);
+            if (saved && saved.exists && saved.subject && saved.subject.id) {
+              if (saved.subject.sheetUrl) {
+                await loadQuestions(saved.subject.sheetUrl);
+              } else {
+                await loadQuestions(saved.subject.id);
+              }
+            }
+            if (saved && saved.exists && saved.scores) {
+              // 若先前在該房間進行過遊戲，完整還原該房間累積戰報與積分！
+              individualScores.value = consolidateDuplicateScores(saved.scores.individualScores || {});
+              if (saved.scores.groupCount) groupCount.value = Number(saved.scores.groupCount);
+              if (saved.scores.targetStudentCount) targetStudentCount.value = Number(saved.scores.targetStudentCount);
+              groupScores.value = createGroupScores(groupCount.value, saved.scores.groupScores || {});
+              gameSessionHistory.value = saved.history || [];
+              if (saved.state && saved.state.mode) {
+                roomMode.value = saved.state.mode;
+              }
+              console.log(`[Host] 房間 ${newRoom} 存檔載入成功，已還原歷史積分！`);
+            } else {
+              // 全新未開過之房間，從 0 分乾淨開局！
+              individualScores.value = {};
+              groupScores.value = defaultGroupScores();
+              gameSessionHistory.value = [];
+              console.log(`[Host] 房間 ${newRoom} 為全新房間，從 0 分乾淨開局！`);
+            }
+          } else {
+            individualScores.value = {};
+            groupScores.value = defaultGroupScores();
+            gameSessionHistory.value = [];
+          }
+
+          broadcastState();
+        };
+
+        const generateRandomRoom = () => {
+          const rand = Math.floor(100 + Math.random() * 900);
+          roomInput.value = `DA-ROOM-${rand}`;
+          changeRoom();
+        };
+
+        const setDuration = (sec) => {
+          timerDuration.value = sec;
+          timeLeft.value = sec;
+        };
+
+        const addTime = (sec) => {
+          timeLeft.value += sec;
+          broadcastState();
+        };
+
+        // 廣播當前狀態至投影端與學生端
+        const broadcastState = () => {
+          const totalResp = Object.keys(currentResponses.value).length || 1;
+          const stats = {
+            A: Math.round(((optionCounts.value.A || 0) / totalResp) * 100),
+            B: Math.round(((optionCounts.value.B || 0) / totalResp) * 100),
+            C: Math.round(((optionCounts.value.C || 0) / totalResp) * 100),
+            D: Math.round(((optionCounts.value.D || 0) / totalResp) * 100)
+          };
+
+          const statePayload = {
+            stage: currentStage.value,
+            mode: roomMode.value,
+            question: selectedQuestion.value,
+            timeLeft: timeLeft.value,
+            connectedCount: connectedCount.value,
+            responseCount: Object.keys(currentResponses.value).length,
+            stats: stats,
+            buzzerWinner: buzzerWinner.value,
+            leaderboard: leaderboard.value,
+            targetStudentCount: targetStudentCount.value,
+            groupCount: groupCount.value,
+            subject: currentSubject.value ? {
+              id: currentSubject.value.id,
+              name: currentSubject.value.name,
+              title: currentSubject.value.title || currentSubject.value.name,
+              totalQuestions: allQuestions.value.length
+            } : null
+          };
+
+          sync.emit('state_change', statePayload);
+          sync.saveStateSnapshot(statePayload);
+        };
+
+        // 倒數計時器
+        const startTimer = () => {
+          if (timerInterval) clearInterval(timerInterval);
+          timeLeft.value = timerDuration.value;
+          timerInterval = setInterval(() => {
+            if (timeLeft.value > 0) {
+              timeLeft.value--;
+              broadcastState();
+            } else {
+              clearInterval(timerInterval);
+              showDistribution();
+            }
+          }, 1000);
+        };
+
+        // 出題
+        const dispatchQuestion = () => {
+          if (!selectedQuestion.value) return;
+          currentResponses.value = {};
+          buzzerWinner.value = '';
+          // 為本次出題生成全域唯一 Round Token
+          activeRoundToken.value = `R_${selectedQuestion.value.id}_${Date.now()}`;
+
+          if (selectedQuestion.value.question_type === 'speed_buzzer') {
+            currentStage.value = 'BUZZER_ALERT';
+            broadcastState();
+          } else {
+            currentStage.value = 'QUESTION_ACTIVE';
+            startTimer();
+            broadcastState();
+          }
+        };
+
+        // 截止與公佈統計
+        const showDistribution = () => {
+          if (timerInterval) clearInterval(timerInterval);
+          currentStage.value = 'STATS';
+          broadcastState();
+        };
+
+        // 揭曉答案並即時計算學員/小組得分（三重防重複鎖：Round Token + 姓名去重 + 作答旗標，保證絕不重複計分！）
+        const revealAnswer = () => {
+          currentStage.value = 'REVEAL';
+
+          const currentToken = activeRoundToken.value;
+          // 鎖 1: 若未曾派題、或本輪題目已加入結算集合，直接廣播展示畫面，嚴禁二次計分
+          if (!currentToken || completedRoundTokens.value.has(currentToken)) {
+            console.log('[Host] 該題目回合已結算過，維持現狀不重複累計積分');
+            broadcastState();
+            return;
+          }
+
+          if (selectedQuestion.value) {
+            completedRoundTokens.value.add(currentToken);
+            const correctAns = (selectedQuestion.value.answer || '').trim();
+            const pts = parseInt(selectedQuestion.value.score, 10) || 100;
+
+            // 鎖 2: 同姓名作答去重（防止同一學員重整、多開分頁送出多筆作答導致單題多次加分）
+            const uniquePlayerResponses = {};
+            Object.values(currentResponses.value || {}).forEach(r => {
+              const normName = (r.playerName || '').trim();
+              if (normName) {
+                uniquePlayerResponses[normName] = r;
+              }
+            });
+
+            // 鎖 3: 逐筆紀錄檢查 scored 旗標
+            Object.values(uniquePlayerResponses).forEach(r => {
+              if (r.scored) return; // 該作答紀錄已加分過
+              r.scored = true;
+
+              const isCorrect = (r.option || '').trim().toUpperCase() === correctAns.toUpperCase();
+
+              if (roomMode.value === 'GROUP_REPRESENTATIVE') {
+                const team = groupScores.value[r.playerName];
+                if (team) {
+                  team.totalAnswers = Number(team.totalAnswers || 0) + 1;
+                  if (isCorrect) {
+                    team.score = Number(team.score || 0) + pts;
+                    team.correctCount = Number(team.correctCount || 0) + 1;
+                  }
+                }
+              } else {
+                const p = findOrCreateIndividualEntry(r.playerId, r.playerName);
+                p.totalAnswers = Number(p.totalAnswers || 0) + 1;
+                if (isCorrect) {
+                  p.score = Number(p.score || 0) + pts;
+                  p.correctCount = Number(p.correctCount || 0) + 1;
+                }
+              }
+            });
+
+            // 儲存本題歷史數據紀錄
+            const q = selectedQuestion.value;
+            const roundRecord = {
+              roundId: currentToken,
+              timestamp: new Date().toISOString(),
+              questionId: q.id,
+              module: q.module,
+              subcategory: q.subcategory || '',
+              question: q.question,
+              answer: q.answer,
+              scoreValue: pts,
+              responses: JSON.parse(JSON.stringify(uniquePlayerResponses)),
+              buzzerWinner: buzzerWinner.value || ''
+            };
+            gameSessionHistory.value.push(roundRecord);
+            if (sync && sync.emit) {
+              sync.emit('save_history', roundRecord);
+              sync.emit('save_scores', {
+                individualScores: individualScores.value,
+                groupScores: groupScores.value,
+                targetStudentCount: targetStudentCount.value,
+                groupCount: groupCount.value,
+                updatedAt: Date.now()
+              });
+            }
+            console.log(`[Host] 題目 #${q.id} (Token: ${currentToken}) 結算完成，積分已入帳！`);
+          }
+
+          broadcastState();
+        };
+
+        const previousStage = ref('REVEAL');
+
+        // 投影或關閉排行榜 (可切換開關，隨時返回出題或解析畫面)
+        const toggleLeaderboard = () => {
+          if (currentStage.value === 'LEADERBOARD') {
+            currentStage.value = previousStage.value || 'REVEAL';
+          } else {
+            previousStage.value = currentStage.value;
+            currentStage.value = 'LEADERBOARD';
+          }
+          broadcastState();
+        };
+
+        // 一鍵出下一題 (自動依序選題並發送，立刻離開排行榜進入新題目)
+        const nextQuestion = () => {
+          const pool = filteredQuestions.value;
+          if (!pool.length) return;
+          const currentIdx = pool.findIndex(q => selectedQuestion.value && q.id === selectedQuestion.value.id);
+          const nextIdx = (currentIdx + 1 < pool.length) ? (currentIdx + 1) : 0;
+          selectedQuestion.value = pool[nextIdx];
+          dispatchQuestion();
+        };
+
+        const resetToLobby = () => {
+          if (timerInterval) clearInterval(timerInterval);
+          currentStage.value = 'LOBBY';
+          broadcastState();
+        };
+
+        const exportResultsToCSV = () => {
+          let csv = '\uFEFF'; // UTF-8 BOM 防止 Excel 亂碼
+          csv += `=== 數據分析實戰遊戲 戰報紀錄 ===\n`;
+          csv += `房間代碼：,${roomId.value},匯出時間：,${new Date().toLocaleString()}\n\n`;
+
+          csv += `【全場總積分排行榜】\n`;
+          csv += `名次,暱稱/組別,總積分,答對題數,總作答題數,正確率\n`;
+          leaderboard.value.forEach((item, index) => {
+            const acc = item.totalAnswers ? Math.round((item.correctCount / item.totalAnswers) * 100) + '%' : '0%';
+            csv += `${index + 1},"${item.name}",${item.score},${item.correctCount || 0},${item.totalAnswers || 0},${acc}\n`;
+          });
+
+          csv += `\n【逐題作答詳細明細】\n`;
+          csv += `記錄時間,題號,模組,題目簡述,標準答案,學員/組別,選擇選項,是否答對,獲得分數\n`;
+
+          // 如果有全場歷次題目紀錄，匯出全場；否則匯出當前題目
+          const recordsToExport = gameSessionHistory.value.length > 0 ? gameSessionHistory.value : [{
+            timestamp: new Date().toISOString(),
+            questionId: selectedQuestion.value ? selectedQuestion.value.id : '',
+            module: selectedQuestion.value ? selectedQuestion.value.module : '',
+            question: selectedQuestion.value ? selectedQuestion.value.question : '',
+            answer: selectedQuestion.value ? selectedQuestion.value.answer : '',
+            scoreValue: selectedQuestion.value ? (selectedQuestion.value.score || 100) : 100,
+            responses: currentResponses.value
+          }];
+
+          recordsToExport.forEach(round => {
+            const qTitle = (round.question || '').replace(/[",\n]/g, ' ').slice(0, 30);
+            Object.values(round.responses || {}).forEach(r => {
+              const isCorrect = r.option === round.answer ? 'YES' : 'NO';
+              const score = isCorrect === 'YES' ? round.scoreValue : 0;
+              csv += `${round.timestamp},${round.questionId},${round.module},"${qTitle}",${round.answer},"${r.playerName}",${r.option},${isCorrect},${score}\n`;
+            });
+          });
+
+          const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = `DataQuest_GameReport_${roomId.value}_${new Date().toISOString().slice(0, 10)}.csv`;
+          link.click();
+        };
+
+        onMounted(async () => {
+          await loadQuestions();
+          sync = new GameSync(roomId.value, 'host');
+          if (sync && sync.firebaseDb) {
+            try {
+              // 銷毀當前房間可能殘留的重定向指針，解鎖全場卡死
+              sync.firebaseDb.ref(`rooms/${roomId.value}/redirect`).remove();
+            } catch (e) {}
+          }
+
+          // 自動嘗試恢復當前房間既有存檔與科目
+          if (sync && sync.loadRoomData) {
+            try {
+              const saved = await sync.loadRoomData(roomId.value);
+              if (saved && saved.exists && saved.subject && saved.subject.id) {
+                if (saved.subject.sheetUrl) {
+                  await loadQuestions(saved.subject.sheetUrl);
+                } else {
+                  await loadQuestions(saved.subject.id);
+                }
+              }
+              if (saved && saved.exists && saved.scores) {
+                individualScores.value = consolidateDuplicateScores(saved.scores.individualScores || {});
+                if (saved.scores.groupCount) groupCount.value = Number(saved.scores.groupCount);
+                if (saved.scores.targetStudentCount) targetStudentCount.value = Number(saved.scores.targetStudentCount);
+                groupScores.value = createGroupScores(groupCount.value, saved.scores.groupScores || {});
+                gameSessionHistory.value = saved.history || [];
+                if (saved.state && saved.state.mode) roomMode.value = saved.state.mode;
+              }
+            } catch (err) {}
+          }
+
+          if (sync.isFirebaseReady) {
+            isFirebaseActive.value = true;
+          }
+          sync.on('connection_status', ({ online }) => {
+            isFirebaseActive.value = online;
+          });
+          sync.on('firebase_connected', () => {
+            isFirebaseActive.value = true;
+          });
+
+          // 監聽線上真實學生人數並自動登錄至個人名冊（同名自動合併，防分身）
+          sync.on('players_update', ({ count, players }) => {
+            connectedCount.value = count;
+            if (roomMode.value === 'INDIVIDUAL' && players) {
+              Object.values(players).forEach(p => {
+                if (p && (p.name || p.id)) {
+                  findOrCreateIndividualEntry(p.id, p.name);
+                }
+              });
+            }
+            broadcastState();
+          });
+
+          // 監聽學生端作答並自動建檔（同名自動合併，防分身）
+          sync.on('submit_answer', (answerData) => {
+            currentResponses.value[answerData.playerId] = answerData;
+            if (roomMode.value === 'INDIVIDUAL') {
+              findOrCreateIndividualEntry(answerData.playerId, answerData.playerName);
+            }
+            broadcastState();
+          });
+
+          // 監聽搶答
+          sync.on('buzzer_hit', (buzzerData) => {
+            if (!buzzerWinner.value) {
+              buzzerWinner.value = buzzerData.playerName;
+              currentStage.value = 'BUZZER_WINNER';
+              startTimer();
+              broadcastState();
+            }
+          });
+
+          broadcastState();
+        });
+
+        return {
+          isFirebaseActive,
+          resetLeaderboard,
+          roomId,
+          roomInput,
+          changeRoom,
+          generateRandomRoom,
+          gameSessionHistory,
+          roomMode,
+          currentStage,
+          targetStudentCount,
+          groupCount,
+          setTargetStudentCount,
+          setGroupCount,
+          onSettingsChange,
+          onGroupCountChange,
+          hasCurrentRoundBeenScored,
+          timerDuration,
+          timeLeft,
+          allQuestions,
+          availableModules,
+          availableSubjects,
+          selectedSubjectId,
+          currentSubject,
+          onSubjectSelectChange,
+          showSheetModal,
+          inputSheetUrl,
+          inputSheetSubjectName,
+          isSheetLoading,
+          sheetLoadStatus,
+          fillSampleSheet,
+          loadCustomGoogleSheet,
+          filterModule,
+          filterDifficulty,
+          selectedQuestion,
+          filteredQuestions,
+          currentResponses,
+          expectedResponsesCount,
+          responseProgressPercent,
+          optionCounts,
+          buzzerWinner,
+          connectedCount,
+          selectQuestion,
+          pickRandomQuestion,
+          setMode,
+          setDuration,
+          addTime,
+          dispatchQuestion,
+          showDistribution,
+          revealAnswer,
+          toggleLeaderboard,
+          nextQuestion,
+          resetToLobby,
+          exportResultsToCSV
+        };
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>

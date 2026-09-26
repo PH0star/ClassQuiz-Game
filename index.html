@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>跨科目實戰線上互動遊戲系統 - 導航入口</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: #080c14;
+      color: #e2e8f0;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-center items-center p-6">
+  <div class="max-w-4xl w-full space-y-8 my-auto">
+    
+    <!-- 頂部標題區 -->
+    <div class="text-center space-y-3">
+      <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-bold tracking-widest uppercase">
+        <span>✨ Multi-Subject Interactive Quiz System</span>
+      </div>
+      <h1 class="text-3xl lg:text-4xl font-black text-white tracking-tight">
+        跨科目實戰線上互動競賽遊戲系統
+      </h1>
+      <p class="text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        專為大班級實體課堂設計：外接投影大螢幕高對比自適應、手機掃碼即時搶答作答、支援自由載入任意 Google Sheet 雲端題庫，並可於「視覺設計（400題）」與「數據分析（200題）」等科目自由秒級切換！
+      </p>
+    </div>
+
+    <!-- 現有支援科目卡片 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-slate-900/80 border border-amber-500/30 rounded-2xl p-4 flex items-center space-x-4 shadow-lg">
+        <span class="text-3xl p-3 bg-amber-500/10 rounded-xl border border-amber-500/20">🎨</span>
+        <div class="space-y-1">
+          <div class="flex items-center space-x-2">
+            <h3 class="text-base font-bold text-amber-300">視覺設計專業題庫</h3>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-950 text-amber-300 font-bold border border-amber-500/40">400 題完整版</span>
+          </div>
+          <p class="text-xs text-slate-400">設計概念、色彩學、檔案類型、影像設計工具、CIS品牌識別、印前製程 6 大單元。</p>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/80 border border-cyan-500/30 rounded-2xl p-4 flex items-center space-x-4 shadow-lg">
+        <span class="text-3xl p-3 bg-cyan-500/10 rounded-xl border border-cyan-500/20">📊</span>
+        <div class="space-y-1">
+          <div class="flex items-center space-x-2">
+            <h3 class="text-base font-bold text-cyan-300">數據分析實戰題庫</h3>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 font-bold border border-cyan-500/40">200 題完整版</span>
+          </div>
+          <p class="text-xs text-slate-400">新手入門 (80題無程式碼)、數據抓取、資料清理、資料視覺化、分析流程 5 大單元。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 三大系統入口卡片 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      
+      <!-- 卡片 1: 教師主控台 -->
+      <a href="console.html" target="_blank"
+         class="group bg-slate-900/90 hover:bg-slate-800/90 border border-slate-800 hover:border-blue-500/50 rounded-2xl p-6 transition-all shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 text-blue-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+            🕹️
+          </div>
+          <h2 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">教師主控台</h2>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            操作於筆電主螢幕。支援自由切換科目、輸入 Google Sheet 試算表即時載入題目、預覽答案與解析、計時出題、排行榜投影與人數組數自訂。
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800/80 text-xs font-bold text-blue-400 flex items-center justify-between">
+          <span>開啟主控台</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- 卡片 2: 題目投影大螢幕 -->
+      <a href="projector.html" target="_blank"
+         class="group bg-slate-900/90 hover:bg-slate-800/90 border border-slate-800 hover:border-cyan-500/50 rounded-2xl p-6 transition-all shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-cyan-600/20 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+            📺
+          </div>
+          <h2 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">題目投影大畫面</h2>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            外接投影機全螢幕播放。具備 16:9 與 4:3 滿版自適應、高對比大字體、搶答成功者即時公佈與題目同步呈現、大字體觀念重點教學卡片。
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800/80 text-xs font-bold text-cyan-400 flex items-center justify-between">
+          <span>開啟投影大螢幕</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- 卡片 3: 學員手機端 -->
+      <a href="play.html" target="_blank"
+         class="group bg-slate-900/90 hover:bg-slate-800/90 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 transition-all shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+            📱
+          </div>
+          <h2 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">學員手機作答端</h2>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            學員手機掃碼作答。提供四色大按鈕、極速搶答蜂鳴鈕、斷線重登身分自動保留、動態小組選單適配與即時得分反饋。
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800/80 text-xs font-bold text-emerald-400 flex items-center justify-between">
+          <span>開啟手機作答端</span>
+          <span>→</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- 雲端試算表與設定指引 -->
+    <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5 text-xs text-slate-300 space-y-3">
+      <div class="font-bold text-white flex items-center justify-between">
+        <div class="flex items-center space-x-1.5">
+          <span>📋</span>
+          <span>官方 Google Sheet 雲端題庫範本：</span>
+        </div>
+        <span class="text-cyan-400 text-[11px] font-mono">支援在線檢視與一鍵複製副本</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+        <a href="https://docs.google.com/spreadsheets/d/1cfztbR0I5KIG4u9c06yFGS1u3y0qLFFPeihJ526nOoQ/edit?usp=sharing" target="_blank"
+           class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-400 text-amber-300 flex items-center justify-between group">
+          <span>🎨 視覺設計 400 題 Google Sheet 試算表</span>
+          <span class="group-hover:translate-x-1 transition-transform">↗</span>
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/1GJNNymUhtKtW0LDy8ifpa688_7TXHgpuc-uFLmmi2Bg/edit?usp=sharing" target="_blank"
+           class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-400 text-cyan-300 flex items-center justify-between group">
+          <span>📊 數據分析 200 題 Google Sheet 試算表</span>
+          <span class="group-hover:translate-x-1 transition-transform">↗</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
