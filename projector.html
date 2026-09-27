@@ -133,11 +133,11 @@
 
     /* 搶答燈全螢幕閃爍 */
     .buzzer-alert {
-      animation: buzzerFlash 0.5s infinite alternate;
+      animation: buzzerGlow 1.2s infinite alternate;
     }
-    @keyframes buzzerFlash {
-      from { background-color: rgba(220, 38, 38, 0.2); }
-      to { background-color: rgba(220, 38, 38, 0.5); }
+    @keyframes buzzerGlow {
+      from { box-shadow: inset 0 0 30px rgba(239, 68, 68, 0.25); }
+      to { box-shadow: inset 0 0 80px rgba(239, 68, 68, 0.55); }
     }
   </style>
 </head>
@@ -249,18 +249,7 @@
         </div>
       </div>
 
-      <!-- 狀態 2: 搶答題專屬過場 (BUZZER_ALERT) -->
-      <div v-else-if="currentStage === 'BUZZER_ALERT'" class="flex flex-col items-center justify-center text-center space-y-4 my-auto">
-        <div class="text-6xl animate-bounce">⚡</div>
-        <h2 class="text-4xl lg:text-5xl font-black text-amber-300 tracking-wider">
-          【極速搶答題】
-        </h2>
-        <p class="text-xl lg:text-2xl text-slate-300">請盯緊大螢幕，按下手機端搶答按鈕！</p>
-        <div class="inline-flex items-center space-x-2.5 bg-slate-900/90 px-6 py-2 rounded-full border-2 border-amber-400 font-mono text-amber-300 shadow-2xl animate-pulse">
-          <span class="text-sm uppercase tracking-widest text-slate-400 font-sans">搶答倒數：</span>
-          <strong class="text-white text-2xl lg:text-3xl font-black">{{ timeLeft }}s</strong>
-        </div>
-      </div>
+<!-- BUZZER_ALERT 整合至題目與選項畫面中，保證學員能同步審題 -->
 
 
 
@@ -317,10 +306,26 @@
         </div>
       </div>
 
-      <!-- 狀態 4: 出題展示與搶答作答 (QUESTION_ACTIVE / BUZZER_WINNER / STATS / REVEAL) -->
-      <div v-else-if="currentQuestion && (currentStage === 'QUESTION_ACTIVE' || currentStage === 'BUZZER_WINNER' || currentStage === 'STATS' || currentStage === 'REVEAL')" 
+      <!-- 狀態 4: 出題展示與搶答作答 (QUESTION_ACTIVE / BUZZER_ALERT / BUZZER_WINNER / STATS / REVEAL) -->
+      <div v-else-if="currentQuestion && (currentStage === 'QUESTION_ACTIVE' || currentStage === 'BUZZER_ALERT' || currentStage === 'BUZZER_WINNER' || currentStage === 'STATS' || currentStage === 'REVEAL')" 
            class="flex flex-col h-full justify-between overflow-hidden">
         
+        <!-- 搶答準備中專屬橫幅 (BUZZER_ALERT 階段：大螢幕同時顯示題目與選項，提醒學員審題並搶答！) -->
+        <div v-if="currentStage === 'BUZZER_ALERT'" 
+             class="bg-gradient-to-r from-red-600/30 via-red-500/20 to-red-600/30 border-2 border-red-500 rounded-2xl p-3 lg:p-3.5 flex items-center justify-between text-red-300 font-bold mb-2 shadow-2xl animate-pulse flex-shrink-0">
+          <div class="flex items-center space-x-3 text-base lg:text-2xl">
+            <span class="text-2xl lg:text-3xl animate-bounce">⚡</span>
+            <div>
+              <span class="text-red-400 font-black tracking-wider">【極速搶答題開放搶答】</span>
+              <span class="text-white font-bold text-sm lg:text-xl ml-2">請審題並立刻在手機端按下「搶！」</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-2 bg-slate-900/90 px-4 py-1.5 rounded-full border border-red-400 font-mono text-amber-300 text-sm lg:text-lg">
+            <span class="text-slate-400">搶答倒數：</span>
+            <strong class="text-white text-xl lg:text-2xl font-black">{{ timeLeft }}s</strong>
+          </div>
+        </div>
+
         <!-- 搶答成功榮譽橫幅 (僅在 BUZZER_WINNER 搶答階段呈現，大螢幕同步顯示題目與選項！) -->
         <div v-if="currentStage === 'BUZZER_WINNER'" 
              class="bg-gradient-to-r from-amber-500/25 via-amber-400/20 to-amber-500/25 border-2 border-amber-400 rounded-2xl p-3 lg:p-3.5 flex items-center justify-between text-amber-300 font-bold mb-2 shadow-2xl animate-pulse flex-shrink-0">
@@ -532,7 +537,7 @@
         };
 
         const isAnswering = computed(() => {
-          return currentStage.value === 'QUESTION_ACTIVE' || currentStage.value === 'BUZZER_WINNER';
+          return currentStage.value === 'QUESTION_ACTIVE' || currentStage.value === 'BUZZER_ALERT' || currentStage.value === 'BUZZER_WINNER';
         });
 
         const showStats = computed(() => {
@@ -547,7 +552,7 @@
           const map = {
             'LOBBY': '等待學員加入...',
             'QUESTION_ACTIVE': '題目進行中，開放作答',
-            'BUZZER_ALERT': '搶答準備！',
+            'BUZZER_ALERT': '極速搶答題！請審題並於手機搶答',
             'BUZZER_WINNER': '搶答成功，作答中',
             'STATS': '作答截止，統計選情',
             'REVEAL': '公佈標準答案與核心解析',
