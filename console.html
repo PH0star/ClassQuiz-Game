@@ -431,6 +431,12 @@
           <button @click="showSheetModal = false" class="text-slate-400 hover:text-white text-lg font-bold">✕</button>
         </div>
 
+        <!-- 全域狀態提示條 -->
+        <div v-if="sheetLoadStatus" class="p-2.5 rounded-xl text-xs font-bold shadow-md transition-all"
+             :class="sheetLoadStatus.isError ? 'bg-rose-950/90 text-rose-300 border border-rose-500/60' : 'bg-emerald-950/90 text-emerald-300 border border-emerald-500/60'">
+          {{ sheetLoadStatus.message }}
+        </div>
+
         <!-- 分頁切換列 -->
         <div class="flex items-center space-x-2 border-b border-slate-800/80 pb-2">
           <button @click="modalTab = 'list'"
@@ -519,10 +525,7 @@
               </div>
             </div>
 
-            <div v-if="sheetLoadStatus" class="p-2.5 rounded-xl text-xs font-bold"
-                 :class="sheetLoadStatus.isError ? 'bg-rose-950/80 text-rose-300 border border-rose-500/50' : 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/50'">
-              {{ sheetLoadStatus.message }}
-            </div>
+
           </div>
 
           <div class="flex items-center justify-end space-x-3 pt-2 border-t border-slate-800">
@@ -833,6 +836,12 @@
               availableSubjects.value = subjectLoader.getSubjects();
               selectedSubjectId.value = res.subject.id;
 
+              // 自動切換到已掛載題庫清單頁籤，提供直觀反饋
+              modalTab.value = 'list';
+              sheetLoadStatus.value = { isError: false, message: `🎉 成功掛載【${res.subject.name}】共 ${res.questions.length} 題！已設為目前全場進行中題庫。` };
+              inputSheetUrl.value = '';
+              inputSheetSubjectName.value = '';
+
               // 同步儲存至 Firebase 雲端資料庫，讓其他任何裝置皆能自動共享此題庫！
               if (sync && sync.firebaseDb) {
                 try {
@@ -842,7 +851,7 @@
                     title: res.subject.title,
                     description: res.subject.description,
                     sheetUrl: res.subject.sheetUrl,
-                    questionCount: res.subject.questionCount,
+                    questionCount: res.subject.questionCount || res.questions.length,
                     mountedAt: res.subject.mountedAt || Date.now(),
                     updatedAt: Date.now()
                   });
@@ -853,9 +862,10 @@
               }
 
               setTimeout(() => {
-                showSheetModal.value = false;
-                sheetLoadStatus.value = null;
-              }, 1200);
+                if (sheetLoadStatus.value && !sheetLoadStatus.value.isError) {
+                  sheetLoadStatus.value = null;
+                }
+              }, 4000);
 
               broadcastState();
               if (sync && sync.emit) {
@@ -1264,17 +1274,28 @@
               // 銷毀當前房間可能殘留的重定向指針，解鎖全場卡死
               sync.firebaseDb.ref(`rooms/${roomId.value}/redirect`).remove();
 
-              // 雲端跨裝置同步：即時監聽 Firebase 全域掛載題庫清單 (跨手機、平板、公用電腦自動秒級同步)
+              // 雲端跨裝置同步：即時監聽 Firebase 全域掛載題庫清單 (安全雙向同步：只合併不抹除)
               const mountedBanksRef = sync.firebaseDb.ref('mounted_question_banks');
               mountedBanksRef.on('value', async (snapshot) => {
                 const cloudBanks = snapshot.val() || {};
                 const bankList = Object.values(cloudBanks);
-                availableSubjects.value = subjectLoader.syncCloudMountedSubjects(bankList);
-                // 若當前正開啟的自訂題庫已被其他裝置自雲端卸載，安全退回預設題庫
-                if (selectedSubjectId.value.startsWith('sheet_') && !bankList.some(b => b.id === selectedSubjectId.value)) {
-                  console.log('[Host] 當前題庫已被其他裝置自雲端卸載，自動切換回預設題庫');
-                  await loadQuestions('visual_design');
-                }
+                availableSubjects.value = subjectLoader.syncCloudMountedSubjects(bankList, (localSubjToUpload) => {
+                  // 本地掛載但雲端缺失的項目，自動補上傳至雲端
+                  if (sync && sync.firebaseDb) {
+                    try {
+                      sync.firebaseDb.ref(`mounted_question_banks/${localSubjToUpload.id}`).set({
+                        id: localSubjToUpload.id,
+                        name: localSubjToUpload.name,
+                        title: localSubjToUpload.title,
+                        description: localSubjToUpload.description,
+                        sheetUrl: localSubjToUpload.sheetUrl,
+                        questionCount: localSubjToUpload.questionCount || 0,
+                        mountedAt: localSubjToUpload.mountedAt || Date.now(),
+                        updatedAt: Date.now()
+                      });
+                    } catch (e) {}
+                  }
+                });
               });
             } catch (e) {
               console.warn('[Host] 雲端題庫監聽失敗:', e);

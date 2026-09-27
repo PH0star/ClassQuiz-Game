@@ -4,6 +4,7 @@
 
 (function(window) {
   const MOUNTED_STORAGE_KEY = 'game_mounted_subjects';
+  const UNMOUNTED_STORAGE_KEY = 'game_unmounted_subject_ids';
 
   // 內建核心預設科目清單 (不可卸載)
   const BUILTIN_SUBJECTS = [
@@ -15,6 +16,7 @@
       file: 'questions_visual_design.json',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/1wmg9hMwzmxOhcWRzraX3ayNJh9WsFKBmStJXWiYsMdQ/edit?usp=sharing',
       defaultModule: '設計概念',
+      questionCount: 400,
       isBuiltin: true
     },
     {
@@ -25,6 +27,7 @@
       file: 'questions.json',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/1GJNNymUhtKtW0LDy8ifpa688_7TXHgpuc-uFLmmi2Bg/edit?usp=sharing',
       defaultModule: '新手入門',
+      questionCount: 200,
       isBuiltin: true
     }
   ];
@@ -39,10 +42,23 @@
       return url;
     }
 
-    // 擷取 Sheet ID
+    // 支援發布至網路的 /pubhtml 網址
+    if (url.includes('/pubhtml')) {
+      return url.replace('/pubhtml', '/pub?output=csv');
+    }
+
+    // 若直接輸入純 Sheet ID (英數字、底線、減號，長度 >= 20)
+    if (/^[a-zA-Z0-9-_]{20,}$/.test(url)) {
+      return `https://docs.google.com/spreadsheets/d/${url}/gviz/tq?tqx=out:csv`;
+    }
+
+    // 擷取一般 Google 試算表 ID
     const match = url.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
     if (match && match[1]) {
       const sheetId = match[1];
+      if (sheetId === 'e') {
+        return url.replace(/\/(pubhtml|edit).*$/, '/pub?output=csv');
+      }
       const gidMatch = url.match(/[#&?]gid=([0-9]+)/);
       const gidParam = gidMatch ? `&gid=${gidMatch[1]}` : '';
       return `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv${gidParam}`;
@@ -126,14 +142,12 @@
     };
 
     const headerIndices = {};
-    // 第一輪：優先進行精確字串比對 (防止 question 與 question_type 誤配)
     for (const [standardKey, candidates] of Object.entries(fieldMap)) {
       const idx = headers.findIndex(h => candidates.some(c => h === c));
       if (idx !== -1) {
         headerIndices[standardKey] = idx;
       }
     }
-    // 第二輪：針對未匹配項進行模糊子字串比對
     for (const [standardKey, candidates] of Object.entries(fieldMap)) {
       if (headerIndices[standardKey] === undefined) {
         const idx = headers.findIndex(h => candidates.some(c => h.includes(c) || c.includes(h)));
@@ -191,16 +205,18 @@
     return parsedQuestions;
   }
 
-  // 跨科目載入器主類別 (包含本機持久化掛載與卸載管理)
+  // 跨科目載入器主類別 (包含本機持久化掛載、內存快取與安全雙向雲端同步)
   class SubjectLoader {
     constructor() {
       this.builtinSubjects = BUILTIN_SUBJECTS;
       this.mountedSubjects = this.loadMountedFromStorage();
+      this.unmountedIds = this.loadUnmountedFromStorage();
+      this.memoryQuestionCache = new Map();
       this.currentSubject = BUILTIN_SUBJECTS[0]; // 預設視覺設計
       this.loadedQuestions = [];
     }
 
-    // 從 localStorage 讀取自訂掛載科目
+    // 從 localStorage 讀取自訂掛載題庫中繼資料 (輕量 < 2KB，絕不超標)
     loadMountedFromStorage() {
       try {
         if (typeof localStorage !== 'undefined') {
@@ -218,15 +234,45 @@
       return [];
     }
 
-    // 將自訂掛載科目存入 localStorage
+    // 儲存掛載題庫中繼資料 (僅儲存基本參數，不儲存數百題內容以防止 QuotaExceededError)
     saveMountedToStorage() {
       try {
         if (typeof localStorage !== 'undefined') {
-          localStorage.setItem(MOUNTED_STORAGE_KEY, JSON.stringify(this.mountedSubjects));
+          const cleanList = this.mountedSubjects.map(s => ({
+            id: s.id,
+            name: s.name,
+            title: s.title,
+            description: s.description,
+            sheetUrl: s.sheetUrl,
+            questionCount: s.questionCount || 0,
+            mountedAt: s.mountedAt || Date.now(),
+            isBuiltin: false
+          }));
+          localStorage.setItem(MOUNTED_STORAGE_KEY, JSON.stringify(cleanList));
         }
       } catch (e) {
         console.warn('[SubjectLoader] 儲存本地掛載題庫失敗:', e);
       }
+    }
+
+    loadUnmountedFromStorage() {
+      try {
+        if (typeof localStorage !== 'undefined') {
+          const raw = localStorage.getItem(UNMOUNTED_STORAGE_KEY);
+          if (raw) {
+            return new Set(JSON.parse(raw));
+          }
+        }
+      } catch (e) {}
+      return new Set();
+    }
+
+    saveUnmountedToStorage() {
+      try {
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem(UNMOUNTED_STORAGE_KEY, JSON.stringify(Array.from(this.unmountedIds)));
+        }
+      } catch (e) {}
     }
 
     // 取得所有可用科目 (內建 + 已掛載)
@@ -242,43 +288,17 @@
       return this.mountedSubjects;
     }
 
-    // 同步來自 Firebase 雲端的跨裝置掛載題庫清單
-    syncCloudMountedSubjects(cloudBankList) {
-      if (!Array.isArray(cloudBankList)) return this.getSubjects();
-
-      const existingMap = new Map();
-      this.mountedSubjects.forEach(s => existingMap.set(s.id, s));
-
-      const updatedMounted = [];
-      cloudBankList.forEach(item => {
-        if (!item || !item.id) return;
-        const existing = existingMap.get(item.id);
-        updatedMounted.push({
-          id: item.id,
-          name: item.name || '📋 自訂試算表題庫',
-          title: item.title || (item.name || '').replace(/^📋\s*/, ''),
-          description: item.description || `自 Google Sheet 掛載，共 ${item.questionCount || 0} 題`,
-          sheetUrl: item.sheetUrl,
-          questionCount: item.questionCount || 0,
-          mountedAt: item.mountedAt || Date.now(),
-          cachedQuestions: existing ? existing.cachedQuestions : null,
-          isBuiltin: false
-        });
-      });
-
-      this.mountedSubjects = updatedMounted;
-      this.saveMountedToStorage();
-      console.log(`[SubjectLoader] ☁️ 已成功與 Firebase 雲端同步 ${this.mountedSubjects.length} 個自訂掛載題庫`);
-      return this.getSubjects();
-    }
-
     // 掛載新題庫或更新現有掛載題庫
-    mountSubject(sheetUrl, customName, questions) {
+    mountSubject(sheetUrl, customName, questions = []) {
       if (!sheetUrl) return null;
       const cleanUrl = sheetUrl.trim();
       const match = cleanUrl.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
       const sheetKey = match ? match[1].slice(0, 16) : Date.now().toString(36);
       const subjectId = `sheet_${sheetKey}`;
+
+      // 若先前曾被卸載，重新掛載時移出卸載黑名單
+      this.unmountedIds.delete(subjectId);
+      this.saveUnmountedToStorage();
 
       const displayName = customName && customName.trim() ? customName.trim() : '📋 自訂試算表題庫';
       const existingIdx = this.mountedSubjects.findIndex(s => s.id === subjectId || s.sheetUrl === cleanUrl);
@@ -291,16 +311,20 @@
         sheetUrl: cleanUrl,
         questionCount: questions.length,
         mountedAt: Date.now(),
-        cachedQuestions: questions,
         isBuiltin: false
       };
 
       if (existingIdx >= 0) {
         this.mountedSubjects[existingIdx] = subjectInfo;
-        console.log(`[SubjectLoader] 🔄 已更新現有掛載題庫: ${displayName} (${subjectId})`);
+        console.log(`[SubjectLoader] 🔄 已更新掛載題庫: ${displayName} (${subjectId})`);
       } else {
         this.mountedSubjects.push(subjectInfo);
         console.log(`[SubjectLoader] ➕ 成功掛載新題庫: ${displayName} (${subjectId})`);
+      }
+
+      // 記憶體快取：當前 session 內免重複拉取
+      if (questions && questions.length > 0) {
+        this.memoryQuestionCache.set(subjectId, questions);
       }
 
       this.saveMountedToStorage();
@@ -310,22 +334,18 @@
 
     // 卸載自訂題庫
     unmountSubject(subjectId) {
-      // 內建核心科目受到保護，不可卸載
       if (this.builtinSubjects.some(s => s.id === subjectId)) {
         return { success: false, error: '系統內建核心題庫受到保護，無法卸載！' };
       }
 
-      const beforeLen = this.mountedSubjects.length;
       this.mountedSubjects = this.mountedSubjects.filter(s => s.id !== subjectId);
-
-      if (this.mountedSubjects.length === beforeLen) {
-        return { success: false, error: '找不到指定之掛載題庫' };
-      }
+      this.memoryQuestionCache.delete(subjectId);
+      this.unmountedIds.add(subjectId);
 
       this.saveMountedToStorage();
+      this.saveUnmountedToStorage();
       console.log(`[SubjectLoader] 🗑️ 成功卸載題庫: ${subjectId}`);
 
-      // 若目前啟用的剛好是被卸載的科目，安全切換回預設視覺設計
       let fallbackSubject = null;
       if (this.currentSubject && this.currentSubject.id === subjectId) {
         this.currentSubject = this.builtinSubjects[0];
@@ -337,6 +357,48 @@
         remaining: this.getSubjects(),
         fallbackSubject: fallbackSubject
       };
+    }
+
+    // 安全雙向同步：整合來自 Firebase 雲端的題庫清單 (絕不暴力抹除本地自訂題庫！)
+    syncCloudMountedSubjects(cloudBankList, pushLocalToCloudCallback = null) {
+      if (!Array.isArray(cloudBankList)) return this.getSubjects();
+
+      const existingMap = new Map();
+      this.mountedSubjects.forEach(s => existingMap.set(s.id, s));
+
+      // 1. 併入雲端題目
+      cloudBankList.forEach(item => {
+        if (!item || !item.id) return;
+        if (this.unmountedIds.has(item.id)) return; // 若本地已主動卸載，不予復活
+
+        const subjectInfo = {
+          id: item.id,
+          name: item.name || '📋 自訂試算表題庫',
+          title: item.title || (item.name || '').replace(/^📋\s*/, ''),
+          description: item.description || `自 Google Sheet 掛載，共 ${item.questionCount || 0} 題`,
+          sheetUrl: item.sheetUrl,
+          questionCount: item.questionCount || 0,
+          mountedAt: item.mountedAt || Date.now(),
+          isBuiltin: false
+        };
+
+        existingMap.set(item.id, subjectInfo);
+      });
+
+      // 2. 本地存在但雲端尚未擁有的題庫，自動向上補傳
+      if (pushLocalToCloudCallback) {
+        existingMap.forEach((localSubj, id) => {
+          if (!cloudBankList.some(c => c && c.id === id)) {
+            console.log(`[SubjectLoader] ⬆️ 本地題庫 ${localSubj.name} 自動同步上傳至雲端`);
+            pushLocalToCloudCallback(localSubj);
+          }
+        });
+      }
+
+      this.mountedSubjects = Array.from(existingMap.values());
+      this.saveMountedToStorage();
+      console.log(`[SubjectLoader] ☁️ 題庫整合完成，目前共有 ${this.mountedSubjects.length} 個自訂掛載題庫`);
+      return this.getSubjects();
     }
 
     // 依科目 ID 或 Google Sheet 網址載入題庫
@@ -369,18 +431,18 @@
       const mounted = this.mountedSubjects.find(s => s.id === subjectIdOrUrl);
       if (mounted) {
         this.currentSubject = mounted;
-        // 若有本地暫存題目，優先秒開
-        if (mounted.cachedQuestions && mounted.cachedQuestions.length > 0) {
-          this.loadedQuestions = mounted.cachedQuestions;
-          console.log(`[SubjectLoader] ⚡ 從本機快取載入掛載題庫【${mounted.name}】共 ${this.loadedQuestions.length} 題`);
+        // 優先檢查 RAM 快取
+        if (this.memoryQuestionCache.has(mounted.id)) {
+          this.loadedQuestions = this.memoryQuestionCache.get(mounted.id);
+          console.log(`[SubjectLoader] ⚡ 從記憶體秒開題庫【${mounted.name}】共 ${this.loadedQuestions.length} 題`);
           return {
             success: true,
             subject: mounted,
             questions: this.loadedQuestions,
-            sourceType: 'mounted_cache'
+            sourceType: 'ram_cache'
           };
         }
-        // 若無快取則重新從試算表拉取
+        // 從 Google Sheet 拉取最新並填入快取
         return await this.loadFromGoogleSheet(mounted.sheetUrl, mounted.name, true);
       }
 
@@ -413,12 +475,14 @@
             title: customName || '試算表互動競賽',
             description: `自試算表即時載入，共 ${questions.length} 題`,
             sheetUrl: sheetUrl,
-            questionCount: questions.length
+            questionCount: questions.length,
+            isBuiltin: false
           };
           this.currentSubject = subjectInfo;
         }
 
         this.loadedQuestions = questions;
+        this.memoryQuestionCache.set(subjectInfo.id, questions);
         console.log(`[SubjectLoader] 🟢 成功從 Google Sheet 載入 ${questions.length} 題！`);
 
         return {
