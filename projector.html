@@ -642,6 +642,22 @@
           checkWindowRatio();
           window.addEventListener('resize', checkWindowRatio);
 
+          // 本地即時快照還原，保證大螢幕刷新時瞬間載入題目與選項
+          try {
+            const raw = localStorage.getItem(`state_${roomId.value}`);
+            if (raw) {
+              const parsed = JSON.parse(raw);
+              const data = parsed.data || parsed;
+              if (data) {
+                if (data.stage) currentStage.value = data.stage;
+                if (data.question) currentQuestion.value = data.question;
+                if (data.timeLeft !== undefined) timeLeft.value = data.timeLeft;
+                if (data.mode) roomMode.value = data.mode;
+                if (data.buzzerWinner) buzzerWinnerName.value = data.buzzerWinner;
+              }
+            }
+          } catch (e) {}
+
           sync = new GameSync(roomId.value, 'projector');
 
           if (sync.isFirebaseReady) {

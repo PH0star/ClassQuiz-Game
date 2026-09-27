@@ -119,82 +119,158 @@
         </div>
       </div>
 
-      <!-- 階段 2: 搶答題專屬按鈕 (BUZZER_ALERT) -->
-      <div v-else-if="currentStage === 'BUZZER_ALERT'" class="flex flex-col items-center justify-center space-y-5 py-4">
+      <!-- 階段 2: 搶答題專屬按鈕與題目審題預覽 (BUZZER_ALERT) -->
+      <div v-else-if="currentStage === 'BUZZER_ALERT'" class="space-y-4 py-2">
         <!-- 搶答倒數秒數狀態條 (高對比醒目提示) -->
-        <div class="flex items-center space-x-2 px-4 py-1.5 rounded-full border shadow-lg transition-all"
-             :class="timeLeft <= 5 ? 'bg-rose-950/80 border-rose-500 text-rose-300 animate-pulse' : 'bg-slate-900/90 border-amber-500/50 text-amber-300'">
-          <span class="text-sm">⚡</span>
-          <span class="text-xs font-bold tracking-wider">搶答倒數剩餘：</span>
-          <span class="text-lg font-black font-mono px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-400">
-            {{ timeLeft }}
-          </span>
-          <span class="text-xs font-bold">秒</span>
+        <div class="flex items-center justify-between px-4 py-2 rounded-xl border shadow-lg transition-all"
+             :class="timeLeft <= 5 ? 'bg-rose-950/90 border-rose-500 text-rose-300 animate-pulse' : 'bg-slate-900/90 border-amber-500/50 text-amber-300'">
+          <div class="flex items-center space-x-2">
+            <span class="text-base animate-bounce">⚡</span>
+            <span class="text-xs font-bold tracking-wider">極速搶答進行中！</span>
+          </div>
+          <div class="flex items-center space-x-1.5 font-mono">
+            <span class="text-xs text-slate-400">剩餘</span>
+            <span class="text-xl font-black px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-400">
+              {{ timeLeft }}
+            </span>
+            <span class="text-xs font-bold">秒</span>
+          </div>
         </div>
 
-        <!-- 搶答大蜂鳴按鈕 (大字體搶答與秒數同步展示) -->
-        <button @click="hitBuzzer"
-                class="buzzer-circle w-52 h-52 rounded-full bg-gradient-to-b from-red-500 via-red-600 to-red-700 text-white font-black text-3xl shadow-2xl flex flex-col items-center justify-center border-4 border-red-400 tap-btn select-none active:scale-95 transition-transform">
-          <span class="tracking-widest drop-shadow-md">搶！</span>
-          <span class="text-xs font-mono font-bold mt-1.5 px-3 py-0.5 rounded-full bg-red-900/80 border border-red-300/40 text-red-100">
-            ⏱️ 剩餘 {{ timeLeft }} 秒
-          </span>
-        </button>
+        <!-- 搶答大蜂鳴按鈕 (醒目置頂快速點擊) -->
+        <div class="flex flex-col items-center justify-center py-2">
+          <button @click="hitBuzzer"
+                  class="buzzer-circle w-44 h-44 rounded-full bg-gradient-to-b from-red-500 via-red-600 to-red-700 text-white font-black text-3xl shadow-2xl flex flex-col items-center justify-center border-4 border-red-300 tap-btn select-none active:scale-95 transition-transform ring-4 ring-red-500/30">
+            <span class="tracking-widest drop-shadow-md">搶！</span>
+            <span class="text-[11px] font-mono font-bold mt-1 px-3 py-0.5 rounded-full bg-red-950/80 border border-red-300/40 text-red-200">
+              ⏱️ 剩餘 {{ timeLeft }} 秒
+            </span>
+          </button>
+        </div>
 
-        <p class="text-xs text-slate-400 text-center max-w-xs">
-          請緊盯前方投影大螢幕題目，最快按下紅色按鈕者將奪得獨家作答權！
+        <!-- 題目與四個選項卡片 (讓學員在手機上也能清楚審題決定是否搶答！) -->
+        <div v-if="currentQuestion" class="w-full bg-slate-900/95 border border-slate-800 rounded-2xl p-4 space-y-3 text-left shadow-2xl">
+          <div class="flex items-center justify-between text-[11px] text-slate-400 font-mono border-b border-slate-800 pb-2">
+            <span class="text-cyan-400 font-bold">#{{ currentQuestion.id }} • {{ currentQuestion.module }}</span>
+            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30">
+              {{ currentQuestion.difficulty }} ({{ currentPoints }}分)
+            </span>
+          </div>
+          
+          <!-- 題目內文 -->
+          <h3 class="text-sm sm:text-base font-bold text-white leading-relaxed">
+            {{ currentQuestion.question }}
+          </h3>
+
+          <!-- 四個選項清單（供搶答前審題確認） -->
+          <div class="space-y-1.5 pt-1">
+            <div class="flex items-start space-x-2.5 p-2 rounded-xl bg-slate-800/80 border border-slate-700/60 text-xs">
+              <span class="w-5 h-5 rounded-md bg-red-600 text-white font-black font-mono flex items-center justify-center flex-shrink-0 text-[10px]">A</span>
+              <span class="text-slate-200 leading-normal">{{ currentQuestion.option_a }}</span>
+            </div>
+            <div class="flex items-start space-x-2.5 p-2 rounded-xl bg-slate-800/80 border border-slate-700/60 text-xs">
+              <span class="w-5 h-5 rounded-md bg-blue-600 text-white font-black font-mono flex items-center justify-center flex-shrink-0 text-[10px]">B</span>
+              <span class="text-slate-200 leading-normal">{{ currentQuestion.option_b }}</span>
+            </div>
+            <div class="flex items-start space-x-2.5 p-2 rounded-xl bg-slate-800/80 border border-slate-700/60 text-xs">
+              <span class="w-5 h-5 rounded-md bg-amber-600 text-white font-black font-mono flex items-center justify-center flex-shrink-0 text-[10px]">C</span>
+              <span class="text-slate-200 leading-normal">{{ currentQuestion.option_c }}</span>
+            </div>
+            <div class="flex items-start space-x-2.5 p-2 rounded-xl bg-slate-800/80 border border-slate-700/60 text-xs">
+              <span class="w-5 h-5 rounded-md bg-emerald-600 text-white font-black font-mono flex items-center justify-center flex-shrink-0 text-[10px]">D</span>
+              <span class="text-slate-200 leading-normal">{{ currentQuestion.option_d }}</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-400 text-center">
+          💡 請審題確認是否會作答，最快點擊上方「搶！」者得標答題！
         </p>
       </div>
 
       <!-- 階段 3: 答題進行中 (QUESTION_ACTIVE 或 搶答得標者) -->
-      <div v-else-if="canAnswer" class="space-y-4">
-        <div class="text-center">
-          <div class="flex items-center justify-center space-x-2">
-            <span class="text-xs text-cyan-400 font-mono font-bold">請依大螢幕題目選擇對應按鈕</span>
-            <span v-if="!submittedOption" class="px-2 py-0.5 rounded-full text-[11px] font-mono font-bold"
-                  :class="timeLeft <= 5 ? 'bg-rose-950 text-rose-300 border border-rose-500 animate-pulse' : 'bg-slate-800 text-amber-300 border border-slate-700'">
-              ⏱️ {{ timeLeft }}s
-            </span>
+      <div v-else-if="canAnswer" class="space-y-3 py-1">
+        <!-- 題幹預覽卡片 -->
+        <div v-if="currentQuestion" class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 text-left space-y-1 shadow">
+          <div class="flex items-center justify-between text-[10px] font-mono">
+            <span class="text-cyan-400 font-bold">#{{ currentQuestion.id }} • {{ currentQuestion.module }}</span>
+            <span class="text-amber-400 font-bold">{{ currentQuestion.difficulty }} ({{ currentPoints }}分)</span>
           </div>
-          <div v-if="submittedOption" class="text-xs text-emerald-400 mt-1 font-bold">
-            ✓ 已送出選項：{{ submittedOption }}
-          </div>
+          <div class="text-xs sm:text-sm font-bold text-white line-clamp-2">{{ currentQuestion.question }}</div>
         </div>
 
-        <!-- 四色大按鈕 -->
-        <div class="grid grid-cols-2 gap-3 h-64">
+        <div class="text-center flex items-center justify-between px-1">
+          <span class="text-xs text-cyan-400 font-mono font-bold">請點選正確答案：</span>
+          <span v-if="!submittedOption" class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold"
+                :class="timeLeft <= 5 ? 'bg-rose-950 text-rose-300 border border-rose-500 animate-pulse' : 'bg-slate-800 text-amber-300 border border-slate-700'">
+            ⏱️ {{ timeLeft }}s
+          </span>
+          <span v-else class="text-xs text-emerald-400 font-bold">
+            ✓ 已送出選項：{{ submittedOption }}
+          </span>
+        </div>
+
+        <!-- 四色選項按鈕 (帶完整選項文字) -->
+        <div class="grid grid-cols-1 gap-2.5">
           <button @click="chooseOption('A')" 
-                  class="tap-btn rounded-2xl bg-gradient-to-br from-red-500 to-red-600 border-2 text-white font-black text-4xl flex items-center justify-center shadow-lg transition-all"
-                  :class="submittedOption === 'A' ? 'border-white scale-95 ring-4 ring-red-400' : 'border-red-400/50 opacity-90'">
-            A
+                  class="tap-btn p-3 rounded-xl bg-gradient-to-r from-red-600 to-red-700 border-2 text-white font-bold flex items-center space-x-3 shadow-md transition-all text-left"
+                  :class="submittedOption === 'A' ? 'border-white ring-4 ring-red-400 scale-[0.98]' : 'border-red-400/50 opacity-90'">
+            <span class="w-8 h-8 rounded-lg bg-red-900 text-white font-black font-mono text-lg flex items-center justify-center flex-shrink-0 shadow">A</span>
+            <span class="text-xs text-slate-100 flex-1 leading-normal">{{ currentQuestion ? currentQuestion.option_a : '選項 A' }}</span>
           </button>
           <button @click="chooseOption('B')" 
-                  class="tap-btn rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 border-2 text-white font-black text-4xl flex items-center justify-center shadow-lg transition-all"
-                  :class="submittedOption === 'B' ? 'border-white scale-95 ring-4 ring-blue-400' : 'border-blue-400/50 opacity-90'">
-            B
+                  class="tap-btn p-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 border-2 text-white font-bold flex items-center space-x-3 shadow-md transition-all text-left"
+                  :class="submittedOption === 'B' ? 'border-white ring-4 ring-blue-400 scale-[0.98]' : 'border-blue-400/50 opacity-90'">
+            <span class="w-8 h-8 rounded-lg bg-blue-900 text-white font-black font-mono text-lg flex items-center justify-center flex-shrink-0 shadow">B</span>
+            <span class="text-xs text-slate-100 flex-1 leading-normal">{{ currentQuestion ? currentQuestion.option_b : '選項 B' }}</span>
           </button>
           <button @click="chooseOption('C')" 
-                  class="tap-btn rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 border-2 text-white font-black text-4xl flex items-center justify-center shadow-lg transition-all"
-                  :class="submittedOption === 'C' ? 'border-white scale-95 ring-4 ring-amber-400' : 'border-amber-400/50 opacity-90'">
-            C
+                  class="tap-btn p-3 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 border-2 text-white font-bold flex items-center space-x-3 shadow-md transition-all text-left"
+                  :class="submittedOption === 'C' ? 'border-white ring-4 ring-amber-400 scale-[0.98]' : 'border-amber-400/50 opacity-90'">
+            <span class="w-8 h-8 rounded-lg bg-amber-900 text-white font-black font-mono text-lg flex items-center justify-center flex-shrink-0 shadow">C</span>
+            <span class="text-xs text-slate-100 flex-1 leading-normal">{{ currentQuestion ? currentQuestion.option_c : '選項 C' }}</span>
           </button>
           <button @click="chooseOption('D')" 
-                  class="tap-btn rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 border-2 text-white font-black text-4xl flex items-center justify-center shadow-lg transition-all"
-                  :class="submittedOption === 'D' ? 'border-white scale-95 ring-4 ring-emerald-400' : 'border-emerald-400/50 opacity-90'">
-            D
+                  class="tap-btn p-3 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 border-2 text-white font-bold flex items-center space-x-3 shadow-md transition-all text-left"
+                  :class="submittedOption === 'D' ? 'border-white ring-4 ring-emerald-400 scale-[0.98]' : 'border-emerald-400/50 opacity-90'">
+            <span class="w-8 h-8 rounded-lg bg-emerald-900 text-white font-black font-mono text-lg flex items-center justify-center flex-shrink-0 shadow">D</span>
+            <span class="text-xs text-slate-100 flex-1 leading-normal">{{ currentQuestion ? currentQuestion.option_d : '選項 D' }}</span>
           </button>
         </div>
       </div>
 
       <!-- 階段 3.5: 搶答題已被他人搶答 (未搶到者等待畫面) -->
-      <div v-else-if="currentStage === 'BUZZER_WINNER' && !canAnswer" class="text-center space-y-4 py-8">
-        <div class="text-5xl animate-bounce">⚡</div>
-        <h3 class="text-xl font-bold text-amber-300">已被【{{ buzzerWinner || "其他學員" }}】搶得答題權！</h3>
-        <p class="text-sm text-slate-300">請抬頭注視前方投影大螢幕，觀看作答與題目解析...</p>
-        <div class="inline-flex items-center space-x-1.5 px-4 py-1.5 rounded-full bg-slate-800 border border-amber-500/40 text-xs text-amber-300 font-mono">
+      <div v-else-if="currentStage === 'BUZZER_WINNER' && !canAnswer" class="text-center space-y-3 py-3">
+        <div class="text-4xl animate-bounce">⚡</div>
+        <h3 class="text-lg font-bold text-amber-300">已被【{{ buzzerWinner || "其他學員" }}】搶得答題權！</h3>
+        <div class="inline-flex items-center space-x-1.5 px-3.5 py-1 rounded-full bg-slate-800 border border-amber-500/40 text-xs text-amber-300 font-mono">
           <span>搶答作答中</span>
           <span class="text-slate-500">•</span>
           <span class="font-bold text-white">剩餘 {{ timeLeft }} 秒</span>
+        </div>
+
+        <!-- 旁觀題目與選項卡片 -->
+        <div v-if="currentQuestion" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl p-3 text-left space-y-2 shadow">
+          <div class="text-[10px] text-cyan-400 font-mono font-bold">#{{ currentQuestion.id }} • {{ currentQuestion.module }}</div>
+          <div class="text-xs font-bold text-white">{{ currentQuestion.question }}</div>
+          <div class="grid grid-cols-1 gap-1.5 pt-1 text-xs text-slate-300">
+            <div class="p-1.5 rounded bg-slate-800/60 border border-slate-700/50 flex space-x-2">
+              <span class="font-bold font-mono text-red-400">A</span>
+              <span>{{ currentQuestion.option_a }}</span>
+            </div>
+            <div class="p-1.5 rounded bg-slate-800/60 border border-slate-700/50 flex space-x-2">
+              <span class="font-bold font-mono text-blue-400">B</span>
+              <span>{{ currentQuestion.option_b }}</span>
+            </div>
+            <div class="p-1.5 rounded bg-slate-800/60 border border-slate-700/50 flex space-x-2">
+              <span class="font-bold font-mono text-amber-400">C</span>
+              <span>{{ currentQuestion.option_c }}</span>
+            </div>
+            <div class="p-1.5 rounded bg-slate-800/60 border border-slate-700/50 flex space-x-2">
+              <span class="font-bold font-mono text-emerald-400">D</span>
+              <span>{{ currentQuestion.option_d }}</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -288,6 +364,7 @@
         const currentQuestionId = ref('');
         const currentAnswer = ref('');
         const currentPoints = ref(100);
+        const currentQuestion = ref(null);
         const timeLeft = ref(30);
         const buzzerWinner = ref('');
         const submittedOption = ref('');
@@ -348,6 +425,26 @@
         };
 
         onMounted(() => {
+          // 本地即時快照還原，保證刷新重開無縫呈現題目與選項
+          try {
+            const raw = localStorage.getItem(`state_${roomId.value}`);
+            if (raw) {
+              const parsed = JSON.parse(raw);
+              const data = parsed.data || parsed;
+              if (data) {
+                if (data.stage) currentStage.value = data.stage;
+                if (data.question) {
+                  currentQuestion.value = data.question;
+                  currentAnswer.value = (data.question.answer || '').trim();
+                  currentPoints.value = parseInt(data.question.score, 10) || 100;
+                }
+                if (typeof data.timeLeft === 'number') timeLeft.value = data.timeLeft;
+                if (data.buzzerWinner) buzzerWinner.value = data.buzzerWinner;
+                if (data.mode) roomMode.value = data.mode;
+              }
+            }
+          } catch (e) {}
+
           sync = new GameSync(roomId.value, 'player');
 
           if (sync.isFirebaseReady) {
@@ -400,6 +497,7 @@
 
             // 2. 同步題目（只有題目真正切換新 ID 時才重置作答選項，絕不在倒數計時中被洗掉！）
             if (state.question) {
+              currentQuestion.value = state.question;
               const newQId = state.question.id || '';
               if (newQId && newQId !== currentQuestionId.value) {
                 currentQuestionId.value = newQId;
@@ -456,6 +554,7 @@
           currentSubjectName,
           isGroupMode,
           currentStage,
+          currentQuestion,
           timeLeft,
           currentAnswer,
           currentPoints,
