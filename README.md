@@ -29,7 +29,7 @@
 ## 📚 題庫架構與 Google 試算表連結
 
 ### 1. 🎨 視覺設計專業題庫（400 題完整版）
-* **線上試算表檢視與建立副本**：[視覺設計互動遊戲題庫 (400題全單元完整版)](https://docs.google.com/spreadsheets/d/1cfztbR0I5KIG4u9c06yFGS1u3y0qLFFPeihJ526nOoQ/edit?usp=sharing)
+* **線上試算表檢視與建立副本**：[視覺設計互動遊戲題庫 (400題全單元完整版)](https://docs.google.com/spreadsheets/d/1wmg9hMwzmxOhcWRzraX3ayNJh9WsFKBmStJXWiYsMdQ/edit?usp=sharing)
 * **6 大專業單元分布**：
   1. **設計概念 (Design Concepts)** - 67 題（完形心理學、排版字體學、視覺層次、格線系統、留白構圖、無障礙設計）
   2. **色彩學 (Color Theory)** - 67 題（色彩三要素、色彩模型 RGB/CMYK/HSB/Lab、色相環體系、配色法則、色彩心理學、混色原理）

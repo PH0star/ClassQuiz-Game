@@ -695,7 +695,7 @@
 
         const fillSampleSheet = (type) => {
           if (type === 'visual') {
-            inputSheetUrl.value = 'https://docs.google.com/spreadsheets/d/1cfztbR0I5KIG4u9c06yFGS1u3y0qLFFPeihJ526nOoQ/edit?usp=sharing';
+            inputSheetUrl.value = 'https://docs.google.com/spreadsheets/d/1wmg9hMwzmxOhcWRzraX3ayNJh9WsFKBmStJXWiYsMdQ/edit?usp=sharing';
             inputSheetSubjectName.value = '🎨 視覺設計專業題庫 (400題)';
           } else {
             inputSheetUrl.value = 'https://docs.google.com/spreadsheets/d/1GJNNymUhtKtW0LDy8ifpa688_7TXHgpuc-uFLmmi2Bg/edit?usp=sharing';
@@ -918,16 +918,26 @@
           }
         };
 
-        // 倒數計時器
+        // 倒數計時器 (增強保護：非作答階段絕不強行倒數切換)
         const startTimer = () => {
-          if (timerInterval) clearInterval(timerInterval);
+          if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+          }
           timeLeft.value = timerDuration.value;
           timerInterval = setInterval(() => {
+            // 防護 1: 若教師已主動揭曉答案或切換其他畫面，立即停止計時
+            if (currentStage.value !== 'QUESTION_ACTIVE') {
+              clearInterval(timerInterval);
+              timerInterval = null;
+              return;
+            }
             if (timeLeft.value > 0) {
               timeLeft.value--;
               broadcastState();
             } else {
               clearInterval(timerInterval);
+              timerInterval = null;
               showDistribution();
             }
           }, 1000);
@@ -960,6 +970,11 @@
 
         // 揭曉答案並即時計算學員/小組得分（三重防重複鎖：Round Token + 姓名去重 + 作答旗標，保證絕不重複計分！）
         const revealAnswer = () => {
+          // 關鍵修復：立即中止剩餘秒數計時，防止秒數歸零後自動誤觸切回截止投票畫面 (STATS)
+          if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+          }
           currentStage.value = 'REVEAL';
 
           const currentToken = activeRoundToken.value;
@@ -1045,6 +1060,10 @@
 
         // 投影或關閉排行榜 (可切換開關，隨時返回出題或解析畫面)
         const toggleLeaderboard = () => {
+          if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+          }
           if (currentStage.value === 'LEADERBOARD') {
             currentStage.value = previousStage.value || 'REVEAL';
           } else {
@@ -1072,7 +1091,7 @@
 
         const exportResultsToCSV = () => {
           let csv = '\uFEFF'; // UTF-8 BOM 防止 Excel 亂碼
-          csv += `=== 數據分析實戰遊戲 戰報紀錄 ===\n`;
+          csv += `=== ${currentSubject.value ? currentSubject.value.title : '課堂互動競賽'} 戰報紀錄 ===\n`;
           csv += `房間代碼：,${roomId.value},匯出時間：,${new Date().toLocaleString()}\n\n`;
 
           csv += `【全場總積分排行榜】\n`;

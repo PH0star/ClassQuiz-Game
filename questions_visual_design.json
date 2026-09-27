@@ -23,10 +23,10 @@
     "question_type": "single_choice",
     "question": "知名品牌 WWF（世界自然基金會）的大熊貓標誌，其輪廓並沒有完全封閉，但觀看者的大腦卻能自動補全熊貓的外形，這屬於完形心理學的哪一項法則？",
     "option_a": "共同命運法則（Common Fate）",
-    "option_b": "閉合法則（Closure）",
-    "option_c": "對稱法則（Symmetry）",
+    "option_b": "對稱法則（Symmetry）",
+    "option_c": "閉合法則（Closure）",
     "option_d": "焦點法則（Focal Point）",
-    "answer": "B",
+    "answer": "C",
     "explanation": "閉合法則（Law of Closure）是指當圖形存在缺口或不完整時，人類認知會傾向自動補足缺失的資訊，將其感知為一個完整封閉的整體。"
   },
   {
@@ -37,11 +37,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "當排版中具有相同顏色、形狀或大小的元素出現時，讀者會自然將其歸為同一類別或功能（如所有按鈕皆為同色圓角矩形），此現象是完形中的：",
-    "option_a": "相似法則（Similarity）",
+    "option_a": "接近法則（Proximity）",
     "option_b": "連續法則（Continuity）",
     "option_c": "圖底關係（Figure-Ground）",
-    "option_d": "接近法則（Proximity）",
-    "answer": "A",
+    "option_d": "相似法則（Similarity）",
+    "answer": "D",
     "explanation": "相似法則（Law of Similarity）說明外觀特徵（色彩、造型、尺寸、方向）相似的元素，在視覺上會被感知為同一性質或同一群組。"
   },
   {
@@ -52,11 +52,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "著名的「魯賓之杯」（Rubin Vase），既可看成一個白色花瓶，也可看成兩張黑色側面人臉，這主要展現了完形心理學中的何種概念？",
-    "option_a": "多穩態與圖底關係（Figure-Ground Organization）",
-    "option_b": "共同方向法則（Common Direction）",
+    "option_a": "共同方向法則（Common Direction）",
+    "option_b": "多穩態與圖底關係（Figure-Ground Organization）",
     "option_c": "對稱性與秩序（Prägnanz）",
     "option_d": "視覺連貫性（Uniform Connectedness）",
-    "answer": "A",
+    "answer": "B",
     "explanation": "圖底關係（Figure-Ground）決定了什麼是主體（圖/Figure）與什麼是背景（底/Ground）。當兩者邊界共享且感知可逆時，會產生多穩態視覺交替錯覺。"
   },
   {
@@ -67,11 +67,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在導航指標或資訊圖表中，設計師常利用一條平滑曲線或箭頭引導讀者視線沿著特定方向移動，這符合完形心理學中的：",
-    "option_a": "連續法則（Good Continuation）",
-    "option_b": "相似法則（Similarity）",
+    "option_a": "相似法則（Similarity）",
+    "option_b": "連續法則（Good Continuation）",
     "option_c": "封閉法則（Enclosure）",
     "option_d": "同域法則（Common Region）",
-    "answer": "A",
+    "answer": "B",
     "explanation": "良好連續法則（Law of Good Continuation）指出人眼偏好沿著連續平滑的線條或幾何走勢進行視覺追蹤，而非突然轉折或中斷。"
   },
   {
@@ -82,11 +82,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "現代網頁與 App 常見的「卡片式設計（Card UI）」，利用一個淺灰色的邊框或背景色塊將標題、內文與按鈕框在一起，這在完形心理學延伸理論中稱為：",
-    "option_a": "共同區域法則（Common Region）",
+    "option_a": "共同命運法則（Common Fate）",
     "option_b": "相似法則（Similarity）",
-    "option_c": "共同命運法則（Common Fate）",
+    "option_c": "共同區域法則（Common Region）",
     "option_d": "對稱法則（Symmetry）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "共同區域法則（Law of Common Region）由 Stephen Palmer 提出，指出被明確邊界（如卡片外框、底色塊）圍繞的元素，會被強烈感知為同一個功能單元。"
   },
   {
@@ -97,11 +97,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在動態視覺設計中，多個不同形狀的幾何圖形同時以相同速度與方向往右上角滑動，觀眾會直覺認為它們是一體同步行動的，這體現了哪項法則？",
-    "option_a": "共同命運法則（Common Fate）",
+    "option_a": "動態對比法則（Dynamic Contrast）",
     "option_b": "同心法則（Concentricity）",
     "option_c": "平滑運動法則（Smooth Movement）",
-    "option_d": "動態對比法則（Dynamic Contrast）",
-    "answer": "A",
+    "option_d": "共同命運法則（Common Fate）",
+    "answer": "D",
     "explanation": "共同命運法則（Law of Common Fate）描述一起朝向相同方向或相同速度運動的視覺元素，會被強烈知覺為屬於同一個群體。"
   },
   {
@@ -142,11 +142,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "設計師在黑白海報中，利用畫面主體切除的負空間形塑出另一隻動物的剪影，這種正負形互換的技巧是根植於：",
-    "option_a": "圖底反轉（Figure-Ground Reversal）",
+    "option_a": "透視消逝點（Vanishing Point）",
     "option_b": "尺度對比（Scale Contrast）",
-    "option_c": "透視消逝點（Vanishing Point）",
+    "option_c": "圖底反轉（Figure-Ground Reversal）",
     "option_d": "結構對齊（Structural Alignment）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "圖底反轉巧妙利用正空間（圖）與負空間（底）共用邊界，讓觀者能在主體與背景之間解讀出多層語義。"
   },
   {
@@ -157,11 +157,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在一組皆為圓形的圖案中，若只有一顆圓形被塗成鮮艷紅色，其他皆為淺灰，觀者的視線會立刻被該紅圓吸引，這屬於：",
-    "option_a": "焦點法則（Focal Point / 異質突顯）",
-    "option_b": "閉合法則（Closure）",
+    "option_a": "閉合法則（Closure）",
+    "option_b": "焦點法則（Focal Point / 異質突顯）",
     "option_c": "連續法則（Continuity）",
     "option_d": "同域法則（Common Region）",
-    "answer": "A",
+    "answer": "B",
     "explanation": "焦點法則（Law of Focal Point）指出在具有高一致性（相似性）的環境中，破壞規則或帶有顯著對比的相異元素會成為視覺中心點。"
   },
   {
@@ -172,11 +172,11 @@
     "score": 200,
     "question_type": "speed_buzzer",
     "question": "若兩個距離較遠的圖形，被一條細線相互連接，觀眾會感知它們具備關聯，這種連結超越了單純的空間距離，稱為：",
-    "option_a": "一致連結法則（Uniform Connectedness）",
+    "option_a": "慣性法則（Inertia）",
     "option_b": "接近法則（Proximity）",
     "option_c": "對稱法則（Symmetry）",
-    "option_d": "慣性法則（Inertia）",
-    "answer": "A",
+    "option_d": "一致連結法則（Uniform Connectedness）",
+    "answer": "D",
     "explanation": "一致連結法則（Uniform Connectedness）是完形強大的分組原則：被視覺線段或實體結構連接的元素，其分組優先權往往高於顏色相似或空間鄰近。"
   },
   {
@@ -187,11 +187,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在歐文字型分類中，筆畫末端帶有裝飾性襯線（裝飾小角）的字體類別稱作什麼？",
-    "option_a": "Serif（襯線體）",
+    "option_a": "Monospace（等寬體）",
     "option_b": "Sans-Serif（無襯線體）",
-    "option_c": "Monospace（等寬體）",
+    "option_c": "Serif（襯線體）",
     "option_d": "Display（展示體）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Serif（如 Times New Roman, Baskerville）筆畫始末帶有襯線裝飾，傳統上多用於印刷長篇內文以提升水平行間流暢度。"
   },
   {
@@ -202,11 +202,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在數位螢幕介面與現代海報中廣泛使用的 Helvetica、Arial，在分類上屬於：",
-    "option_a": "Sans-Serif（無襯線體）",
+    "option_a": "Serif（襯線體）",
     "option_b": "Blackletter（哥德黑體）",
     "option_c": "Script（手寫體）",
-    "option_d": "Serif（襯線體）",
-    "answer": "A",
+    "option_d": "Sans-Serif（無襯線體）",
+    "answer": "D",
     "explanation": "Sans-Serif（無襯線體，Sans 為法語「沒有」之意）造型簡練俐落，在低解析度或數位螢幕上具有極高辨識度。"
   },
   {
@@ -217,11 +217,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "中文排版中，相當於歐文無襯線體（Sans-Serif）、筆畫粗細均勻且末端無圓角或角錐裝飾的字體是：",
-    "option_a": "黑體",
-    "option_b": "明體（宋體）",
+    "option_a": "明體（宋體）",
+    "option_b": "黑體",
     "option_c": "楷書",
     "option_d": "仿宋體",
-    "answer": "A",
+    "answer": "B",
     "explanation": "黑體（Gothic / Sans-serif）橫豎筆畫粗細均等，起筆收筆平直無襯線裝飾，是現代介面與指示標誌的主流字體。"
   },
   {
@@ -262,11 +262,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "印刷排版術語中的「X-height（x字高）」指的是歐文字型中的什麼基準？",
-    "option_a": "小寫字母（如 x, a, e, o）的主體高度，不含上伸部分與下延部分",
+    "option_a": "文字傾斜時斜邊的投影寬度",
     "option_b": "大寫字母頂端到底邊的高度",
     "option_c": "字母下延伸線（Descender）到底部的距離",
-    "option_d": "文字傾斜時斜邊的投影寬度",
-    "answer": "A",
+    "option_d": "小寫字母（如 x, a, e, o）的主體高度，不含上伸部分與下延部分",
+    "answer": "D",
     "explanation": "X-height 代表小寫字母不帶上伸線（Ascender）與下延線（Descender）時的核心字高，X-height 越大的字型在小字號時越容易閱讀。"
   },
   {
@@ -277,11 +277,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在歐文字體構造中，字母 'p'、'y'、'g' 筆畫向下突破基線（Baseline）延伸出去的筆畫稱為：",
-    "option_a": "Descender（下延線/下伸筆畫）",
+    "option_a": "Serif（襯線）",
     "option_b": "Ascender（上伸筆畫）",
-    "option_c": "Serif（襯線）",
+    "option_c": "Descender（下延線/下伸筆畫）",
     "option_d": "Counter（字碗負空間）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "向下延伸超出 Baseline 的筆畫稱為 Descender；向上超越 X-height 達到大寫高度的稱為 Ascender（如 b, d, h）。"
   },
   {
@@ -292,11 +292,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "版面排版時若出現「孤行（Orphan）」或「寡字（Widow）」，通常指的是何種排版瑕疵？",
-    "option_a": "段落最後一行只有一個單詞被擠到次頁頂部，或段落首行孤獨留在上一頁底部",
-    "option_b": "字體缺少特定標點符號而出現方框缺字",
+    "option_a": "字體缺少特定標點符號而出現方框缺字",
+    "option_b": "段落最後一行只有一個單詞被擠到次頁頂部，或段落首行孤獨留在上一頁底部",
     "option_c": "文字與圖片重疊導致對比度不足",
     "option_d": "左右對齊時字母拉伸變形",
-    "answer": "A",
+    "answer": "B",
     "explanation": "Widow（寡行）指段落末端短行掉到下一頁頂端；Orphan（孤行）指段落第一行單獨留在頁面底部。兩者破壞閱讀節奏，專業排版應盡力消除。"
   },
   {
@@ -307,11 +307,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "中文排版中的「避頭尾點號規則（禁則處理）」，下列哪一項符號通常「絕對不能」出現在一行的開頭（行首）？",
-    "option_a": "逗號、句號、問號、右括號",
+    "option_a": "全形括號左邊（",
     "option_b": "破折號前段",
     "option_c": "單引號左邊「",
-    "option_d": "全形括號左邊（",
-    "answer": "A",
+    "option_d": "逗號、句號、問號、右括號",
+    "answer": "D",
     "explanation": "逗號、句號、頓號、分號、結尾括號等屬於結束符號，若排在行首會造成閱讀停頓混亂，故依禁則必須避頭。"
   },
   {
@@ -337,11 +337,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "程式碼編輯器或打字機最常採用的「等寬字體（Monospaced Font）」，其最核心的幾何特徵為何？",
-    "option_a": "每個字元（不論是寬幅的 'W' 或狹窄的 'i'）佔據完全相同的水平字元寬度",
-    "option_b": "所有筆畫完全沒有傾斜角度",
+    "option_a": "所有筆畫完全沒有傾斜角度",
+    "option_b": "每個字元（不論是寬幅的 'W' 或狹窄的 'i'）佔據完全相同的水平字元寬度",
     "option_c": "所有筆畫粗細完全相同且垂直對稱",
     "option_d": "行高與字寬呈黃金比例",
-    "answer": "A",
+    "answer": "B",
     "explanation": "等寬字體（Monospaced，如 Courier, JetBrains Mono）所有字元寬度相同，易於垂直對齊程式碼縮排與表格。"
   },
   {
@@ -352,11 +352,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在一份傳單或簡報海報中，為了維持整體的專業感與秩序，通常建議單一畫面使用的字型家族種類最好控制在多少種以內？",
-    "option_a": "2 至 3 種以內",
+    "option_a": "至少 10 種以上以展現創意",
     "option_b": "5 至 8 種",
-    "option_c": "至少 10 種以上以展現創意",
+    "option_c": "2 至 3 種以內",
     "option_d": "完全不能使用超過 1 種字重",
-    "answer": "A",
+    "answer": "C",
     "explanation": "字型種類過多會造成視覺喧鬧雜亂。一般建議主標題與內文選用 2~3 種和諧字型，透過不同字重（Weight）建立層次即可。"
   },
   {
@@ -367,11 +367,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在多行內文排版中，「齊左（Flush Left / Ragged Right）」排版的右側會呈現自然參差不齊的邊緣，其最大優點為何？",
-    "option_a": "保持自然的字間距離，避免兩端對齊（Justified）在窄欄時產生不自然的「河流現象（Rivers of White）」",
+    "option_a": "能自動隱藏錯別字",
     "option_b": "節省紙張印刷成本",
-    "option_c": "能自動隱藏錯別字",
+    "option_c": "保持自然的字間距離，避免兩端對齊（Justified）在窄欄時產生不自然的「河流現象（Rivers of White）」",
     "option_d": "使標題與內文自動合流",
-    "answer": "A",
+    "answer": "C",
     "explanation": "齊左排版字元間距恆定均勻；兩端對齊若無良好斷字微調，容易在內文中產生上下連貫的空白裂縫（River現象）。"
   },
   {
@@ -397,11 +397,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "下列哪種字體風格源自中世紀手抄本，筆畫銳利粗黑、帶有濃厚宗教古典與歌德次文化氣息？",
-    "option_a": "Blackletter（黑體字/哥德手抄體）",
+    "option_a": "Modern Slab（現代方襯線體）",
     "option_b": "Geometric Sans（幾何無襯線體）",
     "option_c": "Humanist Serif（人文主義襯線體）",
-    "option_d": "Modern Slab（現代方襯線體）",
-    "answer": "A",
+    "option_d": "Blackletter（黑體字/哥德手抄體）",
+    "answer": "D",
     "explanation": "Blackletter（又稱 Old English 或 Textura）是古騰堡活字印刷術最早採用的手抄體複刻，特徵為厚重垂直線條與銳利角折。"
   },
   {
@@ -412,11 +412,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "平面設計中常利用「視覺動線」引導讀者目光，對於從左至右閱讀的文化背景，在非純文字的宣傳單頁上，最經典的動線模式是：",
-    "option_a": "Z 字型動線（Z-pattern）",
-    "option_b": "逆時針圓形旋轉動線",
+    "option_a": "逆時針圓形旋轉動線",
+    "option_b": "Z 字型動線（Z-pattern）",
     "option_c": "垂直由底向上動線",
     "option_d": "隨機跳躍動線",
-    "answer": "A",
+    "answer": "B",
     "explanation": "在視覺主導的頁面（如廣告橫幅、宣傳單），視線通常從左上開始，掃描至右上，折回左下，最後結束於右下的行動呼籲（CTA），形成 Z 字型。"
   },
   {
@@ -427,11 +427,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在文字密集的網頁與部落格文章中，眼動儀研究（Nielsen Norman Group）顯示使用者閱讀內容時最常見的眼球軌跡是：",
-    "option_a": "F 字型動線（F-pattern）",
-    "option_b": "W 字型動線",
+    "option_a": "W 字型動線",
+    "option_b": "F 字型動線（F-pattern）",
     "option_c": "菱形擴散動線",
     "option_d": "完美網格動線",
-    "answer": "A",
+    "answer": "B",
     "explanation": "F 字型動線代表讀者首先橫向瀏覽頂部，接著沿著左側下移再做短暫水平瀏覽，最後沿左側快速向下掃描，呈現 F 形狀。"
   },
   {
@@ -442,11 +442,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在海報設計中建立「視覺層次（Visual Hierarchy）」的最主要目的為何？",
-    "option_a": "引導觀者按重要性依序接收訊息，確保最核心的焦點最先被理解",
+    "option_a": "確保畫面不出現任何對比度",
     "option_b": "讓畫面上每個元素的大小與顏色完全一致",
     "option_c": "填滿所有空白區域以展現內容豐富度",
-    "option_d": "確保畫面不出現任何對比度",
-    "answer": "A",
+    "option_d": "引導觀者按重要性依序接收訊息，確保最核心的焦點最先被理解",
+    "answer": "D",
     "explanation": "視覺層次透過尺寸、色彩、明度、位置等差異，明確區分主次訊息，讓大腦能高效循序吸收內容。"
   },
   {
@@ -457,11 +457,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "古騰堡圖表（Gutenberg Diagram）描述了版面中閱讀重力由上而下的傾向，其中右下角（Terminal Area）在功能上通常最適合放置：",
-    "option_a": "主要行動呼籲按鈕（Call to Action, CTA）或總結標誌",
+    "option_a": "最引人注目的主標題",
     "option_b": "最不重要的法律微縮宣告",
-    "option_c": "最引人注目的主標題",
+    "option_c": "主要行動呼籲按鈕（Call to Action, CTA）或總結標誌",
     "option_d": "首頁導覽麵包屑導航",
-    "answer": "A",
+    "answer": "C",
     "explanation": "古騰堡圖表中，右下角為「終點落腳區（Terminal Area）」，讀者視線在遵循閱讀重力向下後停留在該處，是放置轉換按鈕或簽名結論的最佳位置。"
   },
   {
@@ -487,11 +487,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在電影海報或封面設計中，建立強烈視覺焦點（Focal Point）最迅速有效的手法是：",
-    "option_a": "利用比例懸殊的「尺寸對比」或「色調突兀的補色光斑」創造異常刺激",
+    "option_a": "降低整個畫面的飽和度與對比度",
     "option_b": "把所有文字換成相同字級與粗細",
-    "option_c": "降低整個畫面的飽和度與對比度",
+    "option_c": "利用比例懸殊的「尺寸對比」或「色調突兀的補色光斑」創造異常刺激",
     "option_d": "在四個角落放置相同權重的裝飾線",
-    "answer": "A",
+    "answer": "C",
     "explanation": "利用尺寸落差（巨大主體 vs 微小背景）或色彩對比（黑白環境中的單點鮮紅），能打破視覺平衡製造第一視覺落腳點。"
   },
   {
@@ -502,11 +502,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "排版中的「對比原則（Contrast）」最核心的指導方針為何？",
-    "option_a": "如果兩個元素不相同，就讓它們的差異大到一眼可見，切忌微小模糊的差異",
+    "option_a": "盡可能減少字體大小的層級",
     "option_b": "所有顏色必須使用黑白灰三色",
     "option_c": "相鄰的元素必須尺寸完全相等",
-    "option_d": "盡可能減少字體大小的層級",
-    "answer": "A",
+    "option_d": "如果兩個元素不相同，就讓它們的差異大到一眼可見，切忌微小模糊的差異",
+    "answer": "D",
     "explanation": "Robin Williams《寫給大家看的設計書》指出：對比必須大膽鮮明；若差異太微弱，只會讓版面顯得像是排版疏失而非刻意安排。"
   },
   {
@@ -517,11 +517,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在多欄報章雜誌編排中，如果希望建立強烈橫向張力並打破單調垂直閱讀流，設計師常採用：",
-    "option_a": "跨欄標題（Cross-column Header）或跨頁滿版大圖",
-    "option_b": "完全不設任何段落空白",
+    "option_a": "完全不設任何段落空白",
+    "option_b": "跨欄標題（Cross-column Header）或跨頁滿版大圖",
     "option_c": "讓每欄文字寬度隨機縮放",
     "option_d": "把所有內文都設為直書橫排交錯",
-    "answer": "A",
+    "answer": "B",
     "explanation": "跨越欄位的超寬主標題或橫跨版面的圖片，能阻斷垂直慣性，建立水平視覺節奏與張力。"
   },
   {
@@ -547,11 +547,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "當一張宣傳單中的標題、副標題、內文、標價與註釋全部使用「相同大小的 14pt 黑色字體」，會造成什麼致命缺點？",
-    "option_a": "缺乏視覺層次，資訊一團混亂，讀者無法快速抓住核心訴求",
+    "option_a": "螢幕無法顯示字體",
     "option_b": "列印成本暴增十倍",
-    "option_c": "螢幕無法顯示字體",
+    "option_c": "缺乏視覺層次，資訊一團混亂，讀者無法快速抓住核心訴求",
     "option_d": "檔案容量暴增",
-    "answer": "A",
+    "answer": "C",
     "explanation": "沒有字級與色彩權重區隔的齊頭式排版，無法建立視覺引導層級，大幅增加認知負擔。"
   },
   {
@@ -562,11 +562,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在攝影與平面構圖中最普及的「三分法則（Rule of Thirds）」，是將畫面橫豎各分成幾等分？",
-    "option_a": "水平與垂直各切兩條線，分成九個大小相等的矩形",
-    "option_b": "垂直切成三欄，水平不分割",
+    "option_a": "垂直切成三欄，水平不分割",
+    "option_b": "水平與垂直各切兩條線，分成九個大小相等的矩形",
     "option_c": "對角線切成四個三角形",
     "option_d": "分成十六個微小宮格",
-    "answer": "A",
+    "answer": "B",
     "explanation": "三分法則用兩條橫線與兩條豎線將版面九等分，四個交叉點是人眼最自然注視的視覺熱點，也是放置主角的最佳錨點。"
   },
   {
@@ -592,11 +592,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "現代響應式網頁設計（Responsive Web Design）最常採用的柵格系統通常包含多少欄位（Columns）？",
-    "option_a": "12 欄（12-Column Grid）",
+    "option_a": "5 欄",
     "option_b": "7 欄",
     "option_c": "11 欄",
-    "option_d": "5 欄",
-    "answer": "A",
+    "option_d": "12 欄（12-Column Grid）",
+    "answer": "D",
     "explanation": "12 欄系統因具備極高的整除彈性（可整除為 1, 2, 3, 4, 6 欄寬度），成為 Bootstrap 等主流前端與 UI 設計工具的業界標準。"
   },
   {
@@ -607,11 +607,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "格線系統（Grid System）結構中，欄與欄之間的空白間距，在專業排版術語中稱為：",
-    "option_a": "Gutter（欄間距/欄槽）",
-    "option_b": "Margin（邊界）",
+    "option_a": "Margin（邊界）",
+    "option_b": "Gutter（欄間距/欄槽）",
     "option_c": "Baseline（基線）",
     "option_d": "Bleed（出血）",
-    "answer": "A",
+    "answer": "B",
     "explanation": "欄位本身的寬度稱為 Column，兩欄相鄰間的間隔空白稱為 Gutter（欄間距）。"
   },
   {
@@ -622,11 +622,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "20 世紀中葉由約瑟夫·穆勒-布羅克曼（Josef Müller-Brockmann）等人推廣，強調嚴謹數學比例、客觀無飾無襯線字與秩序感的設計學派為：",
-    "option_a": "瑞士風格國際主義平面設計風格（Swiss Style / International Typographic Style）",
+    "option_a": "達達主義（Dadaism）",
     "option_b": "超現實主義（Surrealism）",
-    "option_c": "達達主義（Dadaism）",
+    "option_c": "瑞士風格國際主義平面設計風格（Swiss Style / International Typographic Style）",
     "option_d": "普普藝術（Pop Art）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "瑞士風格（Swiss Style）奠定了現代格線系統的理論基石，主張設計應追求客觀、清晰、理性與純粹的功能結構。"
   },
   {
@@ -637,11 +637,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "國際標準紙張尺寸（如 A4、A3、B4）遵循 ISO 216 規範，其長寬比皆固定為多少比例，使得對折後長寬比依然完全不變？",
-    "option_a": "1 : √2（約 1 : 1.414）",
+    "option_a": "1 : 1.777（16:9）",
     "option_b": "1 : 1.618（黃金比例）",
     "option_c": "1 : 1.333（4:3）",
-    "option_d": "1 : 1.777（16:9）",
-    "answer": "A",
+    "option_d": "1 : √2（約 1 : 1.414）",
+    "answer": "D",
     "explanation": "ISO 白銀比例 1 : √2 具備優異幾何特性：對半裁切後長寬比仍維持 1 : √2，非常便於縮放印刷與紙張開數裁切而不浪費耗材。"
   },
   {
@@ -667,11 +667,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在書籍裝訂與版面比例中，歷史悠久的「維拉爾德正則法（Villard de Honnecourt Diagram）」是透過何種方式找出和諧的版心與邊界？",
-    "option_a": "利用對角線分割幾何作圖法，將版心面積與內外天地邊界自動導出 2:3:4:6 等古典比例",
-    "option_b": "量測黃金矩形對角線長度隨機裁切",
+    "option_a": "量測黃金矩形對角線長度隨機裁切",
+    "option_b": "利用對角線分割幾何作圖法，將版心面積與內外天地邊界自動導出 2:3:4:6 等古典比例",
     "option_c": "將頁面圓形展開",
     "option_d": "純粹依據印刷師傅的拇指寬度決定",
-    "answer": "A",
+    "answer": "B",
     "explanation": "中世紀維拉爾德九分幾何法則利用雙跨頁對角線交點，無需度量衡即可劃出神聖典雅、版心符合黃金律比例的書籍版面。"
   },
   {
@@ -682,11 +682,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在排版軟體中設定版面外圍邊界（Margins），通常「天（頂邊）」與「地（底邊）」的留白傳統慣例為何？",
-    "option_a": "通常地（底部邊距）會略大於天（頂部邊距），符合人類視覺心理重力平衡",
+    "option_a": "左右邊距必須完全為零",
     "option_b": "頂部邊距必須是底部的五倍",
-    "option_c": "左右邊距必須完全為零",
+    "option_c": "通常地（底部邊距）會略大於天（頂部邊距），符合人類視覺心理重力平衡",
     "option_d": "上下左右必須絕對相等等寬，否則無法印刷",
-    "answer": "A",
+    "answer": "C",
     "explanation": "人類視覺感知受到重力心理影響，若上下邊距完全相等，版心看起來會下墜；因此傳統典雅書籍往往底部邊距最寬。"
   },
   {
@@ -712,11 +712,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "設計專業中常稱的「負空間（Negative Space）」或「留白（White Space）」，最核心的功能是什麼？",
-    "option_a": "給予視覺元素呼吸空間、降低認知負荷並突顯正形主體",
+    "option_a": "只能使用純白色，絕對不能填入任何背景色或紋理",
     "option_b": "單純是設計師沒時間畫完而留下的空白",
     "option_c": "為了節省印表機黑色墨水消耗",
-    "option_d": "只能使用純白色，絕對不能填入任何背景色或紋理",
-    "answer": "A",
+    "option_d": "給予視覺元素呼吸空間、降低認知負荷並突顯正形主體",
+    "answer": "D",
     "explanation": "留白（負空間）並非空無一物，而是具有積極主動構圖功能的設計元素，負責賦予版面節奏、焦點與呼吸感。"
   },
   {
@@ -742,11 +742,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "世界知名的聯邦快遞（FedEx）商標中，字母 'E' 與 'x' 之間的負空間巧妙形成了一個什麼圖案？",
-    "option_a": "右向箭頭（象徵前進、速度與精準）",
-    "option_b": "飛機輪廓",
+    "option_a": "飛機輪廓",
+    "option_b": "右向箭頭（象徵前進、速度與精準）",
     "option_c": "包裹箱子",
     "option_d": "時鐘指標",
-    "answer": "A",
+    "answer": "B",
     "explanation": "FedEx 標誌利用 E 與 x 之間的負空間精準構成一個向右前進的箭頭，是圖形設計史上的正負形留白經典範例。"
   },
   {
@@ -757,11 +757,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "若一張宣傳海報四邊塞滿了文字與各種促銷小圖示，完全沒有留白，觀看者通常會產生何種心理反應？",
-    "option_a": "視覺壓迫疲勞、資訊過載、難以辨識核心焦點甚至直接放棄閱讀",
+    "option_a": "文字辨識度會大幅提高",
     "option_b": "感到物超所值，認真讀完每一個字",
     "option_c": "視覺動線會自動加速十倍",
-    "option_d": "文字辨識度會大幅提高",
-    "answer": "A",
+    "option_d": "視覺壓迫疲勞、資訊過載、難以辨識核心焦點甚至直接放棄閱讀",
+    "answer": "D",
     "explanation": "版面充塞過度會形成視覺噪音，引發認知過載與逃避心理，適度留白是高品質設計的必備要素。"
   },
   {
@@ -772,11 +772,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "日本美學中的「間（Ma）」與西方現代主義的「Less is More（少即是多）」，在視覺設計留白哲學上的共通點是：",
-    "option_a": "肯定「未填滿的虛空」本身具有深刻意義與精神能量，引發觀者的主動想像與共鳴",
+    "option_a": "要求所有平面設計必須完全無彩度",
     "option_b": "兩者都嚴格禁止在版面中使用任何文字",
-    "option_c": "要求所有平面設計必須完全無彩度",
+    "option_c": "肯定「未填滿的虛空」本身具有深刻意義與精神能量，引發觀者的主動想像與共鳴",
     "option_d": "只適用於室內建築，無法應用於平面排版",
-    "answer": "A",
+    "answer": "C",
     "explanation": "「間」與「少即是多」強調減法美學，透過刻意克制的留白空間，將視覺與情感焦點高度濃縮提煉。"
   },
   {
@@ -787,11 +787,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在構圖理論中，一個深色、體積龐大且紋理複雜的物體，與一個淺色平滑的小物體相比，其「視覺重量（Visual Weight）」通常：",
-    "option_a": "深色大物體視覺重量顯著較重，吸引較多注意力",
+    "option_a": "淺色小物體在任何情況下重量都比較重",
     "option_b": "兩者視覺重量完全相同",
-    "option_c": "淺色小物體在任何情況下重量都比較重",
+    "option_c": "深色大物體視覺重量顯著較重，吸引較多注意力",
     "option_d": "視覺重量取決於列印紙張的物理重量",
-    "answer": "A",
+    "answer": "C",
     "explanation": "深色、高對比、大尺寸、複雜紋理在視覺心理上具有較高的引力與重量感，會先抓住目光。"
   },
   {
@@ -802,11 +802,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在方形版面中，若將單一極簡小物件放置在版面的幾何正中心，通常會給觀看者帶來何種心理感受？",
-    "option_a": "穩定、靜止、莊嚴，但若處理不慎容易顯得呆板停滯",
-    "option_b": "極度強烈的不安與混亂感",
+    "option_a": "極度強烈的不安與混亂感",
+    "option_b": "穩定、靜止、莊嚴，但若處理不慎容易顯得呆板停滯",
     "option_c": "充滿強烈的快速運動感",
     "option_d": "具有強烈的三維深度感",
-    "answer": "A",
+    "answer": "B",
     "explanation": "中心對稱構圖具有最高穩定度與神聖嚴謹感，但若缺乏周邊微動態呼應，容易缺乏生氣。"
   },
   {
@@ -817,11 +817,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "所謂「對角線構圖（Diagonal Composition）」最容易為畫面注入哪種視覺感受？",
-    "option_a": "動感、張力、速度感與不穩定活力",
+    "option_a": "完全封閉沉悶的空間感",
     "option_b": "絕對的靜止與安詳感",
     "option_c": "如同古希臘神廟般的對稱莊嚴",
-    "option_d": "完全封閉沉悶的空間感",
-    "answer": "A",
+    "option_d": "動感、張力、速度感與不穩定活力",
+    "answer": "D",
     "explanation": "傾斜對角線打破了垂直與水平的靜態平衡，創造引力傾倒與運動傾向，極富動態戲劇張力。"
   },
   {
@@ -847,11 +847,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在排版微觀留白（Micro White Space）中，文字與按鈕外框邊緣之間的內距（Padding），主要功能是：",
-    "option_a": "防止文字撞到外框邊緣，讓內容易於辨識且具備舒適的點擊視覺界線",
+    "option_a": "消除所有背景顏色",
     "option_b": "使按鈕永遠無法被滑鼠點擊",
     "option_c": "將文字壓縮成一條線",
-    "option_d": "消除所有背景顏色",
-    "answer": "A",
+    "option_d": "防止文字撞到外框邊緣，讓內容易於辨識且具備舒適的點擊視覺界線",
+    "answer": "D",
     "explanation": "Padding（內邊距）屬於微觀留白，避免文字與外框邊界產生擁擠壓迫，是 UI 精緻度的關鍵細節。"
   },
   {
@@ -877,11 +877,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在設計警示標誌或表單錯誤提示時，若「只依賴紅色文字」而沒有搭配任何警告圖示（如 ⚠）或文字說明，對哪一類族群會造成嚴重的辨識障礙？",
-    "option_a": "紅綠色盲或色弱（Color Blindness）使用者",
+    "option_a": "肢體運動障礙族群",
     "option_b": "聽覺障礙族群",
-    "option_c": "肢體運動障礙族群",
+    "option_c": "紅綠色盲或色弱（Color Blindness）使用者",
     "option_d": "高齡老花眼族群",
-    "answer": "A",
+    "answer": "C",
     "explanation": "全球約有 8% 男性患有紅綠色弱。無障礙設計最高準則之一即為「不可單純以色彩作為傳遞資訊的唯一媒介」。"
   },
   {
@@ -892,11 +892,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在平面設計中，「易認性（Legibility）」與「易讀性（Readability）」的專業定義差異為何？",
-    "option_a": "Legibility 強調單一字元/字母能否被準確辨識；Readability 強調大段文章排列時整體閱讀的流暢舒適度",
-    "option_b": "Legibility 專指色彩，Readability 專指圖片",
+    "option_a": "Legibility 專指色彩，Readability 專指圖片",
+    "option_b": "Legibility 強調單一字元/字母能否被準確辨識；Readability 強調大段文章排列時整體閱讀的流暢舒適度",
     "option_c": "Legibility 指數位字型，Readability 指印刷鉛字",
     "option_d": "兩者是完全同義詞無任何學術區別",
-    "answer": "A",
+    "answer": "B",
     "explanation": "Legibility 著重字型筆畫骨架是否清晰可辨（如 I 與 l、0 與 O）；Readability 著重字距行距欄寬排版帶來的總體閱讀享受。"
   },
   {
@@ -907,11 +907,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "長時間閱讀長篇內文時，中文字一行最舒適的字數寬度（欄寬度 / Measure）建議控制在多少字以內？",
-    "option_a": "約 30 到 45 個中文字（英文約 45 ~ 75 個字母）",
+    "option_a": "越寬越好，最好佔滿整個 4K 螢幕",
     "option_b": "每行至少 120 字以上以省紙",
     "option_c": "每行只能 5 個字",
-    "option_d": "越寬越好，最好佔滿整個 4K 螢幕",
-    "answer": "A",
+    "option_d": "約 30 到 45 個中文字（英文約 45 ~ 75 個字母）",
+    "answer": "D",
     "explanation": "欄寬過寬會導致讀者換行時視線迷路；欄寬過窄會使視線頻繁折返造成疲勞。中文長文一行約 30~45 字最適中。"
   },
   {
@@ -922,11 +922,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "針對弱視或認知障礙者設計介面時，下列何種字體排印習慣「最應避免」？",
-    "option_a": "將整段上百字的內文全部設定為大寫（ALL CAPS）或極細字體（Ultra Light）",
+    "option_a": "在關鍵標題加粗強調",
     "option_b": "使用清晰的高對比黑體字",
-    "option_c": "在關鍵標題加粗強調",
+    "option_c": "將整段上百字的內文全部設定為大寫（ALL CAPS）或極細字體（Ultra Light）",
     "option_d": "段落之間維持適當行距與留白",
-    "answer": "A",
+    "answer": "C",
     "explanation": "全大寫會抹除單字高低起伏的詞形輪廓（Bouma），極細字體在低光或低視力下會斷裂消失，大幅增加閱讀難度。"
   },
   {
@@ -952,11 +952,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "若在亮綠色的背景上放置亮紅色的文字，即所謂「色彩振動現象（Color Vibration）」，會對眼睛造成什麼生理影響？",
-    "option_a": "互補色飽和邊界會在視網膜上產生閃爍霓虹錯覺，引發極度視覺刺眼與閱讀疲勞",
-    "option_b": "閱讀速度自動提升兩倍",
+    "option_a": "閱讀速度自動提升兩倍",
+    "option_b": "互補色飽和邊界會在視網膜上產生閃爍霓虹錯覺，引發極度視覺刺眼與閱讀疲勞",
     "option_c": "文字產生立體浮雕效果且非常舒服",
     "option_d": "完全沒有任何影響",
-    "answer": "A",
+    "answer": "B",
     "explanation": "高飽和度強烈互補色邊界並置時，眼睛視錐細胞會在邊緣過度神經衝動，產生難以聚焦的邊界光暈與振動不適感。"
   },
   {
@@ -967,11 +967,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在公共指標系統（如機場、醫院路標）設計中，字型之所以常選用 Frutiger、Wayfinding 或 Clearview 等字體，是因為它們具備：",
-    "option_a": "大字孔（Large Apertures）、高 x 字高、清晰筆畫特徵，在微光、遠距或視力模糊下仍不易混淆",
-    "option_b": "極度複雜的古典雕花裝飾",
+    "option_a": "極度複雜的古典雕花裝飾",
+    "option_b": "大字孔（Large Apertures）、高 x 字高、清晰筆畫特徵，在微光、遠距或視力模糊下仍不易混淆",
     "option_c": "完全沒有空白的超粗筆畫",
     "option_d": "能自動發出反光螢光墨",
-    "answer": "A",
+    "answer": "B",
     "explanation": "導引指示專用字體具備開闊的字孔（Aperture）與高辨識度，能防止在眩光或夜間車燈照射下字母筆畫黏糊成一團。"
   },
   {
@@ -982,11 +982,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在數位 UI 互動設計中，為了確保運動協調能力障礙者或粗大手隻手指能順暢點擊，按鈕最小建議觸控範圍（Touch Target）通常為：",
-    "option_a": "至少 44 x 44 像素（Apple HIG）或 48 x 48 dp（Google Material Design）",
+    "option_a": "80 x 80 公分",
     "option_b": "10 x 10 像素",
-    "option_c": "80 x 80 公分",
+    "option_c": "至少 44 x 44 像素（Apple HIG）或 48 x 48 dp（Google Material Design）",
     "option_d": "不限大小，1 像素即可點擊",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Apple HIG 建議最小觸控目標 44x44pt，Google 建議 48x48dp，以確保手指在觸控螢幕上不會誤觸或難以點中。"
   },
   {
@@ -997,11 +997,11 @@
     "score": 200,
     "question_type": "speed_buzzer",
     "question": "在設計暗色模式（Dark Mode）時，專業設計師通常「不會」直接在純黑背景（#000000）上使用純白文字（#FFFFFF），主要原因是：",
-    "option_a": "極高反差（21:1）在暗處會造成強烈的重影光暈（Halation Effect）與眼球散光眩目感",
+    "option_a": "CSS 不允許同時寫入 black 與 white",
     "option_b": "純黑背景無法在 OLED 螢幕上省電",
     "option_c": "純白文字會導致電腦 CPU 溫度上升",
-    "option_d": "CSS 不允許同時寫入 black 與 white",
-    "answer": "A",
+    "option_d": "極高反差（21:1）在暗處會造成強烈的重影光暈（Halation Effect）與眼球散光眩目感",
+    "answer": "D",
     "explanation": "暗底純黑配純白會產生視覺光滲（Halation），特別是散光讀者會看見文字邊緣發散；專業深色模式通常使用深深灰（如 #121212）搭配米白/灰白。"
   },
   {
@@ -1027,11 +1027,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在色彩三要素中，用來區分「這是紅色、那是藍色或黃色」的根本性質，稱為色彩的：",
-    "option_a": "色相（Hue）",
+    "option_a": "彩度（Saturation）",
     "option_b": "明度（Value）",
-    "option_c": "彩度（Saturation）",
+    "option_c": "色相（Hue）",
     "option_d": "對比度（Contrast）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "色相（Hue）代表可見光譜中不同波長所呈現的色彩相貌特徵，是給予顏色名稱（如紅、橙、黃、綠、藍、紫）的依據。"
   },
   {
@@ -1042,11 +1042,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "若將某個鮮豔純色中加入「白色」，此時該顏色的三要素會發生什麼改變？",
-    "option_a": "明度提高，彩度降低",
-    "option_b": "明度降低，彩度提高",
+    "option_a": "明度降低，彩度提高",
+    "option_b": "明度提高，彩度降低",
     "option_c": "明度提高，彩度提高",
     "option_d": "明度與彩度完全不變",
-    "answer": "A",
+    "answer": "B",
     "explanation": "加白會使反射光總量增加因此明度上升；但因為純色被稀釋，色彩純度下降，故彩度（飽和度）降低。"
   },
   {
@@ -1057,11 +1057,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在色彩學中，完全沒有彩度、只有明度變化的顏色（如黑、白、灰色系列），在術語上稱作：",
-    "option_a": "無彩色（Achromatic Color）",
+    "option_a": "光譜色（Spectral Color）",
     "option_b": "有彩色（Chromatic Color）",
     "option_c": "原色（Primary Color）",
-    "option_d": "光譜色（Spectral Color）",
-    "answer": "A",
+    "option_d": "無彩色（Achromatic Color）",
+    "answer": "D",
     "explanation": "黑、灰、白不具有特定可辨識色相，彩度為零，色彩學上統稱為「無彩色（Achromatic）」。"
   },
   {
@@ -1087,11 +1087,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "若在某個純紅色中加入「黑色」，此時該顏色的屬性變化為：",
-    "option_a": "明度降低，彩度降低，形成暗濁調（Shade）",
+    "option_a": "明度降低，彩度提高",
     "option_b": "明度提高，彩度降低",
-    "option_c": "明度降低，彩度提高",
+    "option_c": "明度降低，彩度降低，形成暗濁調（Shade）",
     "option_d": "色相直接轉變為綠色",
-    "answer": "A",
+    "answer": "C",
     "explanation": "加黑會吸收更多光線使明度下降，同時也稀釋了純色光譜純度使彩度下降，形成較深暗沉的色調（Shade）。"
   },
   {
@@ -1102,11 +1102,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在色彩學術語中，「Tint（淡色調）」、「Shade（暗色調）」與「Tone（濁色調）」的嚴謹定義分別是純色加入：",
-    "option_a": "Tint 加白、Shade 加黑、Tone 加灰",
+    "option_a": "Tint 加水、Shade 加墨、Tone 加膠",
     "option_b": "Tint 加黑、Shade 加白、Tone 加黃",
     "option_c": "Tint 加灰、Shade 加白、Tone 加黑",
-    "option_d": "Tint 加水、Shade 加墨、Tone 加膠",
-    "answer": "A",
+    "option_d": "Tint 加白、Shade 加黑、Tone 加灰",
+    "answer": "D",
     "explanation": "Tint（明清色）= 純色 + 白；Shade（暗清色）= 純色 + 黑；Tone（濁色/中間色）= 純色 + 灰色。"
   },
   {
@@ -1117,11 +1117,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "色彩的「彩度（Chroma / Saturation）」又常被稱作純度或飽和度，其物理上代表的是：",
-    "option_a": "光波波長的單一純淨程度（單色光所佔比例）",
-    "option_b": "光波的總震幅能量大小",
+    "option_a": "光波的總震幅能量大小",
+    "option_b": "光波波長的單一純淨程度（單色光所佔比例）",
     "option_c": "發光體發射光子的總頻率",
     "option_d": "物體的表面物理粗糙程度",
-    "answer": "A",
+    "answer": "B",
     "explanation": "彩度指色彩的純淨飽和程度。光線中若單一波長佔比越高，色彩越鮮豔純粹；混入其他波長或雜光越多，彩度越低。"
   },
   {
@@ -1147,11 +1147,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "「明度對比（Value Contrast）」在視覺傳達中被公認比色相對比更具決定性，其神經生理學原因是：",
-    "option_a": "人眼中負責感應明暗的視桿細胞（Rods）數量遠多於感應色彩的視錐細胞（Cones），且明暗對比是空間立體感的核心線索",
-    "option_b": "人類大腦枕葉只處理明度訊號，色彩訊號由顳葉處理",
+    "option_a": "人類大腦枕葉只處理明度訊號，色彩訊號由顳葉處理",
+    "option_b": "人眼中負責感應明暗的視桿細胞（Rods）數量遠多於感應色彩的視錐細胞（Cones），且明暗對比是空間立體感的核心線索",
     "option_c": "所有人的視網膜都缺乏辨識綠色的細胞",
     "option_d": "彩色印刷技術誕生晚於黑白印刷五百年",
-    "answer": "A",
+    "answer": "B",
     "explanation": "人眼有上億個感測明暗的視桿細胞，對邊界反差極度敏銳，明度階調是界定形狀、深度與可讀性的核心要素。"
   },
   {
@@ -1162,11 +1162,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "如果在色彩選擇器（Color Picker）中，將飽和度拉到 0%，此時無論色相滑桿停留在哪一個角度，呈現出的顏色都會是：",
-    "option_a": "黑、白或特定深淺的灰色（無彩色）",
+    "option_a": "螢光綠色",
     "option_b": "純紅色",
     "option_c": "完全透明無色",
-    "option_d": "螢光綠色",
-    "answer": "A",
+    "option_d": "黑、白或特定深淺的灰色（無彩色）",
+    "answer": "D",
     "explanation": "飽和度（Saturation）為 0 時代表完全缺乏純色色素，色彩退化為僅由明度決定的無彩色灰階。"
   },
   {
@@ -1192,11 +1192,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "電腦螢幕、手機面板與投影機發光顯色所依據的色彩模型是：",
-    "option_a": "RGB（紅 Red、綠 Green、藍 Blue）加法混色模式",
+    "option_a": "RYB（紅、黃、藍）傳統繪畫模式",
     "option_b": "CMYK（青、洋紅、黃、黑）減法混色模式",
-    "option_c": "RYB（紅、黃、藍）傳統繪畫模式",
+    "option_c": "RGB（紅 Red、綠 Green、藍 Blue）加法混色模式",
     "option_d": "Pantone 專色模式",
-    "answer": "A",
+    "answer": "C",
     "explanation": "發光自體顯示設備使用 RGB 色光加法混色，三色光以最高強度等量疊加時會產生純白光（255, 255, 255）。"
   },
   {
@@ -1207,11 +1207,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "彩色印刷機、噴墨印表機與四色印刷所依據的標準印刷色彩模式是：",
-    "option_a": "CMYK（Cyan 青、Magenta 洋紅、Yellow 黃、Key/Black 黑）",
-    "option_b": "RGB（紅、綠、藍）",
+    "option_a": "RGB（紅、綠、藍）",
+    "option_b": "CMYK（Cyan 青、Magenta 洋紅、Yellow 黃、Key/Black 黑）",
     "option_c": "HSB（色相、飽和度、明度）",
     "option_d": "Grayscale（灰階模式）",
-    "answer": "A",
+    "answer": "B",
     "explanation": "印刷品藉由色料吸收反射自然光，遵循減法混色，標準四色即為 CMYK。"
   },
   {
@@ -1237,11 +1237,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "設計師在 Photoshop 中設計 RGB 鮮豔螢光綠（如 RGB 0, 255, 0），轉為 CMYK 準備印刷時顏色瞬間變得暗淡濁綠，其根本原因是：",
-    "option_a": "CMYK 印刷色域（Color Gamut）遠小於 RGB 色光色域，螢光綠超出可印色域（Out of Gamut）",
+    "option_a": "螢幕解析度不足",
     "option_b": "印表機驅動程式損壞",
-    "option_c": "螢幕解析度不足",
+    "option_c": "CMYK 印刷色域（Color Gamut）遠小於 RGB 色光色域，螢光綠超出可印色域（Out of Gamut）",
     "option_d": "電腦顯示卡運算錯誤",
-    "answer": "A",
+    "answer": "C",
     "explanation": "RGB 色域大於 CMYK。CMYK 色料受限於油墨物理純度，無法再現 RGB 高飽和色光的鮮亮色調，轉檔時會被色域對應（Gamut Mapping）壓縮。"
   },
   {
@@ -1252,11 +1252,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 UI 設計工具（如 Figma, Sketch）中常用的「HSB（或稱 HSV）」色彩模式，三個參數分別代表：",
-    "option_a": "Hue（色相角度 0-360°）、Saturation（飽和度 0-100%）、Brightness（明度 0-100%）",
+    "option_a": "Heat、Shadow、Base",
     "option_b": "High、Sharp、Bright",
     "option_c": "Hue、Screen、Blend",
-    "option_d": "Heat、Shadow、Base",
-    "answer": "A",
+    "option_d": "Hue（色相角度 0-360°）、Saturation（飽和度 0-100%）、Brightness（明度 0-100%）",
+    "answer": "D",
     "explanation": "HSB 模型將色彩以人類直覺思考組織：H 為色相環角度（0°為紅），S 為彩度百分比，B 為亮度百分比，非常符合設計選色思維。"
   },
   {
@@ -1267,11 +1267,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "CIE L*a*b* 色彩空間被稱為「獨立於設備的色彩模型（Device-Independent Color Space）」，其 'L*'、'a*'、'b*' 各代表什麼？",
-    "option_a": "L* 為明度（0-100），a* 軸從綠色（負）到洋紅（正），b* 軸從藍色（負）到黃色（正）",
-    "option_b": "L 代表長度，a 代表視角，b 代表焦距",
+    "option_a": "L 代表長度，a 代表視角，b 代表焦距",
+    "option_b": "L* 為明度（0-100），a* 軸從綠色（負）到洋紅（正），b* 軸從藍色（負）到黃色（正）",
     "option_c": "L 為紅色光，a 為綠色光，b 為藍色光",
     "option_d": "L 代表色料黏度，a 與 b 代表墨層厚度",
-    "answer": "A",
+    "answer": "B",
     "explanation": "CIE Lab 是依據人眼視覺生理對立色理論建立的絕對色彩空間，涵蓋人眼所能見的全部色域，是跨設備色彩轉換的中繼標準。"
   },
   {
@@ -1282,11 +1282,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在網頁 CSS 程式碼中，十六進位色碼「#FF0000」與「#00FF00」分別代表哪兩種純色？",
-    "option_a": "#FF0000 為純紅色（Red），#00FF00 為純綠色（Green）",
+    "option_a": "#FF0000 為深灰色，#00FF00 為淺藍色",
     "option_b": "#FF0000 為純藍色，#00FF00 為純黑色",
     "option_c": "#FF0000 為純白色，#00FF00 為純黃色",
-    "option_d": "#FF0000 為深灰色，#00FF00 為淺藍色",
-    "answer": "A",
+    "option_d": "#FF0000 為純紅色（Red），#00FF00 為純綠色（Green）",
+    "answer": "D",
     "explanation": "Hex 色碼前兩碼代表紅（R=FF=255）、中兩碼代表綠（G=00=0）、後兩碼代表藍（B=00=0），故 #FF0000 為滿格純紅。"
   },
   {
@@ -1297,11 +1297,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在廣色域螢幕普及的現代，「DCI-P3」色域與傳統網頁通用的「sRGB」色域相比，其色彩表現力為何？",
-    "option_a": "DCI-P3 覆蓋色域比 sRGB 多出約 25%，特別在綠色與紅色區域具備更高鮮豔飽和度",
+    "option_a": "DCI-P3 色域比 sRGB 小一半以利網路傳輸",
     "option_b": "DCI-P3 只能顯示黑白灰三色",
-    "option_c": "DCI-P3 色域比 sRGB 小一半以利網路傳輸",
+    "option_c": "DCI-P3 覆蓋色域比 sRGB 多出約 25%，特別在綠色與紅色區域具備更高鮮豔飽和度",
     "option_d": "兩者色彩空間完全一模一樣，只是名稱不同",
-    "answer": "A",
+    "answer": "C",
     "explanation": "DCI-P3 原為數位電影投影標準，現已成為 iPhone、Mac 等現代螢幕標準，能在紅色與綠色系呈現比傳統 sRGB 更豐富鮮豔的階調。"
   },
   {
@@ -1342,11 +1342,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "色彩管理系統（CMS）中的「色域對應演算方式（Rendering Intents）」中，「感色性（Perceptual / 感知渲染）」的主要特徵是：",
-    "option_a": "等比例壓縮所有色彩（包含未超出色域的顏色），以維持畫面整體視覺色調關係的視覺自然感",
+    "option_a": "把所有顏色強制對齊到純白點",
     "option_b": "只裁切超出色域的顏色，其餘顏色絕對不動",
-    "option_c": "把所有顏色強制對齊到純白點",
+    "option_c": "等比例壓縮所有色彩（包含未超出色域的顏色），以維持畫面整體視覺色調關係的視覺自然感",
     "option_d": "將彩色直接轉換為黑白反差",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Perceptual（感知渲染）會等比例縮放整個色彩空間，保持顏色之間的相對階調與層次關係，極適合照片與複雜圖像轉檔。"
   },
   {
@@ -1357,11 +1357,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "當 RGB 三個通道數值完全相等（如 R=128, G=128, B=128）時，呈現出的視覺色彩必定是：",
-    "option_a": "中度灰色（無彩色）",
+    "option_a": "純紫色",
     "option_b": "淡紅色",
     "option_c": "青色",
-    "option_d": "純紫色",
-    "answer": "A",
+    "option_d": "中度灰色（無彩色）",
+    "answer": "D",
     "explanation": "RGB 三原色光能量等量平衡時，色光互相中和，呈現無彩色中性灰（數值越小越暗，越大越亮）。"
   },
   {
@@ -1372,11 +1372,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "現代美術與設計教育中最廣泛使用的「伊登十二色相環（Johannes Itten Color Wheel）」，其三原色（Primary Colors）分別是：",
-    "option_a": "紅、黃、藍",
-    "option_b": "青、洋紅、黃",
+    "option_a": "青、洋紅、黃",
+    "option_b": "紅、黃、藍",
     "option_c": "紅、綠、藍",
     "option_d": "黑、白、灰",
-    "answer": "A",
+    "answer": "B",
     "explanation": "包浩斯大師約翰·伊登（Itten）十二色相環以傳統顏料三原色：紅、黃、藍為基底展開建構。"
   },
   {
@@ -1387,11 +1387,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在伊登十二色相環中，任取兩個原色以等量混合產生的顏色稱為「二次色（Secondary Colors）」，它們分別是：",
-    "option_a": "橙、綠、紫",
-    "option_b": "紅、黃、藍",
+    "option_a": "紅、黃、藍",
+    "option_b": "橙、綠、紫",
     "option_c": "黑、白、灰",
     "option_d": "金、銀、銅",
-    "answer": "A",
+    "answer": "B",
     "explanation": "紅+黃=橙，黃+藍=綠，藍+紅=紫。橙、綠、紫三色即為伊登體系之二次色（間色）。"
   },
   {
@@ -1417,11 +1417,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "日本色彩研究所開發的「PCCS 色彩體系（Practical Color Coordinate System）」，其最著名的架構特色是將色彩歸納為：",
-    "option_a": "「色調（Tone）」概念，將明度與彩度結合成直觀的感受群組（如 Vivid, Pale, Dark 等）",
+    "option_a": "RGB 二進位代碼",
     "option_b": "單一數值黑白維度",
     "option_c": "純數學立方體",
-    "option_d": "RGB 二進位代碼",
-    "answer": "A",
+    "option_d": "「色調（Tone）」概念，將明度與彩度結合成直觀的感受群組（如 Vivid, Pale, Dark 等）",
+    "answer": "D",
     "explanation": "PCCS 首創「色調（Tone）」體系，將相近明度與彩度結合為 Vivid（鮮豔）、Light（淺淡）、Dull（濁）、Dark（暗）等風格感受，極便利於配色教學。"
   },
   {
@@ -1432,11 +1432,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "瑞典斯堪地那維亞色彩機構提出的「NCS 自然色彩體系（Natural Color System）」，其理論基石建立於人眼的何種生理感知特性？",
-    "option_a": "赫林（Ewald Hering）提出的四種有彩對立色（紅白/黑、黃藍、紅白/綠）生理心理對立學說",
+    "option_a": "視網膜桿狀細胞感光頻率",
     "option_b": "牛頓三稜鏡分光光學折射角度",
-    "option_c": "視網膜桿狀細胞感光頻率",
+    "option_c": "赫林（Ewald Hering）提出的四種有彩對立色（紅白/黑、黃藍、紅白/綠）生理心理對立學說",
     "option_d": "愛因斯坦光電效應量子論",
-    "answer": "A",
+    "answer": "C",
     "explanation": "NCS 體系依據人眼六大基礎純感覺：白、黑、黃、紅、藍、綠，完全從人類直覺感知而非儀器物理性來定量色彩。"
   },
   {
@@ -1447,11 +1447,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在標準 360 度色相環上，夾角相距多少度的兩個顏色在色彩學上被定義為「互補色（Complementary Colors）」？",
-    "option_a": "180 度（正對角線兩端）",
+    "option_a": "60 度（同側角）",
     "option_b": "90 度（正交角）",
-    "option_c": "60 度（同側角）",
+    "option_c": "180 度（正對角線兩端）",
     "option_d": "45 度（斜對角）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "位於色相環直徑兩端（相隔 180 度）的相對色彩即為互補色（如紅與綠、藍與橙、黃與紫）。"
   },
   {
@@ -1477,11 +1477,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "為什麼曼賽爾色立體（Munsell Color Tree）的外觀不是一個對稱規則的球體，而是一個凹凸不平的不規則樹狀體？",
-    "option_a": "因為不同色相所能達到的最高彩度不同（例如純紅彩度極高向外延伸長，藍綠色最高彩度相對較低）",
+    "option_a": "為了迎合太陽光照的傾斜角度",
     "option_b": "因為曼賽爾手繪製作時比例失誤",
     "option_c": "為了在紙張上更易於折疊成骰子形狀",
-    "option_d": "為了迎合太陽光照的傾斜角度",
-    "answer": "A",
+    "option_d": "因為不同色相所能達到的最高彩度不同（例如純紅彩度極高向外延伸長，藍綠色最高彩度相對較低）",
+    "answer": "D",
     "explanation": "真實世界的色彩物理特徵中，不同色相在達到純色時的彩度上限與對應明度不同（如純黃在明度8最高，純紫在明度3），故立體樹形自然參差。"
   },
   {
@@ -1492,11 +1492,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "奧斯華德色彩體系（Ostwald Color System）中，任何色彩皆由純色（C）、白色（W）、黑色（B）三者組成，其方程式必滿足：",
-    "option_a": "C + W + B = 100（或 1）",
-    "option_b": "C × W × B = 1000",
+    "option_a": "C × W × B = 1000",
+    "option_b": "C + W + B = 100（或 1）",
     "option_c": "C / (W + B) = 1.618",
     "option_d": "C + W = B²",
-    "answer": "A",
+    "answer": "B",
     "explanation": "德意志諾貝爾化學獎得主奧斯華德主張任何含色階調，其純色量 C、含白量 W、含黑量 B 總和恆等於 100%。"
   },
   {
@@ -1507,11 +1507,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在色相環上，將「一個主色與其互補色兩側的鄰近色」搭配組成的配色方案，在術語中稱作：",
-    "option_a": "分裂互補色（Split-Complementary）",
+    "option_a": "三等分配色（Triadic）",
     "option_b": "單色系（Monochromatic）",
-    "option_c": "三等分配色（Triadic）",
+    "option_c": "分裂互補色（Split-Complementary）",
     "option_d": "矩形配色（Tetradic）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "分裂互補（如藍色搭配紅橙與黃橙）既保留了補色的高對比張力，又大幅減緩了純補色並置的劇烈刺眼衝突。"
   },
   {
@@ -1522,11 +1522,11 @@
     "score": 150,
     "question_type": "speed_buzzer",
     "question": "若在色相環上以一個正三角形（三點夾角各相隔 120 度）選取三個色彩（如紅、黃、藍），這種配色技巧稱為：",
-    "option_a": "三等分配色（Triadic Color Scheme）",
-    "option_b": "無彩色配色",
+    "option_a": "無彩色配色",
+    "option_b": "三等分配色（Triadic Color Scheme）",
     "option_c": "互補色配色",
     "option_d": "漸層配色",
-    "answer": "A",
+    "answer": "B",
     "explanation": "三等分（Triadic）在色相環各隔 120°，能營造色彩豐富、平衡且充滿活力的高視覺趣味。"
   },
   {
@@ -1537,11 +1537,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "孟塞爾色彩體系中，色相環總共細分為幾種主要基本色相（Major Hues）與中間色相？",
-    "option_a": "5 個基本色相（R, Y, G, B, P）與 5 個中間色相（YR, GY, BG, PB, RP），共 10 大色相",
+    "option_a": "12 個星座色相",
     "option_b": "只有紅黃藍三色",
     "option_c": "60 個純白色相",
-    "option_d": "12 個星座色相",
-    "answer": "A",
+    "option_d": "5 個基本色相（R, Y, G, B, P）與 5 個中間色相（YR, GY, BG, PB, RP），共 10 大色相",
+    "answer": "D",
     "explanation": "曼賽爾以十進位制建立，五大主色（紅、黃、綠、藍、紫）加五大中間色，再各自分割為10階，構成完整的100色相環。"
   },
   {
@@ -1582,11 +1582,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "只使用「單一色相」，透過改變其明度與飽和度（如深藍、淺藍、海軍藍、天空藍）進行的設計配色方案稱為：",
-    "option_a": "單色系配色（Monochromatic）",
+    "option_a": "衝突色配色（Clashing）",
     "option_b": "互補色配色（Complementary）",
-    "option_c": "衝突色配色（Clashing）",
+    "option_c": "單色系配色（Monochromatic）",
     "option_d": "雙色調配色（Duotone）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "單色系（Monochromatic）只使用一種色相的明暗純度階調，視覺極具統一感、優雅沉穩且絕對不會出現色彩衝突。"
   },
   {
@@ -1597,11 +1597,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在設計警示標誌（如交通號誌、消防器材、施工告示）時，常採用「黃配黑」或「紅配白」，這是運用了何種色彩原理？",
-    "option_a": "極高明度差與高對比所產生的「高注目性（Visibility / Conspicuity）」",
-    "option_b": "降低觀者的警覺心以利放鬆",
+    "option_a": "降低觀者的警覺心以利放鬆",
+    "option_b": "極高明度差與高對比所產生的「高注目性（Visibility / Conspicuity）」",
     "option_c": "讓字體產生模糊隱形效果",
     "option_d": "純粹為了節省油墨調配成本",
-    "answer": "A",
+    "answer": "B",
     "explanation": "黃配黑具備自然界最高的明度反差（明度最高純黃 vs 明度最低黑），遠距離視認性與心智驚覺效果居所有配色之冠。"
   },
   {
@@ -1612,11 +1612,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "當畫面上兩個互補色（如正紅與正綠）面積完全相等（1:1）並列時，常會讓人感到刺眼、俗氣與視覺疲倦，最有效的專業改善手法是：",
-    "option_a": "改變兩者面積比例（如縮小其中一色為點綴色），或在兩色交界處加入黑白金銀等中性隔離線",
+    "option_a": "讓整個畫面快速旋轉",
     "option_b": "強制將兩色都調成完全透明",
     "option_c": "把文字全部刪除",
-    "option_d": "讓整個畫面快速旋轉",
-    "answer": "A",
+    "option_d": "改變兩者面積比例（如縮小其中一色為點綴色），或在兩色交界處加入黑白金銀等中性隔離線",
+    "answer": "D",
     "explanation": "互補色力量抗衡時會產生視覺爭奪；歌德的色彩面積理論建議透過「面積調和（如紫配黃需3:1）」或中性色線間隔來緩衝衝突。"
   },
   {
@@ -1627,11 +1627,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 UI 介面設計中，若將背景設為「暖灰（Warm Gray）」，它相較於純中性冷灰（Cool Gray）給使用者的心理感受通常是：",
-    "option_a": "更有溫度、親切感、人道與自然舒適感",
+    "option_a": "完全無法閱讀任何文字",
     "option_b": "冷酷無情如工業機械",
-    "option_c": "完全無法閱讀任何文字",
+    "option_c": "更有溫度、親切感、人道與自然舒適感",
     "option_d": "讓螢幕產生雜訊跳動",
-    "answer": "A",
+    "answer": "C",
     "explanation": "微帶米黃或紅橙傾向的暖灰，能淡化數位冷硬感，傳達溫暖、有機與精緻人文氣質。"
   },
   {
@@ -1642,11 +1642,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "文藝復興大師達文西與詩人歌德皆曾研究色彩明度與視覺平衡面積比，歌德提出的「純黃（9）與純紫（3）」調和面積比應為：",
-    "option_a": "黃 : 紫 = 1 : 3（明度高的黃色面積應為紫色的三分之一）",
-    "option_b": "黃 : 紫 = 3 : 1（黃色面積應為紫色的三倍）",
+    "option_a": "黃 : 紫 = 3 : 1（黃色面積應為紫色的三倍）",
+    "option_b": "黃 : 紫 = 1 : 3（明度高的黃色面積應為紫色的三分之一）",
     "option_c": "黃 : 紫 = 1 : 1（完全相等）",
     "option_d": "黃色不可與紫色並置",
-    "answer": "A",
+    "answer": "B",
     "explanation": "歌德明度力量值黃為9、紫為3。明度高者刺激強，其面積必須與明度成反比，故黃:紫面積比為 1:3 才能達到視覺平衡。"
   },
   {
@@ -1672,11 +1672,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在雙色調配色（Duotone）影像處理技巧中，通常如何將色彩對應至黑白相片中？",
-    "option_a": "將高光亮部對應至一種鮮明色彩，陰影暗部對應至另一種深沉色彩",
+    "option_a": "只在眼睛部位填色其餘留白",
     "option_b": "將整個畫面隨機塗抹兩種顏色",
     "option_c": "將像素奇數行與偶數行分開上色",
-    "option_d": "只在眼睛部位填色其餘留白",
-    "answer": "A",
+    "option_d": "將高光亮部對應至一種鮮明色彩，陰影暗部對應至另一種深沉色彩",
+    "answer": "D",
     "explanation": "Duotone（雙色調）技術將相片的灰階範圍重新映射到兩種指定油墨（通常一深一亮），能營造出極具張力的復古流行視覺。"
   },
   {
@@ -1687,11 +1687,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在設計兒童玩具、遊樂園或歡慶派對視覺時，最常採用的配色策略是：",
-    "option_a": "多色相、高飽和度、高明度的明亮多元純色組合",
+    "option_a": "極度微弱的低對比灰綠色",
     "option_b": "深沉陰鬱的灰黑色調",
-    "option_c": "極度微弱的低對比灰綠色",
+    "option_c": "多色相、高飽和度、高明度的明亮多元純色組合",
     "option_d": "全純黑單色系",
-    "answer": "A",
+    "answer": "C",
     "explanation": "高飽和度、高明度的暖色與繽紛多色相能直接刺激多巴胺與愉悅感，強烈符合幼童的視覺認知偏好。"
   },
   {
@@ -1702,11 +1702,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在傳統日本和風配色或文藝古典設計中，大量採用帶灰調的「莫蘭迪色系」或「日本傳統色（和色）」，其視覺魅力是：",
-    "option_a": "優雅內斂、柔和沉穩、耐看且不具侵略性",
-    "option_b": "刺眼眩目、極度刺眼",
+    "option_a": "刺眼眩目、極度刺眼",
+    "option_b": "優雅內斂、柔和沉穩、耐看且不具侵略性",
     "option_c": "無法在任何印刷品上被複製",
     "option_d": "只能在黑暗中發光看見",
-    "answer": "A",
+    "answer": "B",
     "explanation": "莫蘭迪色系透過在原色中注入灰階降低彩度，創造和諧共存的中間調，具有高度的高級感與耐讀性。"
   },
   {
@@ -1717,11 +1717,11 @@
     "score": 200,
     "question_type": "speed_buzzer",
     "question": "在排版配色中，若在彩色底色上排印「正黑色文字」，為了使黑色文字看起來更加深邃濃郁，專業印前會建議採用何種調配？",
-    "option_a": "Rich Black（豐富黑/濃黑）：在 100% K 中額外混入適量 C（如 C=30 M=20 Y=20 K=100）",
+    "option_a": "純白色文字反白",
     "option_b": "純黃色",
     "option_c": "100% 透明水墨",
-    "option_d": "純白色文字反白",
-    "answer": "A",
+    "option_d": "Rich Black（豐富黑/濃黑）：在 100% K 中額外混入適量 C（如 C=30 M=20 Y=20 K=100）",
+    "answer": "D",
     "explanation": "單一 100% K（Flat Black）印在大面積色塊上會顯得發灰發乾；加入適量 C、M、Y 底色調配成 Rich Black 能呈現沉穩飽滿的深黑。"
   },
   {
@@ -1762,11 +1762,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在現代環保、有機農業、永續發展（ESG）以及健康保健產業中，最無可取代的象徵代表色是：",
-    "option_a": "綠色（Green）",
+    "option_a": "灰色（Gray）",
     "option_b": "紫色（Purple）",
-    "option_c": "灰色（Gray）",
+    "option_c": "綠色（Green）",
     "option_d": "洋紅色（Magenta）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "綠色直接連結大自然、植物光合作用與生命復甦，在心理上象徵健康、有機、平衡與永續生態。"
   },
   {
@@ -1777,11 +1777,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在色彩文化象徵中，歷史上「紫色（Purple）」在歐洲古典傳統中常象徵「皇室、貴族、尊榮與神秘」，這是因為：",
-    "option_a": "古代骨螺紫（Tyrian Purple）染料極度昂貴罕有，僅有帝王與最高階主教負擔得起",
-    "option_b": "紫色是可見光中波長最長的顏色",
+    "option_a": "紫色是可見光中波長最長的顏色",
+    "option_b": "古代骨螺紫（Tyrian Purple）染料極度昂貴罕有，僅有帝王與最高階主教負擔得起",
     "option_c": "紫色在夜間會自體發光",
     "option_d": "歐洲皇帝法令規定平民若看到紫色必須閉眼",
-    "answer": "A",
+    "answer": "B",
     "explanation": "古代提爾紫由成千上萬隻罕見骨螺鰓下腺提煉，每盎司造價超越黃金，形成了長達千年的皇家權貴專屬文化刻印。"
   },
   {
@@ -1792,11 +1792,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在色彩溫度感知（Color Temperature）中，我們將紅、橙、黃歸類為「暖色系」，藍、青、藍綠歸類為「冷色系」，其生理心理基礎是：",
-    "option_a": "聯想經驗法則：暖色聯想到太陽、火焰與血液；冷色聯想到水、冰雪、天空與深海",
+    "option_a": "完全是隨機約定俗成的流行詞彙",
     "option_b": "用溫度計測量色光時，紅色燈泡溫度比藍色低十倍",
     "option_c": "暖色波長短，冷色波長長",
-    "option_d": "完全是隨機約定俗成的流行詞彙",
-    "answer": "A",
+    "option_d": "聯想經驗法則：暖色聯想到太陽、火焰與血液；冷色聯想到水、冰雪、天空與深海",
+    "answer": "D",
     "explanation": "人類對色溫的感知源於漫長演化中對自然環境事物的本能聯想，暖色帶來親密能量，冷色帶來開闊寧靜與距離感。"
   },
   {
@@ -1807,11 +1807,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在跨文化視覺設計中，同一個顏色在不同國家文化中意義可能截然相反。例如「白色」在西方婚禮象徵純潔，但在傳統東亞文化中常象徵：",
-    "option_a": "喪葬、哀悼與肅穆",
+    "option_a": "戰鬥與侵略",
     "option_b": "財富與豐收",
-    "option_c": "戰鬥與侵略",
+    "option_c": "喪葬、哀悼與肅穆",
     "option_d": "未成年身分",
-    "answer": "A",
+    "answer": "C",
     "explanation": "色彩具有強烈文化地域性。白色在中華傳統白事中為哀思之色，進行全球化品牌包裝時需高度注意文化禁忌。"
   },
   {
@@ -1837,11 +1837,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在精品時尚與高科技旗艦產品（如 Chanel、Sony、Tesla）中，大量使用「極致黑（Black）與純白（White）」作為主色，主要傳遞的品牌形象是：",
-    "option_a": "權威力量、極簡前衛、奢華永恆與超越時代的經典感",
-    "option_b": "廉價促銷快速換季",
+    "option_a": "廉價促銷快速換季",
+    "option_b": "權威力量、極簡前衛、奢華永恆與超越時代的經典感",
     "option_c": "缺乏設計理念只能留白",
     "option_d": "產品性能不穩定需要遮掩",
-    "answer": "A",
+    "answer": "B",
     "explanation": "黑色代表神秘、權力與深沉純粹；黑白雙色能剔除潮流顏色的過期衰竭感，傳達永恆不墜的殿堂級威望。"
   },
   {
@@ -1852,11 +1852,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "色彩進退感與脹縮感中，「前進色（Advancing Color）」通常具備何種色彩屬性特徵？",
-    "option_a": "高明度、高彩度的暖色系（如紅、黃、橙）在視覺上會感覺比實際位置更往前凸出且膨脹放大",
+    "option_a": "完全由文字大小決定，色彩不會影響距離知覺",
     "option_b": "低明度、低彩度的深冷色在視覺上永遠向前衝",
     "option_c": "所有綠色系都是最強烈的前進色",
-    "option_d": "完全由文字大小決定，色彩不會影響距離知覺",
-    "answer": "A",
+    "option_d": "高明度、高彩度的暖色系（如紅、黃、橙）在視覺上會感覺比實際位置更往前凸出且膨脹放大",
+    "answer": "D",
     "explanation": "前進色/膨脹色（暖、高明度、高彩度）視網膜折射聚焦在視網膜後方，迫使眼水晶體微凸，產生更靠近放大的心理錯覺。"
   },
   {
@@ -1867,11 +1867,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在數位 UI 介面設計中，警告或危險動作（如「刪除帳號」、「重設所有資料」）標準按鈕幾乎一律使用：",
-    "option_a": "紅色（Red）",
-    "option_b": "天藍色（Sky Blue）",
+    "option_a": "天藍色（Sky Blue）",
+    "option_b": "紅色（Red）",
     "option_c": "粉綠色（Mint Green）",
     "option_d": "純白色",
-    "answer": "A",
+    "answer": "B",
     "explanation": "紅色在全人類認知中具有最高的危險警示警惕語義，能有效防止使用者無意間造成不可逆之資料破壞。"
   },
   {
@@ -1897,11 +1897,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "將水彩、壓克力顏料或印刷油墨混合在一起時，混合後的顏色會「越混越暗、越混越濁」，這種現象稱為：",
-    "option_a": "減法混色（Subtractive Color Mixing）",
+    "option_a": "空間混色（Spatial Mixing）",
     "option_b": "加法混色（Additive Color Mixing）",
-    "option_c": "空間混色（Spatial Mixing）",
+    "option_c": "減法混色（Subtractive Color Mixing）",
     "option_d": "同化現象",
-    "answer": "A",
+    "answer": "C",
     "explanation": "色料本身不發光，混合越多元色料吸收的光譜範圍越大，反射到人眼的光線總量越少，越混越暗，故為減法混色。"
   },
   {
@@ -1912,11 +1912,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在色光加法混色（RGB）中，紅光（Red）與綠光（Green）以等強度光線重疊投射在一起，會產生什麼顏色的色光？",
-    "option_a": "黃光（Yellow）",
+    "option_a": "黑光",
     "option_b": "青光（Cyan）",
     "option_c": "洋紅光（Magenta）",
-    "option_d": "黑光",
-    "answer": "A",
+    "option_d": "黃光（Yellow）",
+    "answer": "D",
     "explanation": "紅光與綠光波長同時刺激視網膜紅敏與綠敏視錐細胞，大腦感知為明亮的純黃光（RGB: 255, 255, 0）。"
   },
   {
@@ -1927,11 +1927,11 @@
     "score": 150,
     "question_type": "speed_buzzer",
     "question": "在色料減法混色（CMY）中，青色顏料（Cyan）與黃色顏料（Yellow）混合後，會吸收紅光與藍光，反射出的顏色是：",
-    "option_a": "綠色（Green）",
+    "option_a": "純紫色",
     "option_b": "黑色",
     "option_c": "橙色",
-    "option_d": "純紫色",
-    "answer": "A",
+    "option_d": "綠色（Green）",
+    "answer": "D",
     "explanation": "青色吸收紅光反射藍綠；黃色吸收藍光反射紅綠。青黃相混後紅藍光皆被吸收，只剩下共同反射的綠光。"
   },
   {
@@ -1942,11 +1942,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "十九世紀新印象派畫家秀拉（Georges Seurat）的「點描派（Pointillism）」畫法，以及彩色電視螢幕微型像素並列，在色彩學上屬於：",
-    "option_a": "並置混色（Juxtaposition / Spatial Partitive Mixing，又稱中性混色）",
+    "option_a": "減法吸收混色",
     "option_b": "物理性溶劑調合混色",
-    "option_c": "減法吸收混色",
+    "option_c": "並置混色（Juxtaposition / Spatial Partitive Mixing，又稱中性混色）",
     "option_d": "完全沒有任何混色發生",
-    "answer": "A",
+    "answer": "C",
     "explanation": "並置混色將微小色點密集排列，在一定觀看距離下人眼解析度不足，光線在視網膜上自然融合為全新色調，明度為兩者平均值。"
   },
   {
@@ -1957,11 +1957,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "將塗有不同顏色的圓形陀螺快速旋轉時，人眼會看見混成另一種均勻的中間色，這種物理心理現象屬於：",
-    "option_a": "旋轉混色（Rotational Color Mixing / 時間性中性混色）",
-    "option_b": "加法雷射聚光",
+    "option_a": "加法雷射聚光",
+    "option_b": "旋轉混色（Rotational Color Mixing / 時間性中性混色）",
     "option_c": "化學顏料結晶",
     "option_d": "負殘像互補投影",
-    "answer": "A",
+    "answer": "B",
     "explanation": "旋轉混色利用人類視網膜的「視覺暫留（Persistence of Vision）」，讓快速交替的色彩信號在神經系統中融合成平均中性色。"
   },
   {
@@ -1987,11 +1987,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "當細小的黑色格線穿插在灰色背景上，灰底看起來會顯得更暗；若穿插白色細線，灰底看起來會變亮，這種受到鄰近極細線條同化的現象稱為：",
-    "option_a": "馮·貝措爾德同化現象（von Bezold Spreading Effect / 同化效應）",
-    "option_b": "赫曼方格殘像（Hermann Grid）",
+    "option_a": "赫曼方格殘像（Hermann Grid）",
+    "option_b": "馮·貝措爾德同化現象（von Bezold Spreading Effect / 同化效應）",
     "option_c": "馬赫帶效應（Mach Bands）",
     "option_d": "芒塞爾色調漂移",
-    "answer": "A",
+    "answer": "B",
     "explanation": "當圖形單元小於視網膜受光野中心抑制區時，對比機制失效轉為同化效應（Spreading Effect），邊界顏色會主動滲透同化背景。"
   },
   {
@@ -2002,11 +2002,11 @@
     "score": 200,
     "question_type": "speed_buzzer",
     "question": "在色光加法模式中，紅光（Red）、綠光（Green）、藍光（Blue）三者彼此之間的二次色互補對應關係是：",
-    "option_a": "紅補青（Cyan）、綠補洋紅（Magenta）、藍補黃（Yellow）",
+    "option_a": "紅補紫、綠補橙、藍補灰",
     "option_b": "紅補黃、綠補藍、藍補黑",
-    "option_c": "紅補紫、綠補橙、藍補灰",
+    "option_c": "紅補青（Cyan）、綠補洋紅（Magenta）、藍補黃（Yellow）",
     "option_d": "三色完全沒有任何互補關係",
-    "answer": "A",
+    "answer": "C",
     "explanation": "色光三原色之互補色正好是色料三原色：紅光與青光（G+B）相加成白光；綠光與洋紅（R+B）成白光；藍光與黃光（R+G）成白光。"
   },
   {
@@ -2032,11 +2032,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "當設計一個企業商標（Logo）時，為什麼業界標準絕對要求必須先製作「向量格式」而非點陣圖？",
-    "option_a": "向量圖形無論等比縮小到名片上或放大到摩天大樓外牆廣告，線條邊緣永遠維持極致清晰銳利且不失真",
+    "option_a": "向量圖形檔案會自體發光",
     "option_b": "向量圖形只能由特定品牌的印表機列印",
     "option_c": "點陣圖完全無法存檔在電腦硬碟裡",
-    "option_d": "向量圖形檔案會自體發光",
-    "answer": "A",
+    "option_d": "向量圖形無論等比縮小到名片上或放大到摩天大樓外牆廣告，線條邊緣永遠維持極致清晰銳利且不失真",
+    "answer": "D",
     "explanation": "Logo 需要適應極端尺寸跨度（從微小 App Icon 到巨幅戶外看板），向量格式獨立於解析度（Resolution-Independent），放大任何倍數邊緣皆完美銳利。"
   },
   {
@@ -2047,11 +2047,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "當一張 300x300 像素的點陣圖強制放大到 3000x3000 像素時，畫面邊緣會產生一顆顆鋸齒狀馬賽克模糊色塊，這種現象俗稱為：",
-    "option_a": "像素化（Pixelation / 破圖）",
-    "option_b": "抗鋸齒（Anti-Aliasing）",
+    "option_a": "抗鋸齒（Anti-Aliasing）",
+    "option_b": "像素化（Pixelation / 破圖）",
     "option_c": "高動態範圍（HDR）",
     "option_d": "向量平滑化",
-    "answer": "A",
+    "answer": "B",
     "explanation": "像素化是指像素被過度拉大放大，使得人眼直接辨識出方形像素顆粒邊界，喪失圖像細節與平滑度。"
   },
   {
@@ -2077,11 +2077,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在排版軟體中縮小一張高解析度點陣圖，其在畫面上的「有效解析度（Effective PPI）」會發生什麼變化？",
-    "option_a": "有效 PPI 會成反比增加（影像變得更加緻密）",
+    "option_a": "像素總數會自動消失一半",
     "option_b": "有效 PPI 會降低為零",
     "option_c": "有效 PPI 永遠固定不變",
-    "option_d": "像素總數會自動消失一半",
-    "answer": "A",
+    "option_d": "有效 PPI 會成反比增加（影像變得更加緻密）",
+    "answer": "D",
     "explanation": "有效 PPI = 原像素數量 / 實際物理顯示吋數。尺寸被縮小排版時，單位吋內容納的像素密度上升，故印刷解析度反而更高。"
   },
   {
@@ -2092,11 +2092,11 @@
     "score": 150,
     "question_type": "speed_buzzer",
     "question": "在下列常見檔案副檔名中，哪一組「全部皆屬於點陣圖格式」？",
-    "option_a": "JPG、PNG、GIF、TIFF、PSD",
+    "option_a": "AI、PNG、SVG、JPG",
     "option_b": "SVG、EPS、AI、PDF",
-    "option_c": "AI、PNG、SVG、JPG",
+    "option_c": "JPG、PNG、GIF、TIFF、PSD",
     "option_d": "DOC、XLS、PPT、PDF",
-    "answer": "A",
+    "answer": "C",
     "explanation": "JPG、PNG、GIF、TIFF、PSD 其本質皆為像素網格構成之點陣圖；SVG、AI、EPS 則為原生向量格式（PDF可混合）。"
   },
   {
@@ -2107,11 +2107,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "向量圖形軟體在螢幕上呈現曲線時，為了避免低解析度螢幕邊緣產生生硬樓梯狀毛邊，會採用何種演算法？",
-    "option_a": "抗鋸齒技術（Anti-Aliasing / 次像素平滑）",
+    "option_a": "光柵化失真",
     "option_b": "雙立方內插壓縮",
     "option_c": "色彩分離技術",
-    "option_d": "光柵化失真",
-    "answer": "A",
+    "option_d": "抗鋸齒技術（Anti-Aliasing / 次像素平滑）",
+    "answer": "D",
     "explanation": "Anti-Aliasing 在高對比度邊緣注入中間過渡色階半透明像素，欺騙人眼視覺，讓鋸齒折角在視覺上呈現平滑連貫。"
   },
   {
@@ -2137,11 +2137,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 Illustrator 中使用「影像描圖（Image Trace）」功能，其核心功能為：",
-    "option_a": "自動演算法分析點陣圖的邊界與色塊，將其轉換為可編輯的向量錨點與路徑",
-    "option_b": "將向量圖強制壓縮成低解析度 JPG",
+    "option_a": "將向量圖強制壓縮成低解析度 JPG",
+    "option_b": "自動演算法分析點陣圖的邊界與色塊，將其轉換為可編輯的向量錨點與路徑",
     "option_c": "清除圖層上的所有遮色片",
     "option_d": "給黑白相片自動上色",
-    "answer": "A",
+    "answer": "B",
     "explanation": "影像描圖（Image Trace）能辨識點陣像素輪廓並擬合出貝茲曲線向量路徑，達到位圖轉向量的效果。"
   },
   {
@@ -2152,11 +2152,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "向量檔案（如 SVG, AI）的檔案容量大小，通常取決於什麼因素，而非畫面的物理寬度與高度？",
-    "option_a": "圖形中的錨點數量、路徑複雜度、漸層網點與複合路徑多寡",
+    "option_a": "螢幕的更新頻率",
     "option_b": "畫布設定的像素寬度與高度",
-    "option_c": "螢幕的更新頻率",
+    "option_c": "圖形中的錨點數量、路徑複雜度、漸層網點與複合路徑多寡",
     "option_d": "電腦硬碟的物理轉速",
-    "answer": "A",
+    "answer": "C",
     "explanation": "向量檔儲存的是幾何公式指令。一個畫滿十萬個錨點的 10x10cm 複雜圖形，容量遠大於一個 100x100 米的簡單純色矩形。"
   },
   {
@@ -2182,11 +2182,11 @@
     "score": 150,
     "question_type": "speed_buzzer",
     "question": "若需要為服飾印刷刺繡機（Embroidery）或電腦卡點割字機（Vinyl Cutter）準備檔案，為何「非向量檔不可」？",
-    "option_a": "因為割字機的刀片需要循著連續的「向量路徑與座標線」進行物理切割，像素圖無法提供坐標軌跡",
-    "option_b": "因為刺繡機只能讀取 72 DPI 的圖片",
+    "option_a": "因為刺繡機只能讀取 72 DPI 的圖片",
+    "option_b": "因為割字機的刀片需要循著連續的「向量路徑與座標線」進行物理切割，像素圖無法提供坐標軌跡",
     "option_c": "點陣圖檔案有毒會損壞機器晶片",
     "option_d": "向量檔案有潤滑刀片的效果",
-    "answer": "A",
+    "answer": "B",
     "explanation": "切割機、雷射雕刻機、CNC 雕刻銑刀與刺繡機皆以 G-code 數控軌跡運作，必須依賴向量線段的連續座標導引機械運動。"
   },
   {
@@ -2197,11 +2197,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "網路上最普及的「JPEG / JPG」格式，其最顯著的格式特性與限制為何？",
-    "option_a": "採用破壞性壓縮以大幅減小檔案體積，但「完全不支援透明背景（Alpha Channel）」",
+    "option_a": "支援向量無限縮放動畫",
     "option_b": "支援 32 位元無損透明通道與多圖層",
-    "option_c": "支援向量無限縮放動畫",
+    "option_c": "採用破壞性壓縮以大幅減小檔案體積，但「完全不支援透明背景（Alpha Channel）」",
     "option_d": "只能儲存黑白灰階二色",
-    "answer": "A",
+    "answer": "C",
     "explanation": "JPG 原生不具備 Alpha 透明通道，去背區域存成 JPG 時會被強制填補成白色或其他預設背景色。"
   },
   {
@@ -2212,11 +2212,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "當需要在網頁或簡報中展示「去背透明背景」的彩色商品圖時，最標準常見的點陣圖格式是：",
-    "option_a": "PNG（Portable Network Graphics，特別是 PNG-24）",
+    "option_a": "TXT（文字檔案）",
     "option_b": "JPG（Joint Photographic Experts Group）",
     "option_c": "BMP（點陣未壓縮圖）",
-    "option_d": "TXT（文字檔案）",
-    "answer": "A",
+    "option_d": "PNG（Portable Network Graphics，特別是 PNG-24）",
+    "answer": "D",
     "explanation": "PNG 格式支援高品質無失真壓縮與 8-bit Alpha 透明通道（支援 256 階半透明），是去背網頁圖案的首選。"
   },
   {
@@ -2242,11 +2242,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "傳統社群動態表情包常用的「GIF」檔案格式，其原生最大色彩數量上限為多少色？",
-    "option_a": "256 色（8 位元色彩索引盤）",
-    "option_b": "1677 萬色（24 位元真彩色）",
+    "option_a": "1677 萬色（24 位元真彩色）",
+    "option_b": "256 色（8 位元色彩索引盤）",
     "option_c": "65,536 色",
     "option_d": "無任何顏色限制",
-    "answer": "A",
+    "answer": "B",
     "explanation": "GIF 限制最多只能使用 256 種顏色（Indexed Color），若用來存風景相片會產生色階斷裂雜點（Dithering）。"
   },
   {
@@ -2257,11 +2257,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "由 Google 推出的現代現代化網頁影像格式「WebP」，其主要特點為：",
-    "option_a": "兼具高壓縮率、透明通道（Alpha）與動態動畫，且同等畫質下容量比傳統 JPG/PNG 小約 30%",
+    "option_a": "完全無法被瀏覽器解碼",
     "option_b": "只能在 Android 手機上瀏覽",
-    "option_c": "完全無法被瀏覽器解碼",
+    "option_c": "兼具高壓縮率、透明通道（Alpha）與動態動畫，且同等畫質下容量比傳統 JPG/PNG 小約 30%",
     "option_d": "會強制將所有顏色轉換成灰色",
-    "answer": "A",
+    "answer": "C",
     "explanation": "WebP 是全能型現代 Web 格式，集 JPG 的高壓縮、PNG 的透明、GIF 的動畫於一體，全面獲得現代各大瀏覽器原生支援。"
   },
   {
@@ -2272,11 +2272,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "印刷業與專業出版中被視為跨平台檔案交換之世界通用的業界黃金標準格式是：",
-    "option_a": "PDF（Portable Document Format，特別是 PDF/X 標準）",
+    "option_a": "BMP",
     "option_b": "GIF",
     "option_c": "DOCX",
-    "option_d": "BMP",
-    "answer": "A",
+    "option_d": "PDF（Portable Document Format，特別是 PDF/X 標準）",
+    "answer": "D",
     "explanation": "PDF（PDF/X-1a, PDF/X-4）能完整封裝文字向量、輪廓字型、CMYK 與高解析圖片，跨平台絕不跑版，是商業印刷標準。"
   },
   {
@@ -2302,11 +2302,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在傳統高階印刷與典藏掃描中備受尊崇的「TIFF（.tif）」格式，其最突出的優點是：",
-    "option_a": "支援無失真壓縮（如 LZW）、多通道、多圖層、高位元深度（16/32-bit）與 CMYK 色彩，品質完全不退化",
+    "option_a": "在縮放時會自動轉成純向量路徑",
     "option_b": "檔案極小，適合網頁快速載入",
     "option_c": "只能透過打字機列印",
-    "option_d": "在縮放時會自動轉成純向量路徑",
-    "answer": "A",
+    "option_d": "支援無失真壓縮（如 LZW）、多通道、多圖層、高位元深度（16/32-bit）與 CMYK 色彩，品質完全不退化",
+    "answer": "D",
     "explanation": "TIFF 是專業印刷與醫學影像的工業標準，完全不犧牲任何像素資訊，支援點陣圖最高品質保存。"
   },
   {
@@ -2317,11 +2317,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "Adobe Photoshop 的原生工作原始檔案副檔名為「.psd」，其最大特徵為：",
-    "option_a": "完整保留圖層、圖層遮色片、混合模式、智慧型物件、文字向量屬性與調整圖層可供後續修改",
-    "option_b": "只要存檔一次就再也不能修改",
+    "option_a": "只要存檔一次就再也不能修改",
+    "option_b": "完整保留圖層、圖層遮色片、混合模式、智慧型物件、文字向量屬性與調整圖層可供後續修改",
     "option_c": "可以在微軟 Word 中直接點擊播放動畫",
     "option_d": "無法在任何電腦上打開",
-    "answer": "A",
+    "answer": "B",
     "explanation": "PSD 完整儲存所有圖層非破壞性編輯架構，是修圖專案不可或缺的來源工程檔。"
   },
   {
@@ -2332,11 +2332,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "Adobe Illustrator 的原生向量工作檔案副檔名為：",
-    "option_a": ".ai（Adobe Illustrator Artwork）",
+    "option_a": ".mp4",
     "option_b": ".jpg",
-    "option_c": ".mp4",
+    "option_c": ".ai（Adobe Illustrator Artwork）",
     "option_d": ".indd",
-    "answer": "A",
+    "answer": "C",
     "explanation": "AI 為 Illustrator 專屬向量工程檔，支援畫板、精確貝茲錨點路徑與動態外觀樣式。"
   },
   {
@@ -2347,11 +2347,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "「EPS（Encapsulated PostScript）」格式在傳統印刷產業中扮演什麼重要角色？",
-    "option_a": "作為跨軟體（如 CorelDraw 與 Illustrator）交換向量圖形與排版的早期標準 PostScript 容器",
+    "option_a": "只用來儲存三維立體動畫",
     "option_b": "專門用來錄製錄音檔",
-    "option_c": "只用來儲存三維立體動畫",
+    "option_c": "作為跨軟體（如 CorelDraw 與 Illustrator）交換向量圖形與排版的早期標準 PostScript 容器",
     "option_d": "完全無法進行任何商業印刷",
-    "answer": "A",
+    "answer": "C",
     "explanation": "EPS 是基於 PostScript 語言的跨平台向量封裝標準，廣泛應用於傳統印刷出版流程中的 Logo 與插圖交換。"
   },
   {
@@ -2377,11 +2377,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "印刷廠要求設計師繳交檔案前必須將 Illustrator 中的文字「建立外框（Create Outlines）」，目的是：",
-    "option_a": "將文字轉化為純幾何向量圖形，防止印刷廠電腦因缺乏該字型而發生字體走樣或亂碼跑版",
+    "option_a": "讓印刷機自動加上金色外框邊線",
     "option_b": "讓字體文字檔案體積增加以多收費",
     "option_c": "把所有字體自動翻譯成英文",
-    "option_d": "讓印刷機自動加上金色外框邊線",
-    "answer": "A",
+    "option_d": "將文字轉化為純幾何向量圖形，防止印刷廠電腦因缺乏該字型而發生字體走樣或亂碼跑版",
+    "answer": "D",
     "explanation": "建立外框將字元轉為單純向量形狀，即使接收端未安裝該特定商業字型，版面文字造型依然 100% 精準維持不變。"
   },
   {
@@ -2392,11 +2392,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "符合印刷標準的「PDF/X-1a」標準規範，在輸出時有何項嚴格強制限制？",
-    "option_a": "強制所有顏色必須轉換為 CMYK 或特別色，絕不允許包含 RGB 色彩與未嵌入字型",
-    "option_b": "強制只能使用 72 DPI 解析度",
+    "option_a": "強制只能使用 72 DPI 解析度",
+    "option_b": "強制所有顏色必須轉換為 CMYK 或特別色，絕不允許包含 RGB 色彩與未嵌入字型",
     "option_c": "強制刪除所有圖片",
     "option_d": "強制將所有文字轉為簡體中文",
-    "answer": "A",
+    "answer": "B",
     "explanation": "PDF/X-1a 是印刷出版防錯的嚴苛子集，剔除所有 RGB、透明度及未授權字型，消除印前直出製版的不確定變因。"
   },
   {
@@ -2407,11 +2407,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在網頁設計中，若需要製作網頁分頁標籤上的小圖示（Favicon），傳統上最相容的副檔名是：",
-    "option_a": ".ico（Icon 資源格式，可包含多種像素尺寸）",
+    "option_a": ".psd",
     "option_b": ".raw",
-    "option_c": ".psd",
+    "option_c": ".ico（Icon 資源格式，可包含多種像素尺寸）",
     "option_d": ".tiff",
-    "answer": "A",
+    "answer": "C",
     "explanation": ".ico 容器可在單一檔案內包含 16x16, 32x32, 48x48 等多種解析度圖標，適配不同瀏覽器縮放環境。"
   },
   {
@@ -2422,11 +2422,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在數位影像領域，「PPI」與「DPI」分別代表什麼單位的英文縮寫？",
-    "option_a": "PPI 為每英吋像素（Pixels Per Inch），DPI 為每英吋印刷油墨點數（Dots Per Inch）",
-    "option_b": "PPI 指列印紙張，DPI 指螢幕發光",
+    "option_a": "PPI 指列印紙張，DPI 指螢幕發光",
+    "option_b": "PPI 為每英吋像素（Pixels Per Inch），DPI 為每英吋印刷油墨點數（Dots Per Inch）",
     "option_c": "PPI 代表圖片長度，DPI 代表圖片寬度",
     "option_d": "兩者是同義字且數值在任何物理媒介皆一模一樣",
-    "answer": "A",
+    "answer": "B",
     "explanation": "PPI 描述螢幕或影像感應器的像素密度；DPI 描述實體輸出設備（雷射印表機、照相排版機）物理打出的油墨網點密度。"
   },
   {
@@ -2452,11 +2452,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "傳統網頁與早期桌上型電腦螢幕顯示器最常依據的預設標準螢幕解析度為：",
-    "option_a": "72 PPI（Mac 傳統標準）或 96 PPI（Windows 傳統標準）",
+    "option_a": "12 PPI",
     "option_b": "300 PPI",
     "option_c": "600 PPI",
-    "option_d": "12 PPI",
-    "answer": "A",
+    "option_d": "72 PPI（Mac 傳統標準）或 96 PPI（Windows 傳統標準）",
+    "answer": "D",
     "explanation": "歷史上 72 PPI 源於早期 Apple Macintosh 螢幕物理像素對應點數（1 pt = 1/72 吋），Windows 則為 96 PPI。"
   },
   {
@@ -2467,11 +2467,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "現代智慧型手機普遍配備高像素密度螢幕（如 Apple Retina Display，PPI 常高達 326 ~ 460 PPI），若在該螢幕以 1:1 顯示一張傳統 72 PPI 圖示，會發生什麼情況？",
-    "option_a": "圖示在實體尺寸上顯得極度微小，若強制拉大則會顯得邊緣模糊，故需提供 @2x 或 @3x 甚至 SVG 格式素材",
+    "option_a": "顏色會自動反轉為綠色",
     "option_b": "手機螢幕會冒煙過熱損壞",
     "option_c": "圖示會自動變成 3D 浮雕立體圖",
-    "option_d": "顏色會自動反轉為綠色",
-    "answer": "A",
+    "option_d": "圖示在實體尺寸上顯得極度微小，若強制拉大則會顯得邊緣模糊，故需提供 @2x 或 @3x 甚至 SVG 格式素材",
+    "answer": "D",
     "explanation": "高像素密度螢幕以多個物理像素渲染 1 個 CSS 邏輯像素（如 @2x/@3x），普通 72 PPI 圖形若無多倍率素材會被內插放大變模糊。"
   },
   {
@@ -2482,11 +2482,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在戶外巨型建築看板（如 10 公尺 × 20 公尺的高速公路 T 霸帆布），製作檔案時為何「不需要」做到 300 DPI，通常 30 ~ 72 DPI 就足夠清晰？",
-    "option_a": "因為觀看距離極遠（數十至數百公尺），人眼角解析度有限，遠看時低 PPI 點陣像素完全不可察覺且能避免檔案膨脹崩潰",
-    "option_b": "因為印刷機最高只能印 10 萬像素",
+    "option_a": "因為印刷機最高只能印 10 萬像素",
+    "option_b": "因為觀看距離極遠（數十至數百公尺），人眼角解析度有限，遠看時低 PPI 點陣像素完全不可察覺且能避免檔案膨脹崩潰",
     "option_c": "因為墨水在大風吹拂下會自動平滑化",
     "option_d": "為了節省戶外看板的電費消耗",
-    "answer": "A",
+    "answer": "B",
     "explanation": "解析度需求與「觀看距離（Viewing Distance）」成反比。近看雜誌需 300 DPI，遠看幾十公尺外的巨型帆布 30~50 DPI 即可達到完美視覺清晰度。"
   },
   {
@@ -2512,11 +2512,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "若一張數位影像像素維度為 3000 × 2400 像素，若以標準印刷 300 DPI 輸出，其能輸出的「最佳無失真最大物理尺寸」約為：",
-    "option_a": "10 吋 × 8 吋（約 25.4 cm × 20.3 cm）",
+    "option_a": "1 吋 × 0.8 吋",
     "option_b": "100 吋 × 80 吋",
-    "option_c": "1 吋 × 0.8 吋",
+    "option_c": "10 吋 × 8 吋（約 25.4 cm × 20.3 cm）",
     "option_d": "50 公尺 × 40 公尺",
-    "answer": "A",
+    "answer": "C",
     "explanation": "物理尺寸（吋）= 像素數 / DPI。3000/300 = 10 吋；2400/300 = 8 吋。超過此尺寸若要放大輸出，有效 DPI 將會低於 300。"
   },
   {
@@ -2527,11 +2527,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在 Photoshop 中對圖片執行「重新取樣（Resample）」並強制將 72 DPI 改為 300 DPI，若保持原本吋數不變，軟體會如何處理？",
-    "option_a": "利用內插補點演算法（Interpolation）憑空計算並虛構增生出大量像素，但「無法真正憑空還原消失的真實細節」",
+    "option_a": "圖片檔案容量會縮小十倍",
     "option_b": "相機會自動透過網路連線補拍高畫質照片",
     "option_c": "圖片會自動轉成純向量路徑",
-    "option_d": "圖片檔案容量會縮小十倍",
-    "answer": "A",
+    "option_d": "利用內插補點演算法（Interpolation）憑空計算並虛構增生出大量像素，但「無法真正憑空還原消失的真實細節」",
+    "answer": "D",
     "explanation": "點陣圖升頻（Upsampling）僅是依據鄰近像素演算法填補過渡像素，會使畫面變得柔焦平滑但無法創造未曾記錄的真實光學資訊。"
   },
   {
@@ -2542,11 +2542,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "若需要為高階藝術微噴（Giclée Printing）翻印細膩水彩油畫原作，輸出解析度建議至少需達到：",
-    "option_a": "300 至 600 DPI",
-    "option_b": "30 DPI",
+    "option_a": "30 DPI",
+    "option_b": "300 至 600 DPI",
     "option_c": "72 DPI",
     "option_d": "10 DPI",
-    "answer": "A",
+    "answer": "B",
     "explanation": "數位典藏與藝術微噴利用高階多色微壓電噴墨，要求原始輸入檔案至少 300~600 DPI 方能細緻再現紙張紋理與筆觸層次。"
   },
   {
@@ -2572,11 +2572,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 UI 設計中，1 個「CSS 像素（CSS Pixel / 邏輯像素）」在 iPhone 的 @3x 超視網膜螢幕上，實際上由多少個「物理像素（Device Pixels）」組成？",
-    "option_a": "3 × 3 = 9 個物理像素",
+    "option_a": "3 個物理像素",
     "option_b": "1 個物理像素",
-    "option_c": "3 個物理像素",
+    "option_c": "3 × 3 = 9 個物理像素",
     "option_d": "27 個物理像素",
-    "answer": "A",
+    "answer": "C",
     "explanation": "在 3x 設備像素比（DPR=3）環境下，水平與垂直各以 3 倍物理像素繪製 1 個 CSS 邏輯像素，故每 1 個邏輯點覆蓋 9 個物理像素點。"
   },
   {
@@ -2587,11 +2587,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "為什麼在純向量圖形（如文字或 AI 向量路徑）檔案中，「完全沒有 DPI（解析度）」這個屬性存在？",
-    "option_a": "因為向量圖是由純幾何數學座標公式描述，本身沒有固定像素格子，解析度取決於最終顯示或輸出的硬體設備能力",
+    "option_a": "因為 DPI 只能用來形容黑白掃描器",
     "option_b": "因為向量軟體不支援任何度量衡單位",
     "option_c": "因為向量圖只能在無重力太空中使用",
-    "option_d": "因為 DPI 只能用來形容黑白掃描器",
-    "answer": "A",
+    "option_d": "因為向量圖是由純幾何數學座標公式描述，本身沒有固定像素格子，解析度取決於最終顯示或輸出的硬體設備能力",
+    "answer": "D",
     "explanation": "向量圖形是無限連續幾何函數，只有在被渲染成特定螢幕或印刷在特定解析度紙張時（光柵化時）才會依設備產生相應的 DPI。"
   },
   {
@@ -2617,11 +2617,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "「無失真壓縮（Lossless Compression）」技術的代表性格式包括下列哪一項？",
-    "option_a": "PNG、GIF、ZIP、TIFF（使用 LZW 壓縮時）",
+    "option_a": "低位元速率 MP3",
     "option_b": "標準 JPG（高品質模式）",
-    "option_c": "低位元速率 MP3",
+    "option_c": "PNG、GIF、ZIP、TIFF（使用 LZW 壓縮時）",
     "option_d": "高壓縮比 MPEG-4",
-    "answer": "A",
+    "answer": "C",
     "explanation": "無失真壓縮（如 PNG 採用的 Deflate 演算法）藉由統計重組消除資料冗餘，解壓後資料位元與原始資料完全 100% 一致。"
   },
   {
@@ -2632,11 +2632,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "當一張 JPEG 照片以極低品質（如品質設為 10%）儲存時，畫面邊緣經常會出現 8x8 像素大小的方形碎塊，這在影像學稱為：",
-    "option_a": "塊狀偽影（Blocking Artifacts / 區塊效應）",
-    "option_b": "摩爾紋（Moiré Pattern）",
+    "option_a": "摩爾紋（Moiré Pattern）",
+    "option_b": "塊狀偽影（Blocking Artifacts / 區塊效應）",
     "option_c": "色散現象",
     "option_d": "高斯模糊",
-    "answer": "A",
+    "answer": "B",
     "explanation": "JPEG 核心演算法以 8x8 像素為單位進行離散餘弦轉換（DCT），過度量化時邊界不連續性會形成顯著的 8x8 格狀塊狀偽影。"
   },
   {
@@ -2647,11 +2647,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "JPEG 壓縮演算法之所以能大幅壓縮攝影照片容量，其關鍵的光學心理學依據為：",
-    "option_a": "人類視覺系統對「亮度（Luminance）」的微小變化極度敏銳，但對「彩度（Chrominance）」的細節辨識度相對遲鈍",
+    "option_a": "相機鏡頭只能記錄正方形物體",
     "option_b": "人類只能看見波長超過 1000 奈米的紅外線",
-    "option_c": "相機鏡頭只能記錄正方形物體",
+    "option_c": "人類視覺系統對「亮度（Luminance）」的微小變化極度敏銳，但對「彩度（Chrominance）」的細節辨識度相對遲鈍",
     "option_d": "大腦在注視相片時會自動閉上左眼",
-    "answer": "A",
+    "answer": "C",
     "explanation": "JPEG 先將 RGB 轉換為 YCbCr（亮度+兩組色度通道），接著對色度進行次取樣（Chroma Subsampling，如 4:2:0），大幅精簡色料資料。"
   },
   {
@@ -2677,11 +2677,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "若反覆打開同一張 JPEG 檔案、旋轉並連續儲存 100 次，圖片會發生什麼變化？",
-    "option_a": "產生世代失真（Generation Loss），每一次儲存都重新量化，畫質持續急遽劣化並充滿雜訊波紋",
-    "option_b": "圖片畫質越來越高，自動變成 8K 超高畫質",
+    "option_a": "圖片畫質越來越高，自動變成 8K 超高畫質",
+    "option_b": "產生世代失真（Generation Loss），每一次儲存都重新量化，畫質持續急遽劣化並充滿雜訊波紋",
     "option_c": "圖片完全沒有任何改變，品質與原始檔案 100% 相同",
     "option_d": "檔案容量自動縮小到 1 位元組",
-    "answer": "A",
+    "answer": "B",
     "explanation": "破壞性壓縮每儲存一次便重算一次 DCT 與量化表，重複疊加的捨入誤差會造成嚴重的世代劣化效應（Generation Loss）。"
   },
   {
@@ -2692,11 +2692,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "GIF 與 TIFF 檔案廣泛採用的「LZW 壓縮演算法（Lempel-Ziv-Welch）」，其壓縮策略核心是：",
-    "option_a": "字典編碼（Dictionary Coding）：在讀取資料時動態建立重複字串代碼表，用短代碼取代長重複資料",
+    "option_a": "利用語音辨識壓縮",
     "option_b": "隨機丟棄奇數行像素",
     "option_c": "將所有高光全部切除為純白",
-    "option_d": "利用語音辨識壓縮",
-    "answer": "A",
+    "option_d": "字典編碼（Dictionary Coding）：在讀取資料時動態建立重複字串代碼表，用短代碼取代長重複資料",
+    "answer": "D",
     "explanation": "LZW 屬於無失真字典式資料壓縮，對於大面積單色平塗或重複文字紋理壓縮效率極高，廣泛應用於 GIF 及 TIFF。"
   },
   {
@@ -2722,11 +2722,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "網頁在載入高解析度圖片時，採用「漸進式 JPEG（Progressive JPEG）」技術相比「基線 JPEG（Baseline JPEG）」的最大優點是：",
-    "option_a": "載入時先由模糊的全圖輪廓漸進變清晰，比傳統由上而下一行行硬式載入提供更佳的瀏覽心理體驗",
+    "option_a": "能自動轉成向量格式",
     "option_b": "能保證圖片絕不被他人下載盜用",
     "option_c": "檔案大小會直接減少 90%",
-    "option_d": "能自動轉成向量格式",
-    "answer": "A",
+    "option_d": "載入時先由模糊的全圖輪廓漸進變清晰，比傳統由上而下一行行硬式載入提供更佳的瀏覽心理體驗",
+    "answer": "D",
     "explanation": "Progressive JPEG 先以低頻資料快速渲染完整模糊低解預覽，再隨網路下載逐步填充細節，大幅改善首屏感知等待時間。"
   },
   {
@@ -2737,11 +2737,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在印刷傳檔時，設計師將多個高解析度 TIFF 與 PSD 打包成「ZIP 壓縮檔」，主要目的除了減少傳輸時間之外，還有哪一項關鍵作用？",
-    "option_a": "作為校驗防護容器，防止網路傳輸過程中資料封包微小毀損或作業系統平台元數據遺失",
+    "option_a": "防止印刷機師傅擅自修改解析度",
     "option_b": "將 CMYK 強制轉成螢光色",
-    "option_c": "防止印刷機師傅擅自修改解析度",
+    "option_c": "作為校驗防護容器，防止網路傳輸過程中資料封包微小毀損或作業系統平台元數據遺失",
     "option_d": "讓黑白圖自動變彩色",
-    "answer": "A",
+    "answer": "C",
     "explanation": "ZIP 封裝內建 CRC 檢查碼，若傳輸遺失位元無法解壓會立即報錯，可確保印前百萬像素工程檔不會因傳輸封包靜默損壞導致製版破圖。"
   },
   {
@@ -2752,11 +2752,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在數位影像中，除了常見的 RGB 三個色彩通道外，專門用來儲存「透明度資訊」的第 4 個通道通常稱作：",
-    "option_a": "Alpha 通道（Alpha Channel）",
-    "option_b": "Beta 通道",
+    "option_a": "Beta 通道",
+    "option_b": "Alpha 通道（Alpha Channel）",
     "option_c": "Gamma 通道",
     "option_d": "Delta 通道",
-    "answer": "A",
+    "answer": "B",
     "explanation": "Alpha 通道以 8 位元灰階（0 為完全透明，255 為完全不透明）記錄圖像各像素的透明程度，使圖像可平滑疊加融合。"
   },
   {
@@ -2767,11 +2767,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在排版軟體（如 InDesign）中將背景透明的圖片疊加在有色底色上，若印前直接輸出為較舊的「PDF 1.3」標準，透明度會發生什麼變化？",
-    "option_a": "透明度必須被「平面化（Transparency Flattening）」，將重疊區域強制切割合併為多塊不透明片段",
-    "option_b": "透明區域會變成純金色",
+    "option_a": "透明區域會變成純金色",
+    "option_b": "透明度必須被「平面化（Transparency Flattening）」，將重疊區域強制切割合併為多塊不透明片段",
     "option_c": "所有圖片自動刪除",
     "option_d": "完全不受任何影響保持向量",
-    "answer": "A",
+    "answer": "B",
     "explanation": "PostScript 語言與早期 PDF 1.3 原生不支援即時動態透明，印前必須透過透明度平面化將重疊混色區域拆解碎形合成。"
   },
   {
@@ -2782,11 +2782,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "GIF 檔案格式只支援「1-bit 透明度」，這代表其在處理透明邊緣時會出現什麼限制？",
-    "option_a": "每個像素只能是「100% 完全透明」或「100% 完全不透明」，無法呈現任何半透明柔和漸層（容易產生白邊毛刺）",
+    "option_a": "只能在半夜十二點才能看見透明",
     "option_b": "只能透明黑色的部分",
-    "option_c": "只能在半夜十二點才能看見透明",
+    "option_c": "每個像素只能是「100% 完全透明」或「100% 完全不透明」，無法呈現任何半透明柔和漸層（容易產生白邊毛刺）",
     "option_d": "透明區域會自動發出聲音",
-    "answer": "A",
+    "answer": "C",
     "explanation": "1-bit 透明度缺乏中間階調，無法抗鋸齒融合背景，若背景更換，邊緣過渡處會留下明顯的粗糙鋸齒或上一層背景殘留白邊。"
   },
   {
@@ -2797,11 +2797,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 Photoshop 中，若需要印刷局部上光（Spot UV）或局部燙金，專業印前人員通常會在檔案中如何設定？",
-    "option_a": "建立一個獨立的「特別色色版（Spot Color Channel）」，以純黑填色精準標記出需要燙金/上光的幾何區域",
+    "option_a": "在檔名後面備註文字即可無需做檔",
     "option_b": "直接在畫布空白處用紅色筆刷打一個問號",
     "option_c": "將圖層不透明度設為 50%",
-    "option_d": "在檔名後面備註文字即可無需做檔",
-    "answer": "A",
+    "option_d": "建立一個獨立的「特別色色版（Spot Color Channel）」，以純黑填色精準標記出需要燙金/上光的幾何區域",
+    "answer": "D",
     "explanation": "局部加工（如燙金、白墨、UV）在製版上屬於獨立版模，必須在色版面板中新建專用特別色色版並定義 100% 黑遮色。"
   },
   {
@@ -2827,11 +2827,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "色版面板中，一張標準 8-bit 的 CMYK 檔案總共包含幾個色彩通道？",
-    "option_a": "4 個基本通道（C、M、Y、K 各佔 8 位元灰階）",
+    "option_a": "1 個通道",
     "option_b": "3 個通道",
     "option_c": "12 個通道",
-    "option_d": "1 個通道",
-    "answer": "A",
+    "option_d": "4 個基本通道（C、M、Y、K 各佔 8 位元灰階）",
+    "answer": "D",
     "explanation": "標準 CMYK 影像由青版、洋紅版、黃版、黑版 4 個獨立灰階單色版組成，印刷分色即對應這四塊印版。"
   },
   {
@@ -2857,11 +2857,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "包裝印刷常用牛皮紙袋或透明塑膠袋，若要在其上印製彩色圖形，印前檔案通常需要先加做一層什麼特殊的色版？",
-    "option_a": "白墨底色版（White Ink Underprint），先印一層高遮蓋力純白油墨作為背景基底，防止透底變色",
+    "option_a": "螢光透明漆",
     "option_b": "黑色底漆版",
-    "option_c": "螢光透明漆",
+    "option_c": "白墨底色版（White Ink Underprint），先印一層高遮蓋力純白油墨作為背景基底，防止透底變色",
     "option_d": "透明水光版",
-    "answer": "A",
+    "answer": "C",
     "explanation": "牛皮紙暗褐色或透明薄膜會嚴重干擾 CMYK 半透明油墨顯色；必須先印一層高濃度白墨打底遮蔽底色，彩色印在上方才鮮豔。"
   },
   {
@@ -2872,11 +2872,11 @@
     "score": 150,
     "question_type": "speed_buzzer",
     "question": "在 Web 開發中，CSS 的「rgba(255, 0, 0, 0.5)」語法中，最後一個數值 '0.5' 代表的意思是：",
-    "option_a": "Alpha 透明度為 50%（半透明純紅色）",
-    "option_b": "紅色飽和度為 50%",
+    "option_a": "紅色飽和度為 50%",
+    "option_b": "Alpha 透明度為 50%（半透明純紅色）",
     "option_c": "亮度為 50 燭光",
     "option_d": "圖片壓縮比為 0.5 倍",
-    "answer": "A",
+    "answer": "B",
     "explanation": "rgba 中的 a 代表 Alpha，範圍 0.0（完全透明）至 1.0（完全不透明），0.5 即代表 50% 半透明。"
   },
   {
@@ -2887,11 +2887,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "所有現代向量繪圖軟體（如 Illustrator、CorelDraw、Figma）的核心數學基礎是源自哪位法國工程師發明的曲線公式？",
-    "option_a": "皮埃爾·貝茲（Pierre Bézier）",
-    "option_b": "笛卡兒（René Descartes）",
+    "option_a": "笛卡兒（René Descartes）",
+    "option_b": "皮埃爾·貝茲（Pierre Bézier）",
     "option_c": "高斯（Carl Friedrich Gauss）",
     "option_d": "牛頓（Isaac Newton）",
-    "answer": "A",
+    "answer": "B",
     "explanation": "雷諾汽車工程師皮埃爾·貝茲於 1960 年代發明貝茲曲線（Bézier Curve），用於車身曲面電腦輔助幾何設計，成為現代電腦字型與向量繪圖基石。"
   },
   {
@@ -2902,11 +2902,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在向量鋼筆工具繪圖中，由兩個點連接成的線段，以及兩端用來定義位置的點，分別稱為：",
-    "option_a": "路徑（Path）與錨點（Anchor Point）",
+    "option_a": "網點與加網線",
     "option_b": "像素與色階",
-    "option_c": "網點與加網線",
+    "option_c": "路徑（Path）與錨點（Anchor Point）",
     "option_d": "基線與上伸線",
-    "answer": "A",
+    "answer": "C",
     "explanation": "向量路徑是由一系列「錨點（Anchor Point）」與連接錨點的「線段（Segment/Path）」構成。"
   },
   {
@@ -2917,11 +2917,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在貝茲曲線操作中，拉動錨點上的「控制桿（Direction Handle / 方向手把）」長度與角度，主要控制的是曲線的什麼屬性？",
-    "option_a": "控制桿長度控制弧線弧度的曲率彎曲幅度（加速度），控制桿角度控制弧線切線方向",
+    "option_a": "控制字體的大小字級",
     "option_b": "控制線條的列印顏色深淺",
     "option_c": "控制線條的立體陰影厚度",
-    "option_d": "控制字體的大小字級",
-    "answer": "A",
+    "option_d": "控制桿長度控制弧線弧度的曲率彎曲幅度（加速度），控制桿角度控制弧線切線方向",
+    "answer": "D",
     "explanation": "方向控制手把是貝茲多項式導函數的切線向量：方向決定曲線出射入射角度，手把拉越長，對曲線產生的引力弧度張力越飽滿。"
   },
   {
@@ -2962,11 +2962,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "二階貝茲曲線（Quadratic）與三階貝茲曲線（Cubic）在數位字型標準上的主要應用對應為何？",
-    "option_a": "TrueType 字型（.ttf）採用二階貝茲（單控制點），PostScript / OpenType（.otf）採用三階貝茲（雙控制點）",
+    "option_a": "完全沒有任何數學差異",
     "option_b": "TrueType 採用三階，PostScript 採用一階",
     "option_c": "兩者皆只能繪製正方形",
-    "option_d": "完全沒有任何數學差異",
-    "answer": "A",
+    "option_d": "TrueType 字型（.ttf）採用二階貝茲（單控制點），PostScript / OpenType（.otf）採用三階貝茲（雙控制點）",
+    "answer": "D",
     "explanation": "微軟/蘋果傳統 TrueType 採用 1 個控制點的二階貝茲曲線運算極快；Adobe PostScript/OTF 採用 2 個控制點的三階貝茲，能以更少錨點描繪細膩古典襯線字。"
   },
   {
@@ -2977,11 +2977,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在向量設計中，一個外部大圓形內部挖空一個小圓形（如甜甜圈造型），在軟體中通常以何種物件結構實現？",
-    "option_a": "複合路徑（Compound Path）",
+    "option_a": "圖層遮色片",
     "option_b": "群組（Group）",
-    "option_c": "圖層遮色片",
+    "option_c": "複合路徑（Compound Path）",
     "option_d": "智慧濾鏡",
-    "answer": "A",
+    "answer": "C",
     "explanation": "複合路徑（Compound Path）依據非零繞數或奇偶填色規則，將兩條獨立路徑合成為單一向量幾何物件，重疊處自動鏤空穿透。"
   },
   {
@@ -2992,11 +2992,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "專業向量繪圖時，資深設計師強調節點應遵循「極值點法則（Extrema Points）」放置錨點，其優點為：",
-    "option_a": "在曲線水平頂底與垂直左右極值處設點，能以最少錨點精準控制形狀，並確保 RIP 印刷解譯輸出最平滑防呆",
-    "option_b": "使圖形自動填滿漸層色",
+    "option_a": "使圖形自動填滿漸層色",
+    "option_b": "在曲線水平頂底與垂直左右極值處設點，能以最少錨點精準控制形狀，並確保 RIP 印刷解譯輸出最平滑防呆",
     "option_c": "防止檔案被轉為點陣圖",
     "option_d": "將線條寬度加粗兩倍",
-    "answer": "A",
+    "answer": "B",
     "explanation": "在 0°、90°、180°、270° 正交極值點落錨，控制手把恆為水平或垂直，不僅控制直覺，更符合字型光柵化渲染（Hinting）的最佳數學解。"
   },
   {
@@ -3007,11 +3007,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在向量繪圖完成後，若路徑中有遺留未連接任何線條的「孤立錨點（Stray Points）」，在印前檢查中通常應該：",
-    "option_a": "透過「清除（Clean Up）」功能全數刪除，避免印前輸出時發生 PostScript 錯誤或意外拉長版面邊界",
+    "option_a": "把它們的顏色塗成金色",
     "option_b": "保留它們當作印刷防偽標記",
-    "option_c": "把它們的顏色塗成金色",
+    "option_c": "透過「清除（Clean Up）」功能全數刪除，避免印前輸出時發生 PostScript 錯誤或意外拉長版面邊界",
     "option_d": "將孤立點放大一千倍",
-    "answer": "A",
+    "answer": "C",
     "explanation": "孤立點是繪圖過程無意點擊留下的幽靈錨點，會幹擾整體版面邊界計算甚至在輸出製版時引發直出機故障，應全面清理。"
   },
   {
@@ -3037,11 +3037,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在 Photoshop 中，最經典常見的「色彩增值（Multiply）」圖層混合模式，其數學混合原理與視覺效果為何？",
-    "option_a": "上下圖層數值相乘後除以 255，白色變完全透明，整體畫面變暗且黑色維持最黑",
-    "option_b": "黑色變完全透明，整體畫面變亮",
+    "option_a": "黑色變完全透明，整體畫面變亮",
+    "option_b": "上下圖層數值相乘後除以 255，白色變完全透明，整體畫面變暗且黑色維持最黑",
     "option_c": "將所有顏色反轉為補色",
     "option_d": "自動增加高斯模糊濾鏡",
-    "answer": "A",
+    "answer": "B",
     "explanation": "色彩增值（Multiply）屬於變暗模式群組，任何顏色與白色相乘不變（白透），與黑色相乘為黑，是去除白色底圖或合成陰影的首選。"
   },
   {
@@ -3052,11 +3052,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在 Photoshop 圖層混合模式中，與「色彩增值（Multiply）」完全相反、能將「黑色完全變透明、整體畫面變亮」的模式是：",
-    "option_a": "濾色（Screen）",
+    "option_a": "差異化（Difference）",
     "option_b": "變暗（Darken）",
     "option_c": "顏色變淡（Color Dodge）",
-    "option_d": "差異化（Difference）",
-    "answer": "A",
+    "option_d": "濾色（Screen）",
+    "answer": "D",
     "explanation": "濾色（Screen）屬於變亮模式群組，任何顏色與黑色混合維持原樣（黑透），與白色混合為純白，常用於合成火花、光暈、煙火與閃電。"
   },
   {
@@ -3067,11 +3067,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 Photoshop 中，結合了「色彩增值（暗部變更暗）」與「濾色（亮部變更亮）」、能顯著增強畫面整體反差對比的混合模式是：",
-    "option_a": "覆蓋（Overlay）",
+    "option_a": "色相（Hue）",
     "option_b": "正常（Normal）",
     "option_c": "溶解（Dissolve）",
-    "option_d": "色相（Hue）",
-    "answer": "A",
+    "option_d": "覆蓋（Overlay）",
+    "answer": "D",
     "explanation": "覆蓋（Overlay）以 50% 灰色為分界線，低於 50% 灰變暗（Multiply），高於 50% 灰變亮（Screen），能同時加深陰影並提亮高光增加對比。"
   },
   {
@@ -3082,11 +3082,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 Photoshop 中將普通點陣圖層轉換為「智慧型物件（Smart Object）」的最大好處是：",
-    "option_a": "無論在版面上放大縮小旋轉多少次，原始影像的高畫質像素資訊皆被完整封裝保護，反覆縮放絕不產生額外畫質耗損",
+    "option_a": "可以在沒有開啟電腦的情況下自動完成修圖",
     "option_b": "檔案容量會瞬間減少 99%",
-    "option_c": "可以在沒有開啟電腦的情況下自動完成修圖",
+    "option_c": "無論在版面上放大縮小旋轉多少次，原始影像的高畫質像素資訊皆被完整封裝保護，反覆縮放絕不產生額外畫質耗損",
     "option_d": "自動將所有字型轉為向量路徑",
-    "answer": "A",
+    "answer": "C",
     "explanation": "智慧型物件如同步封裝了原始來源檔。普通圖層縮小再放大會立即模糊損毀；智慧型物件始終保留原始高解析基底。"
   },
   {
@@ -3097,11 +3097,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在 Photoshop 中進行精密去背（例如去除複雜平滑的汽車金屬曲面或工業產品邊緣）時，公認最精準乾淨的工具是：",
-    "option_a": "鋼筆工具（Pen Tool，繪製向量路徑）",
-    "option_b": "魔術棒工具（Magic Wand）",
+    "option_a": "魔術棒工具（Magic Wand）",
+    "option_b": "鋼筆工具（Pen Tool，繪製向量路徑）",
     "option_c": "磁性套索工具（Magnetic Lasso）",
     "option_d": "一般大號橡皮擦",
-    "answer": "A",
+    "answer": "B",
     "explanation": "鋼筆工具能透過精確的貝茲曲率平滑勾勒產品輪廓，邊緣精準銳利且可無限微調轉為選取範圍，是專業商品修圖去背唯一標準。"
   },
   {
@@ -3127,11 +3127,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "修飾人像皮膚瑕疵、粉刺痘疤或消除畫面雜物時，能自動分析取樣周邊紋理、光影並完美無痕融合的必備修圖工具是：",
-    "option_a": "污點修復筆刷工具（Spot Healing Brush Tool）",
+    "option_a": "銳利化工具（Sharpen Tool）",
     "option_b": "油漆桶工具（Paint Bucket）",
     "option_c": "鉛筆工具（Pencil Tool）",
-    "option_d": "銳利化工具（Sharpen Tool）",
-    "answer": "A",
+    "option_d": "污點修復筆刷工具（Spot Healing Brush Tool）",
+    "answer": "D",
     "explanation": "污點修復筆刷內部包含高階紋理合成演算法，自動偵測瑕疵邊緣外的皮膚光影與毛孔結構，達成自然撫平修飾。"
   },
   {
@@ -3157,11 +3157,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在 Photoshop 中，若需要將調整效果（例如色相/飽和度）「僅僅套用在下方緊鄰的單一圖層」，而不影響更下方的其他圖層，應建立：",
-    "option_a": "剪裁遮色片（Clipping Mask）",
+    "option_a": "快速選取範圍",
     "option_b": "圖層群組（Group）",
-    "option_c": "快速選取範圍",
+    "option_c": "剪裁遮色片（Clipping Mask）",
     "option_d": "智慧濾鏡",
-    "answer": "A",
+    "answer": "C",
     "explanation": "剪裁遮色片（快捷鍵 Alt/Option 點擊兩圖層交界處）能限制調整圖層或上層圖案只在底層圖層的像素範圍內生效顯示。"
   },
   {
@@ -3172,11 +3172,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在針對人物飄逸長髮或動物毛皮進行細膩去背時，通常會使用選取範圍工作區中的哪項功能？",
-    "option_a": "「選取並遮住（Select and Mask）」中的「調整邊緣筆刷工具（Refine Edge Brush）」",
-    "option_b": "矩形選取畫面工具",
+    "option_a": "矩形選取畫面工具",
+    "option_b": "「選取並遮住（Select and Mask）」中的「調整邊緣筆刷工具（Refine Edge Brush）」",
     "option_c": "直接點擊反轉選取",
     "option_d": "馬賽克濾鏡",
-    "answer": "A",
+    "answer": "B",
     "explanation": "調整邊緣筆刷能自動計算毛髮與半透明背景交界處的微弱反差，自動剔除底色並完美擷取根根分明的細微髮絲。"
   },
   {
@@ -3202,11 +3202,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在使用 Photoshop「液化（Liquify）」濾鏡修飾人體身形或微調微笑曲線時，為了防止人物身後的背景柱子或磁磚線條跟著扭曲變形，應使用：",
-    "option_a": "凍結遮色片工具（Freeze Mask Tool）塗抹保護背景區域",
+    "option_a": "降低螢幕亮度",
     "option_b": "直接將背景刪除",
-    "option_c": "降低螢幕亮度",
+    "option_c": "凍結遮色片工具（Freeze Mask Tool）塗抹保護背景區域",
     "option_d": "將液化筆刷壓力開到 100%",
-    "answer": "A",
+    "answer": "C",
     "explanation": "凍結遮色片工具（紅筆刷）能鎖定指定區域像素，使其在進行推移拉伸變形操作時完全固定不動，避免破綻。"
   },
   {
@@ -3217,11 +3217,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "Photoshop 色彩調整工具中，「色階（Levels）」面板下方的「輸入色階（Input Levels）」三個三角形滑桿，由左至右分別代表調整影像的：",
-    "option_a": "黑點（陰影/Shadows）、灰點（中間調/Midtones/Gamma）、白點（高光/Highlights）",
+    "option_a": "透明度、圖層數、像素大小",
     "option_b": "紅、綠、藍通道能量",
     "option_c": "飽和度、對比度、銳利度",
-    "option_d": "透明度、圖層數、像素大小",
-    "answer": "A",
+    "option_d": "黑點（陰影/Shadows）、灰點（中間調/Midtones/Gamma）、白點（高光/Highlights）",
+    "answer": "D",
     "explanation": "色階面板左滑桿定義純黑起點（0），中間滑桿調整 Gamma 中間調明暗分佈，右滑桿定義純白飽和截斷點（255）。"
   },
   {
@@ -3232,11 +3232,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "當為圖層套用「高斯模糊（Gaussian Blur）」濾鏡時，若該圖層為智慧型物件，濾鏡會以何種形式存在？",
-    "option_a": "「智慧型濾鏡（Smart Filter）」，自帶獨立遮色片，隨時可重新雙擊修改半徑像素數值且畫質可逆",
-    "option_b": "永久烘焙在像素上無法再次修改",
+    "option_a": "永久烘焙在像素上無法再次修改",
+    "option_b": "「智慧型濾鏡（Smart Filter）」，自帶獨立遮色片，隨時可重新雙擊修改半徑像素數值且畫質可逆",
     "option_c": "自動將圖層轉為向量路徑",
     "option_d": "立即關閉圖層顯示",
-    "answer": "A",
+    "answer": "B",
     "explanation": "智慧型濾鏡具備無損即時性，隨時能重開對話盒更動濾鏡強度，並可透過濾鏡遮色片塗黑局部抹除模糊效果。"
   },
   {
@@ -3247,11 +3247,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "Photoshop 的「仿製印章工具（Clone Stamp Tool）」在修圖取樣前，必須按住哪一個鍵不放並點擊滑鼠左鍵以指定取樣參考來源？",
-    "option_a": "Alt 鍵（Mac 為 Option 鍵）",
-    "option_b": "Shift 鍵",
+    "option_a": "Shift 鍵",
+    "option_b": "Alt 鍵（Mac 為 Option 鍵）",
     "option_c": "Ctrl 鍵（Mac 為 Cmd 鍵）",
     "option_d": "空白鍵（Spacebar）",
-    "answer": "A",
+    "answer": "B",
     "explanation": "按住 Alt/Option 鍵點選目標區域，游標會變為十字準星鎖定取樣源錨點，隨後即可在目標位置複製塗刷紋理。"
   },
   {
@@ -3262,11 +3262,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "Photoshop Camera Raw 濾鏡中的「清晰度（Clarity）」與「去朦朧（Dehaze）」功能，其演算法上的差異在於：",
-    "option_a": "Clarity 增強局部中間調對比度以強化邊緣細節質感；Dehaze 依據大氣散射光學模型消除空氣霧霾並深度還原對比飽和度",
+    "option_a": "Clarity 只對人臉生效，Dehaze 只對水滴生效",
     "option_b": "兩者皆為單純提高整體飽和度",
-    "option_c": "Clarity 只對人臉生效，Dehaze 只對水滴生效",
+    "option_c": "Clarity 增強局部中間調對比度以強化邊緣細節質感；Dehaze 依據大氣散射光學模型消除空氣霧霾並深度還原對比飽和度",
     "option_d": "兩者是同一個演算法的兩個按鈕",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Clarity 鎖定 Midtone Contrast 不會造成亮部爆掉；Dehaze 分析景深大氣光吸收衰減，對霧霾風景透亮化極具奇效。"
   },
   {
@@ -3277,11 +3277,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在畫布編輯中，臨時需要按住某鍵將滑鼠游標切換成「抓手工具（Hand Tool）」以拖曳滾動畫面視野，最直覺全軟體通用的按鍵是：",
-    "option_a": "空白鍵（Spacebar）",
+    "option_a": "Caps Lock 鍵",
     "option_b": "Tab 鍵",
     "option_c": "Esc 鍵",
-    "option_d": "Caps Lock 鍵",
-    "answer": "A",
+    "option_d": "空白鍵（Spacebar）",
+    "answer": "D",
     "explanation": "長按空白鍵可暫時切換抓手平移畫布視野，放開即還原回原編輯工具，是所有 Adobe 軟體最高頻快捷鍵。"
   },
   {
@@ -3322,11 +3322,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在 Adobe Illustrator 中，用來布林運算多個形狀（如聯集、減去上層、交集、差集）最常用的面板是：",
-    "option_a": "路徑管理員（Pathfinder）",
-    "option_b": "色彩色票面板",
+    "option_a": "色彩色票面板",
+    "option_b": "路徑管理員（Pathfinder）",
     "option_c": "字元面板",
     "option_d": "圖層遮色片面板",
-    "answer": "A",
+    "answer": "B",
     "explanation": "路徑管理員（Pathfinder）提供經典的布林集合運算，是快速組合格形或切割向量圖形的基石面板。"
   },
   {
@@ -3337,11 +3337,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在 Illustrator 中，比傳統路徑管理員更加直覺神速、只需按住滑鼠直接在重疊向量色塊上畫線拖曳即可合併或按 Alt 點擊刪除的革命性工具是：",
-    "option_a": "形狀建立程式工具（Shape Builder Tool，快捷鍵 Shift + M）",
+    "option_a": "美工刀工具（Knife Tool）",
     "option_b": "剪刀工具（Scissors Tool）",
-    "option_c": "美工刀工具（Knife Tool）",
+    "option_c": "形狀建立程式工具（Shape Builder Tool，快捷鍵 Shift + M）",
     "option_d": "套索工具（Lasso Tool）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "形狀建立程式（Shift+M）允許設計師以手繪筆畫直覺滑過多個重疊區域快速合併成新形狀，大幅簡化繁複布林操作。"
   },
   {
@@ -3352,11 +3352,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "Illustrator 工具箱中黑箭頭（選取工具，V）與白箭頭（直接選取工具，A）的核心功能差別是：",
-    "option_a": "黑箭頭選取並移動「整個物件或群組」；白箭頭專門選取並編輯路徑上的「單一錨點或特定線段與控制把手」",
+    "option_a": "兩者完全相同無任何差異",
     "option_b": "黑箭頭只能塗黑色，白箭頭只能塗白色",
     "option_c": "黑箭頭專門刪除檔案，白箭頭專門開啟檔案",
-    "option_d": "兩者完全相同無任何差異",
-    "answer": "A",
+    "option_d": "黑箭頭選取並移動「整個物件或群組」；白箭頭專門選取並編輯路徑上的「單一錨點或特定線段與控制把手」",
+    "answer": "D",
     "explanation": "選取工具（V）操作物件層級；直接選取工具（A）深入幾何結構內部，能精細點選移動特定單一錨點或調節手把曲率。"
   },
   {
@@ -3367,11 +3367,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 Illustrator 中，若為一條粗線條套用了描邊（Stroke），當等比放大整個圖形時線條突然顯得過細失衡，這是因為未在偏好設定中勾選：",
-    "option_a": "「等比縮放筆畫和效果（Scale Strokes & Effects）」",
+    "option_a": "「色彩自動轉換為 CMYK」",
     "option_b": "「強制線條寬度為 1pt」",
-    "option_c": "「色彩自動轉換為 CMYK」",
+    "option_c": "「等比縮放筆畫和效果（Scale Strokes & Effects）」",
     "option_d": "「刪除所有隱藏錨點」",
-    "answer": "A",
+    "answer": "C",
     "explanation": "若未勾選縮放筆畫和效果，物件放大十倍時 5pt 描邊依然只有 5pt，導致比例嚴重失衡；勾選後筆畫會隨外形尺寸成正比等比縮放。"
   },
   {
@@ -3397,11 +3397,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在 Illustrator 中繪製完美的正方形、正圓形，或拉動水平/垂直 45 度筆直線條時，應按住鍵盤上的哪一個鍵？",
-    "option_a": "Shift 鍵",
+    "option_a": "Caps Lock 鍵",
     "option_b": "Alt 鍵",
     "option_c": "Ctrl 鍵",
-    "option_d": "Caps Lock 鍵",
-    "answer": "A",
+    "option_d": "Shift 鍵",
+    "answer": "D",
     "explanation": "Shift 鍵為幾何幾何約束鍵，能強制限制寬高比為 1:1 或約束移動角度為 45°、90° 正交角。"
   },
   {
@@ -3412,11 +3412,11 @@
     "score": 150,
     "question_type": "speed_buzzer",
     "question": "在 Illustrator 向量設計中，能夠在「單一向量路徑物件」上同時疊加「多層獨立填色、多層描邊與多個獨立即時效果」的強大面板是：",
-    "option_a": "外觀面板（Appearance Panel）",
-    "option_b": "色彩色票面板",
+    "option_a": "色彩色票面板",
+    "option_b": "外觀面板（Appearance Panel）",
     "option_c": "字元樣式面板",
     "option_d": "動作面板",
-    "answer": "A",
+    "answer": "B",
     "explanation": "外觀面板（Appearance）是 Illustrator 最核心的高階引擎，能在單一物件堆疊多層填色/描邊/效果，是製作現代擬真質感的關鍵。"
   },
   {
@@ -3427,11 +3427,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "Illustrator 中的「網格工具（Gradient Mesh Tool）」能創造如同寫真照片般細膩立體的肌理光影，其核心向量機制為：",
-    "option_a": "在封閉路徑內部生成可彎曲的經緯網格，每個網格節點皆可獨立賦予相異色彩，並在節點間產生多向平滑過渡",
+    "option_a": "在畫面隨機撒上數位雜訊顆粒",
     "option_b": "自動將點陣相片壓縮至向量檔中",
-    "option_c": "在畫面隨機撒上數位雜訊顆粒",
+    "option_c": "在封閉路徑內部生成可彎曲的經緯網格，每個網格節點皆可獨立賦予相異色彩，並在節點間產生多向平滑過渡",
     "option_d": "直接套用 3D 物理重力引擎",
-    "answer": "A",
+    "answer": "C",
     "explanation": "漸層網格（Gradient Mesh）建立多維向量拓撲網面，每個交點節點具備獨立色彩與曲率控制桿，能精準描繪汽車鈑金反光與擬真人臉肌膚。"
   },
   {
@@ -3442,11 +3442,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "當繪製地圖或複雜平面圖形時，若希望「沿著向量路徑均勻平鋪圖案（如鐵路軌道、拉鍊、花邊邊框）」，應建立何種筆刷？",
-    "option_a": "花紋筆刷（Pattern Brush）",
-    "option_b": "線條筆刷",
+    "option_a": "線條筆刷",
+    "option_b": "花紋筆刷（Pattern Brush）",
     "option_c": "散落筆刷（Scatter Brush）",
     "option_d": "毛筆筆刷",
-    "answer": "A",
+    "answer": "B",
     "explanation": "花紋筆刷（Pattern Brush）能定義側邊、外角、內角、起點與終點圖案單元，並自動沿著任何曲折路徑無縫鋪展。"
   },
   {
@@ -3472,11 +3472,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "若需要將同一款標誌在多個畫板（如名片、信封、招牌）中反覆使用，且希望「只要修改母體，其他所有子體全部自動同步更新」，應將該圖案定義為：",
-    "option_a": "符號（Symbol Panel）",
+    "option_a": "色票",
     "option_b": "單純群組（Group）",
     "option_c": "圖層遮色片",
-    "option_d": "色票",
-    "answer": "A",
+    "option_d": "符號（Symbol Panel）",
+    "answer": "D",
     "explanation": "符號（Symbols）具備母體組件實例（Instance）連動特性，修改符號主體時，畫面中數百個引用實例將全部自動即時連鎖更新。"
   },
   {
@@ -3502,11 +3502,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "將上方多個向量圖形框選後，執行快捷鍵「Ctrl + G（Mac 為 Cmd + G）」，其作用為：",
-    "option_a": "將選取的物件編為一組「群組（Group）」",
+    "option_a": "將填色全部改為綠色（Green）",
     "option_b": "直接刪除選取的物件",
-    "option_c": "將填色全部改為綠色（Green）",
+    "option_c": "將選取的物件編為一組「群組（Group）」",
     "option_d": "輸出為 GIF 檔案",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Ctrl+G (Cmd+G) 是將多個零散物件打包封裝為單一群組（Group）的標準快捷鍵。"
   },
   {
@@ -3517,11 +3517,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在繪製幾何圖示時，若希望將一個矩形的「四個尖角轉為滑順圓角」，在現代 Illustrator 中最直覺的操作是：",
-    "option_a": "直接點選並拖曳角頂內部出現的圓形「即時即刻動態轉角小圓點（Live Corner Widget）」",
-    "option_b": "使用橡皮擦工具手工削去尖角",
+    "option_a": "使用橡皮擦工具手工削去尖角",
+    "option_b": "直接點選並拖曳角頂內部出現的圓形「即時即刻動態轉角小圓點（Live Corner Widget）」",
     "option_c": "匯入外部 3D 軟體削角",
     "option_d": "只能重新繪製圓角矩形",
-    "answer": "A",
+    "answer": "B",
     "explanation": "Live Corners（動態轉角控制點）允許透過直接拖曳錨點旁的圓點即時自訂圓角半徑與轉角型態（凹角、倒角或圓角）。"
   },
   {
@@ -3532,11 +3532,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "Illustrator 的「不透明度遮色片（Opacity Mask）」相較於一般剪裁遮色片（Clipping Mask）的強大特色在於：",
-    "option_a": "能依據遮色片物件的「黑白灰階調或漸層透明度」，產生細膩的半透明羽化漸層透明遮色效果",
+    "option_a": "無法在任何印刷品中輸出",
     "option_b": "只能進行全透或不透兩段式剪裁",
     "option_c": "會強制將檔案轉成黑白模式",
-    "option_d": "無法在任何印刷品中輸出",
-    "answer": "A",
+    "option_d": "能依據遮色片物件的「黑白灰階調或漸層透明度」，產生細膩的半透明羽化漸層透明遮色效果",
+    "answer": "D",
     "explanation": "剪裁遮色片是純硬邊幾何裁切；不透明度遮色片利用灰階值映射透明度，支援以漸層色塊或點陣圖製造豐富柔和的羽化消隱效果。"
   },
   {
@@ -3547,11 +3547,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在 Illustrator 中，用來剪斷開放或封閉路徑，將單一路徑在點擊處切斷分成兩段的工具是：",
-    "option_a": "剪刀工具（Scissors Tool，快捷鍵 C）",
-    "option_b": "鋼筆工具",
+    "option_a": "鋼筆工具",
+    "option_b": "剪刀工具（Scissors Tool，快捷鍵 C）",
     "option_c": "旋轉工具",
     "option_d": "縮放工具",
-    "answer": "A",
+    "answer": "B",
     "explanation": "剪刀工具（C）專門在特定點精準剪斷向量線段或錨點；美工刀則是以手繪軌跡切割封閉形狀。"
   },
   {
@@ -3562,11 +3562,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在排版設計多頁手冊時，Illustrator 支援在單一檔案內建立多個不同尺寸與方向的畫布，該功能稱為：",
-    "option_a": "多重工作區域（Multiple Artboards）",
+    "option_a": "多重混合模式",
     "option_b": "多重色票庫",
-    "option_c": "多重混合模式",
+    "option_c": "多重工作區域（Multiple Artboards）",
     "option_d": "虛擬記憶體分頁",
-    "answer": "A",
+    "answer": "C",
     "explanation": "工作區域（Artboards）能讓設計師在單一 AI 專案檔案中同時編排封面、內頁、名片等多個獨立頁面並個別批次匯出。"
   },
   {
@@ -3577,11 +3577,11 @@
     "score": 200,
     "question_type": "speed_buzzer",
     "question": "在 Illustrator 中使用「自由扭曲」或「封套扭曲（Envelope Distort）」中的「以彎曲製作（Make with Warp）」，其核心優勢為：",
-    "option_a": "將內部文字與向量幾何圖形即時依照弧形、旗形或魚眼等網格形變，且文字本體仍維持可雙擊編輯內容之動態特性",
+    "option_a": "使圖形無法進行儲存",
     "option_b": "強制將所有向量轉成點陣低解析圖",
     "option_c": "自動將顏色改為互補色",
-    "option_d": "使圖形無法進行儲存",
-    "answer": "A",
+    "option_d": "將內部文字與向量幾何圖形即時依照弧形、旗形或魚眼等網格形變，且文字本體仍維持可雙擊編輯內容之動態特性",
+    "answer": "D",
     "explanation": "封套扭曲建立非破壞性幾何變形容器，內部文字不需轉外框即可享受動態弧曲變形，且內容文字仍可隨時修改。"
   },
   {
@@ -3607,11 +3607,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在 Illustrator 完成設計準備交付網頁工程師時，選取特定圖示右鍵點擊執行「收集以供匯出（Collect for Export）」，可達成：",
-    "option_a": "快速批次匯出該圖示的 1x, 2x, 3x PNG 以及純淨向量 SVG 格式",
-    "option_b": "自動將專案上傳至印表機列印",
+    "option_a": "自動將專案上傳至印表機列印",
+    "option_b": "快速批次匯出該圖示的 1x, 2x, 3x PNG 以及純淨向量 SVG 格式",
     "option_c": "清除電腦所有快取垃圾",
     "option_d": "將圖示永久刪除",
-    "answer": "A",
+    "answer": "B",
     "explanation": "資產匯出面板（Asset Export）專為現代數位產品流程設計，能將多個向量圖示一鍵批次輸出各種尺寸與格式資源包。"
   },
   {
@@ -3622,11 +3622,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在出版多頁數書籍、雜誌、型錄長文件編排時，業界公認無可取代的專業排版軟體之王是：",
-    "option_a": "Adobe InDesign",
+    "option_a": "Premiere",
     "option_b": "Photoshop",
-    "option_c": "Premiere",
+    "option_c": "Adobe InDesign",
     "option_d": "After Effects",
-    "answer": "A",
+    "answer": "C",
     "explanation": "InDesign 是長篇多頁出版排版領域的行業標準，專精於主版架構、海量文字流、目錄引文、跨頁編排與精確印前封裝。"
   },
   {
@@ -3652,11 +3652,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 InDesign 插入「自動頁碼（Current Page Number）」的標準鍵盤快捷指令為：",
-    "option_a": "Ctrl + Alt + Shift + N（Mac 為 Cmd + Option + Shift + N）",
+    "option_a": "隨機輸入英文單字",
     "option_b": "直接用鍵盤打上數字 1",
     "option_c": "按三次 Enter 鍵",
-    "option_d": "隨機輸入英文單字",
-    "answer": "A",
+    "option_d": "Ctrl + Alt + Shift + N（Mac 為 Cmd + Option + Shift + N）",
+    "answer": "D",
     "explanation": "插入特殊字元中的目前頁碼標記，在主版上會顯示為字母 'A'，套用至內頁時即會自動依章節頁次動態轉為實體連續頁碼。"
   },
   {
@@ -3667,11 +3667,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "排版數百頁的書籍時，為了確保全書所有「章節大標題」的字型、字級、行距、顏色與段落前間距絕對統一，並能一鍵全書連鎖修改，必須嚴格使用：",
-    "option_a": "段落樣式（Paragraph Styles）",
-    "option_b": "手動逐一選取文字手動改字級",
+    "option_a": "手動逐一選取文字手動改字級",
+    "option_b": "段落樣式（Paragraph Styles）",
     "option_c": "把每頁標題截圖貼上",
     "option_d": "使用橡皮擦工具塗抹",
-    "answer": "A",
+    "answer": "B",
     "explanation": "段落樣式是專業出版的靈魂核心，定義標題或內文排印規範，修改樣式設定時，全書所有引用該樣式的段落瞬間全自動同步更新。"
   },
   {
@@ -3682,11 +3682,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "InDesign 中的「字元樣式（Character Styles）」與「段落樣式（Paragraph Styles）」的層級包含關係為何？",
-    "option_a": "段落樣式規範整個段落基礎設定，字元樣式則用於覆蓋段落內部「特定幾個字元」（如局部粗體、劃底線或特定顏色）",
+    "option_a": "兩者是同義字，完全沒有功能區別",
     "option_b": "字元樣式包含段落樣式，段落樣式不能單獨存在",
-    "option_c": "兩者是同義字，完全沒有功能區別",
+    "option_c": "段落樣式規範整個段落基礎設定，字元樣式則用於覆蓋段落內部「特定幾個字元」（如局部粗體、劃底線或特定顏色）",
     "option_d": "字元樣式只能用在英文，段落樣式只能用在中文",
-    "answer": "A",
+    "answer": "C",
     "explanation": "段落樣式管轄整段（以換行符號為邊界）；字元樣式專門局部覆蓋段落樣式內部特定詞彙（Inline Styling），層級高於段落樣式。"
   },
   {
@@ -3697,11 +3697,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 InDesign 文字框排版時，當框內文字量大於框架尺寸，右下角會出現一個「紅色的含加號的小方塊（[+]）」，這代表：",
-    "option_a": "溢排文字（Overset Text，有未顯示出來的文字被隱藏擠出框架外部）",
+    "option_a": "已成功連線至雲端資料庫",
     "option_b": "文字內容有嚴重的錯別字語法錯誤",
     "option_c": "印表機墨水即將耗盡",
-    "option_d": "已成功連線至雲端資料庫",
-    "answer": "A",
+    "option_d": "溢排文字（Overset Text，有未顯示出來的文字被隱藏擠出框架外部）",
+    "answer": "D",
     "explanation": "紅色 [+] 代表溢排（Overset Text），提醒排版師文字超出了文字框範圍，必須拉大文字框或串聯串流文字框至下一頁。"
   },
   {
@@ -3727,11 +3727,11 @@
     "score": 150,
     "question_type": "speed_buzzer",
     "question": "在圖文混排時，若希望圖片周圍的文字能夠「自動避開圖片輪廓，繞著圖片邊緣流動」，應開啟哪一個功能？",
-    "option_a": "文字繞圖（Text Wrap）",
+    "option_a": "混合模式",
     "option_b": "影像描圖（Image Trace）",
     "option_c": "路徑文字工具",
-    "option_d": "混合模式",
-    "answer": "A",
+    "option_d": "文字繞圖（Text Wrap）",
+    "answer": "D",
     "explanation": "文字繞圖（Text Wrap）設定物件周邊的排斥邊界，讓鄰近文字框內容依照設定距離自動避讓圖片、形狀或向量物件。"
   },
   {
@@ -3742,11 +3742,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在 InDesign 中編排完成整本書籍準備發包印前輸出時，設計師必須執行的最關鍵功能是「檔案 > 封裝（Package）」，其核心作用是：",
-    "option_a": "自動將專案用到的所有「字型檔案、高解析度連結圖片、色彩描述檔與 InDesign 檔案」整合成獨立資料夾並產生報表",
-    "option_b": "將整本書轉化為不可修改的單張低解 JPG",
+    "option_a": "將整本書轉化為不可修改的單張低解 JPG",
+    "option_b": "自動將專案用到的所有「字型檔案、高解析度連結圖片、色彩描述檔與 InDesign 檔案」整合成獨立資料夾並產生報表",
     "option_c": "自動刪除所有原創圖層防止盜版",
     "option_d": "把檔案容量自動壓縮成 0 KB",
-    "answer": "A",
+    "answer": "B",
     "explanation": "InDesign 預設以連結（Link）引用外部高解析圖與字型。封裝功能會自動將散落硬碟各處的所有素材完整打包歸檔，徹底防止印前掉圖缺字。"
   },
   {
@@ -3772,11 +3772,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在 InDesign 中，框架（Frame，矩形框內帶有 X 對角線）與形狀（Shape）的本質差異為：",
-    "option_a": "框架專門作為容器（Container），用來置入放置圖片或充當文字容器；形狀則單純為幾何繪圖向量面",
+    "option_a": "形狀無法設定任何背景顏色",
     "option_b": "框架只能印成黑色",
-    "option_c": "形狀無法設定任何背景顏色",
+    "option_c": "框架專門作為容器（Container），用來置入放置圖片或充當文字容器；形狀則單純為幾何繪圖向量面",
     "option_d": "兩者是微軟 Office 專屬名詞，InDesign 沒有此區分",
-    "answer": "A",
+    "answer": "C",
     "explanation": "InDesign 具備獨特的「容器/內容物（Container vs Content）」架構，框架框身可自由裁切、定位與調整內部置入的圖片。"
   },
   {
@@ -3787,11 +3787,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "將一張大圖片置入 InDesign 框架後，快速讓圖片「保持長寬比等比例填滿整個框架、且不留任何白邊」的框架調整指令是：",
-    "option_a": "等比例填滿框架（Fill Frame Proportionally）",
+    "option_a": "將圖片轉為黑白",
     "option_b": "非等比例強制拉伸壓扁",
     "option_c": "將框架縮小為 1 像素",
-    "option_d": "將圖片轉為黑白",
-    "answer": "A",
+    "option_d": "等比例填滿框架（Fill Frame Proportionally）",
+    "answer": "D",
     "explanation": "等比例填滿框架（Fit Content to Frame Proportionally）按比例縮放圖片至剛好完全遮蓋框架，保證外觀填滿且圖形不變形。"
   },
   {
@@ -3802,11 +3802,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "InDesign 的「首字放大（Drop Cap）」功能通常在段落樣式中如何設定？",
-    "option_a": "指定放大首字佔據的「行數（Lines）」以及放大的「字元數（Characters）」",
-    "option_b": "手動將第一個字拉大十倍並移動位置",
+    "option_a": "手動將第一個字拉大十倍並移動位置",
+    "option_b": "指定放大首字佔據的「行數（Lines）」以及放大的「字元數（Characters）」",
     "option_c": "把第一個字換成圖片貼在段落前",
     "option_d": "透過手繪鉛筆描繪",
-    "answer": "A",
+    "answer": "B",
     "explanation": "首字放大是古典西方書籍排版傳統，InDesign 內建精準參數，設定行數（如 3 行高）與字數（1 字），文字流自動精密繞排。"
   },
   {
@@ -3832,11 +3832,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在 InDesign 畫面中按下單一快捷鍵「W」（在未進入文字輸入狀態時），其快速功能為：",
-    "option_a": "切換「預視模式（Preview Mode）」與正常模式，瞬間隱藏所有格線、輔助線、出血線與框架邊界",
+    "option_a": "將文字轉換為大寫",
     "option_b": "自動將整頁文件儲存並發送電子郵件",
-    "option_c": "將文字轉換為大寫",
+    "option_c": "切換「預視模式（Preview Mode）」與正常模式，瞬間隱藏所有格線、輔助線、出血線與框架邊界",
     "option_d": "關閉所有排版視窗",
-    "answer": "A",
+    "answer": "C",
     "explanation": "按 W 鍵可快速在工作模式（滿佈框線與溢墨出血）與乾淨預視模式（模擬真實成書裁切效果）之間切換，極度高頻好用。"
   },
   {
@@ -3862,11 +3862,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "Figma 中極其強大、能讓元素隨著內容多寡「自動增減長度、調整內距與間距」的彈性排版技術稱為：",
-    "option_a": "自動佈局（Auto Layout，快捷鍵 Shift + A）",
-    "option_b": "圖層柵格化",
+    "option_a": "圖層柵格化",
+    "option_b": "自動佈局（Auto Layout，快捷鍵 Shift + A）",
     "option_c": "固定絕對定位",
     "option_d": "像素鎖定",
-    "answer": "A",
+    "answer": "B",
     "explanation": "Auto Layout 模擬了前端 CSS Flexbox 彈性盒子原理，按鈕文字變長時按鈕自動變寬，列表增減項目時卡片自動平移，極大降低維護成本。"
   },
   {
@@ -3877,11 +3877,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 Figma 設計系統（Design System）中，「組件（Component）」與「實例（Instance）」的運作關係是：",
-    "option_a": "修改母體組件（Main Component）會自動連動更新全專案所有實例；實例亦允許局部覆寫（Override）文字與顏色",
+    "option_a": "組件只能在同一頁面使用一次",
     "option_b": "實例一旦修改，母體組件會自動被刪除",
-    "option_c": "組件只能在同一頁面使用一次",
+    "option_c": "修改母體組件（Main Component）會自動連動更新全專案所有實例；實例亦允許局部覆寫（Override）文字與顏色",
     "option_d": "實例完全不允許任何樣式變更",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Component（母體）定義 UI 單元架構規範，Instance（分身/實例）繼承母體屬性，能極高效率維護整套龐大跨平台產品介面一致性。"
   },
   {
@@ -3892,11 +3892,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 Figma 的組件架構中，將同一按鈕的「預設狀態、懸停 Hover、點擊 Active、禁用 Disabled」等多個子狀態集合為單一模組，稱為：",
-    "option_a": "變體（Variants / 變形組件組）",
+    "option_a": "動態向量形狀",
     "option_b": "圖層遮色片",
     "option_c": "混合模式群組",
-    "option_d": "動態向量形狀",
-    "answer": "A",
+    "option_d": "變體（Variants / 變形組件組）",
+    "answer": "D",
     "explanation": "Variants 將同類組件的各種狀態或尺寸維度整合成單一屬性切換選單（如 Size: Small/Medium, State: Hover），大幅精簡資產庫。"
   },
   {
@@ -3907,11 +3907,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在企業級設計系統中廣泛採用的「Design Tokens（設計標記）」，其最核心價值為何？",
-    "option_a": "將設計樣式（如主色 #0066FF、字級 16px、圓角 8px）抽象定義為語意化變數（如 color-primary），無縫串接設計稿與工程前端程式碼",
+    "option_a": "用來計算設計師的按鍵打字速度",
     "option_b": "用來在區塊鏈上鑄造 NFT",
     "option_c": "強制將所有設計稿加密防止查看",
-    "option_d": "用來計算設計師的按鍵打字速度",
-    "answer": "A",
+    "option_d": "將設計樣式（如主色 #0066FF、字級 16px、圓角 8px）抽象定義為語意化變數（如 color-primary），無縫串接設計稿與工程前端程式碼",
+    "answer": "D",
     "explanation": "Design Tokens 是設計與程式碼的共同通用語言，當品牌主色更新時，工程端只需變更 Token 數值即可全站 App 與 Web 一鍵換膚。"
   },
   {
@@ -3922,11 +3922,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在 Figma 中，最基礎的容器單元不再是傳統的畫布或畫板，而是功能強大具備嵌套能力的：",
-    "option_a": "Frame（框架容器）",
-    "option_b": "Group（一般群組）",
+    "option_a": "Group（一般群組）",
+    "option_b": "Frame（框架容器）",
     "option_c": "Canvas（畫布）",
     "option_d": "Slice（切片）",
-    "answer": "A",
+    "answer": "B",
     "explanation": "Frame 具備畫布容器性質，支援自身尺寸響應約束（Constraints）、Auto Layout、裁剪內容（Clip Content）與網格系統，超越傳統 Group。"
   },
   {
@@ -3952,11 +3952,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 Figma 中，若需要建立可點擊跳轉頁面、帶有彈出視窗（Overlay）或微互動動畫的原型展示，應切換至哪一個標籤面板？",
-    "option_a": "Prototype（原型面板）",
+    "option_a": "Inspect（檢視面板）",
     "option_b": "Design（設計面板）",
-    "option_c": "Inspect（檢視面板）",
+    "option_c": "Prototype（原型面板）",
     "option_d": "Plugins（外掛面板）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Prototype 面板能透過拖拉交互節點線條（Spaghetti lines），設定觸發事件（OnClick, OnHover）、導航動作與 Smart Animate 動畫過渡。"
   },
   {
@@ -3967,11 +3967,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "Figma 原型引擎中的「智慧動畫（Smart Animate）」功能，其自動補間動畫的匹配邏輯是基於：",
-    "option_a": "比對相鄰畫框中「圖層名稱與圖層層級結構完全相同」的物件，自動計算其位置、尺寸、旋轉與透明度的流暢補間",
+    "option_a": "直接截圖做淡出淡入",
     "option_b": "隨機挑選兩個圖形進行爆發動畫",
     "option_c": "自動透過 AI 重新繪製整張插圖",
-    "option_d": "直接截圖做淡出淡入",
-    "answer": "A",
+    "option_d": "比對相鄰畫框中「圖層名稱與圖層層級結構完全相同」的物件，自動計算其位置、尺寸、旋轉與透明度的流暢補間",
+    "answer": "D",
     "explanation": "Smart Animate 嚴格依據圖層名稱（Layer Name）匹配，只要兩頁面物件名稱相同，引擎會精確平滑內插所有幾何樣式變化。"
   },
   {
@@ -3982,11 +3982,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "現代產品團隊在完成 UI 設計後交付前端工程師，Figma 提供的「Dev Mode（開發者模式）」最顯著的優勢是：",
-    "option_a": "工程師可直接點選元素獲取準確的 CSS/iOS/Android 數值代碼、量測像素間距並下載對應切圖，免去手動標註規格書",
-    "option_b": "自動幫工程師寫完所有後端 SQL 資料庫",
+    "option_a": "自動幫工程師寫完所有後端 SQL 資料庫",
+    "option_b": "工程師可直接點選元素獲取準確的 CSS/iOS/Android 數值代碼、量測像素間距並下載對應切圖，免去手動標註規格書",
     "option_c": "將設計稿直接轉換為 App Store 上架二進位檔",
     "option_d": "完全不允許工程師查看設計圖",
-    "answer": "A",
+    "answer": "B",
     "explanation": "Dev Mode 專門為工程實作量身打造，提供清晰的程式碼檢查器、間距量測與資產導出，消弭設計與開發溝通鴻溝。"
   },
   {
@@ -4012,11 +4012,11 @@
     "score": 150,
     "question_type": "speed_buzzer",
     "question": "在 Figma 中，若要快速選取同一個畫框內「所有使用相同主色或字型」的多個零散圖層，最神速的原生選取指令是：",
-    "option_a": "「Edit > Select All with Same...（選取所有相同屬性元素）」",
+    "option_a": "關閉軟體重新開啟",
     "option_b": "手動按著 Shift 逐一點選數千個圖層",
-    "option_c": "關閉軟體重新開啟",
+    "option_c": "「Edit > Select All with Same...（選取所有相同屬性元素）」",
     "option_d": "將所有圖層全數合併為點陣圖",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Select All with Same Fill / Stroke / Font 能一秒批次撈出畫面所有共用某樣式的物件，是快速重構設計系統的超高效指令。"
   },
   {
@@ -4042,11 +4042,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在 CIS 三大架構中，被喻為企業的「心臟與靈魂」、掌管企業經營哲學、使命願景與核心價值觀的是：",
-    "option_a": "MI（Mind Identity / 理念識別）",
-    "option_b": "VI（Visual Identity / 視覺識別）",
+    "option_a": "VI（Visual Identity / 視覺識別）",
+    "option_b": "MI（Mind Identity / 理念識別）",
     "option_c": "BI（Behavior Identity / 行為識別）",
     "option_d": "UI（User Interface）",
-    "answer": "A",
+    "answer": "B",
     "explanation": "MI（理念識別）是企業精神最高指導原則，定義了企業為何而存在（Why）、核心信仰與長期願景，是 BI 與 VI 的原動力。"
   },
   {
@@ -4057,11 +4057,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "CIS 中，規範企業內部員工教育培訓、客戶服務準則、社會公益回饋與對外公關危機處理方針的系統屬於：",
-    "option_a": "BI（Behavior Identity / 行為識別）",
+    "option_a": "VI（視覺識別）",
     "option_b": "MI（理念識別）",
-    "option_c": "VI（視覺識別）",
+    "option_c": "BI（Behavior Identity / 行為識別）",
     "option_d": "AI（人工智慧）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "BI（行為識別）將 MI 理念轉化為組織內部體制管理、員工待客禮儀及企業社會責任（CSR）等動態實踐行為。"
   },
   {
@@ -4072,11 +4072,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "一般大眾與消費者最直接、最感官、最先接觸到的「商標 Logo、標準色、名片、包裝、招牌、廣告」，屬於 CIS 的哪一部分？",
-    "option_a": "VI（Visual Identity / 視覺識別）",
+    "option_a": "CI（持續整合）",
     "option_b": "MI（理念識別）",
     "option_c": "BI（行為識別）",
-    "option_d": "CI（持續整合）",
-    "answer": "A",
+    "option_d": "VI（Visual Identity / 視覺識別）",
+    "answer": "D",
     "explanation": "VI（視覺識別）是 CIS 最外層、傳播力最強、也是視覺設計師主導的核心成果，將抽象的 MI/BI 符號化與視覺具象化。"
   },
   {
@@ -4087,11 +4087,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "若一家企業只注重設計華麗前衛的 VI 標誌，但內部員工服務態度惡劣、經營理念違背誠信（MI/BI 脫節），會導致：",
-    "option_a": "品牌形象虛偽破滅、消費者信任崩解，淪為缺乏靈魂與說服力的「空洞包裝」",
-    "option_b": "公司股票瞬間漲停板",
+    "option_a": "公司股票瞬間漲停板",
+    "option_b": "品牌形象虛偽破滅、消費者信任崩解，淪為缺乏靈魂與說服力的「空洞包裝」",
     "option_c": "產品自動獲得國際設計大獎",
     "option_d": "所有員工自動提高生產力",
-    "answer": "A",
+    "answer": "B",
     "explanation": "CIS 強調言行一致與內外相映。VI 若缺乏堅實的 MI 理念與真實的 BI 行為支撐，只會形成品牌認知落差反噬企業信譽。"
   },
   {
@@ -4102,11 +4102,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在品牌建構流程中，CIS 專案啟動時的第一步通常應該是：",
-    "option_a": "市場調研、競爭者分析與企業內部訪談，以確立清晰的品牌定位與 MI 理念",
+    "option_a": "隨機挑選潘通流行色",
     "option_b": "直接在 Illustrator 畫一百個 Logo 給客戶挑選",
     "option_c": "先印好五萬張名片與信封",
-    "option_d": "隨機挑選潘通流行色",
-    "answer": "A",
+    "option_d": "市場調研、競爭者分析與企業內部訪談，以確立清晰的品牌定位與 MI 理念",
+    "answer": "D",
     "explanation": "優秀的品牌設計始於策略洞察（Strategy & Research），先明確核心理念、目標受眾（TA）與市場定位，設計才有根基。"
   },
   {
@@ -4132,11 +4132,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "鼎泰豐服務人員精確以 45 度鞠躬迎客、即時為茶杯補水、筷子擺放整齊等標準化服務流程，在 CIS 範疇屬於：",
-    "option_a": "BI（行為識別系統）的具體落實",
+    "option_a": "MI（理念識別）的抽象標語",
     "option_b": "VI（視覺識別）",
-    "option_c": "MI（理念識別）的抽象標語",
+    "option_c": "BI（行為識別系統）的具體落實",
     "option_d": "TIFF 檔案規格",
-    "answer": "A",
+    "answer": "C",
     "explanation": "服務人員的一致性禮儀規範、標準作業程序（SOP）與對外互動，正是企業行為識別（BI）的生動典範。"
   },
   {
@@ -4147,11 +4147,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "無印良品（MUJI）提倡「簡約、自然、無多餘包裝」的環保生活哲學，其產品外觀與門市空間也高度呼應這份純樸，這代表：",
-    "option_a": "MI（理念識別）、BI（營運行為）與 VI（視覺表現）達成了高度統一與和諧共鳴",
+    "option_a": "無印良品拒絕使用色彩學原理",
     "option_b": "無印良品缺乏設計研發預算",
-    "option_c": "無印良品拒絕使用色彩學原理",
+    "option_c": "MI（理念識別）、BI（營運行為）與 VI（視覺表現）達成了高度統一與和諧共鳴",
     "option_d": "這只是偶然巧合無任何策劃痕跡",
-    "answer": "A",
+    "answer": "C",
     "explanation": "無印良品是 CIS 三位一體高度一致的典範：其「這樣就好」的 MI 理念，落實於無品牌標籤的 BI 行為，並體現於素雅克制的 VI 設計中。"
   },
   {
@@ -4177,11 +4177,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在品牌接觸點（Touchpoints）理論中，顧客在購買旅程中所看見、聽到、觸摸到的所有品牌介面，最主要依賴哪一個系統保持一致性？",
-    "option_a": "VI（視覺識別系統）",
+    "option_a": "政府稅務系統",
     "option_b": "MI 內部會議紀錄",
     "option_c": "BI 考勤打卡機",
-    "option_d": "政府稅務系統",
-    "answer": "A",
+    "option_d": "VI（視覺識別系統）",
+    "answer": "D",
     "explanation": "VI 系統為網站、包裝、門市、制服、社群等所有感官接觸點建立嚴謹規範，確保品牌在任何管道呈現一致面貌。"
   },
   {
@@ -4192,11 +4192,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "當企業因併購、產業轉型或品牌年輕化而需要徹底更新 CIS 系統時，此種戰略過程通常稱為：",
-    "option_a": "品牌重塑（Rebranding / 品牌再造）",
-    "option_b": "色彩校正",
+    "option_a": "色彩校正",
+    "option_b": "品牌重塑（Rebranding / 品牌再造）",
     "option_c": "破壞性壓縮",
     "option_d": "產品下架",
-    "answer": "A",
+    "answer": "B",
     "explanation": "Rebranding（品牌重塑）不僅僅是更換 Logo，更通常伴隨著企業使命（MI）、市場策略與商業模式的全面煥新升級。"
   },
   {
@@ -4207,11 +4207,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在 VI（視覺識別）手冊中，通常會嚴格區分為兩大子系統，分別是：",
-    "option_a": "基礎系統（Basic Elements）與應用系統（Application System）",
-    "option_b": "硬體系統與軟體系統",
+    "option_a": "硬體系統與軟體系統",
+    "option_b": "基礎系統（Basic Elements）與應用系統（Application System）",
     "option_c": "黑白系統與彩色系統",
     "option_d": "前端系統與後端系統",
-    "answer": "A",
+    "answer": "B",
     "explanation": "VI 手冊包含「基礎系統」（商標、標準字、標準色、輔助圖形）與「應用系統」（辦公用品、包裝、招牌、車輛、制服等載體）。"
   },
   {
@@ -4222,11 +4222,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在品牌標準字或 Logo 規範中，四周必須保留一定距離的無干擾空白，嚴禁任何其他文字或圖案侵入，這個保留空間稱為：",
-    "option_a": "最小保護區（Clear Space / 安全範圍）",
+    "option_a": "格線槽（Gutter）",
     "option_b": "印刷出血區（Bleed）",
     "option_c": "字體下伸線（Descender）",
-    "option_d": "格線槽（Gutter）",
-    "answer": "A",
+    "option_d": "最小保護區（Clear Space / 安全範圍）",
+    "answer": "D",
     "explanation": "最小保護區（Clear Space）確保 Logo 在任何應用環境中不被周遭雜訊文字擠壓干擾，維持獨立清晰的尊嚴與辨識度。"
   },
   {
@@ -4252,11 +4252,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在 VI 規範中，企業或品牌最核心、使用最頻繁、最能激發品牌聯想的專屬色彩，稱為：",
-    "option_a": "企業標準色（Primary Brand Color / 企業主色）",
+    "option_a": "彩虹色",
     "option_b": "暫定色",
-    "option_c": "彩虹色",
+    "option_c": "企業標準色（Primary Brand Color / 企業主色）",
     "option_d": "隱藏色",
-    "answer": "A",
+    "answer": "C",
     "explanation": "標準色（Primary Color，如 Tiffany 藍、Coca-Cola 紅、Starbucks 綠）是品牌視覺認知資產的核心心智定錨點。"
   },
   {
@@ -4267,11 +4267,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "為了豐富品牌在不同情境（如節慶促銷、產品子系列分類、圖表標籤）下的視覺變化，VI 系統通常會規範：",
-    "option_a": "企業輔助色（Secondary / Supporting Palette / 輔助色彩系統）",
-    "option_b": "隨機色彩庫",
+    "option_a": "隨機色彩庫",
+    "option_b": "企業輔助色（Secondary / Supporting Palette / 輔助色彩系統）",
     "option_c": "全螢幕漸層黑",
     "option_d": "只允許使用三原色",
-    "answer": "A",
+    "answer": "B",
     "explanation": "輔助色系（Secondary Palette）作為主色的呼應與烘托，擴展視覺設計語彙，解決多功能資訊層級傳遞的配色需求。"
   },
   {
@@ -4282,11 +4282,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在 VI 手冊中，標註企業標準色時，為了確保在跨媒體傳播中色彩維持高度一致，通常必須同時提供哪些標準數值？",
-    "option_a": "Pantone 專色色號、CMYK 四色印刷演色值、RGB 螢幕色光值、Web Hex 色碼，有時包含 Lab 色彩座標",
+    "option_a": "只提供油漆行的中文形容詞",
     "option_b": "只要拍一張手機照片放在手冊裡即可",
-    "option_c": "只提供油漆行的中文形容詞",
+    "option_c": "Pantone 專色色號、CMYK 四色印刷演色值、RGB 螢幕色光值、Web Hex 色碼，有時包含 Lab 色彩座標",
     "option_d": "只提供 CMYK，其餘讓輸出廠自行猜測",
-    "answer": "A",
+    "answer": "C",
     "explanation": "專業品牌規範必須完整列出 Pantone（實體油墨）、CMYK（印刷）、RGB/Hex（螢幕數位）跨媒介色彩轉換對應標準，消弭色偏爭議。"
   },
   {
@@ -4297,11 +4297,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在 VI 基礎規範中，除了企業標誌之外，專門為企業名稱或品牌名特別設計的專屬中英文字體，稱為：",
-    "option_a": "企業標準字（Logotype / Corporate Typography）",
+    "option_a": "系統內建字",
     "option_b": "隨機手寫字",
     "option_c": "微軟新細明體",
-    "option_d": "系統內建字",
-    "answer": "A",
+    "option_d": "企業標準字（Logotype / Corporate Typography）",
+    "answer": "D",
     "explanation": "標準字（Logotype）經過精密字型骨架與幾何微調，具備專屬版權與獨特視覺個性，強化品牌名稱的權威感。"
   },
   {
@@ -4327,11 +4327,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 VI 系統中，「輔助圖形（Supergraphic / Secondary Element / 輔助圖案）」的主要功能是：",
-    "option_a": "從標誌造型或品牌理念提煉延伸，作為包裝、背板或網頁的大面積鋪底裝飾，加強品牌識別縱深",
-    "option_b": "用來完全遮蓋商標 Logo",
+    "option_a": "用來完全遮蓋商標 Logo",
+    "option_b": "從標誌造型或品牌理念提煉延伸，作為包裝、背板或網頁的大面積鋪底裝飾，加強品牌識別縱深",
     "option_c": "為了在印刷時浪費多餘油墨",
     "option_d": "用來列印黑白條碼",
-    "answer": "A",
+    "answer": "B",
     "explanation": "輔助圖形（如 Burberry 經典格紋、Louis Vuitton Monogram、花旗銀行的紅色弧線）能在沒有顯著 Logo 的場合仍能一眼辨識出品牌。"
   },
   {
@@ -4357,11 +4357,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在 VI 規範手冊中，極為關鍵的一頁「標誌使用禁用規範（Incorrect Usage）」，通常會列舉哪些嚴格禁止的錯誤操作？",
-    "option_a": "禁止任意拉伸扭曲長寬比、禁止擅自更換色相、禁止任意添加立體陰影、禁止在雜亂背景使用低對比版本",
+    "option_a": "禁止在電腦螢幕上顯示 Logo",
     "option_b": "禁止將 Logo 印在紙張上",
-    "option_c": "禁止在電腦螢幕上顯示 Logo",
+    "option_c": "禁止任意拉伸扭曲長寬比、禁止擅自更換色相、禁止任意添加立體陰影、禁止在雜亂背景使用低對比版本",
     "option_d": "禁止為公司賺取利潤",
-    "answer": "A",
+    "answer": "C",
     "explanation": "禁用範例（Do's and Don'ts）以紅叉警示常見違規變形、傾斜、改色、重疊不當背景等操作，防範非設計人員濫用損害品牌形象。"
   },
   {
@@ -4372,11 +4372,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 VI 規範中，當 Logo 需要應用在極深色或黑色背景時，通常會預先規範哪種色彩版本以確保對比度？",
-    "option_a": "反白款（Inverted / White Logo）或暗底專用配色款",
+    "option_a": "將黑色背景手動挖空一個白色大洞",
     "option_b": "直接維持黑色 Logo 讓它完全隱形",
     "option_c": "在 Logo 邊緣手動塗上黃色螢光漆",
-    "option_d": "將黑色背景手動挖空一個白色大洞",
-    "answer": "A",
+    "option_d": "反白款（Inverted / White Logo）或暗底專用配色款",
+    "answer": "D",
     "explanation": "反白或亮色專用款（White / Monochromatic Reversed）確保商標在深色底、相片暗部或黑白印刷品上依然清晰突出。"
   },
   {
@@ -4387,11 +4387,11 @@
     "score": 200,
     "question_type": "speed_buzzer",
     "question": "在 VI 標誌製圖法中，「網格製圖規範（Grid Construction）」通常使用密集的等比方格或輔助同心圓弧線標註 Logo，其用意為：",
-    "option_a": "精確展示商標的幾何比例、圓弧曲率與數學幾何結構，利於大型工程施工、商標專利註冊與精密重現",
+    "option_a": "用來測試雷射印表機噴嘴是否有堵塞",
     "option_b": "用來計算電腦螢幕每秒運算速度",
     "option_c": "這只是用來向客戶展示高深莫測的純裝飾線條",
-    "option_d": "用來測試雷射印表機噴嘴是否有堵塞",
-    "answer": "A",
+    "option_d": "精確展示商標的幾何比例、圓弧曲率與數學幾何結構，利於大型工程施工、商標專利註冊與精密重現",
+    "answer": "D",
     "explanation": "比例製圖法（Construction Grid）嚴謹定義各筆畫曲線切點、同心圓半徑與正方網格模組，是工業級精準放大與商標審查的幾何依據。"
   },
   {
@@ -4402,11 +4402,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "品牌標語（Slogan / Tagline，例如 Nike 的 'Just Do It'），在 VI 基礎規範中通常會規定其與標誌的：",
-    "option_a": "組合比例規範（Lockup），包含水平排列、垂直排列的精確間距與相對字級比例",
-    "option_b": "只能使用純手寫毛筆字",
+    "option_a": "只能使用純手寫毛筆字",
+    "option_b": "組合比例規範（Lockup），包含水平排列、垂直排列的精確間距與相對字級比例",
     "option_c": "必須每個月更換一次字詞",
     "option_d": "完全禁止與 Logo 出現在同一個畫面上",
-    "answer": "A",
+    "answer": "B",
     "explanation": "Slogan Lockup 定義標語文字與品牌圖示的標準組合架構（水平排列、上下排列、字距比例），防止排版時位置雜亂無章。"
   },
   {
@@ -4417,11 +4417,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "企業吉祥物（Mascot，如米其林輪胎人、LINE Friends 熊大）在 VI 系統中通常被歸類在：",
-    "option_a": "基礎系統中的「專屬角色/吉祥物規範」",
+    "option_a": "電腦硬體維護手冊",
     "option_b": "印前出血裁切規範",
-    "option_c": "電腦硬體維護手冊",
+    "option_c": "基礎系統中的「專屬角色/吉祥物規範」",
     "option_d": "財務會計報表系統",
-    "answer": "A",
+    "answer": "C",
     "explanation": "吉祥物為基礎系統中的擬人化識別元素，通常規範標準造型、標準三視圖、各類表情肢體動作及延伸周邊應用準則。"
   },
   {
@@ -4447,11 +4447,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在 VI 標準色規劃中，除了 CMYK 與 RGB 之外，特別為實體裝潢與工業漆料指定的色卡標準通常會採用：",
-    "option_a": "RAL（勞爾色卡）或 DIC（大日本油墨色卡）",
+    "option_a": "GIF 256 色盤",
     "option_b": "JPG 色階值",
-    "option_c": "GIF 256 色盤",
+    "option_c": "RAL（勞爾色卡）或 DIC（大日本油墨色卡）",
     "option_d": "HTML5 音訊標籤",
-    "answer": "A",
+    "answer": "C",
     "explanation": "RAL 廣泛應用於歐洲建築塗料、金屬烤漆與工業設計領域，是室內裝潢招牌與硬體烤漆施工的世界權威色卡。"
   },
   {
@@ -4462,11 +4462,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在黑白傳真公文、單色收據或鋼印印鑑場合，彩色 Logo 必須具備專門定義的：",
-    "option_a": "單色款標誌（Monochrome / Grayscale Logo）",
-    "option_b": "全彩漸層色款",
+    "option_a": "全彩漸層色款",
+    "option_b": "單色款標誌（Monochrome / Grayscale Logo）",
     "option_c": "螢光透明款",
     "option_d": "3D 立體浮雕動畫款",
-    "answer": "A",
+    "answer": "B",
     "explanation": "單色規範保證商標在黑白報紙、傳真機、單色收據、壓印鋼印或布料刺繡等無彩環境中，層次結構依然清晰分明。"
   },
   {
@@ -4492,11 +4492,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "如 Apple 的咬一口蘋果、Nike 的 Swoosh 勾勾、Twitter 的小鳥，這類「純粹由單一象徵性圖形構成、不強制包含品牌名稱」的商標型態稱為：",
-    "option_a": "Brandmark（圖像標 / 象徵符號標誌）",
+    "option_a": "Monogram",
     "option_b": "Wordmark（字標）",
     "option_c": "Lettermark（首字母標）",
-    "option_d": "Monogram",
-    "answer": "A",
+    "option_d": "Brandmark（圖像標 / 象徵符號標誌）",
+    "answer": "D",
     "explanation": "Brandmark（或 Pictorial mark）以高度凝練的幾何或具象圖形作為精神符號，在跨越語言與國界傳播時具備無文字阻礙的優勢。"
   },
   {
@@ -4522,11 +4522,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "世界上大多數主流企業（如 Adidas、Burger King、Lacoste、Rolex）將「獨立圖標」與「品牌字標」同時並列組合的商標類型稱為：",
-    "option_a": "Combination Mark（複合型標誌 / 圖文組合標）",
+    "option_a": "印章標",
     "option_b": "純字標",
     "option_c": "抽象字母標",
-    "option_d": "印章標",
-    "answer": "A",
+    "option_d": "Combination Mark（複合型標誌 / 圖文組合標）",
+    "answer": "D",
     "explanation": "Combination Mark 將象徵圖案與文字名稱完美鎖定搭配，兼具視覺圖案的聯想力與文字名稱的直觀溝通力，是商業應用最穩健類型。"
   },
   {
@@ -4537,11 +4537,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "如 Starbucks 星巴克傳統雙尾美人魚圓標、Harley-Davidson 哈雷機車盾牌、各大名校校徽，將文字與圖形完全封裝在盾牌、徽章或封印幾何框架內的型態稱為：",
-    "option_a": "Emblem（徽章型標誌 / 紋章式商標）",
-    "option_b": "Wordmark",
+    "option_a": "Wordmark",
+    "option_b": "Emblem（徽章型標誌 / 紋章式商標）",
     "option_c": "Lettermark",
     "option_d": "Abstract mark",
-    "answer": "A",
+    "answer": "B",
     "explanation": "Emblem 具有古典歐洲紋章傳統，整體造型封閉精美、帶有強烈權威傳承與古典儀式感，常為汽車、咖啡館與大學所喜愛。"
   },
   {
@@ -4552,11 +4552,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "由兩個或多個首字母相互交織、纏繞穿插組合而成的古典優雅標誌（如 Chanel 雙C、Louis Vuitton LV、Gucci 雙G），在專業術語中稱為：",
-    "option_a": "Monogram（交織字母組合標誌 / 花押字）",
+    "option_a": "Ideogram（表意文字）",
     "option_b": "Pictogram（象形符號）",
-    "option_c": "Ideogram（表意文字）",
+    "option_c": "Monogram（交織字母組合標誌 / 花押字）",
     "option_d": "Ambigram（雙向對稱字）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Monogram 起源於古希臘硬幣與中世紀王室印璽，將姓名縮寫交織融合，在奢侈品時尚界象徵尊榮血統與極致工藝。"
   },
   {
@@ -4567,11 +4567,11 @@
     "score": 150,
     "question_type": "speed_buzzer",
     "question": "如 Pepsi 紅白藍太極球、BP 太陽花、Chase 銀行藍色八角幾何，這類「不代表任何現實具象物體、由純粹幾何造型提煉精神意涵」的標誌屬於：",
-    "option_a": "Abstract Mark（抽象幾何型標誌）",
+    "option_a": "純書法標",
     "option_b": "Mascot Mark（吉祥物標誌）",
     "option_c": "Lettermark",
-    "option_d": "純書法標",
-    "answer": "A",
+    "option_d": "Abstract Mark（抽象幾何型標誌）",
+    "answer": "D",
     "explanation": "抽象標誌不直接描摹現實具體物件（非蘋果非相機），而是利用原創幾何造型創造獨一無二的品牌隱喻，具備極高法律專利獨佔性。"
   },
   {
@@ -4582,11 +4582,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "評估一個商業 Logo 設計優劣的著名原則「SMART（簡單 Simple、難忘 Memorable、跨時代 Timeless、萬用 Versatile、貼切 Appropriate）」，其中「簡單（Simple）」之所以排在首位，是因為：",
-    "option_a": "造型越簡單，人腦在數百毫秒內的認知記憶負擔越小，且在各類小尺寸或黑白印刷中越不易破損模糊",
+    "option_a": "簡單的 Logo 印刷不需要付錢",
     "option_b": "因為簡單的 Logo 設計師可以一秒鐘畫完偷懶",
-    "option_c": "簡單的 Logo 印刷不需要付錢",
+    "option_c": "造型越簡單，人腦在數百毫秒內的認知記憶負擔越小，且在各類小尺寸或黑白印刷中越不易破損模糊",
     "option_d": "簡單的標誌會自動吸引百萬用戶",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Paul Rand 強調商標必須極度簡練易認。過於複雜的寫實細節在高速移動或小尺寸介面下會變成視覺污點，簡單是長久留存的基石。"
   },
   {
@@ -4597,11 +4597,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "近年來如 MIT 媒體實驗室、瑞士觀光局採用的「動態可變識別（Dynamic Identity / Generative Logo）」，其顛覆傳統的特性是：",
-    "option_a": "Logo 不再固定於單一死板形狀，而是在保留一套核心幾何規則演算法下，能依據數據、環境或人聲動態即時生成無限種形態變體",
-    "option_b": "Logo 只能每秒旋轉 360 度",
+    "option_a": "Logo 只能每秒旋轉 360 度",
+    "option_b": "Logo 不再固定於單一死板形狀，而是在保留一套核心幾何規則演算法下，能依據數據、環境或人聲動態即時生成無限種形態變體",
     "option_c": "Logo 拒絕在紙張上印刷",
     "option_d": "Logo 完全由外包機器人自動產出",
-    "answer": "A",
+    "answer": "B",
     "explanation": "動態生成識別（Generative Identity）打破傳統靜態商標界限，讓品牌如同生命體般與環境數據互動，是數位時代前衛識別主流。"
   },
   {
@@ -4627,11 +4627,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "當需要為具有深厚歷史文化資產的百年老品牌進行 Logo 扁平化現代微調（Logo Redesign）時，設計師通常採取的明智策略是：",
-    "option_a": "保留核心靈魂特徵（如經典剪影輪廓、主色調與姿態），剔除過時擬真光影高光，精簡向量節點並優化數位像素對齊",
+    "option_a": "將原本的圖案反向模糊化處理",
     "option_b": "徹底將原標誌丟棄，換一個完全不相干的彩色圓圈",
-    "option_c": "將原本的圖案反向模糊化處理",
+    "option_c": "保留核心靈魂特徵（如經典剪影輪廓、主色調與姿態），剔除過時擬真光影高光，精簡向量節點並優化數位像素對齊",
     "option_d": "在舊圖形周邊加滿三十種裝飾花紋",
-    "answer": "A",
+    "answer": "C",
     "explanation": "如星巴克去外圈文字、BMW 去擬真金屬反光。品牌資產微調旨在承繼歷史認知資產的同時，大幅適配現代高解數位螢幕與扁平化潮流。"
   },
   {
@@ -4642,11 +4642,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在商業商標註冊法規中，下列哪種圖案「最不可能」成功註冊為獨佔的合法商標？",
-    "option_a": "直接以產業通用通用詞彙或純日常物品寫實相片（例如賣新鮮蘋果的店直接拿一張真實紅蘋果照片當標誌）",
+    "option_a": "原創設計的幻想生物造型",
     "option_b": "原創繪製的抽象幾何線條",
     "option_c": "獨創拼寫的原創新名詞",
-    "option_d": "原創設計的幻想生物造型",
-    "answer": "A",
+    "option_d": "直接以產業通用通用詞彙或純日常物品寫實相片（例如賣新鮮蘋果的店直接拿一張真實紅蘋果照片當標誌）",
+    "answer": "D",
     "explanation": "商標法規定具備「顯著性（Distinctiveness）」才能核准註冊；直接描述商品本身通用名稱、品質或普通照片缺乏識別顯著性。"
   },
   {
@@ -4657,11 +4657,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在 VI 應用系統（Application System）中，最基礎、最具商務代表性的「事務辦公用品類別（Stationery）」通常涵蓋：",
-    "option_a": "名片、公文信紙、信封（標準大中小信封）、公文夾/合約封套、識別證員工證",
-    "option_b": "工廠大型煙囪彩繪",
+    "option_a": "工廠大型煙囪彩繪",
+    "option_b": "名片、公文信紙、信封（標準大中小信封）、公文夾/合約封套、識別證員工證",
     "option_c": "空軍戰鬥機塗裝",
     "option_d": "太空梭隔熱磚設計",
-    "answer": "A",
+    "answer": "B",
     "explanation": "辦公用品系統是商務社交中最频繁交換的第一線品牌載體，包含名片（Business Card）、信頭紙（Letterhead）等。"
   },
   {
@@ -4687,11 +4687,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在 VI 車輛外觀塗裝規範（Vehicle Livery）中，為物流貨車或公務車設計視覺時，首要考量的功能性要求是：",
-    "option_a": "在高速行駛與遠距離移動中，品牌名稱與核心電話/網址必須一眼可辨，且避開車把手、油箱蓋與輪拱分割線",
+    "option_a": "車身顏色每天隨室外溫度變色",
     "option_b": "必須把全公司員工姓名都印在車輪胎上",
-    "option_c": "車身顏色每天隨室外溫度變色",
+    "option_c": "在高速行駛與遠距離移動中，品牌名稱與核心電話/網址必須一眼可辨，且避開車把手、油箱蓋與輪拱分割線",
     "option_d": "一定要使用全身鏡面電鍍金屬漆",
-    "answer": "A",
+    "answer": "C",
     "explanation": "車輛流動廣告視野短暫，視覺焦點必須粗獷清晰，且幾何貼膜佈局必須精確避開車門接縫、車把手、滑軌等機械干擾部件。"
   },
   {
@@ -4717,11 +4717,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在企業制服規範（Uniform / Apparel System）中，設計員工圍裙、T 恤、襯衫或帽子時，商標 Logo 最普遍的刺繡或印製位置通常位於：",
-    "option_a": "左胸處（近心臟位置，符合人類視覺視認習慣）",
-    "option_b": "衣服下擺內部標籤處",
+    "option_a": "衣服下擺內部標籤處",
+    "option_b": "左胸處（近心臟位置，符合人類視覺視認習慣）",
     "option_c": "長褲後腳踝下方",
     "option_d": "襯衫腋下排汗孔處",
-    "answer": "A",
+    "answer": "B",
     "explanation": "左胸處是國際服裝徽章與品牌標誌的傳統尊榮錨點，目光交會打招呼時最容易自然映入眼簾。"
   },
   {
@@ -4732,11 +4732,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "商品包裝系統（Packaging Design）在 VI 應用中常被稱為「貨架上的沉默推銷員」，其設計首要任務是：",
-    "option_a": "在實體貨架數百種競爭品中以強烈識別「脫穎而出（Standout）」、準確傳達產品特色與法令法規必要標示",
+    "option_a": "使用讓消費者永遠打不開的封裝膠水",
     "option_b": "包裝越厚重浪費越多材料越好",
     "option_c": "隱藏所有產品成份與有效期限",
-    "option_d": "使用讓消費者永遠打不開的封裝膠水",
-    "answer": "A",
+    "option_d": "在實體貨架數百種競爭品中以強烈識別「脫穎而出（Standout）」、準確傳達產品特色與法令法規必要標示",
+    "answer": "D",
     "explanation": "包裝設計需兼顧貨架競爭力（眼球經濟）、品牌美學、拆箱體驗以及法律強制營養成分/檢驗標章等規範排版。"
   },
   {
@@ -4747,11 +4747,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在數位產品應用系統中，為 iOS 與 Android 平台規劃「App 圖標（App Icon）」時，現代設計規範（如 Apple HIG）強烈禁止的操作是：",
-    "option_a": "直接在 App 圖示內塞滿整張複雜照片或把大量小字當作圖示內容，導致縮小時成為一團混濁色塊",
+    "option_a": "保持色彩鮮明純淨",
     "option_b": "使用高對比度簡潔符號",
-    "option_c": "保持色彩鮮明純淨",
+    "option_c": "直接在 App 圖示內塞滿整張複雜照片或把大量小字當作圖示內容，導致縮小時成為一團混濁色塊",
     "option_d": "設計圓角方形背景",
-    "answer": "A",
+    "answer": "C",
     "explanation": "App Icon 是數位桌面的極小載體，Apple 嚴禁在圖標內放微縮長篇文字或低對比複雜相片，強調單一強烈幾何象徵符號。"
   },
   {
@@ -4762,11 +4762,11 @@
     "score": 150,
     "question_type": "speed_buzzer",
     "question": "在設計企業信封（如 12K, 15K, 4K 信封）時，除了擺放企業 Logo 與回郵地址外，排版時必須特別避開何處區域以符合郵政自動分信機規格？",
-    "option_a": "右上方貼郵票區域、右下方寄達郵遞區號條碼掃描條碼區及郵政空白管制區",
-    "option_b": "信封左下角",
+    "option_a": "信封左下角",
+    "option_b": "右上方貼郵票區域、右下方寄達郵遞區號條碼掃描條碼區及郵政空白管制區",
     "option_c": "信封正面絕對不能印任何公司名",
     "option_d": "信封封口處不能有黏膠",
-    "answer": "A",
+    "answer": "B",
     "explanation": "各國郵政機械自動分揀系統對右上方郵票位、右下收件條碼與噴墨信箱格有嚴苛的留白管制規定，排版不可遮擋。"
   },
   {
@@ -4777,11 +4777,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在企業官方網站與社群媒體平台（Facebook, Instagram, LinkedIn, YouTube）的數位 VI 規範中，通常會明定：",
-    "option_a": "各平台大頭貼 Avatar、封面橫幅 Banner 的安全尺寸切裁範圍與品牌輔助圖形排版規格",
+    "option_a": "禁止在網路上提到公司名稱",
     "option_b": "強制所有人只能使用黑白相片發文",
     "option_c": "每篇貼文只能有一個字",
-    "option_d": "禁止在網路上提到公司名稱",
-    "answer": "A",
+    "option_d": "各平台大頭貼 Avatar、封面橫幅 Banner 的安全尺寸切裁範圍與品牌輔助圖形排版規格",
+    "answer": "D",
     "explanation": "數位接觸點多樣化，規範各社群尺寸頭像（圓形裁切安全區）與橫幅排版，能確保品牌在各大社群呈現一體化形象。"
   },
   {
@@ -4807,11 +4807,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "當為品牌設計「企業禮品與周邊商品（Merchandise，如保溫杯、雨傘、筆記本、環保袋）」時，資深品牌設計師最核心的原則是：",
-    "option_a": "將品牌輔助圖形、經典配色與文化格調有機融入日常用品，避免粗暴將大尺寸彩色 Logo 直接生硬蓋在正中央",
+    "option_a": "周邊商品只能送不准賣",
     "option_b": "不管什麼產品一律將最大號的紅色 Logo 蓋在最顯眼處",
-    "option_c": "周邊商品只能送不准賣",
+    "option_c": "將品牌輔助圖形、經典配色與文化格調有機融入日常用品，避免粗暴將大尺寸彩色 Logo 直接生硬蓋在正中央",
     "option_d": "所有禮品必須是一次性塑膠製品",
-    "answer": "A",
+    "answer": "C",
     "explanation": "優雅的周邊設計追求「品牌生活方式（Lifestyle）」融入，透過材質細節、同色系壓印或精緻標籤傳遞品味，避免成為令人抗拒的走動廉價廣告牌。"
   },
   {
@@ -4837,11 +4837,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "品牌手冊（Brand Style Guide / Brand Book / VI Manual）在企業營運中最關鍵的核心功能是：",
-    "option_a": "作為所有內部員工、行銷企劃與外部合作廠商（廣告代理商、印刷廠、網頁外包）統一遵循的唯一視覺憲法準則",
+    "option_a": "作為員工犯錯時的罰款依據",
     "option_b": "設計師用來展示個人繪畫才華的畫冊",
     "option_c": "用來鎖在保險箱中永遠不給任何人借閱的機密",
-    "option_d": "作為員工犯錯時的罰款依據",
-    "answer": "A",
+    "option_d": "作為所有內部員工、行銷企劃與外部合作廠商（廣告代理商、印刷廠、網頁外包）統一遵循的唯一視覺憲法準則",
+    "answer": "D",
     "explanation": "品牌手冊是品牌資產守門法典，消弭不同部門與協力廠商各自為政的主觀隨意竄改，維繫全球品牌一致性。"
   },
   {
@@ -4852,11 +4852,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "現代許多跨國頂尖企業（如 Uber, Audi, Spotify, Starbucks）會將其品牌識別手冊發布為：",
-    "option_a": "公開可線上互動瀏覽與下載向量資源的「品牌設計系統網站（Online Brand Portal / Design System）」",
-    "option_b": "只能手寫在羊皮紙上的孤本",
+    "option_a": "只能手寫在羊皮紙上的孤本",
+    "option_b": "公開可線上互動瀏覽與下載向量資源的「品牌設計系統網站（Online Brand Portal / Design System）」",
     "option_c": "每本重達五十公斤的鐵皮書",
     "option_d": "純錄音口傳錄音帶",
-    "answer": "A",
+    "answer": "B",
     "explanation": "線上動態品牌網站（如 uber.design, brand.uber.com）隨時保持最新版本、支援即時下載標準向量字形與色碼，大幅降低溝通分發成本。"
   },
   {
@@ -4867,11 +4867,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在品牌手冊的「攝影風格指引（Photography Style Guide）」章節中，通常會具體規範哪些視覺維度？",
-    "option_a": "畫面色調光影傾向（如自然午後柔光、高對比冷色）、構圖視角、真實人物抓拍風格以及嚴禁使用的虛假死板圖庫圖",
-    "option_b": "只能使用特定型號的單眼相機機身",
+    "option_a": "只能使用特定型號的單眼相機機身",
+    "option_b": "畫面色調光影傾向（如自然午後柔光、高對比冷色）、構圖視角、真實人物抓拍風格以及嚴禁使用的虛假死板圖庫圖",
     "option_c": "每張照片必須包含攝影師本人自拍",
     "option_d": "強制所有照片必須旋轉 45 度拍攝",
-    "answer": "A",
+    "answer": "B",
     "explanation": "攝影風格指南界定品牌的影像美學氛圍，杜絕廉價陳腐的商業圖庫擺拍假笑假動作，確保宣傳相片傳遞真實真誠的品牌調性。"
   },
   {
@@ -4882,11 +4882,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在數位產品品牌指南中，「品牌語調（Tone of Voice, TOV）」規範章節主要指導的是：",
-    "option_a": "品牌在所有對外文案、介面按鈕文字與客服溝通時的語氣態度（如是幽默風趣、親切鄰家，抑或嚴謹權威、專業精煉）",
+    "option_a": "廣播廣告的背景音樂聲調升降 Key",
     "option_b": "員工打電話時的說話音量分貝數限制",
-    "option_c": "廣播廣告的背景音樂聲調升降 Key",
+    "option_c": "品牌在所有對外文案、介面按鈕文字與客服溝通時的語氣態度（如是幽默風趣、親切鄰家，抑或嚴謹權威、專業精煉）",
     "option_d": "公司電話答錄機的物理硬體品牌",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Tone of Voice 是品牌人格的聲音化表達，確保無論是幽默的 App 推送或嚴肅的道歉聲明，文字筆觸始終維持鮮明一致的人格特質。"
   },
   {
@@ -4912,11 +4912,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在品牌手冊規範中，若遇有「聯名合作（Co-Branding）」場合需要將兩個不同品牌的 Logo 並列展示，標準排版規範通常為：",
-    "option_a": "兩者尺寸在視覺權重上保持相等平衡，中間以細灰色豎線或細小交叉號（× / |）清晰間隔分開",
+    "option_a": "對方的商標顏色全部強制改成我方標準色",
     "option_b": "將對方的商標縮小到 1 像素看不見",
     "option_c": "把兩個商標直接重疊交融在一起變成新圖形",
-    "option_d": "對方的商標顏色全部強制改成我方標準色",
-    "answer": "A",
+    "option_d": "兩者尺寸在視覺權重上保持相等平衡，中間以細灰色豎線或細小交叉號（× / |）清晰間隔分開",
+    "answer": "D",
     "explanation": "聯名標誌規範強調雙方品牌尊嚴平等，透過標準化的間距與幾何中性分隔線（| 或 ×）界定雙品牌合作關係。"
   },
   {
@@ -4927,11 +4927,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在商標圖樣右上角或右下角常見的小標記「®」與「™」，兩者的法律意涵差異為何？",
-    "option_a": "® 代表已經官方審查核准並成功註冊的註冊商標（Registered）；™ 代表正在申請或主張普通法權利但尚未核准註冊的商標",
-    "option_b": "® 代表只准在歐洲使用，™ 代表只准在美洲使用",
+    "option_a": "® 代表只准在歐洲使用，™ 代表只准在美洲使用",
+    "option_b": "® 代表已經官方審查核准並成功註冊的註冊商標（Registered）；™ 代表正在申請或主張普通法權利但尚未核准註冊的商標",
     "option_c": "® 代表免費商標，™ 代表付費商標",
     "option_d": "兩者完全是同一個意思沒有任何法律差異",
-    "answer": "A",
+    "answer": "B",
     "explanation": "®（Registered Trademark）享有法定強烈排他專有權，未獲官方商標局核准註冊前擅自標註 ® 屬違法偽造；™（Trademark）則是一般商業宣稱。"
   },
   {
@@ -4957,11 +4957,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在數位 UI 設計系統的組件庫中，建立「防呆（Poka-yoke）」機制的一種常見做法是：",
-    "option_a": "在設計軟體內將主按鈕組件的顏色與內距設定為只允許切換 Token 變數，強制鎖定禁止任何設計師手動任意微調色碼與圓角",
+    "option_a": "讓按鈕在滑鼠移上去時自動消失",
     "option_b": "每天更換一次登入密碼",
-    "option_c": "讓按鈕在滑鼠移上去時自動消失",
+    "option_c": "在設計軟體內將主按鈕組件的顏色與內距設定為只允許切換 Token 變數，強制鎖定禁止任何設計師手動任意微調色碼與圓角",
     "option_d": "禁止使用任何鍵盤打字",
-    "answer": "A",
+    "answer": "C",
     "explanation": "透過組件封裝與變數 Token 鎖定，系統性防範菜鳥或外包工程師隨意微調按鈕樣式，從架構層面確保全專案千百頁面像素級嚴格合規。"
   },
   {
@@ -4972,11 +4972,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "一家優質的品牌識別系統，其手冊內容通常多久需要進行一次審視與微調？",
-    "option_a": "通常每 1 到 3 年進行常態性審視，隨新媒介（如社群新格式、AR/VR、短影音）與業務擴張進行動態滾動式擴充微調",
+    "option_a": "只有在公司倒閉破產那天才能翻開查看",
     "option_b": "每星期徹底推翻重新設計一次",
     "option_c": "一旦印出成書後永遠一百年不得增修一字",
-    "option_d": "只有在公司倒閉破產那天才能翻開查看",
-    "answer": "A",
+    "option_d": "通常每 1 到 3 年進行常態性審視，隨新媒介（如社群新格式、AR/VR、短影音）與業務擴張進行動態滾動式擴充微調",
+    "answer": "D",
     "explanation": "品牌系統如同有機生態體系，需定期回顧維護，隨著數位載體進化與商業觸角拓展，持續補充相應的指導條款。"
   },
   {
@@ -4987,11 +4987,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在品牌授權管理中，當品牌將 Logo 授權給外部玩具廠或聯名服飾生產實體商品時，通常會設立什麼角色或流程來把關品質？",
-    "option_a": "品牌審查委員會或專任品牌監護人（Brand Guardian），執行打樣樣品逐階段送審簽核（Approval Process）",
+    "option_a": "由工廠清潔工兼職負責品管",
     "option_b": "放任工廠自行發揮不予過問",
     "option_c": "要求工廠不准把商品拿出來販售",
-    "option_d": "由工廠清潔工兼職負責品管",
-    "answer": "A",
+    "option_d": "品牌審查委員會或專任品牌監護人（Brand Guardian），執行打樣樣品逐階段送審簽核（Approval Process）",
+    "answer": "D",
     "explanation": "Brand Guardian（品牌監護人）手握簽審否決權，嚴格檢查實體產生的色偏、材質、標籤字體排印與打樣工藝，捍衛品牌聲譽。"
   },
   {
@@ -5002,11 +5002,11 @@
     "score": 150,
     "question_type": "speed_buzzer",
     "question": "在現代數位品牌規範中，「無障礙色彩組合表（Accessibility Matrix）」的主要用途是：",
-    "option_a": "預先矩陣交叉列出所有「品牌標準色、輔助色與背景色」兩兩搭配時，哪些組合符合 WCAG AA/AAA 對比度標準可安全使用",
+    "option_a": "記錄所有員工的視力檢查報告",
     "option_b": "用來測試螢幕是否支援 4K 解析度",
-    "option_c": "記錄所有員工的視力檢查報告",
+    "option_c": "預先矩陣交叉列出所有「品牌標準色、輔助色與背景色」兩兩搭配時，哪些組合符合 WCAG AA/AAA 對比度標準可安全使用",
     "option_d": "隨機挑選今天的幸運顏色",
-    "answer": "A",
+    "answer": "C",
     "explanation": "色彩無障礙矩陣表以視覺化清單標記出合規安全色對（Pass/Fail），防止團隊在日常行銷作圖時誤用對比不足的文字與底色。"
   },
   {
@@ -5032,11 +5032,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "如果一張全版滿版底色或滿版照片的海報「完全沒有做 3mm 出血」，印刷裁切後邊緣最常出現的致命瑕疵是：",
-    "option_a": "裁切稍微偏差 0.5 毫米時，邊緣露出一條難看的「露白白邊（White Edge）」",
-    "option_b": "整張海報的顏色瞬間全部褪色",
+    "option_a": "整張海報的顏色瞬間全部褪色",
+    "option_b": "裁切稍微偏差 0.5 毫米時，邊緣露出一條難看的「露白白邊（White Edge）」",
     "option_c": "紙張會自動碎裂自燃",
     "option_d": "印表機噴頭會被卡死",
-    "answer": "A",
+    "answer": "B",
     "explanation": "若圖案剛好貼齊完成尺寸，裁刀只要往外微偏 0.2mm，未印油墨的原紙白邊便會暴露出來，故必須拉伸圖案越過裁切線做足出血。"
   },
   {
@@ -5047,11 +5047,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "為了防止重要標題文字或聯絡電話在裁切時不小心被切掉，排版時所有重要文字必須退在裁切線內側一定距離，這個安全範圍稱為：",
-    "option_a": "安全框（Safety Margin / 安全邊界，通常建議距離裁切線至少 3~5mm）",
+    "option_a": "咬口位（Gripper Margin）",
     "option_b": "出血線（Bleed Line）",
-    "option_c": "咬口位（Gripper Margin）",
+    "option_c": "安全框（Safety Margin / 安全邊界，通常建議距離裁切線至少 3~5mm）",
     "option_d": "折刀線",
-    "answer": "A",
+    "answer": "C",
     "explanation": "安全框（Safety Zone）是成品邊界內的保險區域。重要文字若貼近裁切邊，裁刀往內微偏就會造成文字腰斬。"
   },
   {
@@ -5062,11 +5062,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "印刷完稿檔案中，繪製在四個角落、用來指示裁刀確切下刀切割位置的標記線稱為：",
-    "option_a": "裁切標記（Crop Marks / 裁切線）",
-    "option_b": "註冊十字線（Registration Mark）",
+    "option_a": "註冊十字線（Registration Mark）",
+    "option_b": "裁切標記（Crop Marks / 裁切線）",
     "option_c": "色彩校驗條",
     "option_d": "折線標記",
-    "answer": "A",
+    "answer": "B",
     "explanation": "裁切標記（Crop Marks）位於版面四角，成雙垂直水平實線，精準標記出成品的實際寬高切割基準線。"
   },
   {
@@ -5092,11 +5092,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "裝訂厚度達數百頁的書籍（如膠裝或穿線膠裝），在編排跨頁版面時，書脊內側的「裝訂邊（Gutter）」邊距通常必須刻意加大，這是為了防止：",
-    "option_a": "書籍翻開時，內側文字陷入深深的書溝縫隙（Gutter）中導致難以閱讀甚至完全遮蔽",
+    "option_a": "頁碼自動倒扣計算",
     "option_b": "紙張在裝訂時著火",
     "option_c": "書脊膠水黏不住紙張",
-    "option_d": "頁碼自動倒扣計算",
-    "answer": "A",
+    "option_d": "書籍翻開時，內側文字陷入深深的書溝縫隙（Gutter）中導致難以閱讀甚至完全遮蔽",
+    "answer": "D",
     "explanation": "厚書裝訂成冊後內頁無法 180° 完全平攤，書脊處有彎曲弧度（Book Creep & Gutter），內側邊距必須額外加寬以確保正常閱讀視野。"
   },
   {
@@ -5122,11 +5122,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "印刷打樣文件周圍常看到的「圓形內部帶有十字準星」的符號標記，其專業名稱與用途為：",
-    "option_a": "對位標記（Registration Marks / 十字規線），供印刷師傅精確檢查 C、M、Y、K 四色版是否精準套印對齊",
+    "option_a": "印刷工廠品質檢驗員的個人印章",
     "option_b": "射擊瞄準遊戲靶標",
-    "option_c": "印刷工廠品質檢驗員的個人印章",
+    "option_c": "對位標記（Registration Marks / 十字規線），供印刷師傅精確檢查 C、M、Y、K 四色版是否精準套印對齊",
     "option_d": "防偽雷射標籤貼紙",
-    "answer": "A",
+    "answer": "C",
     "explanation": "對位十字規線（十字套準標記）印在四個版面邊角，若任一色版套印不準，十字線會出現彩色重影，是印中對位校正的核心基準。"
   },
   {
@@ -5137,11 +5137,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在騎馬釘裝訂（Saddle Stitching）頁數較多（如 64 頁以上）的刊物中，由於多張紙張對折嵌套，最內層的頁面會被往外擠出，這種現象與修正工藝稱為：",
-    "option_a": "爬頁現象（Creep / 頁面蠕變），印前拼版軟體必須動態向內微調內頁版心（Shingling）以補償裁切位移",
+    "option_a": "脫膠現象（Debonding）",
     "option_b": "走墨現象（Bleeding）",
     "option_c": "卡紙現象（Paper Jam）",
-    "option_d": "脫膠現象（Debonding）",
-    "answer": "A",
+    "option_d": "爬頁現象（Creep / 頁面蠕變），印前拼版軟體必須動態向內微調內頁版心（Shingling）以補償裁切位移",
+    "answer": "D",
     "explanation": "紙張具有物理厚度，多張嵌套對折後，中間頁次向外突出；成書三面切齊時，最內頁外側邊距會被削短，印前需透過 Creep 運算逐頁往內位移修正。"
   },
   {
@@ -5152,11 +5152,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在包裝彩盒或瓦楞紙箱的結構設計中，用來標示「此處需要下壓折痕、此處需要用鋼刀切穿」的線條通常在刀模圖（Die-line）中如何區分？",
-    "option_a": "實線（Solid line）通常代表切穿全斷刀，虛線（Dashed line）代表壓折痕線，且刀模線必須設為獨立特別色色版並設為疊印",
-    "option_b": "全部畫成粗黑色實線交給工廠自行猜測",
+    "option_a": "全部畫成粗黑色實線交給工廠自行猜測",
+    "option_b": "實線（Solid line）通常代表切穿全斷刀，虛線（Dashed line）代表壓折痕線，且刀模線必須設為獨立特別色色版並設為疊印",
     "option_c": "用鉛筆在印刷成品上手繪折痕",
     "option_d": "用不同字體區分折痕",
-    "answer": "A",
+    "answer": "B",
     "explanation": "包裝刀模（Dieline）是結構工程圖，實線切穿、虛線壓痕，必須使用特定專色（如 Spot Die）設定疊印（Overprint），不可被併入 CMYK 印刷。"
   },
   {
@@ -5182,11 +5182,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在印前製作封套、資料夾或立體盒型時，若紙張厚度高達 350 gsm 以上厚卡紙，設計師在規劃折口時必須額外考慮什麼物理參數？",
-    "option_a": "厚度補償公差（Allowance）與紙張厚度反彈係數，折線需做雙壓痕或留出書脊厚度",
-    "option_b": "紙張在黑暗中會縮小",
+    "option_a": "紙張在黑暗中會縮小",
+    "option_b": "厚度補償公差（Allowance）與紙張厚度反彈係數，折線需做雙壓痕或留出書脊厚度",
     "option_c": "必須使用雷射光先將紙張烤軟",
     "option_d": "厚卡紙不需要任何壓痕即可自動直角折合",
-    "answer": "A",
+    "answer": "B",
     "explanation": "厚磅卡紙纖維韌性強，單純壓一條折線容易導致紙張外側爆線龜裂或折角不方正，必須計算厚度延伸公差並採用雙折線或特定模具。"
   },
   {
@@ -5197,11 +5197,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "印前色彩管理術語「TAC / TIC（Total Ink Coverage / Total Area Coverage）」代表的意義是：",
-    "option_a": "「總油墨覆蓋率（總墨量）」：四色 CMYK 在同一點像素上油墨百分比相加的總和",
+    "option_a": "每包紙張的總張數",
     "option_b": "印刷機墨水箱的總公升容量",
     "option_c": "每天印刷機清洗墨輥的次數",
-    "option_d": "每包紙張的總張數",
-    "answer": "A",
+    "option_d": "「總油墨覆蓋率（總墨量）」：四色 CMYK 在同一點像素上油墨百分比相加的總和",
+    "answer": "D",
     "explanation": "TAC = C% + M% + Y% + K%。若四色皆為 100%，總墨量高達 400%。每種紙張與印刷技術皆有其承受的最高總墨量極限。"
   },
   {
@@ -5212,11 +5212,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "如果設計師在銅版紙印刷檔案中，將大面積深黑底色的墨量設為 C=100 M=100 Y=100 K=100（總墨量高達 400%），會引發什麼嚴重印刷災難？",
-    "option_a": "油墨太厚極難乾燥，導致堆疊時墨水轉印沾黏到上一張紙背面，造成嚴重的「背印（Set-off / 髒版）」甚至紙張黏死",
+    "option_a": "印出來的顏色會變成純白色",
     "option_b": "印刷機印表頭會自動融化",
-    "option_c": "印出來的顏色會變成純白色",
+    "option_c": "油墨太厚極難乾燥，導致堆疊時墨水轉印沾黏到上一張紙背面，造成嚴重的「背印（Set-off / 髒版）」甚至紙張黏死",
     "option_d": "印刷廠會自動把多餘墨水退還給設計師",
-    "answer": "A",
+    "answer": "C",
     "explanation": "總墨量過高（>300%~320%）會造成墨層過厚無法及時揮發乾燥，收紙台上重壓後發生慘烈的背印（反印污染）事故。"
   },
   {
@@ -5227,11 +5227,11 @@
     "score": 150,
     "question_type": "speed_buzzer",
     "question": "一般商業平版印刷在高級塗布紙（如特銅、雪銅紙）上，業界公認的安全最大總墨量（Max TAC）通常不建議超過：",
-    "option_a": "約 300% ~ 320%（未塗布模造紙/新聞紙更需降至 220% ~ 260% 以下）",
+    "option_a": "800%",
     "option_b": "500%",
     "option_c": "100%",
-    "option_d": "800%",
-    "answer": "A",
+    "option_d": "約 300% ~ 320%（未塗布模造紙/新聞紙更需降至 220% ~ 260% 以下）",
+    "answer": "D",
     "explanation": "一般平版印刷銅版紙安全極限約 300%~320%；毛細孔大、吸墨量高且易化開的道林紙或新聞紙，總墨量必須嚴格控制在 240%~260% 以下。"
   },
   {
@@ -5242,11 +5242,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "大面積深邃黑色色塊若只設為「K=100%（單色黑 / Flat Black）」，在實體印刷成品上往往會顯得：",
-    "option_a": "發乾、偏灰淡、不夠飽滿深沉，有時還能隱約透出紙張纖維底色",
-    "option_b": "比金屬鉻金屬還要反光漆黑",
+    "option_a": "比金屬鉻金屬還要反光漆黑",
+    "option_b": "發乾、偏灰淡、不夠飽滿深沉，有時還能隱約透出紙張纖維底色",
     "option_c": "自動呈現燙金光澤",
     "option_d": "印出純紅色",
-    "answer": "A",
+    "answer": "B",
     "explanation": "單一 100% K 油墨厚度有限，印刷實體會呈現偏褐灰色或乾燥發虛感；因此大面積背景黑通常會調配為加入適量底色的 Rich Black。"
   },
   {
@@ -5272,11 +5272,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "印刷專業術語「黑色疊印（Overprint Black / 直封黑）」與「挖空（Knockout）」的差別為何？",
-    "option_a": "Overprint 是讓黑墨直接印在下方彩色底色上方（不挖洞），防止套印微偏露白；Knockout 則是把下層底色挖空成白底再印上層",
+    "option_a": "Overprint 是雙面列印，Knockout 是單面列印",
     "option_b": "Overprint 專門用來印白墨，Knockout 專門印金墨",
-    "option_c": "Overprint 是雙面列印，Knockout 是單面列印",
+    "option_c": "Overprint 是讓黑墨直接印在下方彩色底色上方（不挖洞），防止套印微偏露白；Knockout 則是把下層底色挖空成白底再印上層",
     "option_d": "兩者是同一種設定的兩種英文翻譯",
-    "answer": "A",
+    "answer": "C",
     "explanation": "一般黑墨具高遮蓋力，開啟 Overprint 黑墨直壓底色，能 100% 避免因極微小機械套印誤差在細黑字邊緣露出難看的白縫。"
   },
   {
@@ -5287,11 +5287,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "為防止相鄰不同色塊邊界在印刷套印不準時產生白縫，印前軟體會在淺色邊界稍微向深色擴展 0.05~0.1mm 的微小重疊交界，此工藝稱為：",
-    "option_a": "補邊 / 補漏白（Trapping / 陷印工藝）",
+    "option_a": "色域對應（Gamut Mapping）",
     "option_b": "去斑點（Despeckle）",
-    "option_c": "色域對應（Gamut Mapping）",
+    "option_c": "補邊 / 補漏白（Trapping / 陷印工藝）",
     "option_d": "光柵化（Rasterizing）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Trapping（補邊/陷印）利用軟體自動使淺色色塊向相鄰深色邊界稍微外擴（Choke 或 Spread），在接縫處創造極微小的重疊混合帶，消除漏白縫隙。"
   },
   {
@@ -5317,11 +5317,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "與 GCR 相近的另一項黑版生成演算法「UCR（底色去除 / Under Color Removal）」，其主要作用範圍聚焦於：",
-    "option_a": "主要針對暗部陰影深色區域（Shadow areas）的 CMY 墨量抽離並由黑墨替代，高光與中間調則不介入",
-    "option_b": "只針對純黃色區域進行黑白替換",
+    "option_a": "只針對純黃色區域進行黑白替換",
+    "option_b": "主要針對暗部陰影深色區域（Shadow areas）的 CMY 墨量抽離並由黑墨替代，高光與中間調則不介入",
     "option_c": "完全不使用黑墨印刷",
     "option_d": "強制將文字轉換為點陣圖",
-    "answer": "A",
+    "answer": "B",
     "explanation": "UCR（底色去除）專注於高墨量的陰影暗部區域，抽走重疊的 CMY 雜色以黑墨補強，最主要目的即為壓制暗部過高的總墨量（TAC）。"
   },
   {
@@ -5332,11 +5332,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "如果設計師誤將「RGB 色彩模式」的圖形直接送去傳統四色合版印刷機印製，最常發生的問題是：",
-    "option_a": "合版印刷廠的自動輸出流程（RIP）會自動粗暴將其轉為 CMYK，導致色彩嚴重暗淡偏色，且結果無法預期由客戶自行承擔",
+    "option_a": "印刷廠會直接退還全額款項並賠償十倍金額",
     "option_b": "印刷機自動列印出真金白銀",
     "option_c": "紙張會被雷射光燒出一個洞",
-    "option_d": "印刷廠會直接退還全額款項並賠償十倍金額",
-    "answer": "A",
+    "option_d": "合版印刷廠的自動輸出流程（RIP）會自動粗暴將其轉為 CMYK，導致色彩嚴重暗淡偏色，且結果無法預期由客戶自行承擔",
+    "answer": "D",
     "explanation": "印刷機只有 CMYK 墨水，所有送印檔案必須在設計師校色螢幕上預先轉為 CMYK 確認色調；交由後端自動轉譯容易產生劇烈非預期色差。"
   },
   {
@@ -5347,11 +5347,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "推薦調配經典飽滿而穩健的「濃郁黑（Rich Black）」CMYK 數值配方，下列何者最符合一般商業印刷安全標準？",
-    "option_a": "C=30%, M=20%, Y=20%, K=100%（總墨量 170%，安全且飽滿深黑）",
+    "option_a": "C=50%, M=50%, Y=50%, K=0%",
     "option_b": "C=100%, M=100%, Y=100%, K=100%（總墨量 400%，極易背印髒版）",
     "option_c": "C=0%, M=0%, Y=0%, K=10%",
-    "option_d": "C=50%, M=50%, Y=50%, K=0%",
-    "answer": "A",
+    "option_d": "C=30%, M=20%, Y=20%, K=100%（總墨量 170%，安全且飽滿深黑）",
+    "answer": "D",
     "explanation": "C=30 M=20 Y=20 K=100 是印前經典安全濃黑配方，總墨量約 170% 遠低於 300% 警戒線，黑度深邃均勻且乾燥迅速。"
   },
   {
@@ -5377,11 +5377,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "國際公認最權威、跨越設計師、品牌商與印刷廠的專色油墨配色標準系統是：",
-    "option_a": "Pantone（彩通色彩系統）",
-    "option_b": "Adobe RGB",
+    "option_a": "Adobe RGB",
+    "option_b": "Pantone（彩通色彩系統）",
     "option_c": "Windows 95 色盤",
     "option_d": "CSS Web Safe Colors",
-    "answer": "A",
+    "answer": "B",
     "explanation": "美國彩通（Pantone Matching System, PMS）是全球專色油墨調配的通用標準語言，確保紐約設計師與台北印刷廠能印出分毫不差的特定色彩。"
   },
   {
@@ -5392,11 +5392,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "Pantone 色票本代號後方的英文字母後綴，例如「Pantone 185 C」與「Pantone 185 U」，其中 'C' 與 'U' 分別代表：",
-    "option_a": "C' 代表 Coated（塗布亮光銅版紙），'U' 代表 Uncoated（未塗布模造道林紙）",
+    "option_a": "C' 代表 Cyan（青色），'U' 代表 Ultra（極度鮮豔）",
     "option_b": "C' 代表 China（中國），'U' 代表 USA（美國）",
-    "option_c": "C' 代表 Cyan（青色），'U' 代表 Ultra（極度鮮豔）",
+    "option_c": "C' 代表 Coated（塗布亮光銅版紙），'U' 代表 Uncoated（未塗布模造道林紙）",
     "option_d": "C' 代表 Cheap（平價），'U' 代表 Unique（獨特）",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Coated（塗布紙）吸墨少光澤高；Uncoated（非塗布道林紙）紙質毛孔吸墨散光，同一配方墨水印在兩者上成色色差極大，故需分開校對。"
   },
   {
@@ -5407,11 +5407,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "企業品牌在設計 CIS 時，堅持為標誌指定「Pantone 特別色」印刷的最核心商業利益是：",
-    "option_a": "確保全球各地所有印刷品（從包裝袋、名片到招牌、禮盒）色彩分毫不差維持極度精準一致，免除四色網點疊印色偏",
+    "option_a": "特別色能在沒有燈光的暗室自體發光",
     "option_b": "特別色比一般四色印刷便宜十倍",
     "option_c": "印表機印特別色完全不需要墨水",
-    "option_d": "特別色能在沒有燈光的暗室自體發光",
-    "answer": "A",
+    "option_d": "確保全球各地所有印刷品（從包裝袋、名片到招牌、禮盒）色彩分毫不差維持極度精準一致，免除四色網點疊印色偏",
+    "answer": "D",
     "explanation": "CMYK 疊印受不同印刷廠網點擴大率、水墨平衡與機台狀況影響容易產生色偏；特別色由工廠預先磅秤精確調墨單色平塗，一致性與穩定度最高。"
   },
   {
@@ -5437,11 +5437,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "印製燙金效果時常見的「金屬油墨（Metallic Ink）」與「燙金箔（Hot Foil Stamping）」兩者工藝成果之差別為：",
-    "option_a": "金屬油墨像一般印刷墨水印出微光金屬色，反光較柔和；燙金箔透過高溫鋼模施壓轉印實體金屬箔膜，具有真鏡面強烈金屬光澤",
-    "option_b": "金屬油墨比燙金箔貴一百倍",
+    "option_a": "金屬油墨比燙金箔貴一百倍",
+    "option_b": "金屬油墨像一般印刷墨水印出微光金屬色，反光較柔和；燙金箔透過高溫鋼模施壓轉印實體金屬箔膜，具有真鏡面強烈金屬光澤",
     "option_c": "燙金箔只能印在純白紙上",
     "option_d": "兩者是同一個物理工藝無差別",
-    "answer": "A",
+    "answer": "B",
     "explanation": "Metallic Ink 內含微細金屬粉末油墨平版印刷，成本低但光澤有限；燙箔（Foil Stamping）利用熱熔膠膜固化轉印真金屬箔，具極高鏡面光折射反差。"
   },
   {
@@ -5452,11 +5452,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在黑卡紙、深藍色牛皮卡紙或透明塑膠瓶身印刷時，若不加印「白墨（Opaque White）」打底，直接印上彩色圖形會產生何種結果？",
-    "option_a": "CMYK 油墨具半透明性，彩色圖案會被深色背景徹底吞噬吸收，色彩變得混暗污濁甚至完全看不見",
+    "option_a": "圖片會自動浮雕凸起",
     "option_b": "顏色會自動轉化為發光銀色",
-    "option_c": "圖片會自動浮雕凸起",
+    "option_c": "CMYK 油墨具半透明性，彩色圖案會被深色背景徹底吞噬吸收，色彩變得混暗污濁甚至完全看不見",
     "option_d": "印刷機無法識別深色紙張會直接報警",
-    "answer": "A",
+    "answer": "C",
     "explanation": "標準印刷油墨為半透明染料/顏料；深色承印物必須先覆蓋一層高遮蔽力不透明白墨阻隔底色，在其上印製的彩色墨水方能反射正常色彩。"
   },
   {
@@ -5467,11 +5467,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在 Illustrator 或 InDesign 中，色票庫（Swatches）內特別色色票旁邊出現的圖示特徵是：",
-    "option_a": "正方形色塊右下角帶有一個「圓點」與灰色小三角（代表 Spot Color 特別色）",
+    "option_a": "圖示為一張鈔票",
     "option_b": "圖示為一顆紅色愛心",
     "option_c": "色塊完全沒有任何標記",
-    "option_d": "圖示為一張鈔票",
-    "answer": "A",
+    "option_d": "正方形色塊右下角帶有一個「圓點」與灰色小三角（代表 Spot Color 特別色）",
+    "answer": "D",
     "explanation": "Adobe 色票面板中，右下角帶有圓點（Dot）者為特別色（Spot Color），實心三角為全域色（Global），四色疊印色（Process Color）則不帶圓點。"
   },
   {
@@ -5497,11 +5497,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在完稿輸出前執行「分色預視（Separations Preview）」，關閉 CMYK 四色只保留特別色通道，其主要目的是：",
-    "option_a": "肉眼確認特別色印版上的文字與圖案是否乾淨獨立分離，防止特別色意外被軟體拆成 CMYK 四色網點",
+    "option_a": "把所有文字自動轉為繁體中文",
     "option_b": "測試螢幕發光效率",
-    "option_c": "把所有文字自動轉為繁體中文",
+    "option_c": "肉眼確認特別色印版上的文字與圖案是否乾淨獨立分離，防止特別色意外被軟體拆成 CMYK 四色網點",
     "option_d": "清除檔案中所有的圖片連結",
-    "answer": "A",
+    "answer": "C",
     "explanation": "分色預視能模擬每個獨立色版（Plate）的真實出墨狀況，確保需要跑特別色座的物件完全沒有被誤轉為四色網點。"
   },
   {
@@ -5512,11 +5512,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "印刷中常見的「六色印刷（Hexachrome 或 CMYK + Orange + Green）」，其擴展色域的原理是：",
-    "option_a": "在傳統 CMYK 基礎上追加橙色（O）與綠色（G）兩座專用原色墨，大幅擴充自然界橘紅色與翠綠色的印刷色域空間",
-    "option_b": "加印兩層厚厚的透明水",
+    "option_a": "加印兩層厚厚的透明水",
+    "option_b": "在傳統 CMYK 基礎上追加橙色（O）與綠色（G）兩座專用原色墨，大幅擴充自然界橘紅色與翠綠色的印刷色域空間",
     "option_c": "只是用兩台機器重複印兩次四色",
     "option_d": "專門用來印黑白報紙",
-    "answer": "A",
+    "answer": "B",
     "explanation": "Pantone Hexachrome 等高傳真色彩系統透過額外色座補足 CMYK 在純橙與飽和翠綠的色域盲區，覆蓋人眼超過 90% 的潘通色系。"
   },
   {
@@ -5527,11 +5527,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "台灣市面上名片、傳單、海報最常見的「合版印刷（Gang-run printing）」，其運作模式與最大優點是：",
-    "option_a": "將數十位不同客戶的檔案拼湊在同一塊大版（大菊全/全紙）上共同印刷，平攤昂貴製版費，價格極度親民平價",
-    "option_b": "單一客戶包下整台機器單獨調整顏色",
+    "option_a": "單一客戶包下整台機器單獨調整顏色",
+    "option_b": "將數十位不同客戶的檔案拼湊在同一塊大版（大菊全/全紙）上共同印刷，平攤昂貴製版費，價格極度親民平價",
     "option_c": "印刷師傅會專為你一人手工調色兩小時",
     "option_d": "保證零色差且附贈金邊包裝",
-    "answer": "A",
+    "answer": "B",
     "explanation": "合版印刷核心在於拼版共用版費與開機費，極具規模經濟，是平價名片宣傳單的主流生產方式。"
   },
   {
@@ -5557,11 +5557,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "與合版相反的「獨立版印刷（Custom run printing）」，其最突出的優勢為：",
-    "option_a": "單一客戶獨佔整張印版，設計師可親赴印刷廠「看樣（Press Check）」現場與調墨師傅依打樣逐座精準微調水墨平衡",
+    "option_a": "絕對不能使用高級紙張",
     "option_b": "完全不收取任何印工費用",
     "option_c": "只能印製 10 張以內",
-    "option_d": "絕對不能使用高級紙張",
-    "answer": "A",
+    "option_d": "單一客戶獨佔整張印版，設計師可親赴印刷廠「看樣（Press Check）」現場與調墨師傅依打樣逐座精準微調水墨平衡",
+    "answer": "D",
     "explanation": "獨立版專屬排程，享有最高階色彩掌控權，可隨心所欲自訂紙張、特別色座、高線數加網並現場比對數位樣微調出墨。"
   },
   {
@@ -5572,11 +5572,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "企業大型年報、頂級精品畫冊、國際品牌形象手冊等預算充裕且對色彩要求極端嚴苛的專案，應選擇：",
-    "option_a": "獨立版印刷（獨立開版，全程看色簽樣）",
+    "option_a": "辦公室彩色影印機",
     "option_b": "超平價合版印刷",
-    "option_c": "辦公室彩色影印機",
+    "option_c": "獨立版印刷（獨立開版，全程看色簽樣）",
     "option_d": "路邊相片沖印店",
-    "answer": "A",
+    "answer": "C",
     "explanation": "對品牌識別色標準極度敏感或大面積純色平塗的旗艦專案，必須選擇獨立開版以確保品質無懈可擊。"
   },
   {
@@ -5587,11 +5587,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "在合版印刷拼版中，若你的名片背景是「大面積 50% 中性灰（C=25 M=20 Y=20 K=0）」，左鄰是一張「大紅底」，右舍是一張「大藍底」，印刷時最容易發生：",
-    "option_a": "灰色受到左右大面積出墨區域墨輥供墨不均的牽制，極易偏紅或偏藍嚴重色偏（合版大忌：大面積灰底）",
+    "option_a": "灰底自動轉為透明",
     "option_b": "整張名片自動印出金屬質感",
-    "option_c": "灰底自動轉為透明",
+    "option_c": "灰色受到左右大面積出墨區域墨輥供墨不均的牽制，極易偏紅或偏藍嚴重色偏（合版大忌：大面積灰底）",
     "option_d": "兩側顏色完全不會互相影響",
-    "answer": "A",
+    "answer": "C",
     "explanation": "合版印刷最忌諱「敏感中性灰或大面積平塗色」，墨輥在滾過相鄰重墨區時會產生串墨或出墨量波動，使敏感灰底嚴重偏色。"
   },
   {
@@ -5602,11 +5602,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在合版印刷發包時，印製 500 張與印製 1000 張名片的價格往往只差幾十元新台幣，這是因為：",
-    "option_a": "印刷成本大部分集中在固定成本（CTP 出版、上版調機、洗車浪費的放數紙張），後續連續印製的邊際紙墨成本極低",
-    "option_b": "印刷廠老闆善心大發贈送",
+    "option_a": "印刷廠老闆善心大發贈送",
+    "option_b": "印刷成本大部分集中在固定成本（CTP 出版、上版調機、洗車浪費的放數紙張），後續連續印製的邊際紙墨成本極低",
     "option_c": "紙張在印刷機裡會自行分裂繁殖",
     "option_d": "印 1000 張使用的墨水濃度只有 500 張的一半",
-    "answer": "A",
+    "answer": "B",
     "explanation": "工業印刷具備龐大固定開機成本（Make-ready cost），印製數量越多，每張單價便呈指數級驟降。"
   },
   {
@@ -5617,11 +5617,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "合版印刷合約條款中，印刷廠通常會明定「正常色差在正負多少百分比內屬於合理驗收範圍，不可作為退件重印理由」？",
-    "option_a": "約 ±10% 以內",
+    "option_a": "不接受任何色彩規範",
     "option_b": "必須 0% 絕對零誤差",
     "option_c": "允許 ±90% 巨大色差",
-    "option_d": "不接受任何色彩規範",
-    "answer": "A",
+    "option_d": "約 ±10% 以內",
+    "answer": "D",
     "explanation": "合版印刷行規一般標註色彩公差約在 8%~10% 區間，對色準要求極度苛求的品牌不宜採用合版發包。"
   },
   {
@@ -5647,11 +5647,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "合版印刷廠在每天正式發行前，利用自動化演算法將數百個不同客戶檔案智能排滿整張全開大版紙張的工序稱為：",
-    "option_a": "落版拼版（Imposition / 自動化拼版）",
+    "option_a": "貝茲擬合",
     "option_b": "點陣化重抽樣",
-    "option_c": "貝茲擬合",
+    "option_c": "落版拼版（Imposition / 自動化拼版）",
     "option_d": "色相旋轉",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Imposition（落版/拼版）依據紙張菊全/對開規格、咬口、裁切位與裝訂折批順序，精確計算排列多個版面以獲取最大紙張利用率。"
   },
   {
@@ -5662,11 +5662,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "若需要為只有 10 本的高階客製化相冊快速印刷，且當天下午就需取件，此時最合理的印刷製程選項為：",
-    "option_a": "數位印刷（Digital Printing / 數位直印短版，無須開 CTP 版）",
+    "option_a": "傳統鉛字活版手工排印",
     "option_b": "傳統大型四色平版印刷機獨立開版",
     "option_c": "大型捲筒凹版印刷機",
-    "option_d": "傳統鉛字活版手工排印",
-    "answer": "A",
+    "option_d": "數位印刷（Digital Printing / 數位直印短版，無須開 CTP 版）",
+    "answer": "D",
     "explanation": "數位印刷（如 HP Indigo、全彩碳粉/電子油墨直印）無需任何實體製版費用，1 本即可起印，隨到隨印交期神速，極適合極小量短版。"
   },
   {
@@ -5692,11 +5692,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "表面平滑光亮、塗布白色高嶺土瓷土層、吸墨率極低且印出色澤極其鮮豔對比強烈的最常見商業用紙是：",
-    "option_a": "銅版紙（Coated Art Paper / 光銅紙）",
-    "option_b": "牛皮紙",
+    "option_a": "牛皮紙",
+    "option_b": "銅版紙（Coated Art Paper / 光銅紙）",
     "option_c": "灰銅卡紙",
     "option_d": "無塵吸水紙",
-    "answer": "A",
+    "answer": "B",
     "explanation": "銅版紙表面經塗布壓光處理，油墨停留在表面氧化結膜，色彩飽和度高、光澤亮眼、網點還原極佳，是宣傳單畫冊之王。"
   },
   {
@@ -5707,11 +5707,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "表面經微量啞光塗布處理、觸感細膩柔和、反射光線不刺眼且印出的文字極適宜閱讀的高級雜誌用紙為：",
-    "option_a": "雪銅紙（Matt Art Paper / 啞粉紙 / 霧面銅版紙）",
+    "option_a": "瓦楞紙板",
     "option_b": "粗糙砂紙",
-    "option_c": "瓦楞紙板",
+    "option_c": "雪銅紙（Matt Art Paper / 啞粉紙 / 霧面銅版紙）",
     "option_d": "純牛皮紙",
-    "answer": "A",
+    "answer": "C",
     "explanation": "雪銅紙具備塗布紙的高網點還原度，但消除了反光眩光刺眼感，觸感溫潤典雅，廣泛應用於高檔雜誌與設計年報。"
   },
   {
@@ -5722,11 +5722,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "一般辦公室常用的影印紙、教科書內頁與筆記本內頁最常採用的「未塗布非光滑紙張」在台灣通稱：",
-    "option_a": "道林紙（Woodfree Paper / 模造紙）",
+    "option_a": "塑膠防水撕不破紙",
     "option_b": "亮面銅版紙",
     "option_c": "鏡面卡紙",
-    "option_d": "塑膠防水撕不破紙",
-    "answer": "A",
+    "option_d": "道林紙（Woodfree Paper / 模造紙）",
+    "answer": "D",
     "explanation": "道林紙（模造紙/雙膠紙）未經化學塗布壓光，保有天然木質纖維質樸手感，吸墨透氣、易於鉛筆鋼筆書寫，不反光護眼。"
   },
   {
@@ -5737,11 +5737,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "台灣傳統印刷計量單位「一令紙（Ream）」在平版紙計量標準中，代表多少張全開大紙？",
-    "option_a": "500 張全張大紙",
-    "option_b": "100 張",
+    "option_a": "100 張",
+    "option_b": "500 張全張大紙",
     "option_c": "1000 張",
     "option_d": "24 張",
-    "answer": "A",
+    "answer": "B",
     "explanation": "印刷用紙大宗計量以「令（Ream）」為單位，全開規格平版紙一令固定為 500 張整。"
   },
   {
@@ -5767,11 +5767,11 @@
     "score": 150,
     "question_type": "speed_buzzer",
     "question": "一般常見的辦公室影印紙（A4 Copy Paper）其標準基重通常為：",
-    "option_a": "70 gsm 或 80 gsm",
+    "option_a": "500 gsm",
     "option_b": "250 gsm",
     "option_c": "30 gsm",
-    "option_d": "500 gsm",
-    "answer": "A",
+    "option_d": "70 gsm 或 80 gsm",
+    "answer": "D",
     "explanation": "70~80 gsm 是全球辦公室影印事務紙的標準黃金克重，兼顧厚度挺度與雷射印表機走紙順暢度。"
   },
   {
@@ -5797,11 +5797,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "一般商業高品質標準厚度名片，其推薦的紙張基重克數通常落在哪個範圍最適宜，拿在手中才具備足夠的硬挺手感？",
-    "option_a": "約 250 gsm 到 350 gsm 之間",
+    "option_a": "1000 gsm（如同木板厚度）",
     "option_b": "80 gsm（一般影印紙薄度）",
-    "option_c": "1000 gsm（如同木板厚度）",
+    "option_c": "約 250 gsm 到 350 gsm 之間",
     "option_d": "40 gsm",
-    "answer": "A",
+    "answer": "C",
     "explanation": "250~350 gsm（約 300~450 磅）是商務名片的標準厚挺克重區間，能避免拿在手上軟趴趴喪失專業俐落度。"
   },
   {
@@ -5812,11 +5812,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "台灣傳統印刷常見的「四六版（全紙約 31 × 43 吋 / 788 × 1091 mm）」與「菊版（全紙約 25 × 35 吋 / 636 × 890 mm）」，其裁切對應的標準尺寸分別是：",
-    "option_a": "四六版多對應 B 規尺寸（如 B5, B4）；菊版多對應 A 規國際標準尺寸（如 A4, A5）",
-    "option_b": "四六版只能印長條型，菊版只能印正方形",
+    "option_a": "四六版只能印長條型，菊版只能印正方形",
+    "option_b": "四六版多對應 B 規尺寸（如 B5, B4）；菊版多對應 A 規國際標準尺寸（如 A4, A5）",
     "option_c": "四六版只能印黑色，菊版專印彩色",
     "option_d": "兩者尺寸完全相同只是名字不同",
-    "answer": "A",
+    "answer": "B",
     "explanation": "在台灣印刷廠，「菊全紙」開切對應 ISO A 系列（菊 8 開即 A4）；「四六全紙」開切對應 B 系列（16 開即 B5）。"
   },
   {
@@ -5842,11 +5842,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "在印刷品表面加貼一層微薄的透明塑膠薄膜，分為亮面與啞光霧面，具有防水防污、增強撕裂強度功能的後加工工藝稱為：",
-    "option_a": "上膜 / 覆膜（Lamination，亮膜/霧膜）",
-    "option_b": "軋型（Die-cutting）",
+    "option_a": "軋型（Die-cutting）",
+    "option_b": "上膜 / 覆膜（Lamination，亮膜/霧膜）",
     "option_c": "裝訂（Binding）",
     "option_d": "燙金（Foil Stamping）",
-    "answer": "A",
+    "answer": "B",
     "explanation": "上膜（覆膜）利用熱壓滾筒在印刷紙張表面黏合一層 BOPP 塑膠薄膜，提供耐磨防刮保護並賦予亮面反光或霧面絲絨手感。"
   },
   {
@@ -5857,11 +5857,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在名片或精美封面印刷完成並覆上霧膜後，僅針對特定「品牌 Logo 或特定文字」區域塗上亮光油墨並以紫外線快速固化，形成局部立體亮光的工藝是：",
-    "option_a": "局部上光（Spot UV / 局部 UV）",
+    "option_a": "穿線手工裝訂",
     "option_b": "全版浸水",
     "option_c": "熱熔膠膠裝",
-    "option_d": "穿線手工裝訂",
-    "answer": "A",
+    "option_d": "局部上光（Spot UV / 局部 UV）",
+    "answer": "D",
     "explanation": "局部 UV（Spot UV）在霧膜底層上創造出高對比度的晶亮鏡面光澤，利用「霧中帶亮」的質感反差創造極富層次的觸摸視覺體驗。"
   },
   {
@@ -5872,11 +5872,11 @@
     "score": 100,
     "question_type": "single_choice",
     "question": "利用刻有金屬凹凸圖案的鋅版或銅版，配合加熱與加壓，將金屬薄膜轉印至紙張表面的奢華裝飾工藝稱為：",
-    "option_a": "燙金 / 燙箔（Hot Foil Stamping）",
+    "option_a": "平版印刷",
     "option_b": "雙面影印",
-    "option_c": "平版印刷",
+    "option_c": "燙金 / 燙箔（Hot Foil Stamping）",
     "option_d": "手工折紙",
-    "answer": "A",
+    "answer": "C",
     "explanation": "燙金工藝（不限於金色，亦有燙銀、燙黑、雷射鐳射金、玫瑰金、透明白金箔）是品牌包裝與喜帖名片中最具代表性的高貴金屬光澤工藝。"
   },
   {
@@ -5887,11 +5887,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "將特製的鋒利鋼刀與壓線鋼線彎折鑲嵌在雷射切割木板上，用來切出非矩形特殊外形（如圓形貼紙、包裝彩盒展開外框）的工具與製程稱為：",
-    "option_a": "軋型 / 刀模切割（Die-cutting）",
+    "option_a": "噴墨校稿",
     "option_b": "四色分色",
     "option_c": "光柵化轉檔",
-    "option_d": "噴墨校稿",
-    "answer": "A",
+    "option_d": "軋型 / 刀模切割（Die-cutting）",
+    "answer": "D",
     "explanation": "刀模軋型（Die-cutting）透過鋼刀模沖壓裁切，賦予紙張任意複雜奇形怪狀的外部輪廓與折疊暗線（Crease lines）。"
   },
   {
@@ -5902,11 +5902,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "在紙張背後使用金屬凸模與凹模（陰陽公母雙版）用力加壓，在「完全不加任何油墨或金箔」純粹藉由紙張纖維延展產生立體浮雕效果的工藝稱為：",
-    "option_a": "擊凸 / 鋼印壓凸（Embossing，若往下凹陷則為 Debossing 擊凹）",
+    "option_a": "穿線裝訂",
     "option_b": "全彩噴墨",
-    "option_c": "穿線裝訂",
+    "option_c": "擊凸 / 鋼印壓凸（Embossing，若往下凹陷則為 Debossing 擊凹）",
     "option_d": "上亮膜",
-    "answer": "A",
+    "answer": "C",
     "explanation": "素壓凹凸（Blind Embossing/Debossing）純粹以光影陰影展現紙張纖維雕刻維度，極富優雅低調的現代極簡工藝之美。"
   },
   {
@@ -5932,11 +5932,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "一般厚度小說、教科書最常採用的「平裝膠裝（Perfect Binding / 無線膠裝）」，其工藝方式為：",
-    "option_a": "將折好的書帖書脊處銑背打毛（Milling），塗上熱熔膠（EVA 或 PUR 膠）後包上封面壓緊成冊",
-    "option_b": "用訂書機在邊角釘一下",
+    "option_a": "用訂書機在邊角釘一下",
+    "option_b": "將折好的書帖書脊處銑背打毛（Milling），塗上熱熔膠（EVA 或 PUR 膠）後包上封面壓緊成冊",
     "option_c": "用透明膠帶隨意黏貼",
     "option_d": "用針線逐頁縫合",
-    "answer": "A",
+    "answer": "B",
     "explanation": "無線膠裝以熱熔膠固定整齊切邊的書芯與封面書脊，外觀方正挺拔，書脊可排印書名，適合 60 頁至數百頁厚度刊物。"
   },
   {
@@ -5962,11 +5962,11 @@
     "score": 200,
     "question_type": "single_choice",
     "question": "字典、聖經、國家級典藏畫冊常採用的「穿線膠裝（Sewn & Glued Binding / 鎖線膠裝）」，其不可替代的品質核心在於：",
-    "option_a": "每一書帖先用堅韌棉線縫合鎖牢，再整體背部上膠成冊，兼具最高物理拉力強度與完全 180 度平攤跨頁閱讀體驗",
-    "option_b": "完全不需要任何機器手工製造",
+    "option_a": "完全不需要任何機器手工製造",
+    "option_b": "每一書帖先用堅韌棉線縫合鎖牢，再整體背部上膠成冊，兼具最高物理拉力強度與完全 180 度平攤跨頁閱讀體驗",
     "option_c": "只能使用透明魚線裝訂",
     "option_d": "成本比騎馬釘便宜十倍",
-    "answer": "A",
+    "answer": "B",
     "explanation": "穿線膠裝是平裝與精裝書芯最高品質工藝，任憑跨頁拉扯書頁絕不脫落，橫跨兩頁的跨版大圖能毫無遮擋完全平順展開。"
   },
   {
@@ -5977,11 +5977,11 @@
     "score": 150,
     "question_type": "single_choice",
     "question": "高階典藏書籍的「精裝（Hardcover / Case Binding）」外殼，其內部支撐硬挺手感的骨架材料通常為：",
-    "option_a": "高密度厚灰紙板（荷蘭白卡板 / 灰卡板，厚度約 2~3mm）包覆特銅紙或布面/皮面裝禎",
+    "option_a": "一般影印薄紙",
     "option_b": "純金屬鋁合金片",
     "option_c": "充氣塑膠氣墊",
-    "option_d": "一般影印薄紙",
-    "answer": "A",
+    "option_d": "高密度厚灰紙板（荷蘭白卡板 / 灰卡板，厚度約 2~3mm）包覆特銅紙或布面/皮面裝禎",
+    "answer": "D",
     "explanation": "精裝書殼以 2~3mm 重磅灰卡板為內芯芯板，外層裱貼包覆印刷銅版紙、細緻進口裝禎布或壓紋皮革，書口壓有書溝，典雅厚重具傳世價值。"
   },
   {
@@ -5992,11 +5992,11 @@
     "score": 100,
     "question_type": "speed_buzzer",
     "question": "在餐廳菜單、公司年度報告或學生畢業紀念冊中，若需要能夠「360 度翻折、且隨時可平攤在桌上書寫」的打孔線圈裝訂方式稱為：",
-    "option_a": "雙線圈裝訂（Twin Loop Wire-O / 鐵線圈活頁裝）",
+    "option_a": "四面封箱膠帶封口",
     "option_b": "熱熔膠膠裝",
-    "option_c": "四面封箱膠帶封口",
+    "option_c": "雙線圈裝訂（Twin Loop Wire-O / 鐵線圈活頁裝）",
     "option_d": "騎馬釘對折",
-    "answer": "A",
+    "answer": "C",
     "explanation": "Wire-O（雙線圈鐵圈裝）紙張打上方孔或圓孔穿入金屬雙齒線圈，頁面翻轉阻力為零，可 360° 向後翻折，是桌曆與手冊首選。"
   }
 ]
