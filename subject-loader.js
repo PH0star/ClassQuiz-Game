@@ -9,6 +9,17 @@
   // 內建核心預設科目清單 (不可卸載)
   const BUILTIN_SUBJECTS = [
     {
+      id: 'ai_applications',
+      name: '🤖 AI 應用實務',
+      title: 'AI 應用系統實務競賽',
+      description: '生成式AI原理、Prompt結構化、多媒體生成、RAG檢索、數據分析儀表、文書處理、辦公自動化、VibeCoding、Agent智能代理（1000 題完整平衡版）',
+      file: 'questions_ai_applications.json',
+      sheetUrl: 'https://docs.google.com/spreadsheets/d/1i7glTdlhEb7nKTHTZsfrBPFjUOiClxQzdw2Yvt6YG9A/edit?usp=sharing',
+      defaultModule: '生成式 AI 原理與基礎應用',
+      questionCount: 1000,
+      isBuiltin: true
+    },
+    {
       id: 'visual_design',
       name: '🎨 視覺設計專業',
       title: '視覺設計大冒險',

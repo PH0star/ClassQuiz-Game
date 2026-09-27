@@ -514,9 +514,13 @@
             <div class="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800 space-y-1 text-xs">
               <span class="text-slate-400 block font-bold text-[11px]">快速填入官方試算表範本：</span>
               <div class="flex flex-wrap gap-2">
+                <button @click="fillSampleSheet('ai')" 
+                        class="px-2 py-0.5 rounded bg-purple-950/80 hover:bg-purple-900 text-purple-300 text-[11px] font-bold border border-purple-500/50 flex items-center space-x-1">
+                  <span>🤖 AI 應用實務 1000 題 (旗艦版)</span>
+                </button>
                 <button @click="fillSampleSheet('visual')" 
                         class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 text-[11px] font-bold border border-slate-700 flex items-center space-x-1">
-                  <span>🎨 視覺設計 400 題 (答案平衡版)</span>
+                  <span>🎨 視覺設計 400 題</span>
                 </button>
                 <button @click="fillSampleSheet('data')" 
                         class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-cyan-300 text-[11px] font-bold border border-slate-700 flex items-center space-x-1">
@@ -581,7 +585,7 @@
         // 科目與 Google Sheet 載入引擎
         const subjectLoader = new SubjectLoader();
         const availableSubjects = ref(subjectLoader.getSubjects());
-        const selectedSubjectId = ref('visual_design'); // 預設新專案為視覺設計 (400題)
+        const selectedSubjectId = ref('ai_applications'); // 預設新專案為 AI 應用實務 (1000題)
         const currentSubject = ref(availableSubjects.value[0]);
 
         // 題庫掛載與管理狀態
@@ -807,7 +811,10 @@
         };
 
         const fillSampleSheet = (type) => {
-          if (type === 'visual') {
+          if (type === 'ai') {
+            inputSheetUrl.value = 'https://docs.google.com/spreadsheets/d/1i7glTdlhEb7nKTHTZsfrBPFjUOiClxQzdw2Yvt6YG9A/edit?usp=sharing';
+            inputSheetSubjectName.value = '🤖 AI 應用實務題庫 (1000題)';
+          } else if (type === 'visual') {
             inputSheetUrl.value = 'https://docs.google.com/spreadsheets/d/1wmg9hMwzmxOhcWRzraX3ayNJh9WsFKBmStJXWiYsMdQ/edit?usp=sharing';
             inputSheetSubjectName.value = '🎨 視覺設計專業題庫 (400題)';
           } else {
@@ -1315,7 +1322,7 @@
           }
 
           // 核心優化：優先讀取當前房間既有專屬題庫與積分存檔 (避免開局被預設題庫覆寫)
-          let initialSubjectId = 'visual_design';
+          let initialSubjectId = 'ai_applications';
           let shouldSaveInit = true;
 
           if (sync && sync.loadRoomData) {
