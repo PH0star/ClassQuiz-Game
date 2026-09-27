@@ -120,15 +120,30 @@
       </div>
 
       <!-- 階段 2: 搶答題專屬按鈕 (BUZZER_ALERT) -->
-      <div v-else-if="currentStage === 'BUZZER_ALERT'" class="flex flex-col items-center justify-center space-y-6 py-6">
-        <div class="text-xs font-bold text-amber-300 uppercase tracking-widest animate-pulse">
-          ⚡ 倒數中！準備搶答 ({{ timeLeft }}s)
+      <div v-else-if="currentStage === 'BUZZER_ALERT'" class="flex flex-col items-center justify-center space-y-5 py-4">
+        <!-- 搶答倒數秒數狀態條 (高對比醒目提示) -->
+        <div class="flex items-center space-x-2 px-4 py-1.5 rounded-full border shadow-lg transition-all"
+             :class="timeLeft <= 5 ? 'bg-rose-950/80 border-rose-500 text-rose-300 animate-pulse' : 'bg-slate-900/90 border-amber-500/50 text-amber-300'">
+          <span class="text-sm">⚡</span>
+          <span class="text-xs font-bold tracking-wider">搶答倒數剩餘：</span>
+          <span class="text-lg font-black font-mono px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-400">
+            {{ timeLeft }}
+          </span>
+          <span class="text-xs font-bold">秒</span>
         </div>
+
+        <!-- 搶答大蜂鳴按鈕 (大字體搶答與秒數同步展示) -->
         <button @click="hitBuzzer"
-                class="buzzer-circle w-48 h-48 rounded-full bg-gradient-to-b from-red-500 to-red-700 text-white font-black text-2xl shadow-2xl flex flex-col items-center justify-center border-4 border-red-400 tap-btn">
-          <span>搶！</span>
-          <span class="text-xs font-normal opacity-80 mt-1">BUZZER</span>
+                class="buzzer-circle w-52 h-52 rounded-full bg-gradient-to-b from-red-500 via-red-600 to-red-700 text-white font-black text-3xl shadow-2xl flex flex-col items-center justify-center border-4 border-red-400 tap-btn select-none active:scale-95 transition-transform">
+          <span class="tracking-widest drop-shadow-md">搶！</span>
+          <span class="text-xs font-mono font-bold mt-1.5 px-3 py-0.5 rounded-full bg-red-900/80 border border-red-300/40 text-red-100">
+            ⏱️ 剩餘 {{ timeLeft }} 秒
+          </span>
         </button>
+
+        <p class="text-xs text-slate-400 text-center max-w-xs">
+          請緊盯前方投影大螢幕題目，最快按下紅色按鈕者將奪得獨家作答權！
+        </p>
       </div>
 
       <!-- 階段 3: 答題進行中 (QUESTION_ACTIVE 或 搶答得標者) -->
@@ -173,11 +188,13 @@
 
       <!-- 階段 3.5: 搶答題已被他人搶答 (未搶到者等待畫面) -->
       <div v-else-if="currentStage === 'BUZZER_WINNER' && !canAnswer" class="text-center space-y-4 py-8">
-        <div class="text-5xl">⚡</div>
+        <div class="text-5xl animate-bounce">⚡</div>
         <h3 class="text-xl font-bold text-amber-300">已被【{{ buzzerWinner || "其他學員" }}】搶得答題權！</h3>
         <p class="text-sm text-slate-300">請抬頭注視前方投影大螢幕，觀看作答與題目解析...</p>
-        <div class="inline-block px-3.5 py-1 rounded-full bg-slate-800 border border-amber-500/40 text-xs text-amber-300 font-mono">
-          搶答作答中
+        <div class="inline-flex items-center space-x-1.5 px-4 py-1.5 rounded-full bg-slate-800 border border-amber-500/40 text-xs text-amber-300 font-mono">
+          <span>搶答作答中</span>
+          <span class="text-slate-500">•</span>
+          <span class="font-bold text-white">剩餘 {{ timeLeft }} 秒</span>
         </div>
       </div>
 
@@ -439,6 +456,7 @@
           currentSubjectName,
           isGroupMode,
           currentStage,
+          timeLeft,
           currentAnswer,
           currentPoints,
           submittedOption,
