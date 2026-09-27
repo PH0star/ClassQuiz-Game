@@ -249,13 +249,17 @@
         </div>
       </div>
 
-      <!-- 狀態 2: 搶答題專屬過場 (BUZZER_WAIT & BUZZER_WINNER) -->
-      <div v-else-if="currentStage === 'BUZZER_ALERT'" class="flex flex-col items-center justify-center text-center space-y-4 my-auto animate-bounce">
-        <div class="text-6xl">⚡</div>
+      <!-- 狀態 2: 搶答題專屬過場 (BUZZER_ALERT) -->
+      <div v-else-if="currentStage === 'BUZZER_ALERT'" class="flex flex-col items-center justify-center text-center space-y-4 my-auto">
+        <div class="text-6xl animate-bounce">⚡</div>
         <h2 class="text-4xl lg:text-5xl font-black text-amber-300 tracking-wider">
           【極速搶答題】
         </h2>
         <p class="text-xl lg:text-2xl text-slate-300">請盯緊大螢幕，按下手機端搶答按鈕！</p>
+        <div class="inline-flex items-center space-x-2.5 bg-slate-900/90 px-6 py-2 rounded-full border-2 border-amber-400 font-mono text-amber-300 shadow-2xl animate-pulse">
+          <span class="text-sm uppercase tracking-widest text-slate-400 font-sans">搶答倒數：</span>
+          <strong class="text-white text-2xl lg:text-3xl font-black">{{ timeLeft }}s</strong>
+        </div>
       </div>
 
 

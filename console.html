@@ -772,8 +772,8 @@
         });
 
         // 載入題庫
-        // 載入指定科目或 Google Sheet 題庫
-        const loadQuestions = async (subjectIdOrUrl = selectedSubjectId.value) => {
+        // 載入指定科目或 Google Sheet 題庫 (支援房間獨立記憶，避免還原時被預設值覆寫)
+        const loadQuestions = async (subjectIdOrUrl = selectedSubjectId.value, shouldSaveToRoom = true) => {
           try {
             const res = await subjectLoader.loadSubject(subjectIdOrUrl);
             if (res.success && res.questions && res.questions.length > 0) {
@@ -782,9 +782,9 @@
               selectedSubjectId.value = res.subject.id;
               filterModule.value = ''; // 重置單元篩選
               selectedQuestion.value = allQuestions.value[0];
-              console.log(`[Host] 科目題庫【${res.subject.name}】載入成功，共 ${allQuestions.value.length} 題`);
+              console.log(`[Host] 房間【${roomId.value}】題庫【${res.subject.name}】載入成功，共 ${allQuestions.value.length} 題`);
               broadcastState();
-              if (sync && sync.emit) {
+              if (shouldSaveToRoom && sync && sync.emit) {
                 sync.emit('save_subject', {
                   subject: res.subject,
                   updatedAt: Date.now()
@@ -963,18 +963,27 @@
             } catch (e) {}
           }
 
-          // 5. 【各房間獨立記憶存檔機制】：讀取新房間歷史存檔或全新開局
+          // 5. 【各房間獨立題庫與積分記憶機制】：自動載入新房間進行中題庫與戰報！
           if (sync && sync.loadRoomData) {
             const saved = await sync.loadRoomData(newRoom);
-            if (saved && saved.exists && saved.subject && saved.subject.id) {
-              if (saved.subject.sheetUrl) {
-                await loadQuestions(saved.subject.sheetUrl);
-              } else {
-                await loadQuestions(saved.subject.id);
+            
+            // (A) 檢查新房間是否有正在進行之題庫
+            if (saved && saved.subject && saved.subject.id) {
+              console.log(`[Host] 房間 ${newRoom} 自動還原專屬進行中題庫: ${saved.subject.name} (${saved.subject.id})`);
+              await loadQuestions(saved.subject.id, false);
+            } else {
+              // 全新房間：將當前題庫自動綁定至新房間
+              console.log(`[Host] 房間 ${newRoom} 綁定當前題庫: ${currentSubject.value.name}`);
+              if (sync && sync.emit) {
+                sync.emit('save_subject', {
+                  subject: currentSubject.value,
+                  updatedAt: Date.now()
+                });
               }
             }
-            if (saved && saved.exists && saved.scores) {
-              // 若先前在該房間進行過遊戲，完整還原該房間累積戰報與積分！
+
+            // (B) 還原積分戰報
+            if (saved && saved.scores) {
               individualScores.value = consolidateDuplicateScores(saved.scores.individualScores || {});
               if (saved.scores.groupCount) groupCount.value = Number(saved.scores.groupCount);
               if (saved.scores.targetStudentCount) targetStudentCount.value = Number(saved.scores.targetStudentCount);
@@ -985,7 +994,6 @@
               }
               console.log(`[Host] 房間 ${newRoom} 存檔載入成功，已還原歷史積分！`);
             } else {
-              // 全新未開過之房間，從 0 分乾淨開局！
               individualScores.value = {};
               groupScores.value = defaultGroupScores();
               gameSessionHistory.value = [];
@@ -1054,7 +1062,7 @@
           }
         };
 
-        // 倒數計時器 (增強保護：非作答階段絕不強行倒數切換)
+        // 倒數計時器 (完整支援一般答題、搶答等待與搶答得標限時作答)
         const startTimer = () => {
           if (timerInterval) {
             clearInterval(timerInterval);
@@ -1062,8 +1070,11 @@
           }
           timeLeft.value = timerDuration.value;
           timerInterval = setInterval(() => {
-            // 防護 1: 若教師已主動揭曉答案或切換其他畫面，立即停止計時
-            if (currentStage.value !== 'QUESTION_ACTIVE') {
+            // 允許倒數的作答階段：一般答題 (QUESTION_ACTIVE)、搶答等待中 (BUZZER_ALERT)、搶答得標答題中 (BUZZER_WINNER)
+            const isTimerActiveStage = currentStage.value === 'QUESTION_ACTIVE' || 
+                                       currentStage.value === 'BUZZER_WINNER' ||
+                                       currentStage.value === 'BUZZER_ALERT';
+            if (!isTimerActiveStage) {
               clearInterval(timerInterval);
               timerInterval = null;
               return;
@@ -1089,6 +1100,7 @@
 
           if (selectedQuestion.value.question_type === 'speed_buzzer') {
             currentStage.value = 'BUZZER_ALERT';
+            startTimer(); // 搶答等待階段啟動計時器，大螢幕與主控台同步倒數
             broadcastState();
           } else {
             currentStage.value = 'QUESTION_ACTIVE';
@@ -1301,20 +1313,20 @@
               console.warn('[Host] 雲端題庫監聽失敗:', e);
             }
           }
-          await loadQuestions();
 
-          // 自動嘗試恢復當前房間既有存檔與科目
+          // 核心優化：優先讀取當前房間既有專屬題庫與積分存檔 (避免開局被預設題庫覆寫)
+          let initialSubjectId = 'visual_design';
+          let shouldSaveInit = true;
+
           if (sync && sync.loadRoomData) {
             try {
               const saved = await sync.loadRoomData(roomId.value);
-              if (saved && saved.exists && saved.subject && saved.subject.id) {
-                if (saved.subject.sheetUrl) {
-                  await loadQuestions(saved.subject.sheetUrl);
-                } else {
-                  await loadQuestions(saved.subject.id);
-                }
+              if (saved && saved.subject && saved.subject.id) {
+                initialSubjectId = saved.subject.id;
+                shouldSaveInit = false; // 既有房間存檔，保持原題庫不予覆寫
+                console.log(`[Host] 房間 ${roomId.value} 自動還原既有題庫: ${saved.subject.name} (${saved.subject.id})`);
               }
-              if (saved && saved.exists && saved.scores) {
+              if (saved && saved.scores) {
                 individualScores.value = consolidateDuplicateScores(saved.scores.individualScores || {});
                 if (saved.scores.groupCount) groupCount.value = Number(saved.scores.groupCount);
                 if (saved.scores.targetStudentCount) targetStudentCount.value = Number(saved.scores.targetStudentCount);
@@ -1324,6 +1336,8 @@
               }
             } catch (err) {}
           }
+
+          await loadQuestions(initialSubjectId, shouldSaveInit);
 
           if (sync.isFirebaseReady) {
             isFirebaseActive.value = true;
@@ -1348,21 +1362,29 @@
             broadcastState();
           });
 
-          // 監聽學生端作答並自動建檔（同名自動合併，防分身）
+          // 監聽學生端作答並自動建檔（同名自動合併，防分身；搶答得標者作答後自動停止計時）
           sync.on('submit_answer', (answerData) => {
             currentResponses.value[answerData.playerId] = answerData;
             if (roomMode.value === 'INDIVIDUAL') {
               findOrCreateIndividualEntry(answerData.playerId, answerData.playerName);
             }
-            broadcastState();
+            if (currentStage.value === 'BUZZER_WINNER' && answerData.playerName === buzzerWinner.value) {
+              if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+              }
+              showDistribution();
+            } else {
+              broadcastState();
+            }
           });
 
-          // 監聽搶答
+          // 監聽搶答：得標後給予完整限時，重新啟動答題倒數計時！
           sync.on('buzzer_hit', (buzzerData) => {
             if (!buzzerWinner.value) {
               buzzerWinner.value = buzzerData.playerName;
               currentStage.value = 'BUZZER_WINNER';
-              startTimer();
+              startTimer(); // 搶答得標！重設為完整作答秒數並啟動倒數
               broadcastState();
             }
           });
