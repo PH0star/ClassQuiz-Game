@@ -27,124 +27,139 @@
 <body class="p-4 lg:p-6 min-h-screen">
   <div id="app" class="max-w-7xl mx-auto space-y-5">
 
-    <!-- 頂部控制列 -->
-    <header class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4 shadow-xl">
-      <div class="flex items-center space-x-3">
-        <span class="text-2xl">🎮</span>
-        <div>
+        <!-- ============================================================ -->
+    <!-- 精簡雙層中控頂部 (Streamlined 2-Tier Balanced Header) -->
+    <!-- ============================================================ -->
+    <header class="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl overflow-hidden divide-y divide-slate-800/80 mb-4">
+      
+      <!-- 第 1 層：系統狀態、房間連線與全域快捷入口 (高度精簡 48px) -->
+      <div class="px-4 py-2 flex flex-wrap items-center justify-between gap-3 bg-slate-900/90">
+        <!-- 品牌標題與連線燈 -->
+        <div class="flex items-center space-x-2.5">
+          <span class="text-xl">🎮</span>
           <div class="flex items-center space-x-2">
-            <h1 class="text-lg font-bold text-white leading-tight">
-              {{ currentSubject ? currentSubject.title : '互動競賽遊戲主控台' }}
+            <h1 class="text-sm lg:text-base font-bold text-white tracking-tight">
+              {{ currentSubject ? currentSubject.title : '互動競賽主控台' }}
             </h1>
-            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-wide"
-                  :class="isFirebaseActive ? 'bg-emerald-950 text-emerald-300 border border-emerald-500/60 shadow-sm' : 'bg-amber-950 text-amber-300 border border-amber-500/60'">
-              <span class="w-2 h-2 rounded-full mr-1.5" :class="isFirebaseActive ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'"></span>
-              {{ isFirebaseActive ? 'Firebase 雲端連線中' : '本地離線模式' }}
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border tracking-wide transition-colors flex items-center space-x-1"
+                  :class="isFirebaseActive ? 'bg-emerald-950/80 text-emerald-300 border-emerald-500/50' : 'bg-amber-950/80 text-amber-300 border-amber-500/50'">
+              <span class="w-1.5 h-1.5 rounded-full mr-0.5" :class="isFirebaseActive ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'"></span>
+              <span>{{ isFirebaseActive ? '雲端連線' : '本地離線' }}</span>
             </span>
           </div>
-          <div class="flex items-center space-x-2 text-xs text-slate-400 mt-1">
-            <span>房間代碼：</span>
-            <input v-model="roomInput" @keyup.enter="changeRoom" 
-                   placeholder="自訂房號"
-                   title="輸入新房號並點擊切換，投影端與學生端會即時自動跟隨！"
-                   class="bg-slate-800 border border-slate-700 rounded px-2 py-0.5 text-xs font-mono text-cyan-400 font-bold w-32 focus:border-cyan-400 focus:outline-none uppercase" />
-            <button @click="changeRoom" class="px-2 py-0.5 bg-cyan-600 hover:bg-cyan-500 text-white rounded text-[11px] font-bold shadow transition-all">切換</button>
-            <button @click="generateRandomRoom" class="text-[11px] text-slate-400 hover:text-cyan-300 underline font-medium">隨機</button>
+        </div>
+
+        <!-- 房間代碼快速切換 -->
+        <div class="flex items-center space-x-1.5 text-xs bg-slate-950/70 border border-slate-800 px-2.5 py-1 rounded-xl">
+          <span class="text-slate-400 font-medium">房號：</span>
+          <input v-model="roomInput" @keyup.enter="changeRoom" 
+                 placeholder="自訂房號"
+                 title="輸入新房號並點擊切換，投影端與學生端會即時自動跟隨！"
+                 class="bg-transparent text-xs font-mono text-cyan-400 font-bold w-24 focus:outline-none uppercase" />
+          <button @click="changeRoom" class="px-2 py-0.5 bg-cyan-600 hover:bg-cyan-500 text-white rounded text-[11px] font-bold shadow transition-all">切換</button>
+          <button @click="generateRandomRoom" class="text-[11px] text-slate-400 hover:text-cyan-300 underline font-medium ml-0.5">隨機</button>
+        </div>
+
+        <!-- 外部投影與學員端快捷按鈕 -->
+        <div class="flex items-center space-x-2 text-xs">
+          <a :href="'projector.html?room=' + roomId + '&t=' + Date.now()" target="_blank" 
+             class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-cyan-300 font-bold flex items-center space-x-1 transition-all">
+            <span>📺 投影大螢幕</span>
+          </a>
+          <a :href="'play.html?room=' + roomId + '&t=' + Date.now()" target="_blank" 
+             class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-emerald-300 font-bold flex items-center space-x-1 transition-all">
+            <span>📱 學生端測試</span>
+          </a>
+          <div class="px-2.5 py-1 rounded-lg bg-emerald-950/70 border border-emerald-500/30 text-emerald-400 font-mono font-bold text-[11px]">
+            ● 在線: {{ connectedCount }}人
           </div>
         </div>
       </div>
 
-      <!-- 科目題庫切換與自訂 Google Sheet 載入列 -->
-      <div class="flex flex-wrap items-center gap-2.5">
-        <div class="flex items-center space-x-2 bg-slate-800/90 border border-slate-700 px-3 py-1.5 rounded-xl text-xs shadow-inner">
-          <span class="text-slate-300 font-bold flex items-center space-x-1">
-            <span>📚 科目題庫：</span>
-          </span>
-          <select v-model="selectedSubjectId" @change="onSubjectSelectChange"
-                  class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1 text-xs font-bold text-amber-300 focus:outline-none focus:border-amber-400 cursor-pointer">
-            <option v-for="subj in availableSubjects" :key="subj.id" :value="subj.id">
-              {{ subj.name }}
-            </option>
-          </select>
-          <button @click="showSheetModal = true" 
-                  title="輸入任何 Google 試算表連結即時載入題目"
-                  class="px-2.5 py-1 rounded-lg bg-emerald-800/80 hover:bg-emerald-700 border border-emerald-500/50 text-emerald-200 font-bold flex items-center space-x-1 shadow transition-all">
-            <span>🔗 載入試算表</span>
+      <!-- 第 2 層：科目題庫調度與賽制參數控制列 (操作中樞 48px) -->
+      <div class="px-4 py-2 flex flex-wrap items-center justify-between gap-3 bg-slate-950/40 text-xs">
+        
+        <!-- 群組 1: 科目題庫切換與掛載管理 -->
+        <div class="flex items-center space-x-2">
+          <div class="flex items-center space-x-1.5 bg-slate-900 border border-slate-700/80 px-2.5 py-1 rounded-xl shadow-inner">
+            <span class="text-slate-400 font-bold flex items-center space-x-1">
+              <span>📚 題庫：</span>
+            </span>
+            <select v-model="selectedSubjectId" @change="onSubjectSelectChange"
+                    class="bg-slate-950 border border-slate-700 rounded-lg px-2 py-0.5 text-xs font-bold text-amber-300 focus:outline-none focus:border-amber-400 cursor-pointer max-w-[200px] truncate">
+              <option v-for="subj in availableSubjects" :key="subj.id" :value="subj.id">
+                {{ subj.name }} {{ subj.isBuiltin ? '' : '(已掛載)' }}
+              </option>
+            </select>
+          </div>
+
+          <!-- 掛載/卸載管理中心按鈕 -->
+          <button @click="openSheetModal('list')" 
+                  title="管理已掛載的 Google Sheet 題庫，或掛載新的試算表"
+                  class="px-2.5 py-1 rounded-xl bg-indigo-900/60 hover:bg-indigo-800 border border-indigo-500/40 text-indigo-200 font-bold flex items-center space-x-1.5 shadow transition-all">
+            <span>⚙️ 題庫管理</span>
+            <span v-if="mountedSubjectsCount > 0" class="px-1.5 py-0.2 rounded-full bg-indigo-600 text-white text-[10px] font-mono">
+              +{{ mountedSubjectsCount }}
+            </span>
           </button>
         </div>
 
-        <!-- 模式與人數/組數整合設定區 -->
-        <!-- 模式切換按鈕 -->
-        <div class="flex items-center bg-slate-800 p-1 rounded-xl border border-slate-700 shadow-inner">
+        <!-- 群組 2: 競賽賽制切換 (個人 / 小組) -->
+        <div class="flex items-center bg-slate-900 p-0.5 rounded-xl border border-slate-800 shadow-inner">
           <button @click="setMode('INDIVIDUAL')" 
-                  class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
+                  class="px-3 py-1 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
                   :class="roomMode === 'INDIVIDUAL' ? 'bg-blue-600 text-white shadow' : 'text-slate-400 hover:text-white'">
             <span>👤 個人競賽制</span>
           </button>
           <button @click="setMode('GROUP_REPRESENTATIVE')" 
-                  class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
+                  class="px-3 py-1 rounded-lg text-xs font-bold transition-all flex items-center space-x-1"
                   :class="roomMode === 'GROUP_REPRESENTATIVE' ? 'bg-purple-600 text-white shadow' : 'text-slate-400 hover:text-white'">
             <span>👥 小組代表制</span>
           </button>
         </div>
 
-        <!-- 人數 / 組數動態設定卡片 -->
-        <div class="flex items-center bg-slate-800/90 border border-slate-700 px-3 py-1 rounded-xl text-xs space-x-2 shadow">
-          <!-- 個人模式：預期應答人數設定 -->
+        <!-- 群組 3: 規模人數 / 組數參數設定 -->
+        <div class="flex items-center bg-slate-900/90 border border-slate-800 px-3 py-1 rounded-xl space-x-2">
+          <!-- 個人模式設定 -->
           <div v-if="roomMode === 'INDIVIDUAL'" class="flex items-center space-x-2">
             <span class="text-slate-300 font-bold flex items-center space-x-1">
-              <span>🎯 預期人數：</span>
+              <span>🎯 預期：</span>
             </span>
             <input v-model.number="targetStudentCount" @change="onSettingsChange" type="number" min="1" max="300"
-                   title="輸入預期應答人數"
-                   class="bg-slate-950 border border-cyan-500/50 rounded-lg px-2 py-0.5 text-xs font-mono text-cyan-300 font-bold w-14 text-center focus:outline-none focus:border-cyan-400">
+                   class="bg-slate-950 border border-cyan-500/50 rounded px-1.5 py-0.5 text-xs font-mono text-cyan-300 font-bold w-12 text-center focus:outline-none">
             <span class="text-slate-400">人</span>
-            <!-- 快捷人數鈕 -->
             <div class="flex items-center space-x-1 ml-1">
               <button v-for="c in [15, 20, 30, 40, 50]" :key="c"
                       @click="setTargetStudentCount(c)"
-                      class="px-2 py-0.5 rounded text-[11px] font-mono font-bold transition-all"
-                      :class="targetStudentCount === c ? 'bg-blue-600 text-white shadow' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-700/80'">
+                      class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold transition-all"
+                      :class="targetStudentCount === c ? 'bg-blue-600 text-white' : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'">
                 {{ c }}
               </button>
             </div>
           </div>
 
-          <!-- 小組模式：組別數量設定 -->
+          <!-- 小組模式設定 -->
           <div v-else class="flex items-center space-x-2">
             <span class="text-slate-300 font-bold flex items-center space-x-1">
-              <span>👥 組別數量：</span>
+              <span>👥 組數：</span>
             </span>
             <select v-model.number="groupCount" @change="onGroupCountChange"
-                    class="bg-slate-950 border border-purple-500/50 rounded-lg px-2.5 py-1 text-xs font-bold text-purple-200 focus:outline-none focus:border-purple-400 cursor-pointer">
+                    class="bg-slate-950 border border-purple-500/50 rounded px-2 py-0.5 text-xs font-bold text-purple-200 focus:outline-none cursor-pointer">
               <option v-for="n in [2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 16]" :key="n" :value="n">
-                共 {{ n }} 組
+                {{ n }} 組
               </option>
             </select>
-            <!-- 快捷組數鈕 -->
             <div class="flex items-center space-x-1 ml-1">
-              <button v-for="n in [3, 4, 5, 6, 8, 10]" :key="n"
+              <button v-for="n in [3, 4, 6, 8, 10]" :key="n"
                       @click="setGroupCount(n)"
-                      class="px-2 py-0.5 rounded text-[11px] font-bold transition-all"
-                      :class="groupCount === n ? 'bg-purple-600 text-white shadow' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-700/80'">
+                      class="px-1.5 py-0.5 rounded text-[10px] font-bold transition-all"
+                      :class="groupCount === n ? 'bg-purple-600 text-white' : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'">
                 {{ n }}組
               </button>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- 快速連結與狀態 -->
-      <div class="flex items-center space-x-3 text-xs">
-        <a :href="'projector.html?room=' + roomId + '&t=' + Date.now()" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-cyan-300 font-bold flex items-center space-x-1">
-          <span>📺 開啟投影大螢幕</span>
-        </a>
-        <a :href="'play.html?room=' + roomId + '&t=' + Date.now()" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-emerald-300 font-bold flex items-center space-x-1">
-          <span>📱 開啟學生端測試</span>
-        </a>
-        <div class="px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 font-mono font-bold">
-          ● 連線中 ({{ connectedCount }}人)
-        </div>
       </div>
     </header>
 
@@ -399,68 +414,129 @@
 
 
     <!-- ============================================================ -->
-    <!-- Google Sheet 題庫自訂載入彈窗 (Google Sheet Loader Modal) -->
+    <!-- 題庫掛載與管理中心彈窗 (Question Bank Mount & Unmount Manager Modal) -->
     <!-- ============================================================ -->
-    <div v-if="showSheetModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div class="bg-slate-900 border border-slate-700 rounded-2xl p-6 max-w-lg w-full space-y-4 shadow-2xl animate-fadeIn">
+    <div v-if="showSheetModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-slate-900 border border-slate-700 rounded-2xl p-6 max-w-xl w-full space-y-4 shadow-2xl animate-fadeIn">
+        
+        <!-- 彈窗頂部 -->
         <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-          <div class="flex items-center space-x-2">
-            <span class="text-2xl">🔗</span>
-            <h3 class="text-base font-bold text-white">自訂 Google Sheet 題庫即時載入</h3>
+          <div class="flex items-center space-x-2.5">
+            <span class="text-2xl">📚</span>
+            <div>
+              <h3 class="text-base font-bold text-white">題庫掛載與管理中心</h3>
+              <p class="text-[11px] text-slate-400">已掛載題庫永久保存於本機，重新整理不消失，並支援隨時安全卸載</p>
+            </div>
           </div>
           <button @click="showSheetModal = false" class="text-slate-400 hover:text-white text-lg font-bold">✕</button>
         </div>
 
-        <p class="text-xs text-slate-300 leading-relaxed">
-          支援直接貼上 Google 試算表連結。請先確認試算表已開啟「<strong>知道連結的任何人均可檢視</strong>」，系統會自動擷取題目、選項與解析！
-        </p>
+        <!-- 分頁切換列 -->
+        <div class="flex items-center space-x-2 border-b border-slate-800/80 pb-2">
+          <button @click="modalTab = 'list'"
+                  class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center space-x-1.5"
+                  :class="modalTab === 'list' ? 'bg-indigo-600 text-white shadow' : 'bg-slate-800 text-slate-400 hover:text-white'">
+            <span>📦 已掛載題庫清單</span>
+            <span class="px-1.5 py-0.2 rounded-full bg-slate-900/80 text-[10px] font-mono">{{ availableSubjects.length }}</span>
+          </button>
+          <button @click="modalTab = 'add'"
+                  class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center space-x-1.5"
+                  :class="modalTab === 'add' ? 'bg-emerald-600 text-white shadow' : 'bg-slate-800 text-slate-400 hover:text-white'">
+            <span>➕ 掛載新 Google Sheet</span>
+          </button>
+        </div>
 
-        <div class="space-y-3">
-          <div>
-            <label class="text-xs text-slate-400 block mb-1">Google Sheet 試算表網址：</label>
-            <input v-model="inputSheetUrl" type="text" 
-                   placeholder="https://docs.google.com/spreadsheets/d/.../edit?usp=sharing"
-                   class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-xs text-cyan-300 font-mono focus:outline-none focus:border-cyan-500">
-          </div>
+        <!-- 頁籤 1: 已掛載題庫清單 (切換、來源檢視與卸載) -->
+        <div v-if="modalTab === 'list'" class="space-y-2.5 max-h-80 overflow-y-auto pr-1">
+          <div v-for="subj in availableSubjects" :key="subj.id"
+               class="p-3 rounded-xl border transition-all flex items-center justify-between"
+               :class="selectedSubjectId === subj.id ? 'bg-indigo-950/40 border-indigo-500/60' : 'bg-slate-950/60 border-slate-800'">
+            <div class="space-y-0.5">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-bold text-white">{{ subj.name }}</span>
+                <span v-if="selectedSubjectId === subj.id" class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-indigo-600 text-white">使用中</span>
+                <span v-if="subj.isBuiltin" class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-slate-800 text-slate-300">系統核心</span>
+                <span v-else class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-amber-950 text-amber-300 border border-amber-500/40">已掛載</span>
+              </div>
+              <p class="text-[11px] text-slate-400 leading-relaxed">{{ subj.description }}</p>
+              <div v-if="subj.sheetUrl" class="text-[10px] text-slate-500">
+                <a :href="subj.sheetUrl" target="_blank" class="hover:text-cyan-400 underline flex items-center space-x-1">
+                  <span>🔗 查看 Google Sheet 來源試算表</span>
+                </a>
+              </div>
+            </div>
 
-          <div>
-            <label class="text-xs text-slate-400 block mb-1">自訂科目名稱 (選填)：</label>
-            <input v-model="inputSheetSubjectName" type="text" 
-                   placeholder="例如：視覺設計進階考題、數位行銷證照..."
-                   class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-cyan-500">
-          </div>
-
-          <!-- 快速填入範例連結 -->
-          <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800 space-y-1.5 text-xs">
-            <span class="text-slate-400 block font-bold text-[11px]">快速填入官方雲端試算表範本：</span>
-            <div class="flex flex-wrap gap-2">
-              <button @click="fillSampleSheet('visual')" 
-                      class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 text-[11px] font-bold border border-slate-700 flex items-center space-x-1">
-                <span>🎨 視覺設計 400 題試算表</span>
+            <!-- 操作按鈕群 -->
+            <div class="flex items-center space-x-1.5 flex-shrink-0 ml-3">
+              <button v-if="selectedSubjectId !== subj.id"
+                      @click="switchToSubjectFromModal(subj.id)"
+                      class="px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow">
+                切換
               </button>
-              <button @click="fillSampleSheet('data')" 
-                      class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-cyan-300 text-[11px] font-bold border border-slate-700 flex items-center space-x-1">
-                <span>📊 數據分析 200 題試算表</span>
+              <button v-if="!subj.isBuiltin"
+                      @click="unmountSubject(subj.id)"
+                      title="從系統中卸載此題庫"
+                      class="px-2.5 py-1 rounded-lg bg-rose-950 hover:bg-rose-900 text-rose-300 border border-rose-800/80 text-xs font-bold transition-all">
+                🗑️ 卸載
               </button>
             </div>
           </div>
+        </div>
 
-          <div v-if="sheetLoadStatus" class="p-2.5 rounded-xl text-xs font-bold"
-               :class="sheetLoadStatus.isError ? 'bg-rose-950/80 text-rose-300 border border-rose-500/50' : 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/50'">
-            {{ sheetLoadStatus.message }}
+        <!-- 頁籤 2: 掛載新 Google Sheet 試算表 -->
+        <div v-if="modalTab === 'add'" class="space-y-3">
+          <p class="text-xs text-slate-300 leading-relaxed">
+            輸入 Google 試算表連結。請先於試算表點擊「共用」並設定「<strong>知道連結的任何人均可檢視</strong>」，掛載後將永久保存於本機，重新整理不消失！
+          </p>
+
+          <div class="space-y-2.5">
+            <div>
+              <label class="text-xs text-slate-400 block mb-1">Google Sheet 試算表網址：</label>
+              <input v-model="inputSheetUrl" type="text" 
+                     placeholder="https://docs.google.com/spreadsheets/d/.../edit?usp=sharing"
+                     class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-xs text-cyan-300 font-mono focus:outline-none focus:border-cyan-500">
+            </div>
+
+            <div>
+              <label class="text-xs text-slate-400 block mb-1">自訂科目名稱 (選填)：</label>
+              <input v-model="inputSheetSubjectName" type="text" 
+                     placeholder="例如：視覺設計進階模組、數位行銷證照..."
+                     class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-cyan-500">
+            </div>
+
+            <!-- 快速填入範例連結 -->
+            <div class="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800 space-y-1 text-xs">
+              <span class="text-slate-400 block font-bold text-[11px]">快速填入官方試算表範本：</span>
+              <div class="flex flex-wrap gap-2">
+                <button @click="fillSampleSheet('visual')" 
+                        class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-amber-300 text-[11px] font-bold border border-slate-700 flex items-center space-x-1">
+                  <span>🎨 視覺設計 400 題 (答案平衡版)</span>
+                </button>
+                <button @click="fillSampleSheet('data')" 
+                        class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-cyan-300 text-[11px] font-bold border border-slate-700 flex items-center space-x-1">
+                  <span>📊 數據分析 200 題</span>
+                </button>
+              </div>
+            </div>
+
+            <div v-if="sheetLoadStatus" class="p-2.5 rounded-xl text-xs font-bold"
+                 :class="sheetLoadStatus.isError ? 'bg-rose-950/80 text-rose-300 border border-rose-500/50' : 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/50'">
+              {{ sheetLoadStatus.message }}
+            </div>
+          </div>
+
+          <div class="flex items-center justify-end space-x-3 pt-2 border-t border-slate-800">
+            <button @click="showSheetModal = false" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold">
+              取消
+            </button>
+            <button @click="loadCustomGoogleSheet" :disabled="isSheetLoading"
+                    class="px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-lg flex items-center space-x-1.5 disabled:opacity-50">
+              <span v-if="isSheetLoading" class="animate-spin mr-1">⏳</span>
+              <span>{{ isSheetLoading ? '正在解析並掛載中...' : '📥 立即解析並掛載至系統' }}</span>
+            </button>
           </div>
         </div>
 
-        <div class="flex items-center justify-end space-x-3 pt-2 border-t border-slate-800">
-          <button @click="showSheetModal = false" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold">
-            取消
-          </button>
-          <button @click="loadCustomGoogleSheet" :disabled="isSheetLoading"
-                  class="px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-lg flex items-center space-x-1.5 disabled:opacity-50">
-            <span v-if="isSheetLoading" class="animate-spin mr-1">⏳</span>
-            <span>{{ isSheetLoading ? '正在連線解析中...' : '📥 立即解析並載入題庫' }}</span>
-          </button>
-        </div>
       </div>
     </div>
 
@@ -505,12 +581,46 @@
         const selectedSubjectId = ref('visual_design'); // 預設新專案為視覺設計 (400題)
         const currentSubject = ref(availableSubjects.value[0]);
 
-        // Google Sheet 自訂彈窗狀態
+        // 題庫掛載與管理狀態
         const showSheetModal = ref(false);
+        const modalTab = ref('list'); // 'list' or 'add'
         const inputSheetUrl = ref('');
         const inputSheetSubjectName = ref('');
         const isSheetLoading = ref(false);
         const sheetLoadStatus = ref(null);
+        const mountedSubjectsCount = computed(() => {
+          return subjectLoader.getMountedSubjects().length;
+        });
+
+        const openSheetModal = (tab = 'list') => {
+          modalTab.value = tab;
+          sheetLoadStatus.value = null;
+          showSheetModal.value = true;
+        };
+
+        const switchToSubjectFromModal = async (subjectId) => {
+          await loadQuestions(subjectId);
+          showSheetModal.value = false;
+        };
+
+        const unmountSubject = async (subjectId) => {
+          const res = subjectLoader.unmountSubject(subjectId);
+          if (res.success) {
+            availableSubjects.value = subjectLoader.getSubjects();
+            // 同步自 Firebase 雲端刪除，使所有跨裝置同步卸載
+            if (sync && sync.firebaseDb) {
+              try {
+                sync.firebaseDb.ref(`mounted_question_banks/${subjectId}`).remove();
+                console.log(`[Host] ☁️ 題庫 ${subjectId} 已自 Firebase 雲端卸載`);
+              } catch (e) {
+                console.warn('[Host] 雲端卸載同步失敗:', e);
+              }
+            }
+            if (res.fallbackSubject) {
+              await loadQuestions(res.fallbackSubject.id);
+            }
+          }
+        };
 
         // 依組別數量動態產生或保留小組積分表
         const createGroupScores = (count, existing = {}) => {
@@ -720,11 +830,27 @@
               selectedQuestion.value = allQuestions.value[0];
               sheetLoadStatus.value = { isError: false, message: `🎉 成功載入 ${res.questions.length} 題！` };
 
-              // 加入可選科目列表中
-              if (!availableSubjects.value.some(s => s.id === res.subject.id)) {
-                availableSubjects.value.push(res.subject);
-              }
+              availableSubjects.value = subjectLoader.getSubjects();
               selectedSubjectId.value = res.subject.id;
+
+              // 同步儲存至 Firebase 雲端資料庫，讓其他任何裝置皆能自動共享此題庫！
+              if (sync && sync.firebaseDb) {
+                try {
+                  sync.firebaseDb.ref(`mounted_question_banks/${res.subject.id}`).set({
+                    id: res.subject.id,
+                    name: res.subject.name,
+                    title: res.subject.title,
+                    description: res.subject.description,
+                    sheetUrl: res.subject.sheetUrl,
+                    questionCount: res.subject.questionCount,
+                    mountedAt: res.subject.mountedAt || Date.now(),
+                    updatedAt: Date.now()
+                  });
+                  console.log(`[Host] ☁️ 題庫 ${res.subject.name} 已成功同步至 Firebase 雲端資料庫`);
+                } catch (e) {
+                  console.warn('[Host] 雲端題庫同步儲存失敗:', e);
+                }
+              }
 
               setTimeout(() => {
                 showSheetModal.value = false;
@@ -1137,7 +1263,22 @@
             try {
               // 銷毀當前房間可能殘留的重定向指針，解鎖全場卡死
               sync.firebaseDb.ref(`rooms/${roomId.value}/redirect`).remove();
-            } catch (e) {}
+
+              // 雲端跨裝置同步：即時監聽 Firebase 全域掛載題庫清單 (跨手機、平板、公用電腦自動秒級同步)
+              const mountedBanksRef = sync.firebaseDb.ref('mounted_question_banks');
+              mountedBanksRef.on('value', async (snapshot) => {
+                const cloudBanks = snapshot.val() || {};
+                const bankList = Object.values(cloudBanks);
+                availableSubjects.value = subjectLoader.syncCloudMountedSubjects(bankList);
+                // 若當前正開啟的自訂題庫已被其他裝置自雲端卸載，安全退回預設題庫
+                if (selectedSubjectId.value.startsWith('sheet_') && !bankList.some(b => b.id === selectedSubjectId.value)) {
+                  console.log('[Host] 當前題庫已被其他裝置自雲端卸載，自動切換回預設題庫');
+                  await loadQuestions('visual_design');
+                }
+              });
+            } catch (e) {
+              console.warn('[Host] 雲端題庫監聽失敗:', e);
+            }
           }
           await loadQuestions();
 
@@ -1234,6 +1375,11 @@
           currentSubject,
           onSubjectSelectChange,
           showSheetModal,
+          modalTab,
+          mountedSubjectsCount,
+          openSheetModal,
+          switchToSubjectFromModal,
+          unmountSubject,
           inputSheetUrl,
           inputSheetSubjectName,
           isSheetLoading,

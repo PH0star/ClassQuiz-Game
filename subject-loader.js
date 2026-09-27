@@ -1,27 +1,31 @@
 // ============================================================
-// 數據與視覺設計跨科目動態題庫載入引擎 (Subject & Google Sheet Loader)
+// 數據與視覺設計跨科目動態題庫載入與持久化掛載引擎 (Subject & Google Sheet Loader)
 // ============================================================
 
 (function(window) {
-  // 內建預設科目清單
+  const MOUNTED_STORAGE_KEY = 'game_mounted_subjects';
+
+  // 內建核心預設科目清單 (不可卸載)
   const BUILTIN_SUBJECTS = [
     {
       id: 'visual_design',
       name: '🎨 視覺設計專業',
       title: '視覺設計大冒險',
-      description: '設計概念、色彩學、檔案類型、影像設計工具、CIS品牌識別、印前製程（400 題）',
+      description: '設計概念、色彩學、檔案類型、影像設計工具、CIS品牌識別、印前製程（400 題完整平衡版）',
       file: 'questions_visual_design.json',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/1wmg9hMwzmxOhcWRzraX3ayNJh9WsFKBmStJXWiYsMdQ/edit?usp=sharing',
-      defaultModule: '設計概念'
+      defaultModule: '設計概念',
+      isBuiltin: true
     },
     {
       id: 'data_analysis',
       name: '📊 數據分析實戰',
       title: '數據分析大冒險',
-      description: '新手入門、資料清理、數據抓取、分析流程、資料視覺化（200 題）',
+      description: '新手入門、資料清理、數據抓取、分析流程、資料視覺化（200 題完整版）',
       file: 'questions.json',
       sheetUrl: 'https://docs.google.com/spreadsheets/d/1GJNNymUhtKtW0LDy8ifpa688_7TXHgpuc-uFLmmi2Bg/edit?usp=sharing',
-      defaultModule: '新手入門'
+      defaultModule: '新手入門',
+      isBuiltin: true
     }
   ];
 
@@ -39,7 +43,6 @@
     const match = url.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
     if (match && match[1]) {
       const sheetId = match[1];
-      // 擷取特定的分頁 gid
       const gidMatch = url.match(/[#&?]gid=([0-9]+)/);
       const gidParam = gidMatch ? `&gid=${gidMatch[1]}` : '';
       return `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv${gidParam}`;
@@ -149,11 +152,11 @@
       };
 
       const qText = getVal('question');
-      if (!qText) continue; // 忽略無題目的空行
+      if (!qText) continue;
 
       let rawAns = getVal('answer', 'A').toUpperCase().replace(/[^A-D]/g, '');
       if (!rawAns || rawAns.length === 0) rawAns = 'A';
-      const ans = rawAns[0]; // 確保只取 A/B/C/D 單一字母
+      const ans = rawAns[0];
 
       const diff = getVal('difficulty', '初級');
       let scoreVal = parseInt(getVal('score', '0'), 10);
@@ -168,7 +171,7 @@
         qType = 'single_choice';
       }
 
-      parsedQuestions.append ? null : parsedQuestions.push({
+      parsedQuestions.push({
         id: getVal('id', `Q_${r}`),
         module: getVal('module', '通用單元'),
         subcategory: getVal('subcategory', '基本觀念'),
@@ -188,16 +191,152 @@
     return parsedQuestions;
   }
 
-  // 跨科目載入器主類別
+  // 跨科目載入器主類別 (包含本機持久化掛載與卸載管理)
   class SubjectLoader {
     constructor() {
       this.builtinSubjects = BUILTIN_SUBJECTS;
+      this.mountedSubjects = this.loadMountedFromStorage();
       this.currentSubject = BUILTIN_SUBJECTS[0]; // 預設視覺設計
       this.loadedQuestions = [];
     }
 
+    // 從 localStorage 讀取自訂掛載科目
+    loadMountedFromStorage() {
+      try {
+        if (typeof localStorage !== 'undefined') {
+          const raw = localStorage.getItem(MOUNTED_STORAGE_KEY);
+          if (raw) {
+            const list = JSON.parse(raw);
+            if (Array.isArray(list)) {
+              return list;
+            }
+          }
+        }
+      } catch (e) {
+        console.warn('[SubjectLoader] 讀取本地掛載題庫失敗:', e);
+      }
+      return [];
+    }
+
+    // 將自訂掛載科目存入 localStorage
+    saveMountedToStorage() {
+      try {
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem(MOUNTED_STORAGE_KEY, JSON.stringify(this.mountedSubjects));
+        }
+      } catch (e) {
+        console.warn('[SubjectLoader] 儲存本地掛載題庫失敗:', e);
+      }
+    }
+
+    // 取得所有可用科目 (內建 + 已掛載)
     getSubjects() {
+      return [...this.builtinSubjects, ...this.mountedSubjects];
+    }
+
+    getBuiltinSubjects() {
       return this.builtinSubjects;
+    }
+
+    getMountedSubjects() {
+      return this.mountedSubjects;
+    }
+
+    // 同步來自 Firebase 雲端的跨裝置掛載題庫清單
+    syncCloudMountedSubjects(cloudBankList) {
+      if (!Array.isArray(cloudBankList)) return this.getSubjects();
+
+      const existingMap = new Map();
+      this.mountedSubjects.forEach(s => existingMap.set(s.id, s));
+
+      const updatedMounted = [];
+      cloudBankList.forEach(item => {
+        if (!item || !item.id) return;
+        const existing = existingMap.get(item.id);
+        updatedMounted.push({
+          id: item.id,
+          name: item.name || '📋 自訂試算表題庫',
+          title: item.title || (item.name || '').replace(/^📋\s*/, ''),
+          description: item.description || `自 Google Sheet 掛載，共 ${item.questionCount || 0} 題`,
+          sheetUrl: item.sheetUrl,
+          questionCount: item.questionCount || 0,
+          mountedAt: item.mountedAt || Date.now(),
+          cachedQuestions: existing ? existing.cachedQuestions : null,
+          isBuiltin: false
+        });
+      });
+
+      this.mountedSubjects = updatedMounted;
+      this.saveMountedToStorage();
+      console.log(`[SubjectLoader] ☁️ 已成功與 Firebase 雲端同步 ${this.mountedSubjects.length} 個自訂掛載題庫`);
+      return this.getSubjects();
+    }
+
+    // 掛載新題庫或更新現有掛載題庫
+    mountSubject(sheetUrl, customName, questions) {
+      if (!sheetUrl) return null;
+      const cleanUrl = sheetUrl.trim();
+      const match = cleanUrl.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
+      const sheetKey = match ? match[1].slice(0, 16) : Date.now().toString(36);
+      const subjectId = `sheet_${sheetKey}`;
+
+      const displayName = customName && customName.trim() ? customName.trim() : '📋 自訂試算表題庫';
+      const existingIdx = this.mountedSubjects.findIndex(s => s.id === subjectId || s.sheetUrl === cleanUrl);
+
+      const subjectInfo = {
+        id: subjectId,
+        name: displayName,
+        title: displayName.replace(/^📋\s*/, ''),
+        description: `自 Google Sheet 掛載，共 ${questions.length} 題`,
+        sheetUrl: cleanUrl,
+        questionCount: questions.length,
+        mountedAt: Date.now(),
+        cachedQuestions: questions,
+        isBuiltin: false
+      };
+
+      if (existingIdx >= 0) {
+        this.mountedSubjects[existingIdx] = subjectInfo;
+        console.log(`[SubjectLoader] 🔄 已更新現有掛載題庫: ${displayName} (${subjectId})`);
+      } else {
+        this.mountedSubjects.push(subjectInfo);
+        console.log(`[SubjectLoader] ➕ 成功掛載新題庫: ${displayName} (${subjectId})`);
+      }
+
+      this.saveMountedToStorage();
+      this.currentSubject = subjectInfo;
+      return subjectInfo;
+    }
+
+    // 卸載自訂題庫
+    unmountSubject(subjectId) {
+      // 內建核心科目受到保護，不可卸載
+      if (this.builtinSubjects.some(s => s.id === subjectId)) {
+        return { success: false, error: '系統內建核心題庫受到保護，無法卸載！' };
+      }
+
+      const beforeLen = this.mountedSubjects.length;
+      this.mountedSubjects = this.mountedSubjects.filter(s => s.id !== subjectId);
+
+      if (this.mountedSubjects.length === beforeLen) {
+        return { success: false, error: '找不到指定之掛載題庫' };
+      }
+
+      this.saveMountedToStorage();
+      console.log(`[SubjectLoader] 🗑️ 成功卸載題庫: ${subjectId}`);
+
+      // 若目前啟用的剛好是被卸載的科目，安全切換回預設視覺設計
+      let fallbackSubject = null;
+      if (this.currentSubject && this.currentSubject.id === subjectId) {
+        this.currentSubject = this.builtinSubjects[0];
+        fallbackSubject = this.currentSubject;
+      }
+
+      return {
+        success: true,
+        remaining: this.getSubjects(),
+        fallbackSubject: fallbackSubject
+      };
     }
 
     // 依科目 ID 或 Google Sheet 網址載入題庫
@@ -220,18 +359,37 @@
         } catch (err) {
           console.warn(`[SubjectLoader] 載入本地檔案失敗，嘗試轉載 Google Sheet 備援:`, err);
           if (builtin.sheetUrl) {
-            return await this.loadFromGoogleSheet(builtin.sheetUrl, builtin.name);
+            return await this.loadFromGoogleSheet(builtin.sheetUrl, builtin.name, false);
           }
           throw err;
         }
       }
 
-      // 2. 若為 Google Sheet 網址
+      // 2. 檢查是否為已掛載科目
+      const mounted = this.mountedSubjects.find(s => s.id === subjectIdOrUrl);
+      if (mounted) {
+        this.currentSubject = mounted;
+        // 若有本地暫存題目，優先秒開
+        if (mounted.cachedQuestions && mounted.cachedQuestions.length > 0) {
+          this.loadedQuestions = mounted.cachedQuestions;
+          console.log(`[SubjectLoader] ⚡ 從本機快取載入掛載題庫【${mounted.name}】共 ${this.loadedQuestions.length} 題`);
+          return {
+            success: true,
+            subject: mounted,
+            questions: this.loadedQuestions,
+            sourceType: 'mounted_cache'
+          };
+        }
+        // 若無快取則重新從試算表拉取
+        return await this.loadFromGoogleSheet(mounted.sheetUrl, mounted.name, true);
+      }
+
+      // 3. 若傳入的是直接 Google Sheet 網址
       return await this.loadFromGoogleSheet(subjectIdOrUrl);
     }
 
-    // 自 Google Sheet 網址直接拉取並解析題庫
-    async loadFromGoogleSheet(sheetUrl, customName = '') {
+    // 自 Google Sheet 網址直接拉取、解析並自動掛載題庫
+    async loadFromGoogleSheet(sheetUrl, customName = '', shouldAutoMount = true) {
       const csvUrl = convertToGoogleSheetCsvUrl(sheetUrl);
       console.log(`[SubjectLoader] 正在從 Google Sheet 抓取 CSV: ${csvUrl}`);
 
@@ -245,15 +403,21 @@
           throw new Error('未能在試算表中解析出有效題目，請確認試算表格式包含：題目、選項A、選項B、選項C、選項D、答案');
         }
 
-        const subjectInfo = {
-          id: 'custom_sheet_' + Date.now().toString(36),
-          name: customName || '📋 自訂 Google Sheet 題庫',
-          title: customName || '自訂科目互動競賽',
-          description: `自試算表線上即時載入，共 ${questions.length} 道精選題目`,
-          sheetUrl: sheetUrl
-        };
+        let subjectInfo;
+        if (shouldAutoMount) {
+          subjectInfo = this.mountSubject(sheetUrl, customName, questions);
+        } else {
+          subjectInfo = {
+            id: 'temp_sheet_' + Date.now().toString(36),
+            name: customName || '📋 雲端試算表題庫',
+            title: customName || '試算表互動競賽',
+            description: `自試算表即時載入，共 ${questions.length} 題`,
+            sheetUrl: sheetUrl,
+            questionCount: questions.length
+          };
+          this.currentSubject = subjectInfo;
+        }
 
-        this.currentSubject = subjectInfo;
         this.loadedQuestions = questions;
         console.log(`[SubjectLoader] 🟢 成功從 Google Sheet 載入 ${questions.length} 題！`);
 
