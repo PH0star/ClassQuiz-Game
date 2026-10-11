@@ -1,0 +1,57 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "rooms": {
+      "$roomId": {
+        ".read": true,
+        "state": {
+          ".write": true,
+          ".validate": "newData.hasChildren(['stage', 'mode']) || !newData.exists()"
+        },
+        "redirect": {
+          ".write": true
+        },
+        "subject": {
+          ".write": true
+        },
+        "scores": {
+          ".write": true
+        },
+        "history": {
+          ".write": true
+        },
+        "players": {
+          "$playerId": {
+            ".write": true,
+            ".validate": "(newData.hasChildren(['id', 'name']) && newData.child('id').val() === $playerId && newData.child('name').isString() && newData.child('name').val().length <= 50) || !newData.exists()"
+          }
+        },
+        "responses": {
+          ".write": "!newData.exists()",
+          "$playerId": {
+            ".write": true,
+            ".validate": "(newData.hasChildren(['playerId', 'option']) && newData.child('playerId').val() === $playerId && newData.child('option').isString() && newData.child('option').val().length <= 5) || !newData.exists()"
+          }
+        },
+        "buzzer_winner": {
+          ".write": "!data.exists() || !newData.exists()",
+          ".validate": "newData.hasChildren(['playerId', 'playerName']) || !newData.exists()"
+        }
+      }
+    },
+    "system": {
+      "active_room": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "mounted_question_banks": {
+      ".read": true,
+      "$subjectId": {
+        ".write": true,
+        ".validate": "newData.hasChildren(['id', 'name']) || !newData.exists()"
+      }
+    }
+  }
+}
